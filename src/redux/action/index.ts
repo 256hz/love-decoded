@@ -1,11 +1,11 @@
 import {
-	editUserProperty,
+	setUserProperty,
 	logIn,
 	logOut,
 } from './user';
 
 export default {
-	editUserProperty,
+	setUserProperty,
 	logIn,
 	logOut,
 };

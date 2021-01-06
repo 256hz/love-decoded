@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { UserProperty } from '@redux/types/user';
-import { editUserProperty, logOut } from 'redux/action/user';
+import { setUserProperty, logOut } from 'redux/action/user';
 
 export type UserState = {
 	[key in UserProperty]?: string | number;
@@ -24,5 +24,5 @@ const INITIAL_STATE: UserState = {
 };
 
 export const user = createReducer(INITIAL_STATE, builder => {
-	builder.addCase(editUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
+	builder.addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
 });
