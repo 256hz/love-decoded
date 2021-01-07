@@ -1,2 +1,2 @@
-export { BackgroundFade } from './BackgroundFade';
-export { OnboardingScreen } from './Screen';
+export { OnboardingScreen } from './OnboardingScreen';
+export { AudioPlayerNavigator } from './AudioPlayerNavigator';

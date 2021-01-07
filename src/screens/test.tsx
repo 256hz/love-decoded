@@ -8,7 +8,11 @@ import { UserProperty } from '@redux/types/user';
 import { allState } from '@redux/selector/user';
 import { OnboardingScreen } from '@elements';
 
-export default () => {
+interface Props {
+	drawShapes?: number[];
+}
+
+export default ({ drawShapes }: Props) => {
 	const dispatch = useDispatch();
 	const aState = useSelector(allState);
 	const userId = useSelector(getUserId);
@@ -20,7 +24,7 @@ export default () => {
 	};
 
 	return (
-		<OnboardingScreen>
+		<OnboardingScreen drawShapes={drawShapes}>
 			<Button title="Test Store/Sagas" onPress={onPress} />
 		</OnboardingScreen>
 	);
