@@ -1,34 +1,71 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import PlayButton from '@assets/svg/play-button.svg';
+import { getCurrentTime, load, pause, play, seek } from 'util/sound';
 import styles from './AudioPlayerNavigator.styles';
 
-const loadSound = (filename: string) => {
-	const Sound = require('react-native-sound');
-	Sound.setCategory('Playback');
-	return new Sound(filename, Sound.MAIN_BUNDLE, error => {
-		if (error) {
-			console.error('failed to load sound');
+const PlayOrPauseButton = ({ isPlaying }: { isPlaying: boolean }) => (
+	<View style={styles.playButtonContainer}>
+		{isPlaying
+			? (
+				<View style={{ width: 10, height: 20, flexDirection: 'row', justifyContent: 'space-between' }}>
+					<View style={{ width: 2, height: 20, backgroundColor: 'black' }} />
+					<View style={{ width: 2, height: 20, backgroundColor: 'black' }} />
+				</View>
+			) : <PlayButton />
 		}
-	});
-};
+	</View>
+);
 
 export default () => {
-	const playSound = sound => {
-		sound.play(success => {
-			success
-				? console.log('playback succeeded')
-				: console.log('playback failed');
-		});
+	const [ isPlaying, setIsPlaying ] = useState(false);
+	const [ playbackTime, setPlaybackTime ] = useState(0);
+	// Holds the handle for the setInterval that keeps track of playback time.
+	const [ playbackInterval, setPlaybackInterval ] = useState(0);
+	const [ sound, setSound ] = useState(load('music.mp3'));
+
+	const togglePause = () => {
+		const shouldPlay = !isPlaying;
+		console.log({ shouldPlay });
+
+		setIsPlaying(shouldPlay);
+		shouldPlay ? play(sound) : pause(sound);
+		if (shouldPlay) {
+
+		}
 	};
 
-	const [ playbackTime, setPlaybackTime ] = useState();
-	const sound = loadSound('music.mp3');
+	const seekTo = (seconds: number) => {
+		setSound(seek(sound, seconds));
+		setPlaybackTime(playbackTime + seconds);
+	};
+
+	// useEffect(() => {
+	// 	if (playbackInterval == 0) {
+	// 		return;
+	// 	}
+
+	// 	if (isPlaying) {
+	// 		setPlaybackInterval(setInterval(() => {
+	// 			setPlaybackTime(getCurrentTime(sound));
+	// 		}, 1000));
+
+	// 		return () => clearInterval(playbackInterval);
+	// 	} else {
+	// 		clearInterval(playbackInterval);
+	// 	}
+	// }, [ isPlaying ]);
 
 	return (
 		<View style={styles.container}>
 			<View style={styles.playerContainer}>
-				<TouchableHighlight style={styles.playButton} onPress={() => playSound(sound)} />
+				<View style={styles.topButtonsContainer}>
+
+					<TouchableHighlight onPress={togglePause}>
+						<PlayOrPauseButton isPlaying={isPlaying} />
+					</TouchableHighlight>
+				</View>
 			</View>
 		</View>
 	);
