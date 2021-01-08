@@ -1,71 +1,136 @@
-import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import React, { useEffect, useRef, useState } from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import SoundPlayer from 'react-native-sound-player';
 import PlayButton from '@assets/svg/play-button.svg';
-import { getCurrentTime, load, pause, play, seek } from 'util/sound';
-import styles from './AudioPlayerNavigator.styles';
 
-const PlayOrPauseButton = ({ isPlaying }: { isPlaying: boolean }) => (
-	<View style={styles.playButtonContainer}>
-		{isPlaying
-			? (
-				<View style={{ width: 10, height: 20, flexDirection: 'row', justifyContent: 'space-between' }}>
-					<View style={{ width: 2, height: 20, backgroundColor: 'black' }} />
-					<View style={{ width: 2, height: 20, backgroundColor: 'black' }} />
-				</View>
-			) : <PlayButton />
-		}
-	</View>
-);
+import styles, { TIME_BAR_WIDTH, TIME_DOT_SIZE } from './AudioPlayerNavigator.styles';
+
+const PlayOrPauseButton = ({ isLoaded, isPlaying }) => {
+	if (!isLoaded) {
+		return (
+			<View style={styles.playButtonContainer}>
+				<View style={styles.playLoading} />
+			</View>
+		);
+	}
+
+	return (
+		<View style={styles.playButtonContainer}>
+			{isPlaying
+				? (
+					<View style={styles.pauseContainer}>
+						<View style={styles.pauseLine} />
+						<View style={styles.pauseLine} />
+					</View>
+				)
+				: <PlayButton />
+			}
+		</View>
+	);
+};
 
 export default () => {
+	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
-	const [ playbackTime, setPlaybackTime ] = useState(0);
-	// Holds the handle for the setInterval that keeps track of playback time.
-	const [ playbackInterval, setPlaybackInterval ] = useState(0);
-	const [ sound, setSound ] = useState(load('music.mp3'));
+	const [ currentTime, setCurrentTime ] = useState(0);
+	const [ duration, setDuration ] = useState(0);
+	const [ playedToEnd, setPlayedToEnd ] = useState(false);
 
-	const togglePause = () => {
-		const shouldPlay = !isPlaying;
-		console.log({ shouldPlay });
+	const getInfoTimer = useRef<number>();
 
-		setIsPlaying(shouldPlay);
-		shouldPlay ? play(sound) : pause(sound);
-		if (shouldPlay) {
+	const onFinishLoad = useRef(SoundPlayer.addEventListener('FinishedLoadingFile', ({ success, name, type }) => {
+		console.log('finished loading file:', { success, name, type });
+		console.log(getInfoTimer.current);
+		setIsLoaded(true);
+		SoundPlayer.seek(315);
+		if (!getInfoTimer.current) {
+			getInfoTimer.current = setInterval(async () => {
+				await getInfo();
+			}, 100);
+		}
 
+		onFinishLoad.current.remove();
+	}));
+
+	const onFinishPlay = useRef(SoundPlayer.addEventListener('FinishedPlaying', ({ success }) => {
+		console.log('finished playing', success);
+		SoundPlayer.pause();
+		SoundPlayer.seek(duration - 0.5);
+		setIsPlaying(false);
+		setCurrentTime(duration - 0.5);
+		setPlayedToEnd(true);
+
+		onFinishPlay.current.remove();
+	}));
+
+	const getInfo = async () => {
+		try {
+			const { duration: newDuration, currentTime: newCurrentTime } = await SoundPlayer.getInfo();
+			setDuration(newDuration);
+			setCurrentTime(newCurrentTime);
+			// if (newCurrentTime >= newDuration - 1) {
+			// 	onPlayedToEnd();
+			// }
+			// console.log('getInfo', { newDuration, newCurrentTime });
+		} catch (e) {
+			console.error('There is no song playing', e);
 		}
 	};
 
-	const seekTo = (seconds: number) => {
-		setSound(seek(sound, seconds));
-		setPlaybackTime(playbackTime + seconds);
+	const togglePause = () => {
+		if (isPlaying) {
+			SoundPlayer.pause();
+			setIsPlaying(false);
+		} else if (isLoaded) {
+			SoundPlayer.play();
+			setIsPlaying(true);
+		}
 	};
 
-	// useEffect(() => {
-	// 	if (playbackInterval == 0) {
-	// 		return;
-	// 	}
+	const formatAudioText = (seconds: number) => {
+		return `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+	};
 
-	// 	if (isPlaying) {
-	// 		setPlaybackInterval(setInterval(() => {
-	// 			setPlaybackTime(getCurrentTime(sound));
-	// 		}, 1000));
+	useEffect(() => {
+		SoundPlayer.loadSoundFile('music128', 'mp3');
 
-	// 		return () => clearInterval(playbackInterval);
-	// 	} else {
-	// 		clearInterval(playbackInterval);
-	// 	}
-	// }, [ isPlaying ]);
+		return (() => {
+			clearInterval(getInfoTimer.current || 0);
+			onFinishLoad.current.remove();
+			onFinishLoad.current = undefined;
+		});
+	}, [ onFinishLoad ]);
+
+	const timeDotOffset = duration > 0
+		? ((TIME_BAR_WIDTH - TIME_DOT_SIZE) * currentTime / duration)
+		: 0;
 
 	return (
 		<View style={styles.container}>
 			<View style={styles.playerContainer}>
-				<View style={styles.topButtonsContainer}>
 
-					<TouchableHighlight onPress={togglePause}>
-						<PlayOrPauseButton isPlaying={isPlaying} />
-					</TouchableHighlight>
+				<View style={styles.topButtonsContainer}>
+					<TouchableOpacity onPress={togglePause}>
+						<PlayOrPauseButton isPlaying={isPlaying} isLoaded={isLoaded} />
+					</TouchableOpacity>
 				</View>
+
+				<View style={styles.audioBarContainer}>
+					<View
+						style={styles.audioBar}
+					/>
+					<View style={{
+						...styles.audioTimeDot,
+						left: timeDotOffset,
+					}} />
+				</View>
+
+				<View style={styles.audioTimeContainer}>
+					<Text style={styles.text}>
+						{formatAudioText(currentTime)}
+					</Text>
+				</View>
+
 			</View>
 		</View>
 	);

@@ -4,8 +4,21 @@ import {
 	logOut,
 } from './user';
 
-export default {
-	setUserProperty,
+import {
+	setAudioCurrentTime,
+	setAudioDuration,
+	setAudioFilename,
+	setAudioIsLoaded,
+	setAudioIsPlaying,
+} from './audio';
+
+export {
 	logIn,
 	logOut,
+	setAudioCurrentTime,
+	setAudioDuration,
+	setAudioFilename,
+	setAudioIsLoaded,
+	setAudioIsPlaying,
+	setUserProperty,
 };

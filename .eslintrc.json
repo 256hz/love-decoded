@@ -34,7 +34,11 @@
     } ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "warn",
-    "object-curly-spacing": [ "error", "always" ],
+		"object-curly-spacing": [ "error", "always" ],
+		"object-curly-newline": [ "error", {
+			"ImportDeclaration": { "multiline": true, "minProperties": 4, "consistent": true },
+			"ExportDeclaration": { "multiline": true, "minProperties": 4, "consistent": true }
+		}],
     "no-shadow": "off",
 		"no-tabs": "off",
 		"no-unused-expressions": "off",

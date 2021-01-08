@@ -17,11 +17,13 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* LoveDecodedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LoveDecodedTests.m */; };
 		3047DA5525A6B7BC00C59DD9 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3047DA5425A6B7BC00C59DD9 /* music.mp3 */; };
+		309574EC25A7D42400908D5C /* music128.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 309574EB25A7D42400908D5C /* music128.mp3 */; };
 		4D5E49FA3D848D3D2D3F705B /* libPods-LoveDecoded-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */; };
 		4E96B39CA1078ADE24D2DFEC /* libPods-LoveDecoded-LoveDecodedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0EB886A458F993EF2D67F /* libPods-LoveDecoded-LoveDecodedTests.a */; };
 		6C278C23728C2F7744BFB67F /* libPods-LoveDecoded-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8B7FF598429AA19C4E0BBE9 /* libPods-LoveDecoded-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D7DA8E89105F4605B970AD00 /* Rubik.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3C257DD4FFD4F9BBF949FE4 /* Rubik.ttf */; };
+		33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 		2D02E47B1E0B4A5D006451C7 /* LoveDecoded-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoveDecoded-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* LoveDecoded-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LoveDecoded-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3047DA5425A6B7BC00C59DD9 /* music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music.mp3; path = ../assets/audio/music.mp3; sourceTree = "<group>"; };
+		309574EB25A7D42400908D5C /* music128.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music128.mp3; path = ../assets/audio/music128.mp3; sourceTree = "<group>"; };
 		39A3D3E2929EE317805EE831 /* Pods-LoveDecoded-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded-tvOSTests/Pods-LoveDecoded-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoveDecoded-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		55933326034B4A6C1A52EEC0 /* Pods-LoveDecoded-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded-tvOS/Pods-LoveDecoded-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F0EF5D0BF10464B8810F9B46 /* Pods-LoveDecoded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded/Pods-LoveDecoded.debug.xcconfig"; sourceTree = "<group>"; };
+		4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				A3C257DD4FFD4F9BBF949FE4 /* Rubik.ttf */,
+				4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				309574EB25A7D42400908D5C /* music128.mp3 */,
 				3047DA5425A6B7BC00C59DD9 /* music.mp3 */,
 				13B07FAE1A68108700A75B9A /* LoveDecoded */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -353,10 +359,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309574EC25A7D42400908D5C /* music128.mp3 in Resources */,
 				3047DA5525A6B7BC00C59DD9 /* music.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				D7DA8E89105F4605B970AD00 /* Rubik.ttf in Resources */,
+				33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
