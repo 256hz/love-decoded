@@ -7,10 +7,5 @@ import {
 export {
 	logIn,
 	logOut,
-	setAudioCurrentTime,
-	setAudioDuration,
-	setAudioFilename,
-	setAudioIsLoaded,
-	setAudioIsPlaying,
 	setUserProperty,
 };
