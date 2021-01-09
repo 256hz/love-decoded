@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { UserProperty } from '@redux/types/user';
-import { setUserProperty, logOut } from 'redux/action/user';
+import { setUserProperty, logOut } from '@redux/action';
 
 export type UserState = {
 	[key in UserProperty]?: string | number;

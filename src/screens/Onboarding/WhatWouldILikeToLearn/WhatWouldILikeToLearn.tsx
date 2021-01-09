@@ -7,26 +7,27 @@ import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';
 
-import styles from './AcknowledgingYourPast.styles';
+import styles from './WhatWouldILikeToLearn.styles';
 
 const options = [
-	'Siblings',
-	'Friends',
-	'Colleagues',
-	'Parents',
-	'Teachers',
-	'First Love',
-	'Fellow Students',
-	'Body Image',
-	'A Lack Of Romance',
-	'Not Being Appreciated',
-	'Not Being Respected',
+	'Feel Better About Myself',
+	'More Energy, Better Health',
+	'Having Close, Loving Relationships',
+	'Stop Resenting People',
+	'Heal Important Relationships',
+	'Control Anger with Love',
+	'Stop Unloving Relationships',
+	'Stop Being a People Pleaser',
+	'Exercise, Eat Healther, Meditate',
+	'Learn Communication Skills',
+	'Develop an Unconditional Community',
+	'Learn the Power of Creating Visions',
 ];
 
 export default () => {
 	const dispatch = useDispatch();
 
-	const surveyResponse = useSelector(getSurveyByTitle(Surveys.AcknowledgingYourPast)) as string[] || [];
+	const surveyResponse = useSelector(getSurveyByTitle(Surveys.WhatWouldILikeToLearn)) as string[] || [];
 	const existingCustomSelection = surveyResponse.find(response => !options.includes(response)) || '';
 	const [ selections, setSelections ] = useState<string[]>(
 		(surveyResponse as string[]).filter(response => options.includes(response)),
@@ -40,8 +41,6 @@ export default () => {
 		filteredSelections.includes(option)
 			? setSelections(filteredSelections.filter(selection => selection !== option))
 			: setSelections([ ...filteredSelections, option ]);
-
-		console.log(filteredSelections);
 	};
 
 	const submitResponse = () => {
@@ -54,7 +53,7 @@ export default () => {
 			response.push(customSelection);
 		}
 
-		dispatch(setSurveyResponse(Surveys.AcknowledgingYourPast, response));
+		dispatch(setSurveyResponse(Surveys.WhatWouldILikeToLearn, response));
 	};
 
 	return (
@@ -62,7 +61,7 @@ export default () => {
 			<OnboardingScreen
 				drawShapes={[ 1, 7, 11 ]}
 				showLogo={true}
-				title="Acknowleding Your Past and Present Sources of Pain"
+				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
 			>
 				<View style={styles.container}>
 					<View style={styles.topTextContainer}>
@@ -76,12 +75,14 @@ export default () => {
 							options={options}
 							selections={selections}
 							setCustomSelection={setCustomSelection}
+							selectionContainerStyle={styles.selectionContainer}
+							selectionTextStyle={styles.selectionText}
 							toggleSelected={toggleSelected}
 						/>
 
 						<AudioPlayerNavigator
 							audioFilename="music.mp3"
-							nextTarget={Screens.WhatWouldILikeToLearn}
+							nextTarget={Screens.Introduction}
 							onNextCallback={submitResponse}
 						/>
 					</View>
