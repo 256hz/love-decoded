@@ -2,13 +2,11 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { StatusBar, View, Text } from 'react-native';
+import { StatusBar } from 'react-native';
 
 import getStore from 'redux/getStore';
-import Test from '@screens/test';
 import { NavigationContainer } from '@react-navigation/native';
 import OnboardingStack from 'route/OnboardingStack';
-import Introduction from 'screens/Onboarding/Introduction';
 
 export const { store, persistor } = getStore();
 

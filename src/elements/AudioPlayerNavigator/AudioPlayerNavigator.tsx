@@ -2,7 +2,7 @@ import React, {
 	ReactChild, useEffect, useRef, useState,
 } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import { Screens } from 'route/OnboardingStack';
 import AudioPlayerBar from './AudioPlayerBar';
