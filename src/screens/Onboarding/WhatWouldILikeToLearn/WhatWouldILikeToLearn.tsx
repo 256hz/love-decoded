@@ -82,7 +82,7 @@ export default () => {
 
 						<AudioPlayerNavigator
 							audioFilename="music.mp3"
-							nextTarget={Screens.Introduction}
+							nextTarget={Screens.HavingTheLovingCommunities}
 							onNextCallback={submitResponse}
 						/>
 					</View>

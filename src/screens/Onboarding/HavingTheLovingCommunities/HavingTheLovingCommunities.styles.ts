@@ -3,23 +3,19 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'space-between',
 	},
-	logoContainer: {
-		width: '100%',
-		marginTop: 84,
+	textContainer: {
+		height: '60%',
 		justifyContent: 'center',
 		alignItems: 'center',
-	},
-	titleContainer: {
-		width: '100%',
 		paddingHorizontal: 32,
-		marginTop: 89,
 	},
-	titleText: {
+	headline: {
 		fontFamily: 'Rubik',
-		fontSize: 20,
-		lineHeight: 30,
-		fontWeight: '700',
+		fontSize: 22,
+		lineHeight: 28,
+		fontWeight: '500',
 		textAlign: 'center',
 	},
 });
