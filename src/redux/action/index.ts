@@ -1,11 +1,16 @@
 import {
-	editUserProperty,
+	setUserProperty,
 	logIn,
 	logOut,
 } from './user';
 
-export default {
-	editUserProperty,
+export {
 	logIn,
 	logOut,
+	setAudioCurrentTime,
+	setAudioDuration,
+	setAudioFilename,
+	setAudioIsLoaded,
+	setAudioIsPlaying,
+	setUserProperty,
 };
