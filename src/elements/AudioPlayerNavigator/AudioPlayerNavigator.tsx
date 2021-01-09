@@ -1,66 +1,64 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+	ReactChild, useEffect, useRef, useState,
+} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Text, TouchableOpacity, View } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
-import PlayButton from '@assets/svg/play-button.svg';
+import { Screens } from 'route/OnboardingStack';
+import AudioPlayerBar from './AudioPlayerBar';
+import styles from './AudioPlayerNavigator.styles';
+import NavButtons from './NavButtons';
 
-import styles, { TIME_BAR_WIDTH, TIME_DOT_SIZE } from './AudioPlayerNavigator.styles';
+interface Props {
+	audioFilename: string;
+	backTarget?: Screens;
+	nextTarget: Screens;
+	customButtons?: ReactChild;
+}
 
-const PlayOrPauseButton = ({ isLoaded, isPlaying }) => {
-	if (!isLoaded) {
-		return (
-			<View style={styles.playButtonContainer}>
-				<View style={styles.playLoading} />
-			</View>
-		);
-	}
+export default ({
+	audioFilename = 'music128.mp3',
+	backTarget,
+	nextTarget,
+	customButtons,
+}: Props) => {
+	const { navigate, goBack, canGoBack } = useNavigation();
 
-	return (
-		<View style={styles.playButtonContainer}>
-			{isPlaying
-				? (
-					<View style={styles.pauseContainer}>
-						<View style={styles.pauseLine} />
-						<View style={styles.pauseLine} />
-					</View>
-				)
-				: <PlayButton />
-			}
-		</View>
-	);
-};
-
-export default () => {
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
 	const [ currentTime, setCurrentTime ] = useState(0);
 	const [ duration, setDuration ] = useState(0);
 	const [ playedToEnd, setPlayedToEnd ] = useState(false);
 
+	// Holds the handle for the setInterval that gets position in the audio file.
 	const getInfoTimer = useRef<number>();
 
-	const onFinishLoad = useRef(SoundPlayer.addEventListener('FinishedLoadingFile', ({ success, name, type }) => {
-		console.log('finished loading file:', { success, name, type });
-		console.log(getInfoTimer.current);
+	// SoundPlayer event listener. Starts checking the current time for changes on load.
+	const onFinishLoad = useRef(SoundPlayer.addEventListener('FinishedLoadingFile', ({ success }) => {
+		if (!success) {
+			console.error('error loading audio file');
+			return;
+		}
+
 		setIsLoaded(true);
-		SoundPlayer.seek(315);
 		if (!getInfoTimer.current) {
 			getInfoTimer.current = setInterval(async () => {
 				await getInfo();
 			}, 100);
 		}
-
-		onFinishLoad.current.remove();
 	}));
 
+	// SoundPlayer event listener. Pauses at the very end of the file so it won't auto-rewind.
 	const onFinishPlay = useRef(SoundPlayer.addEventListener('FinishedPlaying', ({ success }) => {
-		console.log('finished playing', success);
-		SoundPlayer.pause();
-		SoundPlayer.seek(duration - 0.5);
-		setIsPlaying(false);
-		setCurrentTime(duration - 0.5);
-		setPlayedToEnd(true);
+		if (!success) {
+			console.error('error playing audio file');
+			return;
+		}
 
-		onFinishPlay.current.remove();
+		SoundPlayer.pause();
+		SoundPlayer.seek(duration - 0.1);
+		setIsPlaying(false);
+		setPlayedToEnd(true);
 	}));
 
 	const getInfo = async () => {
@@ -68,70 +66,56 @@ export default () => {
 			const { duration: newDuration, currentTime: newCurrentTime } = await SoundPlayer.getInfo();
 			setDuration(newDuration);
 			setCurrentTime(newCurrentTime);
-			// if (newCurrentTime >= newDuration - 1) {
-			// 	onPlayedToEnd();
-			// }
-			// console.log('getInfo', { newDuration, newCurrentTime });
 		} catch (e) {
-			console.error('There is no song playing', e);
+			console.error('could not get audio info', e);
 		}
 	};
 
 	const togglePause = () => {
+		if (!isLoaded) {
+			return;
+		}
+
 		if (isPlaying) {
 			SoundPlayer.pause();
 			setIsPlaying(false);
-		} else if (isLoaded) {
+		} else {
 			SoundPlayer.play();
 			setIsPlaying(true);
 		}
 	};
 
-	const formatAudioText = (seconds: number) => {
-		return `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
-	};
-
 	useEffect(() => {
-		SoundPlayer.loadSoundFile('music128', 'mp3');
+		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
 			clearInterval(getInfoTimer.current || 0);
 			onFinishLoad.current.remove();
 			onFinishLoad.current = undefined;
+			onFinishPlay.current.remove();
+			onFinishPlay.current = undefined;
 		});
-	}, [ onFinishLoad ]);
-
-	const timeDotOffset = duration > 0
-		? ((TIME_BAR_WIDTH - TIME_DOT_SIZE) * currentTime / duration)
-		: 0;
+	}, [ onFinishLoad, audioFilename ]);
 
 	return (
 		<View style={styles.container}>
-			<View style={styles.playerContainer}>
+			{ audioFilename && (
+				<AudioPlayerBar
+					onTogglePause={togglePause}
+					isPlaying={isPlaying}
+					isLoaded={isLoaded}
+					currentTime={currentTime}
+					duration={duration}
+				/>
+			)}
 
-				<View style={styles.topButtonsContainer}>
-					<TouchableOpacity onPress={togglePause}>
-						<PlayOrPauseButton isPlaying={isPlaying} isLoaded={isLoaded} />
-					</TouchableOpacity>
-				</View>
-
-				<View style={styles.audioBarContainer}>
-					<View
-						style={styles.audioBar}
-					/>
-					<View style={{
-						...styles.audioTimeDot,
-						left: timeDotOffset,
-					}} />
-				</View>
-
-				<View style={styles.audioTimeContainer}>
-					<Text style={styles.text}>
-						{formatAudioText(currentTime)}
-					</Text>
-				</View>
-
-			</View>
+			{ customButtons || (
+				<NavButtons
+					backTarget={backTarget}
+					nextTarget={nextTarget}
+					playedToEnd={playedToEnd}
+				/>
+			)}
 		</View>
 	);
 };

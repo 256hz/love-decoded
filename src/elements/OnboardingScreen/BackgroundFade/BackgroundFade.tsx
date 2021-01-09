@@ -8,7 +8,7 @@ interface Props {
 	drawShapes?: number[];
 }
 
-export default ({ children, drawShapes = [] }: Props) => (
+export default ({ children = <></>, drawShapes = [] }: Props) => (
 	<>
 		<ImageBackground
 			source={require('@assets/png/default-background.png')}

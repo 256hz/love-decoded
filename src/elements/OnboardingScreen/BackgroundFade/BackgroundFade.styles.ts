@@ -5,7 +5,7 @@ export default StyleSheet.create({
 		flex: 1,
 	},
 	children: {
-		position: 'absolute',
+		...StyleSheet.absoluteFillObject,
 		flex: 1,
 	},
 });
