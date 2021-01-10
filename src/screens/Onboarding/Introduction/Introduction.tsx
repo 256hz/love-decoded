@@ -1,13 +1,18 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { OnboardingScreen, AudioPlayerNavigator } from '@elements';
-import { Screens } from 'route/OnboardingStack';
-import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { OnboardingScreen, AudioPlayerNavigator } from '@elements';
+import { OnboardingStackParamList, Screens } from 'route/OnboardingStack';
+import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './Introduction.styles';
 
-const EnterButton = ({ onPress }) => (
-	<TouchableOpacity onPress={onPress}>
+type EnterButtonProps = {
+	onPress: () => void;
+	disabled?: boolean;
+};
+
+const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
+	<TouchableOpacity onPress={onPress} disabled={disabled}>
 		<View style={styles.enterButtonContainer}>
 			<View style={styles.enterButton}>
 				<Text style={styles.buttonText}>Enter</Text>
@@ -16,9 +21,16 @@ const EnterButton = ({ onPress }) => (
 	</TouchableOpacity>
 );
 
-export default () => {
-	const { navigate } = useNavigation();
+type IntroductionScreenNavigationProp = StackNavigationProp<
+OnboardingStackParamList,
+Screens.Introduction
+>;
 
+type Props = {
+	navigation: IntroductionScreenNavigationProp;
+};
+
+export default ({ navigation: { navigate } }: Props) => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 14, 15, 16 ]}
@@ -48,8 +60,9 @@ export default () => {
 					</View>
 					<AudioPlayerNavigator
 						audioFilename="music.mp3"
-						nextTarget={Screens.Introduction}
-						customButtons={<EnterButton onPress={navigate(Screens.Introduction)} />}
+						customButtons={
+							<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
+						}
 					/>
 				</View>
 			</View>

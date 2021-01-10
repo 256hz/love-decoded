@@ -1,4 +1,8 @@
 import {
+	setSurveyResponse,
+} from './survey';
+
+import {
 	setUserProperty,
 	logIn,
 	logOut,
@@ -7,5 +11,6 @@ import {
 export {
 	logIn,
 	logOut,
+	setSurveyResponse,
 	setUserProperty,
 };

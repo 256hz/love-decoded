@@ -21,4 +21,20 @@ export default StyleSheet.create({
 		marginHorizontal: 5,
 		textAlign: 'center',
 	},
+	selectionContainer: {
+		marginVertical: 8,
+		paddingVertical: 8,
+		paddingHorizontal: 32,
+		minWidth: 170,
+		maxWidth: 280,
+		minHeight: 52,
+		borderRadius: 15,
+		justifyContent: 'center',
+	},
+	selectionText: {
+		fontFamily: 'Rubik',
+		fontWeight: '400',
+		fontSize: 19,
+		textAlign: 'center',
+	},
 });

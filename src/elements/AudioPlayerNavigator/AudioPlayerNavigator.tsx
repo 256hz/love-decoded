@@ -1,7 +1,9 @@
 import React, {
-	ReactChild, useEffect, useRef, useState,
+	ReactChild,
+	useEffect,
+	useRef,
+	useState,
 } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { View } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import { Screens } from 'route/OnboardingStack';
@@ -9,21 +11,28 @@ import AudioPlayerBar from './AudioPlayerBar';
 import styles from './AudioPlayerNavigator.styles';
 import NavButtons from './NavButtons';
 
-interface Props {
+// If custom buttons are enabled, the props for the Back & Next buttons should not be passed.
+type Props = {
 	audioFilename: string;
+	customButtons?: undefined;
 	backTarget?: Screens;
 	nextTarget: Screens;
-	customButtons?: ReactChild;
-}
+	onNextCallback?: (arg?: any) => void;
+} | {
+	audioFilename: string;
+	backTarget?: undefined;
+	customButtons: ReactChild;
+	nextTarget?: undefined;
+	onNextCallback?: undefined;
+};
 
 export default ({
 	audioFilename = 'music128.mp3',
 	backTarget,
-	nextTarget,
 	customButtons,
+	onNextCallback,
+	nextTarget,
 }: Props) => {
-	const { navigate, goBack, canGoBack } = useNavigation();
-
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
 	const [ currentTime, setCurrentTime ] = useState(0);
@@ -112,8 +121,9 @@ export default ({
 			{ customButtons || (
 				<NavButtons
 					backTarget={backTarget}
-					nextTarget={nextTarget}
-					playedToEnd={playedToEnd}
+					onNextCallback={onNextCallback}
+					nextEnabled={playedToEnd}
+					nextTarget={nextTarget!}
 				/>
 			)}
 		</View>

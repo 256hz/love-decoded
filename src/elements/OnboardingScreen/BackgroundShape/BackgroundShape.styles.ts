@@ -9,7 +9,7 @@ export default StyleSheet.create({
 	shape1: {
 		position: 'absolute',
 		left: -2,
-		top: '5%',
+		top: '35%',
 	},
 	shape2: {
 		position: 'absolute',
@@ -56,7 +56,7 @@ export default StyleSheet.create({
 	shape11: {
 		position: 'absolute',
 		right: 0,
-		top: '10%',
+		top: '15%',
 	},
 	shape12: {
 		position: 'absolute',
