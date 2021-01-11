@@ -1,39 +1,68 @@
 import React, { ReactChild } from 'react';
 import { Text, View } from 'react-native';
 import Logo from '@assets/svg/logo.svg';
+import { AudioPlayerNavigator } from 'elements/AudioPlayerNavigator';
+import { AudioPlayerNavigatorProps } from 'elements/AudioPlayerNavigator/AudioPlayerNavigator';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 
-interface Props {
+type Props = {
 	children: ReactChild;
 	drawShapes?: number[];
 	showLogo?: boolean;
 	title?: string;
-}
+} & AudioPlayerNavigatorProps;
 
-const OnboardingScreen = ({ children = <></>, drawShapes, title, showLogo }: Props) => (
-	<View style={styles.container}>
-		<BackgroundFade drawShapes={drawShapes}>
-			<>
-				{ showLogo ? (
-					<View style={styles.logoContainer}>
-						<Logo />
+const OnboardingScreen = ({
+	audioFilename,
+	backTarget,
+	children = <></>,
+	customButtons,
+	drawShapes,
+	onNextCallback,
+	nextTarget,
+	showLogo,
+	title,
+}: Props) => {
+	const showAudioPlayerNavigator = !!audioFilename && !!nextTarget;
+
+	return (
+		<View style={styles.container}>
+			<BackgroundFade drawShapes={drawShapes}>
+				<View style={styles.screenContainer}>
+
+					<View style={styles.container}>
+						{ showLogo && (
+							<View style={styles.logoContainer}>
+								<Logo />
+							</View>
+						)}
+
+						<View style={[
+							styles.titleContainer,
+							showLogo && { marginTop: 21 },
+						]}>
+							<Text style={styles.titleText}>
+								{title}
+							</Text>
+						</View>
+						<View style={styles.container}>
+							{children}
+						</View>
 					</View>
-				) : <></>}
-
-				<View style={[
-					styles.titleContainer,
-					showLogo ? { marginTop: 21 } : null,
-				]}>
-					<Text style={styles.titleText}>
-						{title}
-					</Text>
+					{ audioFilename && (
+						<AudioPlayerNavigator
+							backTarget={backTarget}
+							customButtons={customButtons}
+							onNextCallback={onNextCallback}
+							nextTarget={nextTarget}
+							audioFilename={audioFilename}
+						/>
+					)}
 				</View>
-
-				{children}
-			</>
-		</BackgroundFade>
-	</View>
-);
+			</BackgroundFade>
+		</View>
+	);
+};
 
 export default OnboardingScreen;

@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	multiSelectContainer: {
 		width: '100%',
-		height: '60%',
 		paddingVertical: 8,
 	},
 	multiSelectContainerStyle: {

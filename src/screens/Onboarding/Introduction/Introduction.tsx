@@ -33,37 +33,29 @@ type Props = {
 export default ({ navigation: { navigate } }: Props) => {
 	return (
 		<OnboardingScreen
+			audioFilename="music.mp3"
+			customButtons={
+				<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
+			}
 			drawShapes={[ 14, 15, 16 ]}
 			showLogo={true}
 			title="You are Born to be Loved"
 		>
-			<View style={styles.container}>
+			<View style={{ flex: 1 }}>
+				{/* placeholder for photo element */}
 				<View />
-				<View>
-					<View style={[ styles.subTitleContainer, {
-						left: 40,
-						bottom: 300,
-						backgroundColor: '#DD1E36',
-					} ]}>
+
+				<View style={{ flex: 1 }}>
+					<View style={[ styles.subTitleContainer, styles.subTitleLeft ]}>
 						<Text style={styles.subTitleText}>
 							We Know Your Pain
 						</Text>
 					</View>
-					<View style={[ styles.subTitleContainer, {
-						right: 40,
-						bottom: 260,
-						backgroundColor: '#D31772',
-					} ]}>
+					<View style={[ styles.subTitleContainer, styles.subTitleRight ]}>
 						<Text style={styles.subTitleText}>
 							Loving Self Will Heal It
 						</Text>
 					</View>
-					<AudioPlayerNavigator
-						audioFilename="music.mp3"
-						customButtons={
-							<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
-						}
-					/>
 				</View>
 			</View>
 		</OnboardingScreen>

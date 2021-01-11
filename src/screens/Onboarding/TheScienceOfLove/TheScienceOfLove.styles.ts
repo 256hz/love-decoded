@@ -1,9 +1,10 @@
+import colors from 'elements/globalStyles/color';
+import text from 'elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'space-between',
 	},
 	topTextContainer: {
 		width: '100%',
@@ -13,24 +14,23 @@ export default StyleSheet.create({
 		paddingHorizontal: 64,
 	},
 	topText: {
-		fontFamily: 'Rubik',
-		fontWeight: '400',
+		...text.body,
+		...text.topText,
 		fontSize: 17,
-		lineHeight: 24,
-		letterSpacing: -0.24,
 	},
 	highlight: {
-		fontWeight: '700',
-		color: '#F1751B',
+		...text.body,
+		...text.highlight,
+		fontSize: 17,
 	},
 	cards: {
-		width: '100%',
-		minHeight: '35%',
+		flex: 1,
 		marginTop: 16,
 	},
 	footerText: {
-		color: 'rgba(151, 151, 151, 0.73)',
-		textAlign: 'center',
+		...text.body,
+		...text.topText,
+		color: colors.GrayTransparent,
 		marginTop: 8,
 	},
 });

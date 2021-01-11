@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -14,6 +15,16 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		paddingHorizontal: 16,
 	},
+	subTitleLeft: {
+		left: 40,
+		bottom: 40,
+		backgroundColor: colors.Red,
+	},
+	subTitleRight: {
+		right: 40,
+		bottom: 0,
+		backgroundColor: colors.Pink,
+	},
 	subTitleText: {
 		fontFamily: 'Rubik',
 		fontWeight: '700',
@@ -21,7 +32,7 @@ export default StyleSheet.create({
 		marginHorizontal: 5,
 		color: 'white',
 		textAlign: 'center',
-		textShadowColor: '#333',
+		textShadowColor: colors.Gray33,
 		textShadowOffset: { width: -1, height: 2 },
 		textShadowRadius: 4,
 	},
@@ -33,7 +44,7 @@ export default StyleSheet.create({
 		width: 102,
 		height: 35,
 		marginTop: 15,
-		backgroundColor: '#F1751B',
+		backgroundColor: colors.Orange,
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',

@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -9,6 +10,10 @@ export default StyleSheet.create({
 		marginTop: 84,
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	screenContainer: {
+		flex: 1,
+		justifyContent: 'space-between',
 	},
 	titleContainer: {
 		width: '100%',
