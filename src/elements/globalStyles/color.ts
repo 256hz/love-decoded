@@ -10,6 +10,7 @@ const colors = {
 	Pink: '#F41882',
 	Red: '#DD1E36',
 	White: '#FFFFFF',
+	WhiteTransparent: 'rgba(255, 255, 255, 0.83)',
 };
 
 export default colors;

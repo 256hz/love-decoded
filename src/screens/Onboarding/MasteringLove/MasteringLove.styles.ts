@@ -32,15 +32,11 @@ export default StyleSheet.create({
 		alignItems: 'center',
 	},
 	triangleContainer: {
-		// flex: 1,
 		alignItems: 'center',
 		width: '100%',
 		marginBottom: -1,
 	},
 	triangleTextContainer: {
-		// backgroundColor: colors.Orange,
-		// width: '100%',
-		// marginTop: -32,
 		position: 'absolute',
 		top: 0,
 		left: 0,

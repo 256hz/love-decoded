@@ -50,12 +50,17 @@ const OnboardingScreen = ({
 							{children}
 						</View>
 					</View>
-					{ audioFilename && (
+					{ audioFilename && nextTarget && (
 						<AudioPlayerNavigator
 							backTarget={backTarget}
-							customButtons={customButtons}
 							onNextCallback={onNextCallback}
 							nextTarget={nextTarget}
+							audioFilename={audioFilename}
+						/>
+					)}
+					{ audioFilename && customButtons && (
+						<AudioPlayerNavigator
+							customButtons={customButtons}
 							audioFilename={audioFilename}
 						/>
 					)}

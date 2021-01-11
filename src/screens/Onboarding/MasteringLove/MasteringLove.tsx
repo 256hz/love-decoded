@@ -1,6 +1,5 @@
-import React, { ReactChild, ReactElement } from 'react';
+import React, { ReactChild } from 'react';
 import { Text, View } from 'react-native';
-import { SvgProps } from 'react-native-svg';
 import { Screens } from 'route/OnboardingStack';
 import Triangle5 from '@assets/svg/mastering-love/triangle-5.svg';
 import Triangle10 from '@assets/svg/mastering-love/triangle-10.svg';
@@ -11,16 +10,6 @@ import Triangle75 from '@assets/svg/mastering-love/triangle-75.svg';
 import Triangle90 from '@assets/svg/mastering-love/triangle-90.svg';
 import { OnboardingScreen } from '@elements';
 import styles from './MasteringLove.styles';
-
-// const Triangle = ({ text }: { text: string }) => (
-// 	<View style={styles.triangle1}>
-// 		{/* <View style={styles.triangleTextContainer}> */}
-// 			<Text style={styles.triangleText}>
-// 				{text}
-// 			</Text>
-// 		{/* </View> */}
-// 	</View>
-// );
 
 const Triangle = ({ text, children }: { text: string, children: ReactChild }) => (
 	<View style={styles.triangleContainer}>
@@ -36,7 +25,6 @@ const Triangle = ({ text, children }: { text: string, children: ReactChild }) =>
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
-		// showLogo={true}
 		title={'Mastering Love\nof Self and Others'}
 		audioFilename="music128.mp3"
 		nextTarget={Screens.TheScienceOfLove}
