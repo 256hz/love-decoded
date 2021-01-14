@@ -12,7 +12,7 @@ import styles from './AudioPlayerNavigator.styles';
 import NavButtons from './NavButtons';
 
 // If custom buttons are enabled, the props for the Back & Next buttons should not be passed.
-type Props = {
+export type AudioPlayerNavigatorProps = {
 	audioFilename: string;
 	customButtons?: undefined;
 	backTarget?: Screens;
@@ -32,7 +32,7 @@ export default ({
 	customButtons,
 	onNextCallback,
 	nextTarget,
-}: Props) => {
+}: AudioPlayerNavigatorProps) => {
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
 	const [ currentTime, setCurrentTime ] = useState(0);

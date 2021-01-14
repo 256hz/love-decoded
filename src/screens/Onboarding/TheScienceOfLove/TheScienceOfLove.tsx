@@ -1,14 +1,14 @@
-import { AudioPlayerNavigator, CardCarousel, OnboardingScreen } from 'elements';
-import React, { useState } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';
+import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './TheScienceOfLove.styles';
 
 const cards = [
 	{
 		title: 'Helpful Links',
 		body: 'Read about the following facts that support the theory that love is nourishment like air, food, and water.',
-		bottomElement: <Text style={[ styles.topText, styles.footerText ]}>swipe left to see more</Text>,
+		bottomElement: <Text style={styles.footerText}>swipe left to see more</Text>,
 	},
 	{
 		title: 'Link #1',
@@ -38,32 +38,26 @@ const cards = [
 	},
 ];
 
-export default () => {
-	const [ cardIndex, setCardIndex ] = useState(0);
-
-	return (
-		<OnboardingScreen
-			drawShapes={[ 1, 7, 11 ]}
-			showLogo={true}
-			title={'The Science of Love:\nA Pioneering Discovery'}
-		>
-			<View style={styles.container}>
-				<View style={styles.topTextContainer}>
-					<Text style={styles.topText}>
-						{'Love is Nourishment\nlike'}
-						<Text style={[ styles.topText, styles.highlight ]}> Air, Food, And Water </Text>
-						{'\nwhich is why is it necessary to\nlearn to love yourself!'}
-					</Text>
-				</View>
-				<View style={styles.cards}>
-					<CardCarousel cards={cards} />
-				</View>
-
-				<AudioPlayerNavigator
-					audioFilename="music.mp3"
-					nextTarget={Screens.WhatWouldILikeToLearn}
-				/>
+export default () => (
+	<OnboardingScreen
+		drawShapes={[ 1, 7, 11 ]}
+		showLogo={true}
+		title={'The Science of Love:\nA Pioneering Discovery'}
+		audioFilename="music.mp3"
+		nextTarget={Screens.WhatWouldILikeToLearn}
+	>
+		<View style={styles.container}>
+			<View style={styles.topTextContainer}>
+				<Text style={styles.topText}>
+					{'Love is Nourishment\nlike'}
+					<Text style={styles.highlight}> Air, Food, And Water </Text>
+					{'\nwhich is why is it necessary to\nlearn to love yourself!'}
+				</Text>
 			</View>
-		</OnboardingScreen>
-	);
-};
+
+			<View style={styles.cards}>
+				<CardCarousel cards={cards} />
+			</View>
+		</View>
+	</OnboardingScreen>
+);

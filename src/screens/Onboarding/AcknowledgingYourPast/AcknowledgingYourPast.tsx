@@ -1,4 +1,4 @@
-import { AudioPlayerNavigator, OnboardingScreen, MultiSelectSurvey } from 'elements';
+import { OnboardingScreen, MultiSelectSurvey } from 'elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
@@ -63,6 +63,9 @@ export default () => {
 				drawShapes={[ 1, 7, 11 ]}
 				showLogo={true}
 				title="Acknowleding Your Past and Present Sources of Pain"
+				audioFilename="music.mp3"
+				nextTarget={Screens.WhatWouldILikeToLearn}
+				onNextCallback={submitResponse}
 			>
 				<View style={styles.container}>
 					<View style={styles.topTextContainer}>
@@ -70,21 +73,13 @@ export default () => {
 							(scroll and select all that apply)
 						</Text>
 					</View>
-					<View>
-						<MultiSelectSurvey
-							customSelection={customSelection}
-							options={options}
-							selections={selections}
-							setCustomSelection={setCustomSelection}
-							toggleSelected={toggleSelected}
-						/>
-
-						<AudioPlayerNavigator
-							audioFilename="music.mp3"
-							nextTarget={Screens.WhatWouldILikeToLearn}
-							onNextCallback={submitResponse}
-						/>
-					</View>
+					<MultiSelectSurvey
+						customSelection={customSelection}
+						options={options}
+						selections={selections}
+						setCustomSelection={setCustomSelection}
+						toggleSelected={toggleSelected}
+					/>
 				</View>
 			</OnboardingScreen>
 		</KeyboardAvoidingView>
