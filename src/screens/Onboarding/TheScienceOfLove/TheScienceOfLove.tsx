@@ -44,7 +44,7 @@ export default () => (
 		showLogo={true}
 		title={'The Science of Love:\nA Pioneering Discovery'}
 		audioFilename="music.mp3"
-		nextTarget={Screens.WhatWouldILikeToLearn}
+		nextTarget={Screens.MasteringLove}
 	>
 		<View style={styles.container}>
 			<View style={styles.topTextContainer}>
