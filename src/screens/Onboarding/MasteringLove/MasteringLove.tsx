@@ -27,7 +27,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		title={'Mastering Love\nof Self and Others'}
 		audioFilename="music128.mp3"
-		nextTarget={Screens.TheScienceOfLove}
+		nextTarget={Screens.FromComfort}
 	>
 		<View style={styles.container}>
 			<View style={styles.bodyContainer}>
