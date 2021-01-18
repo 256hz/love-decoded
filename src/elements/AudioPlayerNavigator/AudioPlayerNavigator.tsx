@@ -11,18 +11,24 @@ import AudioPlayerBar from './AudioPlayerBar';
 import styles from './AudioPlayerNavigator.styles';
 import NavButtons from './NavButtons';
 
-// If custom buttons are enabled, the props for the Back & Next buttons should not be passed.
-export type AudioPlayerNavigatorProps = {
+export type AudioPlayerNavigatorProps = AudioPlayerNavigatorStandard | AudioPlayerNavigatorCustomButtons;
+
+type AudioPlayerNavigatorStandard = {
 	audioFilename: string;
 	customButtons?: undefined;
 	backTarget?: Screens;
-	nextTarget: Screens;
 	onNextCallback?: (arg?: any) => void;
-} | {
+	nextTarget: Screens;
+	nextEnabled?: boolean;
+};
+
+// If custom buttons are passed in, the props for the Back & Next buttons should not be.
+type AudioPlayerNavigatorCustomButtons = {
 	audioFilename: string;
 	backTarget?: undefined;
 	customButtons: ReactChild;
 	nextTarget?: undefined;
+	nextEnabled?: undefined;
 	onNextCallback?: undefined;
 };
 
@@ -31,6 +37,7 @@ export default ({
 	backTarget,
 	customButtons,
 	onNextCallback,
+	nextEnabled,
 	nextTarget,
 }: AudioPlayerNavigatorProps) => {
 	const [ isLoaded, setIsLoaded ] = useState(false);
@@ -106,6 +113,12 @@ export default ({
 		});
 	}, [ onFinishLoad, audioFilename ]);
 
+	const nextIsEnabled = nextEnabled != undefined
+		? nextEnabled && (playedToEnd || __DEV__)
+		: playedToEnd || __DEV__;
+
+	console.log({ nextEnabled, nextIsEnabled });
+
 	return (
 		<View style={styles.container}>
 			{ audioFilename && (
@@ -122,7 +135,7 @@ export default ({
 				<NavButtons
 					backTarget={backTarget}
 					onNextCallback={onNextCallback}
-					nextEnabled={playedToEnd}
+					nextEnabled={nextIsEnabled}
 					nextTarget={nextTarget!}
 				/>
 			)}

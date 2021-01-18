@@ -8,6 +8,7 @@ import styles from './OnboardingScreen.styles';
 
 type Props = {
 	children: ReactChild;
+	customBottomSection?: ReactChild,
 	drawShapes?: number[];
 	showLogo?: boolean;
 	title?: string;
@@ -17,57 +18,59 @@ const OnboardingScreen = ({
 	audioFilename,
 	backTarget,
 	children = <></>,
+	customBottomSection = <></>,
 	customButtons,
 	drawShapes,
 	onNextCallback,
+	nextEnabled,
 	nextTarget,
 	showLogo,
 	title,
-}: Props) => {
-	const showAudioPlayerNavigator = !!audioFilename && !!nextTarget;
+}: Props) => (
+	<View style={styles.container}>
+		<BackgroundFade drawShapes={drawShapes}>
+			<View style={styles.screenContainer}>
 
-	return (
-		<View style={styles.container}>
-			<BackgroundFade drawShapes={drawShapes}>
-				<View style={styles.screenContainer}>
-
-					<View style={styles.container}>
-						{ showLogo && (
-							<View style={styles.logoContainer}>
-								<Logo />
-							</View>
-						)}
-
-						<View style={[
-							styles.titleContainer,
-							showLogo && { marginTop: 21 },
-						]}>
-							<Text style={styles.titleText}>
-								{title}
-							</Text>
+				<View style={styles.container}>
+					{ showLogo && (
+						<View style={styles.logoContainer}>
+							<Logo />
 						</View>
-						<View style={styles.container}>
-							{children}
-						</View>
+					)}
+
+					<View style={[
+						styles.titleContainer,
+						showLogo && { marginTop: 21 },
+					]}>
+						<Text style={styles.titleText}>
+							{title}
+						</Text>
 					</View>
-					{ audioFilename && nextTarget && (
-						<AudioPlayerNavigator
-							backTarget={backTarget}
-							onNextCallback={onNextCallback}
-							nextTarget={nextTarget}
-							audioFilename={audioFilename}
-						/>
-					)}
-					{ audioFilename && customButtons && (
-						<AudioPlayerNavigator
-							customButtons={customButtons}
-							audioFilename={audioFilename}
-						/>
-					)}
+					<View style={styles.container}>
+						{children}
+					</View>
 				</View>
-			</BackgroundFade>
-		</View>
-	);
-};
+
+				{ customBottomSection }
+
+				{ audioFilename && nextTarget && (
+					<AudioPlayerNavigator
+						audioFilename={audioFilename}
+						backTarget={backTarget}
+						onNextCallback={onNextCallback}
+						nextEnabled={nextEnabled}
+						nextTarget={nextTarget}
+					/>
+				)}
+				{ audioFilename && customButtons && (
+					<AudioPlayerNavigator
+						customButtons={customButtons}
+						audioFilename={audioFilename}
+					/>
+				)}
+			</View>
+		</BackgroundFade>
+	</View>
+);
 
 export default OnboardingScreen;

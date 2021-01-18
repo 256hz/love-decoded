@@ -4,6 +4,7 @@ const colors = {
 	Gray92: '#928E8E',
 	GrayBC: '#BCBCBC',
 	GrayTransparent: 'rgba(151, 151, 151, 0.73)',
+	GrayTransparentDark: 'rgba(0, 0, 0, 0.28)',
 	Green: '#17D419',
 	Orange: '#F1751B',
 	OrangeTransparent: 'rgba(241, 117, 27, 0.3)',

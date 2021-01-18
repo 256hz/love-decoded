@@ -9,7 +9,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		title={'From Comfort to Fear\nto Learning to Growth'}
 		audioFilename="music128.mp3"
-		nextTarget={Screens.Introduction}
+		nextTarget={Screens.Control}
 	>
 		<View style={styles.container}>
 			<View style={styles.bodyContainer}>
