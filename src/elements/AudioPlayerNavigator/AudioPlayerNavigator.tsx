@@ -14,7 +14,7 @@ import NavButtons from './NavButtons';
 export type AudioPlayerNavigatorProps = AudioPlayerNavigatorStandard | AudioPlayerNavigatorCustomButtons;
 
 type AudioPlayerNavigatorStandard = {
-	audioFilename: string;
+	audioFilename?: string;
 	customButtons?: undefined;
 	backTarget?: Screens;
 	onNextCallback?: (arg?: any) => void;
@@ -24,7 +24,7 @@ type AudioPlayerNavigatorStandard = {
 
 // If custom buttons are passed in, the props for the Back & Next buttons should not be.
 type AudioPlayerNavigatorCustomButtons = {
-	audioFilename: string;
+	audioFilename?: string;
 	backTarget?: undefined;
 	customButtons: ReactChild;
 	nextTarget?: undefined;

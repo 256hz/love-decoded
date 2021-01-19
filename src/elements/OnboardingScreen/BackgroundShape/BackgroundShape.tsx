@@ -18,8 +18,11 @@ import Svg13 from '@assets/svg/shape-13.svg';
 import Svg14 from '@assets/svg/shape-14.svg';
 import Svg15 from '@assets/svg/shape-15.svg';
 import Svg16 from '@assets/svg/shape-16.svg';
+import Svg17 from '@assets/svg/shape-17.svg';
 
 import styles from './BackgroundShape.styles';
+
+// When adding a new shape: import Svg# above, add it to the svgs array below...
 
 const svgs = [
 	<Svg0 />,
@@ -39,19 +42,27 @@ const svgs = [
 	<Svg14 />,
 	<Svg15 />,
 	<Svg16 />,
+	<Svg17 />,
 ];
 
-const Shape = ({ shapeToDraw }: { shapeToDraw: number }) => (
-	<View style={styles[`shape${shapeToDraw}`]}>
-		{svgs[shapeToDraw]}
-	</View>
-);
+const Shape = ({ shapeToDraw }: { shapeToDraw: number }) => {
+	// and add a style called shape# in styles
+	const styleName = `shape${shapeToDraw}`;
+
+	return (
+		<View style={styles[styleName]}>
+			{svgs[shapeToDraw]}
+		</View>
+	);
+};
 
 export default ({ drawShapes }: { drawShapes: number[] }) => (
-	<>
-		{ drawShapes.map(shape => (
-			<Shape shapeToDraw={shape} key={shape}/>
-		))}
-	</>
+	<View style={{ flex: 1, paddingTop: 62 }}>
+		<View style={{ flex: 1 }}>
+			{ drawShapes.map(shape => (
+				<Shape shapeToDraw={shape} key={shape}/>
+			))}
+		</View>
+	</View>
 );
 

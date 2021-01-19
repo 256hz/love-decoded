@@ -28,6 +28,7 @@ export default () => {
 
 	const surveyResponse = useSelector(getSurveyByTitle(Surveys.AcknowledgingYourPast)) as string[] || [];
 	const existingCustomSelection = surveyResponse.find(response => !options.includes(response)) || '';
+
 	const [ selections, setSelections ] = useState<string[]>(
 		(surveyResponse as string[]).filter(response => options.includes(response)),
 	);
@@ -40,8 +41,6 @@ export default () => {
 		filteredSelections.includes(option)
 			? setSelections(filteredSelections.filter(selection => selection !== option))
 			: setSelections([ ...filteredSelections, option ]);
-
-		console.log(filteredSelections);
 	};
 
 	const submitResponse = () => {

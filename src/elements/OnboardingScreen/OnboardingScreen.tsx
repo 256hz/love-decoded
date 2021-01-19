@@ -1,5 +1,5 @@
 import React, { ReactChild } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ViewStyle } from 'react-native';
 import Logo from '@assets/svg/logo.svg';
 import { AudioPlayerNavigator } from 'elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from 'elements/AudioPlayerNavigator/AudioPlayerNavigator';
@@ -12,6 +12,7 @@ type Props = {
 	drawShapes?: number[];
 	showLogo?: boolean;
 	title?: string;
+	titleContainerStyle?: ViewStyle;
 } & AudioPlayerNavigatorProps;
 
 const OnboardingScreen = ({
@@ -26,6 +27,7 @@ const OnboardingScreen = ({
 	nextTarget,
 	showLogo,
 	title,
+	titleContainerStyle,
 }: Props) => (
 	<View style={styles.container}>
 		<BackgroundFade drawShapes={drawShapes}>
@@ -40,7 +42,8 @@ const OnboardingScreen = ({
 
 					<View style={[
 						styles.titleContainer,
-						showLogo && { marginTop: 21 },
+						showLogo && styles.titleLogoMargin,
+						titleContainerStyle,
 					]}>
 						<Text style={styles.titleText}>
 							{title}

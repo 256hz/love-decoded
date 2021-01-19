@@ -11,6 +11,9 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	titleLogoMargin: {
+		marginTop: 21,
+	},
 	screenContainer: {
 		flex: 1,
 		justifyContent: 'space-between',

@@ -1,6 +1,6 @@
-import { BackgroundShape } from 'elements/OnboardingScreen/BackgroundShape';
 import React, { ReactChild } from 'react';
 import { ImageBackground, View } from 'react-native';
+import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
 import styles from './BackgroundFade.styles';
 
 interface Props {

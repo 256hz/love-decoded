@@ -1,6 +1,11 @@
 import React from 'react';
 import {
-	NativeSyntheticEvent, Text, TextInputChangeEventData, TextInputEndEditingEventData, TextStyle, View, ViewStyle,
+	NativeSyntheticEvent,
+	Text,
+	TextInputEndEditingEventData,
+	TextStyle,
+	View,
+	ViewStyle,
 } from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './MultiSelectSurvey.styles';
