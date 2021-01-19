@@ -8,6 +8,7 @@ import WhenYouForgetScreen from '@screens/Onboarding/WhenYouForget';
 import TheScienceOfLoveScreen from '@screens/Onboarding/TheScienceOfLove';
 import FromComfortScreen from '@screens/Onboarding/FromComfort';
 import MasteringLoveScreen from '@screens/Onboarding/MasteringLove';
+import ControlScreen from '@screens/Onboarding/Control';
 
 const OnboardingStack = createStackNavigator();
 
@@ -20,6 +21,7 @@ export enum Screens {
 	TheScienceOfLove = 'TheScienceOfLove',
 	MasteringLove = 'MasteringLove',
 	FromComfort = 'FromComfort',
+	Control = 'Control',
 }
 
 export type OnboardingStackParamList = {
@@ -31,10 +33,11 @@ export type OnboardingStackParamList = {
 	[Screens.TheScienceOfLove]: undefined
 	[Screens.FromComfort]: undefined
 	[Screens.MasteringLove]: undefined
+	[Screens.Control]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Introduction}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Control}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -43,5 +46,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.TheScienceOfLove} component={TheScienceOfLoveScreen} />
 		<OnboardingStack.Screen name={Screens.MasteringLove} component={MasteringLoveScreen} />
 		<OnboardingStack.Screen name={Screens.FromComfort} component={FromComfortScreen} />
+		<OnboardingStack.Screen name={Screens.Control} component={ControlScreen} />
 	</OnboardingStack.Navigator>
 );

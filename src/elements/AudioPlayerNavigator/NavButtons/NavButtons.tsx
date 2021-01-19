@@ -16,6 +16,7 @@ interface Props {
 
 export default ({ backTarget, nextTarget, nextEnabled, onNextCallback }: Props) => {
 	const { navigate, goBack, canGoBack } = useNavigation();
+	const nextIsEnabled = nextTarget && nextEnabled;
 
 	return (
 		<View style={styles.container}>
@@ -27,10 +28,10 @@ export default ({ backTarget, nextTarget, nextEnabled, onNextCallback }: Props) 
 				}}
 				disabled={!canGoBack()}
 			>
-				<View style={{
-					...styles.navButton,
-					...(!canGoBack() ? styles.disabled : {}),
-				}}>
+				<View style={[
+					styles.navButton,
+					!canGoBack() && styles.disabled,
+				]}>
 					<BackArrow />
 					<Text style={styles.text}>Back</Text>
 				</View>
@@ -41,12 +42,12 @@ export default ({ backTarget, nextTarget, nextEnabled, onNextCallback }: Props) 
 					nextTarget && navigate(nextTarget);
 					onNextCallback?.();
 				}}
-				disabled={!nextTarget || (!nextEnabled && !__DEV__)}
+				disabled={!nextIsEnabled}
 			>
-				<View style={{
-					...styles.navButton,
-					...(!(nextEnabled || nextTarget) ? styles.disabled : {}),
-				}}>
+				<View style={[
+					styles.navButton,
+					!nextIsEnabled && styles.disabled,
+				]}>
 					<Text style={styles.text}>Next</Text>
 					<NextArrow />
 				</View>
