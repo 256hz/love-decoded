@@ -1,12 +1,15 @@
+import { StyleSheet } from 'react-native';
 import colors from 'elements/globalStyles/color';
 import text from 'elements/globalStyles/text';
-import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingHorizontal: 16,
 		paddingTop: 18,
+	},
+	titlePadding: {
+		paddingTop: 42,
 	},
 	nameContainer: {
 		marginBottom: 63,
@@ -45,12 +48,13 @@ export default StyleSheet.create({
 		fontSize: 14,
 		textAlign: 'center',
 		textAlignVertical: 'center',
+		marginHorizontal: 2,
+	},
+	linksContainer: {
+		flexDirection: 'row',
 	},
 	termsLink: {
 		textDecorationLine: 'underline',
-	},
-	bottomLineContainer: {
-		flexDirection: 'row',
 	},
 	buttonContainer: {
 		width: '100%',
@@ -72,5 +76,17 @@ export default StyleSheet.create({
 	},
 	disabled: {
 		backgroundColor: colors.GrayTransparent,
+	},
+	errorContainer: {
+		width: '100%',
+		paddingHorizontal: 32,
+		marginBottom: 9,
+		marginTop: -1,
+		justifyContent: 'center',
+	},
+	errorText: {
+		...text.body,
+		color: colors.RedDark,
+		lineHeight: 15,
 	},
 });

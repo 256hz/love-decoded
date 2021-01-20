@@ -10,6 +10,7 @@ const colors = {
 	OrangeTransparent: 'rgba(241, 117, 27, 0.3)',
 	Pink: '#F41882',
 	Red: '#DD1E36',
+	RedDark: '#990904',
 	White: '#FFFFFF',
 	WhiteTransparent: 'rgba(255, 255, 255, 0.83)',
 };
