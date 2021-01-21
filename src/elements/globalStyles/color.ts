@@ -13,6 +13,7 @@ const colors = {
 	RedDark: '#990904',
 	White: '#FFFFFF',
 	WhiteTransparent: 'rgba(255, 255, 255, 0.83)',
+	WhiteMoreTransparent: 'rgba(255, 255, 255, 0.54)',
 };
 
 export default colors;

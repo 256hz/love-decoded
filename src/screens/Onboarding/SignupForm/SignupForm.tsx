@@ -1,17 +1,26 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
+import React, {
+	useCallback, useState,
+} from 'react';
+import { View, Text, KeyboardAvoidingView } from 'react-native';
 import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import RNPickerSelect from 'react-native-picker-select';
 import { OnboardingScreen } from '@elements';
 import styles from './SignupForm.styles';
 
 const errors = {
 	name: 'Enter at least one letter',
 	email: 'Please provide a valid email address',
-	password: 'Must be at least 6 letters, numbers, or one of: !@#$%^&*()_.-',
+	password: 'Must be at least 6 letters, numbers, or symbols',
 	passwordMatch: 'Passwords must match',
-	gender: 'Enter a gender',
-	age: 'Select an age group',
+	gender: 'Pick one',
+	age: 'Pick one',
 };
+
+const ageGroups = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ].map(digit => ({
+	label: `${digit}0-${digit}9`,
+	value: digit * 10,
+	// key: digit * 10,
+}));
 
 const ErrorText = ({ text }) => (
 	<View style={styles.errorContainer}>
@@ -25,6 +34,9 @@ export default () => {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ confirmPassword, setConfirmPassword ] = useState('');
+	const [ gender, setGender ] = useState('');
+	const [ customGender, setCustomGender ] = useState('');
+	const [ ageGroup, setAgeGroup ] = useState('');
 	const [ validateOnTextEntry, setValidateOnTextEntry ] = useState(false);
 
 	const [ hasErrors, setHasErrors ] = useState({
@@ -59,7 +71,7 @@ export default () => {
 		validateInputs();
 
 		if (Object.values(hasErrors).every(error => !error)) {
-			console.log('submit:', { firstName, lastName, email, password, confirmPassword });
+			console.log('submit:', { firstName, lastName, email, password, confirmPassword, gender, ageGroup });
 		}
 	};
 
@@ -71,112 +83,149 @@ export default () => {
 		tempErrors.email = !!email.length && !isEmail(email);
 		tempErrors.password = !!password.length && !isPasswordAllowed(password);
 		tempErrors.passwordMatch = !!password.length && !!confirmPassword.length && password !== confirmPassword;
+		tempErrors.gender = !tempErrors.gender;
+		tempErrors.age = !tempErrors.age;
 
 		setHasErrors(tempErrors);
 	};
 
 	return (
-		<OnboardingScreen
-			title="Sign Up"
-			titleContainerStyle={styles.titlePadding}
-			drawShapes={[ 17, 7 ]}
-			customButtons={<></>}
-		>
+		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
 
-			<ScrollView style={styles.container}>
+			<OnboardingScreen
+				title="Sign Up"
+				titleContainerStyle={styles.titlePadding}
+				drawShapes={[ 17, 7 ]}
+				customButtons={<></>}
+			>
 
-				<View style={styles.nameContainer}>
-					<TextInput
-						style={styles.textInput}
-						placeholder="first name"
-						onChangeText={setFirstName}
-						onEndEditing={validateInputs}
-						value={firstName}
-					/>
-					{ hasErrors.firstName && <ErrorText text={errors.name} /> }
-					<TextInput
-						style={styles.textInput}
-						placeholder="last name"
-						onChangeText={setLastName}
-						onEndEditing={validateInputs}
-						value={lastName}
-					/>
-					{ hasErrors.lastName && <ErrorText text={errors.name} /> }
-				</View>
+				<ScrollView style={styles.container}>
 
-				<View style={styles.emailContainer}>
-					<TextInput
-						style={styles.textInput}
-						placeholder="email"
-						onChangeText={setEmail}
-						onEndEditing={validateInputs}
-						value={email}
-					/>
-					{ hasErrors.email && <ErrorText text={errors.email} />}
-				</View>
-
-				<TextInput
-					style={styles.textInput}
-					placeholder="password"
-					onChangeText={setPassword}
-					onEndEditing={validateInputs}
-					value={password}
-					secureTextEntry={true}
-				/>
-				{ hasErrors.password && <ErrorText text={errors.password} />}
-				<TextInput
-					style={styles.textInput}
-					placeholder="confirm password"
-					onChangeText={setConfirmPassword}
-					onEndEditing={validateInputs}
-					value={confirmPassword}
-					secureTextEntry={true}
-				/>
-				{ hasErrors.passwordMatch && <ErrorText text={errors.passwordMatch} />}
-
-				<View style={styles.genderAndAgeContainer}>
-					<View style={[ styles.textInput, styles.dropdown ]}>
-						<View />
-						{ hasErrors.gender && <ErrorText text={errors.gender} />}
+					<View style={styles.nameContainer}>
+						<TextInput
+							style={styles.textInput}
+							placeholder="first name"
+							onChangeText={setFirstName}
+							onEndEditing={validateInputs}
+							value={firstName}
+						/>
+						{ hasErrors.firstName && <ErrorText text={errors.name} /> }
+						<TextInput
+							style={styles.textInput}
+							placeholder="last name"
+							onChangeText={setLastName}
+							onEndEditing={validateInputs}
+							value={lastName}
+						/>
+						{ hasErrors.lastName && <ErrorText text={errors.name} /> }
 					</View>
 
-					<View style={[ styles.textInput, styles.dropdown ]}>
-						<View />
-						{ hasErrors.age && <ErrorText text={errors.age} />}
+					<View style={styles.emailContainer}>
+						<TextInput
+							style={styles.textInput}
+							placeholder="email"
+							onChangeText={setEmail}
+							onEndEditing={validateInputs}
+							value={email}
+						/>
+						{ hasErrors.email && <ErrorText text={errors.email} />}
 					</View>
-				</View>
 
-				<View style={styles.termsContainer}>
-					<Text style={styles.termsText}>By tapping, you agree to our</Text>
-					<View style={styles.linksContainer}>
-						<TouchableOpacity onPress={() => console.log('terms')}>
-							<Text style={[ styles.termsText, styles.termsLink ]}>
-								Terms
-							</Text>
-						</TouchableOpacity>
-						<Text style={styles.termsText}>and</Text>
-						<TouchableOpacity onPress={() => console.log('privacy')}>
-							<Text style={[ styles.termsText, styles.termsLink ]}>
-								Privacy Policy
-							</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
+					<TextInput
+						style={styles.textInput}
+						placeholder="password"
+						onChangeText={setPassword}
+						onEndEditing={validateInputs}
+						value={password}
+						secureTextEntry={true}
+					/>
+					{ hasErrors.password && <ErrorText text={errors.password} />}
+					<TextInput
+						style={styles.textInput}
+						placeholder="confirm password"
+						onChangeText={setConfirmPassword}
+						onEndEditing={validateInputs}
+						value={confirmPassword}
+						secureTextEntry={true}
+					/>
+					{ hasErrors.passwordMatch && <ErrorText text={errors.passwordMatch} />}
 
-				<View style={styles.buttonContainer}>
-					<TouchableOpacity onPress={onSubmit} disabled={!isSubmitEnabled && validateOnTextEntry}>
-						<View style={[
-							styles.button,
-							!isSubmitEnabled && validateOnTextEntry && styles.disabled,
-						]}>
-							<Text style={styles.buttonText}>
-								Submit
-							</Text>
+					<View style={styles.genderAndAgeContainer}>
+						<View style={styles.dropdownContainer}>
+							<View style={[ styles.textInput, styles.dropdown ]}>
+								<RNPickerSelect
+									placeholder={{ label: 'select one...', key: 'gender', inputLabel: 'gender'  }}
+									items={[
+										{
+											label: 'Female',
+											value: 'female',
+										},
+										{
+											label: 'Male',
+											value: 'male',
+										},
+										{
+											label: 'Non-binary',
+											value: 'nonbinary',
+										},
+										{
+											label: 'Other',
+											value: customGender,
+										},
+									]}
+									onValueChange={setGender}
+									style={{ placeholder: styles.placeholderText, inputIOS: styles.placeholderText }}
+								/>
+							</View>
+							{ hasErrors.gender && <ErrorText text={errors.gender} />}
 						</View>
-					</TouchableOpacity>
-				</View>
 
-			</ScrollView>
-		</OnboardingScreen>
+						<View style={styles.dropdownContainer}>
+							<View style={[ styles.textInput, styles.text ]}>
+								<RNPickerSelect
+									placeholder={{ label:'select one...', key: 'age', inputLabel: 'age group' }}
+									items={ageGroups}
+									onValueChange={setAgeGroup}
+									// pickerProps={{ style: styles.text }}
+									style={{ placeholder: styles.placeholderText, inputIOS: styles.placeholderText }}
+								/>
+							</View>
+							{ hasErrors.age && <ErrorText text={errors.age} />}
+						</View>
+					</View>
+
+					<View style={styles.termsContainer}>
+						<Text style={styles.termsText}>By tapping, you agree to our</Text>
+						<View style={styles.linksContainer}>
+							<TouchableOpacity onPress={() => console.log('terms')}>
+								<Text style={[ styles.termsText, styles.termsLink ]}>
+									Terms
+								</Text>
+							</TouchableOpacity>
+							<Text style={styles.termsText}>and</Text>
+							<TouchableOpacity onPress={() => console.log('privacy')}>
+								<Text style={[ styles.termsText, styles.termsLink ]}>
+									Privacy Policy
+								</Text>
+							</TouchableOpacity>
+						</View>
+					</View>
+
+					<View style={styles.buttonContainer}>
+						<TouchableOpacity onPress={onSubmit} disabled={validateOnTextEntry && !isSubmitEnabled}>
+							<View style={[
+								styles.button,
+								!isSubmitEnabled && validateOnTextEntry && styles.disabled,
+							]}>
+								<Text style={styles.buttonText}>
+									Submit
+								</Text>
+							</View>
+						</TouchableOpacity>
+					</View>
+
+				</ScrollView>
+			</OnboardingScreen>
+		</KeyboardAvoidingView>
 	);
 };

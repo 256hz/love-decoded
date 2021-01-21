@@ -3,6 +3,9 @@ import colors from 'elements/globalStyles/color';
 import text from 'elements/globalStyles/text';
 
 export default StyleSheet.create({
+	kavContainer: {
+		flex: 1,
+	},
 	container: {
 		flex: 1,
 		paddingHorizontal: 16,
@@ -18,24 +21,35 @@ export default StyleSheet.create({
 		marginBottom: 14,
 	},
 	textInput: {
-		backgroundColor: colors.White,
+		backgroundColor: colors.WhiteMoreTransparent,
 		width: '100%',
 		height: 45,
 		borderRadius: 5,
 		paddingLeft: 16,
-		...text.body,
-		fontSize: 16,
 		marginBottom: 9,
+	},
+	placeholderText: {
+		...text.body,
+		fontSize: 14,
+		height: '100%',
+		lineHeight: 18,
+		color: colors.GrayBC,
+	},
+	text: {
+		...text.body,
+		lineHeight: 18,
+		color: colors.GrayBC,
 	},
 	genderAndAgeContainer: {
 		flexDirection: 'row',
 		marginTop: 8,
 		justifyContent: 'space-between',
 	},
+	dropdownContainer: {
+		height: '100%',
+		width: '48.5%',
+	},
 	dropdown: {
-		// to be used with textInput
-		width: '47.5%',
-		marginBottom: undefined,
 	},
 	termsContainer: {
 		marginTop: 42,
@@ -45,6 +59,7 @@ export default StyleSheet.create({
 	},
 	termsText: {
 		...text.body,
+		color: colors.Gray92,
 		fontSize: 14,
 		textAlign: 'center',
 		textAlignVertical: 'center',
@@ -79,7 +94,6 @@ export default StyleSheet.create({
 	},
 	errorContainer: {
 		width: '100%',
-		paddingHorizontal: 32,
 		marginBottom: 9,
 		marginTop: -1,
 		justifyContent: 'center',
