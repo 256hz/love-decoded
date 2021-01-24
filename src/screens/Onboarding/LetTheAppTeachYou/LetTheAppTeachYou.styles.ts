@@ -1,6 +1,6 @@
+import { StyleSheet } from 'react-native';
 import colors from 'elements/globalStyles/color';
 import text from 'elements/globalStyles/text';
-import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	titleContainerStyle: {

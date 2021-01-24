@@ -23,16 +23,29 @@ export default StyleSheet.create({
 		...text.highlight,
 		fontSize: 17,
 	},
+	textOrange: {
+		color: colors.Orange,
+	},
+	textBold: {
+		fontWeight: '700',
+	},
 	cards: {
 		flex: 1,
+		marginBottom: 64,
 		marginTop: 16,
 	},
 	cardContainer: {
 		flex: 1,
 	},
+	cardCenterBody: {
+		justifyContent: 'center',
+	},
 	textBody: {
 		...text.body,
 		fontSize: 17,
+	},
+	textList: {
+		marginBottom: 18,
 	},
 	footerText: {
 		...text.body,

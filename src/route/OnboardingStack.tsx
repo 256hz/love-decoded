@@ -17,6 +17,8 @@ import LoveVsHeartburnScreen from '@screens/Onboarding/LoveVsHeartburn';
 import DependencyScreen from '@screens/Onboarding/Dependency';
 import NavigatingTheStructureScreen from '@screens/Onboarding/NavigatingTheStructure';
 import BornToBeLovedScreen from '@screens/Onboarding/BornToBeLoved';
+import SetYourAlertsIntroScreen from '@screens/Onboarding/SetYourAlertsIntro';
+import SetYourAlertsScreen from '@screens/Onboarding/SetYourAlerts';
 
 const OnboardingStack = createStackNavigator();
 
@@ -38,6 +40,8 @@ export enum Screens {
 	LoveVsHeartburn = 'LoveVsHeartburn',
 	NavigatingTheStructure = 'NavigatingTheStructure',
 	BornToBeLoved = 'BornToBeLoved',
+	SetYourAlertsIntro = 'SetYourAlertsIntro',
+	SetYourAlerts = 'SetYourAlerts',
 }
 
 export type OnboardingStackParamList = {
@@ -58,10 +62,12 @@ export type OnboardingStackParamList = {
 	[Screens.LoveVsHeartburn]: undefined
 	[Screens.NavigatingTheStructure]: undefined
 	[Screens.BornToBeLoved]: undefined
+	[Screens.SetYourAlertsIntro]: undefined
+	[Screens.SetYourAlerts]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.NavigatingTheStructure}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.SetYourAlertsIntro}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -79,5 +85,7 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.LoveVsHeartburn} component={LoveVsHeartburnScreen} />
 		<OnboardingStack.Screen name={Screens.NavigatingTheStructure} component={NavigatingTheStructureScreen} />
 		<OnboardingStack.Screen name={Screens.BornToBeLoved} component={BornToBeLovedScreen} />
+		<OnboardingStack.Screen name={Screens.SetYourAlertsIntro} component={SetYourAlertsIntroScreen} />
+		<OnboardingStack.Screen name={Screens.SetYourAlerts} component={SetYourAlertsScreen} />
 	</OnboardingStack.Navigator>
 );
