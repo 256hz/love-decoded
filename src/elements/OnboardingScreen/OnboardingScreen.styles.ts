@@ -11,6 +11,9 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
+	titleLogoMargin: {
+		marginTop: 21,
+	},
 	screenContainer: {
 		flex: 1,
 		justifyContent: 'space-between',
@@ -24,7 +27,7 @@ export default StyleSheet.create({
 		fontFamily: 'Rubik',
 		fontSize: 20,
 		lineHeight: 30,
-		fontWeight: '700',
+		fontWeight: '500',
 		textAlign: 'center',
 	},
 });

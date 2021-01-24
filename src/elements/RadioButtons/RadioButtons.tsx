@@ -10,7 +10,7 @@ export interface IRadioButton {
 
 interface RadioButtonsProps {
 	buttons: IRadioButton[],
-	selectedValue?: string | number | boolean;
+	selectedValue?: string | number | boolean | string[];
 	setSelectedValue: Function;
 }
 

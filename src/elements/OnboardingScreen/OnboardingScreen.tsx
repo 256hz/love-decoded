@@ -1,5 +1,5 @@
 import React, { ReactChild } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ViewStyle } from 'react-native';
 import Logo from '@assets/svg/logo.svg';
 import { AudioPlayerNavigator } from 'elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from 'elements/AudioPlayerNavigator/AudioPlayerNavigator';
@@ -10,8 +10,10 @@ type Props = {
 	children: ReactChild;
 	customBottomSection?: ReactChild,
 	drawShapes?: number[];
+	hideBackButton?: boolean;
 	showLogo?: boolean;
 	title?: string;
+	titleContainerStyle?: ViewStyle;
 } & AudioPlayerNavigatorProps;
 
 const OnboardingScreen = ({
@@ -21,11 +23,13 @@ const OnboardingScreen = ({
 	customBottomSection = <></>,
 	customButtons,
 	drawShapes,
+	hideBackButton,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
 	showLogo,
 	title,
+	titleContainerStyle,
 }: Props) => (
 	<View style={styles.container}>
 		<BackgroundFade drawShapes={drawShapes}>
@@ -40,7 +44,8 @@ const OnboardingScreen = ({
 
 					<View style={[
 						styles.titleContainer,
-						showLogo && { marginTop: 21 },
+						showLogo && styles.titleLogoMargin,
+						titleContainerStyle,
 					]}>
 						<Text style={styles.titleText}>
 							{title}
@@ -53,10 +58,11 @@ const OnboardingScreen = ({
 
 				{ customBottomSection }
 
-				{ audioFilename && nextTarget && (
+				{ nextTarget && (
 					<AudioPlayerNavigator
 						audioFilename={audioFilename}
 						backTarget={backTarget}
+						hideBackButton={hideBackButton}
 						onNextCallback={onNextCallback}
 						nextEnabled={nextEnabled}
 						nextTarget={nextTarget}

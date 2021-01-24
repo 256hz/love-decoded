@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		borderRadius: 13,
+		borderRadius: 6,
 		justifyContent: 'space-between',
 		backgroundColor: 'white',
 		padding: 21,
@@ -15,6 +15,10 @@ export default StyleSheet.create({
 		fontSize: 17,
 		lineHeight: 23,
 		letterSpacing: -0.24,
+	},
+	centerBody: {
+		flex: 1,
+		justifyContent: 'center',
 	},
 	highlight: {
 		fontWeight: '700',

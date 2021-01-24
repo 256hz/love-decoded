@@ -82,4 +82,9 @@ export default StyleSheet.create({
 		right: 0,
 		top: '10%',
 	},
+	shape17: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+	},
 });

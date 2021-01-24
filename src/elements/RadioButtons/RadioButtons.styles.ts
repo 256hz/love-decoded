@@ -15,7 +15,7 @@ export default StyleSheet.create({
 		width: 22,
 		height: 22,
 		borderRadius: 11,
-		backgroundColor: colors.GrayTransparentDark,
+		backgroundColor: colors.GrayTransparent028,
 		marginRight: 19,
 	},
 	selected: {

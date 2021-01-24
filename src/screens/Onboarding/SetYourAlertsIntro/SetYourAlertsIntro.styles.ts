@@ -11,17 +11,19 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		marginVertical: 16,
-		paddingHorizontal: 64,
+		paddingHorizontal: 39,
 	},
 	topText: {
 		...text.body,
-		...text.topText,
-		fontSize: 17,
+		fontSize: 18,
 	},
 	highlight: {
 		...text.body,
 		...text.highlight,
 		fontSize: 17,
+	},
+	boldText: {
+		fontWeight: '700',
 	},
 	cards: {
 		flex: 1,
@@ -30,6 +32,7 @@ export default StyleSheet.create({
 	footerText: {
 		...text.body,
 		...text.topText,
+		fontSize: 16,
 		color: colors.GrayTransparent073,
 		marginTop: 8,
 	},

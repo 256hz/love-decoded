@@ -26,7 +26,7 @@ const text = {
 		color: colors.Orange,
 	} as TextStyle,
 	footerText: {
-		color: colors.GrayTransparent,
+		color: colors.GrayTransparent073,
 		textAlign: 'center',
 		marginTop: 8,
 	} as TextStyle,

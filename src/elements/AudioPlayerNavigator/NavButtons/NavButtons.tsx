@@ -9,33 +9,46 @@ import styles from './NavButtons.styles';
 
 interface Props {
 	backTarget?: Screens;
+	hideBackButton?: boolean;
 	nextTarget: Screens;
 	nextEnabled: boolean;
 	onNextCallback?: (arg?: any) => void;
 }
 
-export default ({ backTarget, nextTarget, nextEnabled, onNextCallback }: Props) => {
+export default ({
+	backTarget,
+	hideBackButton,
+	nextTarget,
+	nextEnabled,
+	onNextCallback,
+}: Props) => {
 	const { navigate, goBack, canGoBack } = useNavigation();
 	const nextIsEnabled = nextTarget && nextEnabled;
 
 	return (
 		<View style={styles.container}>
-			<TouchableOpacity
-				onPress={() => {
-					backTarget
-						? navigate(backTarget)
-						: canGoBack() && goBack();
-				}}
-				disabled={!canGoBack()}
-			>
-				<View style={[
-					styles.navButton,
-					!canGoBack() && styles.disabled,
-				]}>
-					<BackArrow />
-					<Text style={styles.text}>Back</Text>
-				</View>
-			</TouchableOpacity>
+			{
+				hideBackButton
+					? <View />
+					: (
+						<TouchableOpacity
+							onPress={() => {
+								backTarget
+									? navigate(backTarget)
+									: canGoBack() && goBack();
+							}}
+							disabled={!canGoBack()}
+						>
+							<View style={[
+								styles.navButton,
+								!canGoBack() && styles.disabled,
+							]}>
+								<BackArrow />
+								<Text style={styles.text}>Back</Text>
+							</View>
+						</TouchableOpacity>
+					)
+			}
 
 			<TouchableOpacity
 				onPress={() => {
