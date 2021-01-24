@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import React, { ReactChild, ReactElement } from 'react';
 import {
 	StyleProp,
 	Text,
@@ -9,20 +9,29 @@ import {
 import styles from './Card.styles';
 
 export type CardEntry = {
-	body: string;
+	body?: string;
+	BodyElement?: () => ReactElement;
 	title?: string;
 	bottomElement?: ReactChild;
 	link?: string;
 	bodyStyle?: StyleProp<TextStyle>;
 };
 
-export default ({ card }: { card: CardEntry }) => (
+export default ({ item }: { item: CardEntry }) => (
 	<View style={styles.container}>
-		<Text style={[ styles.body, styles.title, styles.highlight ]}>{card.title}</Text>
-		<Text style={[ styles.body, card.bodyStyle ]}>{card.body}</Text>
+		{
+			item.title && <Text style={[ styles.body, styles.title, styles.highlight ]}>{item.title}</Text>
+		}
+
+		{
+			item.BodyElement
+				? <item.BodyElement />
+				: <Text style={[ styles.body, item.bodyStyle ]}>{item.body}</Text>
+		}
+
 		<View style={styles.cardBottom}>
-			{ card.bottomElement || (
-				<TouchableOpacity onPress={() => { console.log(card.link); }}>
+			{ item.bottomElement || (
+				<TouchableOpacity onPress={() => { console.log(item.link); }}>
 					<View style={styles.button}>
 						<Text style={styles.buttonText}>click to view</Text>
 					</View>

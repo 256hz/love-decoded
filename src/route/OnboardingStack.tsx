@@ -13,7 +13,10 @@ import TheJourneyStartsNowScreen from '@screens/Onboarding/TheJourneyStartsNow';
 import SignupFormScreen from '@screens/Onboarding/SignupForm';
 import ThankYouForSigningUpScreen from '@screens/Onboarding/ThankYouForSigningUp';
 import LetTheAppTeachYouScreen from '@screens/Onboarding/LetTheAppTeachYou';
-
+import LoveVsHeartburnScreen from '@screens/Onboarding/LoveVsHeartburn';
+import DependencyScreen from '@screens/Onboarding/Dependency';
+import NavigatingTheStructureScreen from '@screens/Onboarding/NavigatingTheStructure';
+import BornToBeLovedScreen from '@screens/Onboarding/BornToBeLoved';
 
 const OnboardingStack = createStackNavigator();
 
@@ -31,6 +34,10 @@ export enum Screens {
 	SignupForm = 'SignupForm',
 	ThankYouForSigningUp = 'ThankYouForSigningUp',
 	LetTheAppTeachYou = 'LetTheAppTeachYou',
+	Dependency = 'Dependency',
+	LoveVsHeartburn = 'LoveVsHeartburn',
+	NavigatingTheStructure = 'NavigatingTheStructure',
+	BornToBeLoved = 'BornToBeLoved',
 }
 
 export type OnboardingStackParamList = {
@@ -47,10 +54,14 @@ export type OnboardingStackParamList = {
 	[Screens.SignupForm]: undefined
 	[Screens.ThankYouForSigningUp]: undefined
 	[Screens.LetTheAppTeachYou]: undefined
+	[Screens.Dependency]: undefined
+	[Screens.LoveVsHeartburn]: undefined
+	[Screens.NavigatingTheStructure]: undefined
+	[Screens.BornToBeLoved]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.LetTheAppTeachYou}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.NavigatingTheStructure}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -64,5 +75,9 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.SignupForm} component={SignupFormScreen} />
 		<OnboardingStack.Screen name={Screens.ThankYouForSigningUp} component={ThankYouForSigningUpScreen} />
 		<OnboardingStack.Screen name={Screens.LetTheAppTeachYou} component={LetTheAppTeachYouScreen} />
+		<OnboardingStack.Screen name={Screens.Dependency} component={DependencyScreen} />
+		<OnboardingStack.Screen name={Screens.LoveVsHeartburn} component={LoveVsHeartburnScreen} />
+		<OnboardingStack.Screen name={Screens.NavigatingTheStructure} component={NavigatingTheStructureScreen} />
+		<OnboardingStack.Screen name={Screens.BornToBeLoved} component={BornToBeLovedScreen} />
 	</OnboardingStack.Navigator>
 );

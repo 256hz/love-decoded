@@ -8,7 +8,7 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 6, 10 ]}
 		hideBackButton={true}
-		nextTarget={Screens.LetTheAppTeachYou}
+		nextTarget={Screens.LoveVsHeartburn}
 		title="Let The App Teach You"
 		titleContainerStyle={styles.titleContainerStyle}
 	>

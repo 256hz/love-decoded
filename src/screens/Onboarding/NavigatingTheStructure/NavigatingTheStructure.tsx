@@ -1,0 +1,67 @@
+import React from 'react';
+import { Text, View } from 'react-native';
+import { Screens } from 'route/OnboardingStack';
+import { CardCarousel, OnboardingScreen } from '@elements';
+import styles from './NavigatingTheStructure.styles';
+
+const cards = [
+	{
+		bodyElement: (
+			<View style={styles.cardContainer}>
+				<Text style={styles.textBody}>
+					The course is divided into 3 stages –
+					<Text style={[ styles.textBody, styles.highlight ]}>
+						Introductory, Intermediate, and Advanced.
+					</Text>
+				</Text>
+
+				<Text style={styles.textBody}>
+					There are 7 Steps in each stage. The Steps focus on various aspects of your relationship with Self, and continually move you toward loving yourself and others.
+				</Text>
+			</View>
+		),
+		bottomElement: <Text style={styles.footerText}>swipe left to see more</Text>,
+	},
+	{
+		title: 'Link #1',
+		body: 'Survival rates of cancer patients who are surrounded by love and love self is 40% higher.',
+		link: 'http://www.google.com',
+	},
+	{
+		title: 'Link #2',
+		body: 'Children’s bodies and brains grow better when mothers are attentive, nurturing, and loving.',
+		link: 'http://www.google.com',
+	},
+	{
+		title: 'Link #3',
+		body: 'Love and Self-love turns back the aging clock – your cell’s telomeres lengthen with healthy, stress-free lifestyle.',
+		link: 'http://www.google.com',
+	},
+	{
+		title: 'Link #4',
+		body: 'Premature infants grow faster with attentive, loving massage.',
+		link: 'http://www.google.com',
+	},
+	{
+		title: 'Link #5',
+		body: 'In her book “The Love Response”, Dr. Eva Selhub, MD explains how love stimulates the relaxation response which in turn generates the production of oxytocin, the hormone most associated with our immune system and health.',
+		link: 'http://www.google.com',
+		bodyStyle: { fontSize: 13, lineHeight: 19 },
+	},
+];
+
+export default () => (
+	<OnboardingScreen
+		drawShapes={[ 1, 7, 11 ]}
+		showLogo={true}
+		title={'The Science of Love:\nA Pioneering Discovery'}
+		audioFilename="music.mp3"
+		nextTarget={Screens.MasteringLove}
+	>
+		<View style={styles.container}>
+			<View style={styles.cards}>
+				<CardCarousel cards={cards} />
+			</View>
+		</View>
+	</OnboardingScreen>
+);

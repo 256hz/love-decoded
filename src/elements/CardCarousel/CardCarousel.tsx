@@ -41,11 +41,12 @@ export default class CardCarousel extends Component<Props, State> {
 
 	// eslint-disable-next-line class-methods-use-this
 	_renderItem({ item }: { item: CardEntry }) {
-		return <Card card={item} />;
+		return <Card item={item} />;
 	}
 
 	render() {
 		const { entries, width } = this.state;
+
 		return (
 			<View style={styles.container}>
 				<Carousel
