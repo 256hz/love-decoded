@@ -95,8 +95,8 @@ export default () => {
 
 	const isSubmitEnabled = isPasswordAllowed(password)
 		&& password === confirmPassword
-		&& firstName.length > 1
-		&& lastName.length > 1
+		&& firstName.length
+		&& lastName.length
 		&& isEmail(email)
 		&& Object.values(hasErrors).every(error => !error);
 
@@ -147,7 +147,7 @@ export default () => {
 		});
 		setWaitingForBackend(true);
 		setTimeout(() => {
-			navigate(Screens.Introduction);
+			navigate(Screens.ThankYouForSigningUp);
 		}, 2500);
 	};
 

@@ -11,6 +11,9 @@ import MasteringLoveScreen from '@screens/Onboarding/MasteringLove';
 import ControlScreen from '@screens/Onboarding/Control';
 import TheJourneyStartsNowScreen from '@screens/Onboarding/TheJourneyStartsNow';
 import SignupFormScreen from '@screens/Onboarding/SignupForm';
+import ThankYouForSigningUpScreen from '@screens/Onboarding/ThankYouForSigningUp';
+import LetTheAppTeachYouScreen from '@screens/Onboarding/LetTheAppTeachYou';
+
 
 const OnboardingStack = createStackNavigator();
 
@@ -26,6 +29,8 @@ export enum Screens {
 	Control = 'Control',
 	TheJourneyStartsNow = 'TheJourneyStartsNow',
 	SignupForm = 'SignupForm',
+	ThankYouForSigningUp = 'ThankYouForSigningUp',
+	LetTheAppTeachYou = 'LetTheAppTeachYou',
 }
 
 export type OnboardingStackParamList = {
@@ -40,10 +45,12 @@ export type OnboardingStackParamList = {
 	[Screens.Control]: undefined
 	[Screens.TheJourneyStartsNow]: undefined
 	[Screens.SignupForm]: undefined
+	[Screens.ThankYouForSigningUp]: undefined
+	[Screens.LetTheAppTeachYou]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.SignupForm}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.LetTheAppTeachYou}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -55,5 +62,7 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.Control} component={ControlScreen} />
 		<OnboardingStack.Screen name={Screens.TheJourneyStartsNow} component={TheJourneyStartsNowScreen} />
 		<OnboardingStack.Screen name={Screens.SignupForm} component={SignupFormScreen} />
+		<OnboardingStack.Screen name={Screens.ThankYouForSigningUp} component={ThankYouForSigningUpScreen} />
+		<OnboardingStack.Screen name={Screens.LetTheAppTeachYou} component={LetTheAppTeachYouScreen} />
 	</OnboardingStack.Navigator>
 );

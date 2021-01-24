@@ -27,7 +27,7 @@ export default StyleSheet.create({
 		fontFamily: 'Rubik',
 		fontSize: 20,
 		lineHeight: 30,
-		fontWeight: '700',
+		fontWeight: '500',
 		textAlign: 'center',
 	},
 });

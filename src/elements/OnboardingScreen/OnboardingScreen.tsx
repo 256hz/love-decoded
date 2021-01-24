@@ -10,6 +10,7 @@ type Props = {
 	children: ReactChild;
 	customBottomSection?: ReactChild,
 	drawShapes?: number[];
+	hideBackButton?: boolean;
 	showLogo?: boolean;
 	title?: string;
 	titleContainerStyle?: ViewStyle;
@@ -22,6 +23,7 @@ const OnboardingScreen = ({
 	customBottomSection = <></>,
 	customButtons,
 	drawShapes,
+	hideBackButton,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
@@ -56,10 +58,11 @@ const OnboardingScreen = ({
 
 				{ customBottomSection }
 
-				{ audioFilename && nextTarget && (
+				{ nextTarget && (
 					<AudioPlayerNavigator
 						audioFilename={audioFilename}
 						backTarget={backTarget}
+						hideBackButton={hideBackButton}
 						onNextCallback={onNextCallback}
 						nextEnabled={nextEnabled}
 						nextTarget={nextTarget}
