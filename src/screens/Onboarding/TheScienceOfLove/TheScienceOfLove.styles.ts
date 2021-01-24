@@ -30,7 +30,7 @@ export default StyleSheet.create({
 	footerText: {
 		...text.body,
 		...text.topText,
-		color: colors.GrayTransparent,
+		color: colors.GrayTransparent073,
 		marginTop: 8,
 	},
 });

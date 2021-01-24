@@ -30,15 +30,16 @@ export default StyleSheet.create({
 	},
 	placeholderText: {
 		...text.body,
-		fontSize: 14,
 		height: '100%',
+		fontSize: 16,
 		lineHeight: 18,
 		color: colors.GrayBC,
 	},
 	text: {
 		...text.body,
+		fontSize: 16,
 		lineHeight: 18,
-		color: colors.GrayBC,
+		color: colors.GrayTransparent071,
 	},
 	genderAndAgeContainer: {
 		flexDirection: 'row',
@@ -60,7 +61,7 @@ export default StyleSheet.create({
 	termsText: {
 		...text.body,
 		color: colors.Gray92,
-		fontSize: 14,
+		fontSize: 16,
 		textAlign: 'center',
 		textAlignVertical: 'center',
 		marginHorizontal: 2,
@@ -90,12 +91,13 @@ export default StyleSheet.create({
 		fontWeight: '700',
 	},
 	disabled: {
-		backgroundColor: colors.GrayTransparent,
+		backgroundColor: colors.GrayTransparent073,
 	},
 	errorContainer: {
 		width: '100%',
 		marginBottom: 9,
-		marginTop: -1,
+		marginTop: 0,
+		marginLeft: 16,
 		justifyContent: 'center',
 	},
 	errorText: {
