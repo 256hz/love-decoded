@@ -54,12 +54,13 @@ export default StyleSheet.create({
 	errorContainer: {
 		width: '100%',
 		marginBottom: 9,
-		marginTop: 0,
-		marginLeft: 16,
+		marginTop: 9,
 		justifyContent: 'center',
+
 	},
 	errorText: {
 		...text.body,
+		textAlign: 'center',
 		color: colors.RedDark,
 		lineHeight: 15,
 	},
