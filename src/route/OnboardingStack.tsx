@@ -19,6 +19,7 @@ import NavigatingTheStructureScreen from '@screens/Onboarding/NavigatingTheStruc
 import BornToBeLovedScreen from '@screens/Onboarding/BornToBeLoved';
 import SetYourAlertsIntroScreen from '@screens/Onboarding/SetYourAlertsIntro';
 import SetYourAlertsScreen from '@screens/Onboarding/SetYourAlerts';
+import SetYourAlertsThankYouScreen from '@screens/Onboarding/SetYourAlertsThankYou';
 
 const OnboardingStack = createStackNavigator();
 
@@ -42,6 +43,7 @@ export enum Screens {
 	BornToBeLoved = 'BornToBeLoved',
 	SetYourAlertsIntro = 'SetYourAlertsIntro',
 	SetYourAlerts = 'SetYourAlerts',
+	SetYourAlertsThankYou = 'SetYourAlertsThankYou',
 }
 
 export type OnboardingStackParamList = {
@@ -64,10 +66,11 @@ export type OnboardingStackParamList = {
 	[Screens.BornToBeLoved]: undefined
 	[Screens.SetYourAlertsIntro]: undefined
 	[Screens.SetYourAlerts]: undefined
+	[Screens.SetYourAlertsThankYou]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.SetYourAlertsIntro}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.SetYourAlerts}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -87,5 +90,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.BornToBeLoved} component={BornToBeLovedScreen} />
 		<OnboardingStack.Screen name={Screens.SetYourAlertsIntro} component={SetYourAlertsIntroScreen} />
 		<OnboardingStack.Screen name={Screens.SetYourAlerts} component={SetYourAlertsScreen} />
+		<OnboardingStack.Screen name={Screens.SetYourAlertsThankYou} component={SetYourAlertsThankYouScreen} />
 	</OnboardingStack.Navigator>
 );

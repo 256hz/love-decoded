@@ -214,7 +214,7 @@ export default () => {
 
 					<View style={styles.genderAndAgeContainer}>
 						<View style={styles.dropdownContainer}>
-							<View style={[ styles.textInput, styles.dropdown ]}>
+							<View style={styles.textInput}>
 								<RNPickerSelect
 									placeholder={{ label: 'select one...', key: 'gender', inputLabel: 'gender'  }}
 									items={genderChoices}

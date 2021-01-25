@@ -8,6 +8,7 @@ const colors = {
 	GrayTransparent028: 'rgba(0, 0, 0, 0.28)',
 	Green: '#17D419',
 	Orange: '#F1751B',
+	OrangeLight: '#F6CEB2',
 	OrangeTransparent: 'rgba(241, 117, 27, 0.3)',
 	Pink: '#F41882',
 	Red: '#DD1E36',
