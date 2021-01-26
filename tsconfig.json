@@ -1,16 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "commonjs",
-    "lib": [ "es2020" ],
-    "allowJs": true,
-    "jsx": "react-native",
-    "noEmit": true,
-    "isolatedModules": true,
-    "strict": true,
-    "noImplicitAny": false,
-    "moduleResolution": "node",
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+		"esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": [ "es2020" ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noImplicitAny": false,
     "paths": {
       "*": ["src/*"],
       "@assets/*": ["assets/*"],
@@ -18,13 +18,14 @@
       "@elements": ["src/elements/index"],
       "@elements/*": ["src/elements/*"],
       "@redux/*": ["src/redux/*"],
-    },
+		},
+		"skipLibCheck": true,
+    "strict": true,
+    "target": "esnext",
     "types": [ "jest" ],
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-  },
-  "exclude": [
-    "node_modules",
-    "jest.config.js"
-  ]
+	},
+	"exclude": [
+		"node_modules",
+		"jest.config.js"
+	],
 }

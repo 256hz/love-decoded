@@ -23,7 +23,7 @@ const radioButtons: IRadioButton[] = [
 export default () => {
 	const dispatch = useDispatch();
 	const [ selectedValue, setSelectedValue ] = useState('');
-	const surveyResponse = useSelector(getSurveyByTitle(Surveys.Dependency));
+	const surveyResponse = useSelector(getSurveyByTitle(Surveys.Dependency)) as string;
 
 	return (
 		<OnboardingScreen
@@ -33,7 +33,7 @@ export default () => {
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}
 			onNextCallback={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
-			nextEnabled={selectedValue !== ''}
+			nextEnabled={!!selectedValue}
 		>
 			<View style={styles.container}>
 				<View style={styles.textContainer}>
