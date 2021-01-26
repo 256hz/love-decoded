@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import IntroductionScreen from '@screens/Onboarding/Introduction';
 import AcknowledgingYourPastScreen from '@screens/Onboarding/AcknowledgingYourPast';
 import WhatWouldILikeToLearnScreen from '@screens/Onboarding/WhatWouldILikeToLearn';
@@ -21,6 +22,7 @@ import SetYourAlertsIntroScreen from '@screens/Onboarding/SetYourAlertsIntro';
 import SetYourAlertsScreen from '@screens/Onboarding/SetYourAlerts';
 import SetYourAlertsThankYouScreen from '@screens/Onboarding/SetYourAlertsThankYou';
 import HowCanITellScreen from '@screens/Onboarding/HowCanITell';
+import NeffSurveyIntroScreen from '@screens/Onboarding/NeffSurveyIntro';
 
 const OnboardingStack = createStackNavigator();
 
@@ -46,6 +48,7 @@ export enum Screens {
 	SetYourAlerts = 'SetYourAlerts',
 	SetYourAlertsThankYou = 'SetYourAlertsThankYou',
 	HowCanITell = 'HowCanITell',
+	NeffSurveyIntro = 'NeffSurveyIntro',
 }
 
 export type OnboardingStackParamList = {
@@ -70,10 +73,11 @@ export type OnboardingStackParamList = {
 	[Screens.SetYourAlerts]: undefined
 	[Screens.SetYourAlertsThankYou]: undefined
 	[Screens.HowCanITell]: undefined
+	[Screens.NeffSurveyIntro]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.SetYourAlertsThankYou}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.HowCanITell}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -95,5 +99,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.SetYourAlerts} component={SetYourAlertsScreen} />
 		<OnboardingStack.Screen name={Screens.SetYourAlertsThankYou} component={SetYourAlertsThankYouScreen} />
 		<OnboardingStack.Screen name={Screens.HowCanITell} component={HowCanITellScreen} />
+		<OnboardingStack.Screen name={Screens.NeffSurveyIntro} component={NeffSurveyIntroScreen} />
 	</OnboardingStack.Navigator>
 );
