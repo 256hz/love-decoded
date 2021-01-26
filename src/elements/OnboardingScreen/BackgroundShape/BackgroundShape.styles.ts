@@ -102,4 +102,9 @@ export default StyleSheet.create({
 		right: 0,
 		top: 0,
 	},
+	shape21: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+	},
 });

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	titleContainerStyle: {
-		paddingTop: 34,
+		paddingTop: 126,
 	},
 	container: {
 		flex: 1,

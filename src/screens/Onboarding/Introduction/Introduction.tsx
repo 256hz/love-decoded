@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { OnboardingScreen, AudioPlayerNavigator } from '@elements';
+import { OnboardingScreen } from '@elements';
 import { OnboardingStackParamList, Screens } from 'route/OnboardingStack';
 import { StackNavigationProp } from '@react-navigation/stack';
 import styles from './Introduction.styles';

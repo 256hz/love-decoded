@@ -23,6 +23,20 @@ import SetYourAlertsScreen from '@screens/Onboarding/SetYourAlerts';
 import SetYourAlertsThankYouScreen from '@screens/Onboarding/SetYourAlertsThankYou';
 import HowCanITellScreen from '@screens/Onboarding/HowCanITell';
 import NeffSurveyIntroScreen from '@screens/Onboarding/NeffSurveyIntro';
+import {
+	NeffSurvey1Screen,
+	NeffSurvey2Screen,
+	NeffSurvey3Screen,
+	NeffSurvey4Screen,
+	NeffSurvey5Screen,
+	NeffSurvey6Screen,
+	NeffSurvey7Screen,
+	NeffSurvey8Screen,
+	NeffSurvey9Screen,
+	NeffSurvey10Screen,
+	NeffSurvey11Screen,
+	NeffSurvey12Screen,
+} from '@screens/Onboarding/NeffSurvey';
 
 const OnboardingStack = createStackNavigator();
 
@@ -49,6 +63,18 @@ export enum Screens {
 	SetYourAlertsThankYou = 'SetYourAlertsThankYou',
 	HowCanITell = 'HowCanITell',
 	NeffSurveyIntro = 'NeffSurveyIntro',
+	NeffSurvey1 = 'NeffSurvey1',
+	NeffSurvey2 = 'NeffSurvey2',
+	NeffSurvey3 = 'NeffSurvey3',
+	NeffSurvey4 = 'NeffSurvey4',
+	NeffSurvey5 = 'NeffSurvey5',
+	NeffSurvey6 = 'NeffSurvey6',
+	NeffSurvey7 = 'NeffSurvey7',
+	NeffSurvey8 = 'NeffSurvey8',
+	NeffSurvey9 = 'NeffSurvey9',
+	NeffSurvey10 = 'NeffSurvey10',
+	NeffSurvey11 = 'NeffSurvey11',
+	NeffSurvey12 = 'NeffSurvey12',
 }
 
 export type OnboardingStackParamList = {
@@ -56,24 +82,36 @@ export type OnboardingStackParamList = {
 	[Screens.AcknowledgingYourPast]: undefined;
 	[Screens.WhatWouldILikeToLearn]: undefined;
 	[Screens.HavingTheLovingCommunities]: undefined;
-	[Screens.WhenYouForget]: undefined
-	[Screens.TheScienceOfLove]: undefined
-	[Screens.FromComfort]: undefined
-	[Screens.MasteringLove]: undefined
-	[Screens.Control]: undefined
-	[Screens.TheJourneyStartsNow]: undefined
-	[Screens.SignupForm]: undefined
-	[Screens.ThankYouForSigningUp]: undefined
-	[Screens.LetTheAppTeachYou]: undefined
-	[Screens.Dependency]: undefined
-	[Screens.LoveVsHeartburn]: undefined
-	[Screens.NavigatingTheStructure]: undefined
-	[Screens.BornToBeLoved]: undefined
-	[Screens.SetYourAlertsIntro]: undefined
-	[Screens.SetYourAlerts]: undefined
-	[Screens.SetYourAlertsThankYou]: undefined
-	[Screens.HowCanITell]: undefined
-	[Screens.NeffSurveyIntro]: undefined
+	[Screens.WhenYouForget]: undefined;
+	[Screens.TheScienceOfLove]: undefined;
+	[Screens.FromComfort]: undefined;
+	[Screens.MasteringLove]: undefined;
+	[Screens.Control]: undefined;
+	[Screens.TheJourneyStartsNow]: undefined;
+	[Screens.SignupForm]: undefined;
+	[Screens.ThankYouForSigningUp]: undefined;
+	[Screens.LetTheAppTeachYou]: undefined;
+	[Screens.Dependency]: undefined;
+	[Screens.LoveVsHeartburn]: undefined;
+	[Screens.NavigatingTheStructure]: undefined;
+	[Screens.BornToBeLoved]: undefined;
+	[Screens.SetYourAlertsIntro]: undefined;
+	[Screens.SetYourAlerts]: undefined;
+	[Screens.SetYourAlertsThankYou]: undefined;
+	[Screens.HowCanITell]: undefined;
+	[Screens.NeffSurveyIntro]: undefined;
+	[Screens.NeffSurvey1]: undefined;
+	[Screens.NeffSurvey2]: undefined;
+	[Screens.NeffSurvey3]: undefined;
+	[Screens.NeffSurvey4]: undefined;
+	[Screens.NeffSurvey5]: undefined;
+	[Screens.NeffSurvey6]: undefined;
+	[Screens.NeffSurvey7]: undefined;
+	[Screens.NeffSurvey8]: undefined;
+	[Screens.NeffSurvey9]: undefined;
+	[Screens.NeffSurvey10]: undefined;
+	[Screens.NeffSurvey11]: undefined;
+	[Screens.NeffSurvey12]: undefined;
 };
 
 export default () => (
@@ -100,5 +138,17 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.SetYourAlertsThankYou} component={SetYourAlertsThankYouScreen} />
 		<OnboardingStack.Screen name={Screens.HowCanITell} component={HowCanITellScreen} />
 		<OnboardingStack.Screen name={Screens.NeffSurveyIntro} component={NeffSurveyIntroScreen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey1} component={NeffSurvey1Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey2} component={NeffSurvey2Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey3} component={NeffSurvey3Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey4} component={NeffSurvey4Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey5} component={NeffSurvey5Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey6} component={NeffSurvey6Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey7} component={NeffSurvey7Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey8} component={NeffSurvey8Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey9} component={NeffSurvey9Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey10} component={NeffSurvey10Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey11} component={NeffSurvey11Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurvey12} component={NeffSurvey12Screen} />
 	</OnboardingStack.Navigator>
 );

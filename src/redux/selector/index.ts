@@ -1,4 +1,4 @@
 export { getAlertTime } from './alerts';
-export { getAllSurveys, getSurveyByTitle } from './survey';
+export { getAllSurveys, getNeffResponseByPageIndex, getSurveyByTitle } from './survey';
 export { getUserId } from './user';
 

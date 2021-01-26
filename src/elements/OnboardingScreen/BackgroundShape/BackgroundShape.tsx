@@ -22,6 +22,7 @@ import Svg17 from '@assets/svg/shape-17.svg';
 import Svg18 from '@assets/svg/shape-18.svg';
 import Svg19 from '@assets/svg/shape-19.svg';
 import Svg20 from '@assets/svg/shape-20.svg';
+import Svg21 from '@assets/svg/shape-21.svg';
 
 import styles from './BackgroundShape.styles';
 
@@ -49,6 +50,7 @@ const svgs = [
 	<Svg18 />,
 	<Svg19 />,
 	<Svg20 />,
+	<Svg21 />,
 ];
 
 const Shape = ({ shapeToDraw }: { shapeToDraw: number }) => {

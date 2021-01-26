@@ -1,14 +1,23 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setSurveyResponse } from '@redux/action';
-import { Surveys } from 'redux/types/survey';
+import { setNeffSurveyResponse, setSurveyResponse } from '@redux/action';
+import { Surveys, SurveyState } from 'redux/types/survey';
 
-export type SurveyState = {
-	[key in Surveys]?: string | string[] | number | number[];
+const INITIAL_STATE: SurveyState = {
+	// The Neff survey has 12 responses, but is one-indexed here (the first one is left blank).
+	// This is to make it easy to map questions/page indexes to responses.
+	[Surveys.Neff]: new Array(13).fill(0),
 };
-
-const INITIAL_STATE: SurveyState = {};
 
 export const survey = createReducer(INITIAL_STATE, reducer => {
 	reducer
+		.addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
+			const currentResponses = [ ...state[Surveys.Neff] ];
+			currentResponses[pageIndex] = response;
+
+			return {
+				...state,
+				[Surveys.Neff]: currentResponses,
+			};
+		})
 		.addCase(setSurveyResponse, (state, { payload: { title, response } }) => ({ ...state, [title]: response }));
 });
