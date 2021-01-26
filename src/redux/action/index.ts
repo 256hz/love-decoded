@@ -1,4 +1,8 @@
 import {
+	setAlertTime,
+} from './alerts';
+
+import {
 	setSurveyResponse,
 } from './survey';
 
@@ -11,6 +15,7 @@ import {
 export {
 	logIn,
 	logOut,
+	setAlertTime,
 	setSurveyResponse,
 	setUserProperty,
 };

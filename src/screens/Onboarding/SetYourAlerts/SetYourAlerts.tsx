@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { Screens } from 'route/OnboardingStack';
 import { OnboardingScreen } from '@elements';
+import { AlertTime } from '@redux/types/alerts';
+import { setAlertTime } from '@redux/action';
+import { getAlertTime } from '@redux/selector';
 import styles from './SetYourAlerts.styles';
 
+type TimePickerProps = {
+	alertTime: AlertTime;
+	hasError: boolean;
+	headingText: string;
+	selectedMinutes: number;
+};
+
 const TimePicker = ({
+	alertTime,
 	hasError,
 	headingText,
 	selectedMinutes,
-	setSelectedMinutes,
-}) => {
+}: TimePickerProps) => {
+	const dispatch = useDispatch();
+
+	const onSelectMinutes = (minutes: number) => {
+		dispatch(setAlertTime(alertTime, minutes));
+	};
+
 	return (
 		<View style={styles.selectorContainer}>
 			<Text style={styles.timePickerHeadingText}>{headingText}</Text>
@@ -21,7 +38,7 @@ const TimePicker = ({
 						placeholder={{ label:'time', key: 'time', inputLabel: 'time' }}
 						items={dropdownChoices}
 						value={selectedMinutes}
-						onValueChange={setSelectedMinutes}
+						onValueChange={onSelectMinutes}
 						style={{
 							placeholder: styles.placeholderText,
 							inputIOS: { ...styles.placeholderText, ...styles.text },
@@ -40,14 +57,14 @@ const TimePicker = ({
 	);
 };
 
-const dayMinutesToTimeString = (dayMinutes: number) => {
+export const dayMinutesToTimeString = (dayMinutes: number) => {
 	const isPm = dayMinutes >= 12 * 60;
 	const hours = Math.floor(dayMinutes / 60) % 12 || 12;
 	const minutes = (dayMinutes % 60).toString().padStart(2, '0');
 	return `${hours}:${minutes} ${isPm ? 'pm' : 'am'}`;
 };
 
-const intervalMinutes = 15;
+const intervalMinutes = 10;
 const intervalsInOneDay = 24 * 60 / intervalMinutes;
 const dropdownChoices = Array.from({ length: intervalsInOneDay }, (_, i) => i * intervalMinutes)
 	.map(minutes => ({
@@ -56,10 +73,10 @@ const dropdownChoices = Array.from({ length: intervalsInOneDay }, (_, i) => i * 
 	}));
 
 export default () => {
-	const [ morningAlertMinutes, setMorningAlertMinutes ] = useState(5 * 60);
-	const [ activitiesAlertMinutes, setActivitiesAlertMinutes ] = useState(11 * 60);
-	const [ surveyAlertMinutes, setSurveyAlertMinutes ] = useState(14 * 60);
-	const [ reflectionAlertMinutes, setReflectionAlertMinutes ] = useState(17 * 60);
+	const morningAlertMinutes = useSelector(getAlertTime(AlertTime.Morning));
+	const activitiesAlertMinutes = useSelector(getAlertTime(AlertTime.Activities));
+	const surveyAlertMinutes = useSelector(getAlertTime(AlertTime.Survey));
+	const reflectionAlertMinutes = useSelector(getAlertTime(AlertTime.Reflection));
 
 	const isNextEnabled = morningAlertMinutes < activitiesAlertMinutes
 		&& activitiesAlertMinutes < surveyAlertMinutes
@@ -80,31 +97,31 @@ export default () => {
 				<View style={styles.pickersContainer}>
 
 					<TimePicker
+						alertTime={AlertTime.Morning}
+						hasError={false}
 						headingText="Morning"
 						selectedMinutes={morningAlertMinutes}
-						setSelectedMinutes={setMorningAlertMinutes}
-						hasError={false}
 					/>
 
 					<TimePicker
+						alertTime={AlertTime.Activities}
+						hasError={activitiesAlertMinutes <= morningAlertMinutes}
 						headingText="Activities"
 						selectedMinutes={activitiesAlertMinutes}
-						setSelectedMinutes={setActivitiesAlertMinutes}
-						hasError={activitiesAlertMinutes <= morningAlertMinutes}
 					/>
 
 					<TimePicker
+						alertTime={AlertTime.Survey}
+						hasError={surveyAlertMinutes <= activitiesAlertMinutes}
 						headingText="Survey"
 						selectedMinutes={surveyAlertMinutes}
-						setSelectedMinutes={setSurveyAlertMinutes}
-						hasError={surveyAlertMinutes <= activitiesAlertMinutes}
 					/>
 
 					<TimePicker
+						alertTime={AlertTime.Reflection}
+						hasError={reflectionAlertMinutes <= surveyAlertMinutes}
 						headingText="Reflection"
 						selectedMinutes={reflectionAlertMinutes}
-						setSelectedMinutes={setReflectionAlertMinutes}
-						hasError={reflectionAlertMinutes <= surveyAlertMinutes}
 					/>
 
 				</View>

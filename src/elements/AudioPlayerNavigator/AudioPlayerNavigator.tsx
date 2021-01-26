@@ -120,8 +120,6 @@ export default ({
 		? nextEnabled && (playedToEnd || __DEV__)
 		: playedToEnd || __DEV__;
 
-	console.log({ nextEnabled, nextIsEnabled });
-
 	return (
 		<View style={styles.container}>
 			{ audioFilename && (
