@@ -87,4 +87,19 @@ export default StyleSheet.create({
 		left: 0,
 		top: 0,
 	},
+	shape18: {
+		position: 'absolute',
+		left: 0,
+		top: 0,
+	},
+	shape19: {
+		position: 'absolute',
+		right: 0,
+		bottom: 0,
+	},
+	shape20: {
+		position: 'absolute',
+		right: 0,
+		top: 0,
+	},
 });

@@ -50,8 +50,6 @@ export default StyleSheet.create({
 		height: '100%',
 		width: '48.5%',
 	},
-	dropdown: {
-	},
 	termsContainer: {
 		marginTop: 42,
 		marginBottom: 34,
