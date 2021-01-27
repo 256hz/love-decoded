@@ -35,7 +35,7 @@ type AudioPlayerNavigatorCustomButtons = {
 };
 
 export default ({
-	audioFilename = 'music128.mp3',
+	audioFilename,
 	backTarget,
 	customButtons,
 	hideBackButton,

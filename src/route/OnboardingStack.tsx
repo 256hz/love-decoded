@@ -37,6 +37,8 @@ import {
 	NeffSurvey11Screen,
 	NeffSurvey12Screen,
 } from '@screens/Onboarding/NeffSurvey';
+import NeffSurveyThankYouScreen from '@screens/Onboarding/NeffSurveyThankYou';
+import NeffSurveyBreakdownScreen from '@screens/Onboarding/NeffSurveyBreakdown';
 import NeffSurveyGoodJobScreen from '@screens/Onboarding/NeffSurveyGoodJob';
 
 const OnboardingStack = createStackNavigator();
@@ -76,6 +78,8 @@ export enum Screens {
 	NeffSurvey10 = 'NeffSurvey10',
 	NeffSurvey11 = 'NeffSurvey11',
 	NeffSurvey12 = 'NeffSurvey12',
+	NeffSurveyBreakdown = 'NeffSurveyBreakdown',
+	NeffSurveyThankYou = 'NeffSurveyThankYou',
 	NeffSurveyGoodJob = 'NeffSurveyGoodJob',
 }
 
@@ -114,11 +118,13 @@ export type OnboardingStackParamList = {
 	[Screens.NeffSurvey10]: undefined;
 	[Screens.NeffSurvey11]: undefined;
 	[Screens.NeffSurvey12]: undefined;
-	[Screens.NeffSurveyGoodJob]: undefined
+	[Screens.NeffSurveyGoodJob]: undefined;
+	[Screens.NeffSurveyBreakdown]: undefined;
+	[Screens.NeffSurveyThankYou]: undefined;
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.NeffSurveyGoodJob}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.NeffSurveyThankYou}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -153,6 +159,8 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.NeffSurvey10} component={NeffSurvey10Screen} />
 		<OnboardingStack.Screen name={Screens.NeffSurvey11} component={NeffSurvey11Screen} />
 		<OnboardingStack.Screen name={Screens.NeffSurvey12} component={NeffSurvey12Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurveyBreakdown} component={NeffSurveyBreakdownScreen} />
+		<OnboardingStack.Screen name={Screens.NeffSurveyThankYou} component={NeffSurveyThankYouScreen} />
 		<OnboardingStack.Screen name={Screens.NeffSurveyGoodJob} component={NeffSurveyGoodJobScreen} />
 	</OnboardingStack.Navigator>
 );

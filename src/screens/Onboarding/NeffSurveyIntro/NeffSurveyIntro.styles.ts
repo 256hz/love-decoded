@@ -22,7 +22,6 @@ export default StyleSheet.create({
 		alignItems: 'center',
 	},
 	surveyButton: {
-		// width: 102,
 		height: 35,
 		marginTop: 15,
 		backgroundColor: colors.OrangeTransparent,
