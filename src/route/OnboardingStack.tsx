@@ -37,6 +37,7 @@ import {
 	NeffSurvey11Screen,
 	NeffSurvey12Screen,
 } from '@screens/Onboarding/NeffSurvey';
+import NeffSurveyGoodJobScreen from '@screens/Onboarding/NeffSurveyGoodJob';
 
 const OnboardingStack = createStackNavigator();
 
@@ -75,6 +76,7 @@ export enum Screens {
 	NeffSurvey10 = 'NeffSurvey10',
 	NeffSurvey11 = 'NeffSurvey11',
 	NeffSurvey12 = 'NeffSurvey12',
+	NeffSurveyGoodJob = 'NeffSurveyGoodJob',
 }
 
 export type OnboardingStackParamList = {
@@ -112,10 +114,11 @@ export type OnboardingStackParamList = {
 	[Screens.NeffSurvey10]: undefined;
 	[Screens.NeffSurvey11]: undefined;
 	[Screens.NeffSurvey12]: undefined;
+	[Screens.NeffSurveyGoodJob]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.HowCanITell}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.NeffSurveyGoodJob}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -150,5 +153,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.NeffSurvey10} component={NeffSurvey10Screen} />
 		<OnboardingStack.Screen name={Screens.NeffSurvey11} component={NeffSurvey11Screen} />
 		<OnboardingStack.Screen name={Screens.NeffSurvey12} component={NeffSurvey12Screen} />
+		<OnboardingStack.Screen name={Screens.NeffSurveyGoodJob} component={NeffSurveyGoodJobScreen} />
 	</OnboardingStack.Navigator>
 );

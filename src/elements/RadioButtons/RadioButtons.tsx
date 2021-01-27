@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ViewStyle } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './RadioButtons.styles';
 
@@ -10,6 +10,7 @@ export interface IRadioButton {
 
 interface RadioButtonsProps {
 	buttons: IRadioButton[],
+	containerStyle?: ViewStyle;
 	selectedValue?: string | number | boolean | string[];
 	setSelectedValue: Function;
 }
@@ -30,8 +31,8 @@ const RadioButton = ({ isSelected, setSelected, label, value }: RadioButtonProps
 	</TouchableOpacity>
 );
 
-export default ({ buttons, selectedValue, setSelectedValue }: RadioButtonsProps) => (
-	<View style={styles.container}>
+export default ({ buttons, containerStyle, selectedValue, setSelectedValue }: RadioButtonsProps) => (
+	<View style={[ styles.container, containerStyle ]}>
 		{buttons.map(({ label, value }) => (
 			<RadioButton
 				label={label}

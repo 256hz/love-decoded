@@ -56,11 +56,14 @@ export default ({ nextTarget, pageIndex, prompt }: NeffSurveyScreenProps) => {
 					{prompt}
 				</Text>
 
-				<RadioButtons
-					buttons={neffSurveyButtons}
-					selectedValue={currentResponse}
-					setSelectedValue={setQuestionResponse}
-				/>
+				<View style={styles.radioButtonContainer}>
+					<RadioButtons
+						buttons={neffSurveyButtons}
+						containerStyle={styles.radioButtonContainerStyle}
+						selectedValue={currentResponse}
+						setSelectedValue={setQuestionResponse}
+					/>
+				</View>
 
 				<Text style={styles.bold}>{pageIndex} of 12</Text>
 			</View>

@@ -3,15 +3,21 @@ import text from 'elements/globalStyles/text';
 
 export default StyleSheet.create({
 	titleContainerStyle: {
-		paddingTop: 34,
+		paddingTop: '10%',
 		paddingHorizontal: 60,
-		marginBottom: 40,
+		marginBottom: 39,
 	},
 	container: {
 		flex: 1,
 		justifyContent: 'space-between',
-		paddingTop: 116,
 		paddingHorizontal: 28,
+	},
+	radioButtonContainer: {
+		flex: 1,
+		alignItems: 'center',
+	},
+	radioButtonContainerStyle: {
+		justifyContent: 'center',
 	},
 	text: {
 		...text.body,
