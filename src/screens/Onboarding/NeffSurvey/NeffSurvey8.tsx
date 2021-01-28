@@ -6,6 +6,7 @@ export default () => (
 	<NeffSurveyScreen
 		nextTarget={Screens.NeffSurvey9}
 		pageIndex={8}
-		prompt="When I fail at something that’s important to me, I tend to feel alone in my failure. "
+		prompt="When I fail at something that’s important to me, I tend to feel alone in my failure."
+		reverseScoring={true}
 	/>
 );

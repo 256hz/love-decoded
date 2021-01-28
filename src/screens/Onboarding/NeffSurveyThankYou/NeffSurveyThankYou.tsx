@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { getAllSurveys } from 'redux/selector';
+import { getNeffAverage } from 'redux/selector';
 import { Screens } from 'route/OnboardingStack';
 import { OnboardingScreen } from '@elements';
 import NextArrow from '@assets/svg/next-arrow.svg';
@@ -23,7 +23,7 @@ const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	console.log(useSelector(getAllSurveys));
+	const neffSurveyScore = useSelector(getNeffAverage);
 
 	return (
 		<OnboardingScreen
@@ -42,8 +42,7 @@ export default () => {
 						Your Score
 					</Text>
 					<View style={styles.scoreContainer}>
-						<Text style={styles.headline}>3.16</Text>
-						{/* <Text style={styles.headline}>{neffSurveyScore}</Text> */}
+						<Text style={styles.headline}>{neffSurveyScore}</Text>
 					</View>
 				</View>
 				<View>

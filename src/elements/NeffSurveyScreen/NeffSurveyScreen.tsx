@@ -8,14 +8,14 @@ import { NeffSurveyPageIndex, NeffSurveyResponse } from 'redux/types/survey';
 import { OnboardingScreen, RadioButtons } from '@elements';
 import styles from './NeffSurveyScreen.styles';
 
-const neffSurveyButtons = [
+const getNeffSurveyButtons = (reverseScoring?: boolean) => [
 	{
 		label: '(1)  Very Often',
-		value: 1 as NeffSurveyResponse,
+		value: (reverseScoring ? 5 : 1) as NeffSurveyResponse,
 	},
 	{
 		label: '(2)  Often',
-		value: 2 as NeffSurveyResponse,
+		value: (reverseScoring ? 4 : 2) as NeffSurveyResponse,
 	},
 	{
 		label: '(3)  Sometimes',
@@ -23,11 +23,11 @@ const neffSurveyButtons = [
 	},
 	{
 		label: '(4)  Almost Never',
-		value: 4 as NeffSurveyResponse,
+		value: (reverseScoring ? 2 : 4) as NeffSurveyResponse,
 	},
 	{
 		label: '(5)  Never',
-		value: 5 as NeffSurveyResponse,
+		value: (reverseScoring ? 1 : 5) as NeffSurveyResponse,
 	},
 ];
 
@@ -35,9 +35,10 @@ type NeffSurveyScreenProps = {
 	nextTarget: Screens,
 	pageIndex: NeffSurveyPageIndex,
 	prompt: string,
+	reverseScoring?: boolean;
 };
 
-export default ({ nextTarget, pageIndex, prompt }: NeffSurveyScreenProps) => {
+export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffSurveyScreenProps) => {
 	const dispatch = useDispatch();
 	const currentResponse = useSelector(getNeffResponseByPageIndex(pageIndex));
 	const setQuestionResponse = (value: NeffSurveyResponse) => dispatch(setNeffSurveyResponse(pageIndex, value));
@@ -58,7 +59,7 @@ export default ({ nextTarget, pageIndex, prompt }: NeffSurveyScreenProps) => {
 
 				<View style={styles.radioButtonContainer}>
 					<RadioButtons
-						buttons={neffSurveyButtons}
+						buttons={getNeffSurveyButtons(reverseScoring)}
 						containerStyle={styles.radioButtonContainerStyle}
 						selectedValue={currentResponse}
 						setSelectedValue={setQuestionResponse}

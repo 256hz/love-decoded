@@ -68,6 +68,7 @@ const OnboardingScreen = ({
 						nextTarget={nextTarget}
 					/>
 				)}
+
 				{ audioFilename && customButtons && (
 					<AudioPlayerNavigator
 						customButtons={customButtons}

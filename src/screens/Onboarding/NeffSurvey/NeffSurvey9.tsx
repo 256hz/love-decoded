@@ -7,5 +7,6 @@ export default () => (
 		nextTarget={Screens.NeffSurvey10}
 		pageIndex={9}
 		prompt="When something upsets me, I try to keep my emotions in balance."
+		reverseScoring={true}
 	/>
 );

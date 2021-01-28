@@ -25,6 +25,7 @@ export default StyleSheet.create({
 	},
 	middleContainer: {
 		flex: 1,
+		minHeight: 200,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},

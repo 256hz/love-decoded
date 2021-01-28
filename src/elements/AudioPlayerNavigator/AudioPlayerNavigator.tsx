@@ -105,6 +105,10 @@ export default ({
 	};
 
 	useEffect(() => {
+		if (!audioFilename) {
+			return;
+		}
+
 		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
