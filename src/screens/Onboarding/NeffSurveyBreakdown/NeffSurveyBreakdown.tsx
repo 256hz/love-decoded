@@ -14,13 +14,18 @@ type NeffScoreLineProps = {
 
 const NeffScoreLine = ({ heading, score }: NeffScoreLineProps) => (
 	<View style={styles.scoreLineContainer}>
-		<Text style={styles.text}>
-			{`${heading}:`}
-		</Text>
-		<View style={styles.scoreContainer}>
-			<Text style={[ styles.text, styles.bold ]}>
-				{score}
+		<View style={styles.scoreHeadingContainer}>
+			<Text style={styles.text}>
+				{`${heading}:`}
 			</Text>
+		</View>
+
+		<View style={styles.scoreNumberContainer}>
+			<View style={styles.scoreContainer}>
+				<Text style={[ styles.text, styles.bold ]}>
+					{score}
+				</Text>
+			</View>
 		</View>
 	</View>
 );
@@ -43,18 +48,21 @@ export default () => {
 					Here is a more in-depth breakdown - higher self-compassionate behaviors are directly related to increased positive states of mind like happiness and life-satisfaction.
 				</Text>
 
-				<NeffScoreLine heading="Self - Kindess" score={selfKindnessScore} />
-				<NeffScoreLine heading="Common Humanity" score={commonHumanityScore} />
-				<NeffScoreLine heading="Mindfulness" score={mindfulnessScore} />
+				<View>
+					<NeffScoreLine heading="Self - Kindess" score={selfKindnessScore} />
+					<NeffScoreLine heading="Common Humanity" score={commonHumanityScore} />
+					<NeffScoreLine heading="Mindfulness" score={mindfulnessScore} />
+				</View>
 
 				<Text style={styles.text}>
 					Higher uncompassionate behaviors are directly related to negative mind-states like depression, stress, and anxiety.
 				</Text>
 
-				<NeffScoreLine heading="Self - Judgement" score={selfJudgementScore} />
-				<NeffScoreLine heading="Isolation" score={isolationScore} />
-				<NeffScoreLine heading="Over-indentification" score={overIdentifiedScore} />
-
+				<View>
+					<NeffScoreLine heading="Self - Judgement" score={selfJudgementScore} />
+					<NeffScoreLine heading="Isolation" score={isolationScore} />
+					<NeffScoreLine heading="Over-indentification" score={overIdentifiedScore} />
+				</View>
 			</ScrollView>
 		</OnboardingScreen>
 	);

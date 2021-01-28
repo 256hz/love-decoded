@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
-import { getNeffAverage } from 'redux/selector';
-import { Screens } from 'route/OnboardingStack';
-import { OnboardingScreen } from '@elements';
 import NextArrow from '@assets/svg/next-arrow.svg';
+import { Screens } from 'route/OnboardingStack';
+import { getNeffAverage } from '@redux/selector';
+import { OnboardingScreen } from '@elements';
 import styles from './NeffSurveyThankYou.styles';
 
 const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (

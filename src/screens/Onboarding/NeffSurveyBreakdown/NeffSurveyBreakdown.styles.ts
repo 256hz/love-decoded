@@ -8,18 +8,25 @@ export default StyleSheet.create({
 	},
 	container: {
 		flexGrow: 1,
-		paddingTop: 100,
 		paddingHorizontal: 33,
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 	},
 	scoreLineContainer: {
 		width: '100%',
 		flexDirection: 'row',
 		alignItems: 'center',
+		justifyContent: 'space-evenly',
+		marginBottom: 9,
+	},
+	scoreHeadingContainer: {
+		flex: 1,
+	},
+	scoreNumberContainer: {
+		flex: 1,
+		alignItems: 'flex-start',
 	},
 	scoreContainer: {
 		backgroundColor: colors.White,
-		marginLeft: 10,
 		borderRadius: 10,
 		paddingHorizontal: 15,
 		height: 30,
@@ -28,9 +35,9 @@ export default StyleSheet.create({
 	},
 	text: {
 		...text.body,
+		fontSize: 16,
 	},
 	bold: {
 		fontWeight: '700',
-		// lineHeight: 45,
 	},
 });

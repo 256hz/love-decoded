@@ -9,7 +9,6 @@ const INITIAL_STATE: SurveyState = {
 };
 
 export const survey = createReducer(INITIAL_STATE, reducer => {
-	console.log(reducer);
 	reducer
 		.addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
 			const currentResponses = [ ...state[Surveys.Neff] ];

@@ -4,8 +4,6 @@ import { NeffSurveyPageIndex, Surveys } from 'redux/types/survey';
 
 const survey = (state: State) => (state || {}).survey || {};
 
-const state = (stat: State) => stat;
-
 export const getSurveyByTitle = (title: Surveys) => createSelector(survey, surveyState => surveyState[title]);
 
 export const getNeffResponseByPageIndex = (pageIndex: NeffSurveyPageIndex) => createSelector(survey,
@@ -20,4 +18,4 @@ export const getNeffAverage = createSelector(survey,
 export const averageTwoNeffPageScores = (page1: number, page2: number) => createSelector(survey,
 	surveyState => (surveyState[Surveys.Neff][page1] + surveyState[Surveys.Neff][page2]) / 2);
 
-export const getAllSurveys = createSelector(state, surveyState => surveyState);
+export const getAllSurveys = createSelector(survey, surveyState => surveyState);

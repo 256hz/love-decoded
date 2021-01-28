@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
+import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	titleContainerStyle: {
@@ -30,5 +31,24 @@ export default StyleSheet.create({
 		fontSize: 20,
 		textAlign: 'center',
 		fontWeight: '700',
+	},
+	bottomContainer: {
+		height: 200,
+		justifyContent: 'center',
+		alignItems: 'center',
+		paddingBottom: 32,
+	},
+	navButton: {
+		width: 102,
+		height: 35,
+		backgroundColor: colors.OrangeTransparent,
+		borderRadius: 10,
+		justifyContent: 'center',
+		alignItems: 'center',
+		flexDirection: 'row',
+		marginTop: 16,
+	},
+	navButtonText: {
+		marginRight: 5,
 	},
 });
