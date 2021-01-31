@@ -3,6 +3,7 @@ import {
 } from './alerts';
 
 import {
+	setNeffSurveyResponse,
 	setSurveyResponse,
 } from './survey';
 
@@ -16,6 +17,7 @@ export {
 	logIn,
 	logOut,
 	setAlertTime,
+	setNeffSurveyResponse,
 	setSurveyResponse,
 	setUserProperty,
 };

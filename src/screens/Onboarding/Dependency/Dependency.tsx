@@ -56,15 +56,14 @@ export default () => {
 				<View style={styles.textContainer}>
 					<Text style={styles.body}>
 						Research shows that over 95% of people answered Yes to this question.
-
 					</Text>
+
 					<Text style={[ styles.body, styles.highlight, styles.bold ]}>
 						How does that make you feel?
 					</Text>
 				</View>
 
 			</View>
-
 		</OnboardingScreen>
 	);
 };

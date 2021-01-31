@@ -1,5 +1,5 @@
 import { AlertsState } from './reducer/alerts';
-import { SurveyState } from './reducer/survey';
+import { SurveyState } from './types/survey';
 import { UserState } from './reducer/user';
 
 interface State {
