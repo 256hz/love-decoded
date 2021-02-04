@@ -40,6 +40,14 @@ import {
 import NeffSurveyThankYouScreen from '@screens/Onboarding/NeffSurveyThankYou';
 import NeffSurveyBreakdownScreen from '@screens/Onboarding/NeffSurveyBreakdown';
 import NeffSurveyGoodJobScreen from '@screens/Onboarding/NeffSurveyGoodJob';
+import {
+	EmotionalResetButtonScreen,
+	FrustratedWithProgressScreen,
+	FrustratedWithAppScreen,
+	FrustratedReadyToQuitScreen,
+} from '@screens/Onboarding/EmotionalResetButton';
+
+import BriefOverviewOfButtonsScreen from '@screens/Onboarding/BriefOverviewOfButtons';
 
 const OnboardingStack = createStackNavigator();
 
@@ -81,6 +89,11 @@ export enum Screens {
 	NeffSurveyBreakdown = 'NeffSurveyBreakdown',
 	NeffSurveyThankYou = 'NeffSurveyThankYou',
 	NeffSurveyGoodJob = 'NeffSurveyGoodJob',
+	EmotionalResetButton = 'EmotionalResetButton',
+	FrustratedReadyToQuit = 'FrustratedReadyToQuit',
+	FrustratedWithApp = 'FrustratedWithApp',
+	FrustratedWithProgress = 'FrustratedWithProgress',
+	BriefOverviewOfButtons = 'BriefOverviewOfButtons',
 }
 
 export type OnboardingStackParamList = {
@@ -121,10 +134,15 @@ export type OnboardingStackParamList = {
 	[Screens.NeffSurveyGoodJob]: undefined;
 	[Screens.NeffSurveyBreakdown]: undefined;
 	[Screens.NeffSurveyThankYou]: undefined;
+	[Screens.EmotionalResetButton]: undefined;
+	[Screens.BriefOverviewOfButtons]: undefined;
+	[Screens.FrustratedReadyToQuit]: undefined;
+	[Screens.FrustratedWithApp]: undefined;
+	[Screens.FrustratedWithProgress]: undefined;
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Introduction}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.EmotionalResetButton}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -162,5 +180,10 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.NeffSurveyBreakdown} component={NeffSurveyBreakdownScreen} />
 		<OnboardingStack.Screen name={Screens.NeffSurveyThankYou} component={NeffSurveyThankYouScreen} />
 		<OnboardingStack.Screen name={Screens.NeffSurveyGoodJob} component={NeffSurveyGoodJobScreen} />
+		<OnboardingStack.Screen name={Screens.EmotionalResetButton} component={EmotionalResetButtonScreen} />
+		<OnboardingStack.Screen name={Screens.BriefOverviewOfButtons} component={BriefOverviewOfButtonsScreen} />
+		<OnboardingStack.Screen name={Screens.FrustratedReadyToQuit} component={FrustratedReadyToQuitScreen} />
+		<OnboardingStack.Screen name={Screens.FrustratedWithApp} component={FrustratedWithAppScreen} />
+		<OnboardingStack.Screen name={Screens.FrustratedWithProgress} component={FrustratedWithProgressScreen} />
 	</OnboardingStack.Navigator>
 );

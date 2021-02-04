@@ -18,6 +18,7 @@ type AudioPlayerNavigatorStandard = {
 	customButtons?: undefined;
 	backTarget?: Screens;
 	hideBackButton?: boolean;
+	hideNextButton?: boolean;
 	onNextCallback?: (arg?: any) => void;
 	nextTarget: Screens;
 	nextEnabled?: boolean;
@@ -29,6 +30,7 @@ type AudioPlayerNavigatorCustomButtons = {
 	backTarget?: undefined;
 	customButtons: ReactChild;
 	hideBackButton?: undefined;
+	hideNextButton?: undefined;
 	nextTarget?: undefined;
 	nextEnabled?: undefined;
 	onNextCallback?: undefined;
@@ -39,6 +41,7 @@ export default ({
 	backTarget,
 	customButtons,
 	hideBackButton,
+	hideNextButton,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
@@ -140,6 +143,7 @@ export default ({
 				<NavButtons
 					backTarget={backTarget}
 					hideBackButton={hideBackButton}
+					hideNextButton={hideNextButton}
 					onNextCallback={onNextCallback}
 					nextEnabled={nextIsEnabled}
 					nextTarget={nextTarget!}

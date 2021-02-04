@@ -10,6 +10,7 @@ import styles from './NavButtons.styles';
 interface Props {
 	backTarget?: Screens;
 	hideBackButton?: boolean;
+	hideNextButton?: boolean;
 	nextTarget: Screens;
 	nextEnabled: boolean;
 	onNextCallback?: (arg?: any) => void;
@@ -18,6 +19,7 @@ interface Props {
 export default ({
 	backTarget,
 	hideBackButton,
+	hideNextButton,
 	nextTarget,
 	nextEnabled,
 	onNextCallback,
@@ -50,21 +52,27 @@ export default ({
 					)
 			}
 
-			<TouchableOpacity
-				onPress={() => {
-					nextTarget && navigate(nextTarget);
-					onNextCallback?.();
-				}}
-				disabled={!nextIsEnabled}
-			>
-				<View style={[
-					styles.navButton,
-					!nextIsEnabled && styles.disabled,
-				]}>
-					<Text style={styles.text}>Next</Text>
-					<NextArrow />
-				</View>
-			</TouchableOpacity>
+			{
+				hideNextButton
+					? <View />
+					: (
+						<TouchableOpacity
+							onPress={() => {
+								nextTarget && navigate(nextTarget);
+								onNextCallback?.();
+							}}
+							disabled={!nextIsEnabled}
+						>
+							<View style={[
+								styles.navButton,
+								!nextIsEnabled && styles.disabled,
+							]}>
+								<Text style={styles.text}>Next</Text>
+								<NextArrow />
+							</View>
+						</TouchableOpacity>
+					)
+			}
 		</View>
 	);
 };
