@@ -4,36 +4,40 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'space-between',
+	},
+	heroImage: {
+		width: '100%',
+		height: '100%',
+	},
+	subTitlesContainer: {
+		alignItems: 'center',
+		position: 'absolute',
+		bottom: 30,
+		width: '100%',
 	},
 	subTitleContainer: {
-		position: 'absolute',
-		width: 160,
-		height: 160,
-		borderRadius: 80,
-		justifyContent: 'center',
-		alignItems: 'center',
-		paddingHorizontal: 16,
+		borderRadius: 15,
+		paddingHorizontal: 32,
+		paddingVertical: 12,
+		marginTop: 12,
 	},
 	subTitleLeft: {
-		left: 40,
-		bottom: 40,
-		backgroundColor: colors.Red,
+		backgroundColor: colors.RedTransparent,
 	},
 	subTitleRight: {
-		right: 40,
-		bottom: 0,
-		backgroundColor: colors.Pink,
+		backgroundColor: colors.PinkTransparent,
 	},
 	subTitleText: {
 		fontFamily: 'Rubik',
 		fontWeight: '700',
 		fontSize: 18,
-		marginHorizontal: 5,
 		color: 'white',
 		textAlign: 'center',
 		textShadowColor: colors.Gray33,
-		textShadowOffset: { width: -1, height: 2 },
+		textShadowOffset: {
+			width: -1,
+			height: 2,
+		},
 		textShadowRadius: 4,
 	},
 	enterButtonContainer: {

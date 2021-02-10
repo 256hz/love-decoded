@@ -128,16 +128,22 @@ export default ({
 		: playedToEnd || __DEV__;
 
 	return (
-		<View style={styles.container}>
-			{ audioFilename && (
-				<AudioPlayerBar
-					onTogglePause={togglePause}
-					isPlaying={isPlaying}
-					isLoaded={isLoaded}
-					currentTime={currentTime}
-					duration={duration}
-				/>
-			)}
+		<View style={[ styles.container,
+			{ height: audioFilename ? 220 : 150 },
+		]}>
+			{
+				audioFilename
+					? (
+						<AudioPlayerBar
+							onTogglePause={togglePause}
+							isPlaying={isPlaying}
+							isLoaded={isLoaded}
+							currentTime={currentTime}
+							duration={duration}
+						/>
+					)
+					: <View />
+			}
 
 			{ customButtons || (
 				<NavButtons

@@ -34,9 +34,9 @@ const getNeffSurveyButtons = (reverseScoring?: boolean) => [
 	},
 ];
 
-const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (
+const NextButtonWithText = ({ disabled, onPress }: { disabled: boolean, onPress: () => void }) => (
 	<View style={styles.bottomContainer}>
-		<TouchableOpacity onPress={onPress}>
+		<TouchableOpacity onPress={onPress} disabled={disabled}>
 			<View style={styles.navButton}>
 				<Text style={[ styles.text, styles.navButtonText ]}>Next</Text>
 				<NextArrow />
@@ -62,7 +62,12 @@ export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffS
 		<OnboardingScreen
 			drawShapes={[ 20, 21 ]}
 			customButtons={<></>}
-			customBottomSection={<NextButtonWithText onPress={() => navigate(nextTarget)} />}
+			customBottomSection={
+				<NextButtonWithText
+					disabled={!currentResponse}
+					onPress={() => navigate(nextTarget)}
+				/>
+			}
 			title={'Neff\'s Self-Compassion\nScale Survey'}
 			titleContainerStyle={styles.titleContainerStyle}
 		>

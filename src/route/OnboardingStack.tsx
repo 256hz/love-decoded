@@ -46,8 +46,8 @@ import {
 	FrustratedWithAppScreen,
 	FrustratedReadyToQuitScreen,
 } from '@screens/Onboarding/EmotionalResetButton';
-
 import BriefOverviewOfButtonsScreen from '@screens/Onboarding/BriefOverviewOfButtons';
+import AddYourContactsScreen from '@screens/Onboarding/AddYourContacts';
 
 const OnboardingStack = createStackNavigator();
 
@@ -94,6 +94,7 @@ export enum Screens {
 	FrustratedWithApp = 'FrustratedWithApp',
 	FrustratedWithProgress = 'FrustratedWithProgress',
 	BriefOverviewOfButtons = 'BriefOverviewOfButtons',
+	AddYourContacts = 'AddYourContacts',
 }
 
 export type OnboardingStackParamList = {
@@ -139,10 +140,11 @@ export type OnboardingStackParamList = {
 	[Screens.FrustratedReadyToQuit]: undefined;
 	[Screens.FrustratedWithApp]: undefined;
 	[Screens.FrustratedWithProgress]: undefined;
+	[Screens.AddYourContacts]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.EmotionalResetButton}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Introduction}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -185,5 +187,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.FrustratedReadyToQuit} component={FrustratedReadyToQuitScreen} />
 		<OnboardingStack.Screen name={Screens.FrustratedWithApp} component={FrustratedWithAppScreen} />
 		<OnboardingStack.Screen name={Screens.FrustratedWithProgress} component={FrustratedWithProgressScreen} />
+		<OnboardingStack.Screen name={Screens.AddYourContacts} component={AddYourContactsScreen} />
 	</OnboardingStack.Navigator>
 );

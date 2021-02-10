@@ -62,7 +62,7 @@ export default () => {
 				drawShapes={[ 1, 7, 11 ]}
 				showLogo={true}
 				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
-				audioFilename="music.mp3"
+				audioFilename="music128.mp3"
 				nextTarget={Screens.HavingTheLovingCommunities}
 				onNextCallback={submitResponse}
 			>

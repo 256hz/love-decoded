@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {
+	Image, ImageBackground, Text, View,
+} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
 import { OnboardingStackParamList, Screens } from 'route/OnboardingStack';
@@ -33,7 +35,7 @@ type Props = {
 export default ({ navigation: { navigate } }: Props) => {
 	return (
 		<OnboardingScreen
-			audioFilename="music.mp3"
+			audioFilename="music128.mp3"
 			customButtons={
 				<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
 			}
@@ -41,11 +43,14 @@ export default ({ navigation: { navigate } }: Props) => {
 			showLogo={true}
 			title="You are Born to be Loved"
 		>
-			<View style={{ flex: 1 }}>
-				{/* placeholder for photo element */}
-				<View />
+			<View style={styles.container}>
+				<Image
+					source={require('@assets/png/hero-image.png')}
+					style={styles.heroImage}
+					resizeMode="contain"
+				/>
 
-				<View style={{ flex: 1 }}>
+				<View style={styles.subTitlesContainer}>
 					<View style={[ styles.subTitleContainer, styles.subTitleLeft ]}>
 						<Text style={styles.subTitleText}>
 							We Know Your Pain

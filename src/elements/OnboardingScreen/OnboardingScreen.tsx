@@ -54,11 +54,12 @@ const OnboardingScreen = ({
 							{title}
 						</Text>
 					</View>
+
+					{/* screen contents */}
 					<ScrollView contentContainerStyle={styles.childrenContainer}>
-
 						{children}
-
 					</ScrollView>
+
 				</View>
 
 				{ customBottomSection }
