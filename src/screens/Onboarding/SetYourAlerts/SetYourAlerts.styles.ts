@@ -27,6 +27,7 @@ export default StyleSheet.create({
 	subtitleText: {
 		...text.body,
 		...text.footerText,
+		color: colors.Gray62,
 		fontSize: 16,
 		lineHeight: 33,
 		marginBottom: 32,

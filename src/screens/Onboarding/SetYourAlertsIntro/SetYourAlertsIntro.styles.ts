@@ -33,7 +33,7 @@ export default StyleSheet.create({
 		...text.body,
 		...text.topText,
 		fontSize: 16,
-		color: colors.GrayTransparent073,
+		color: colors.Gray62,
 		marginTop: 8,
 	},
 });

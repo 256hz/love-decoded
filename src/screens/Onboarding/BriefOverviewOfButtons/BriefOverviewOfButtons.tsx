@@ -31,7 +31,7 @@ const OverviewItem = ({ children, iconText, text }) => (
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 7, 25 ]}
-		nextTarget={Screens.BriefOverviewOfButtons}
+		nextTarget={Screens.AddYourContacts}
 		title={'Brief Overview\nof the App Buttons'}
 	>
 		<View style={styles.container}>
