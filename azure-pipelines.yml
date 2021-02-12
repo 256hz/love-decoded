@@ -37,3 +37,31 @@ stages:
 
     # - script: npm run test
     #   displayName: 'Run Jest Tests'
+    
+    - task: Gradle@2
+      inputs:
+        gradleWrapperFile: 'gradlew'
+        workingDirectory: 'src/android'
+        tasks: 'build'
+        publishJUnitResults: false
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: false
+
+    - script: mv src/android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+      displayName: 'Rename apk'
+
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: 
+    - task: AppCenterDistribute@3
+      inputs:
+        appSlug: 'Global-Human-Development/The-Love-Decoded-App'
+        appFile: 'ReactNativePipeline$(Build.BuildNumber).apk'
+        symbolsOption: 'Android'
+        releaseNotesOption: 'input'
+        releaseNotesInput: '$(Build.BuildNumber)'
+        destinationType: 'groups'
+            artifactName: drop
+            publishLocation: 'container'
+  
