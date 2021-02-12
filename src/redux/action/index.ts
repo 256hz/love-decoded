@@ -14,6 +14,11 @@ import {
 } from './user';
 
 export {
+	clearModal,
+	setModal,
+} from './modal';
+
+export {
 	logIn,
 	logOut,
 	setAlertTime,

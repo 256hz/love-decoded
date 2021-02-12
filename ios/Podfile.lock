@@ -185,6 +185,8 @@ PODS:
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
   - React-jsinspector (0.63.3)
+  - react-native-contacts (6.0.4):
+    - React-Core
   - react-native-material-kit (0.6.0-beta.1):
     - React
   - react-native-safe-area-context (3.1.9):
@@ -285,6 +287,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-contacts (from `../node_modules/react-native-contacts`)
   - react-native-material-kit (from `../node_modules/react-native-material-kit`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -342,6 +345,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-contacts:
+    :path: "../node_modules/react-native-contacts"
   react-native-material-kit:
     :path: "../node_modules/react-native-material-kit"
   react-native-safe-area-context:
@@ -402,6 +407,7 @@ SPEC CHECKSUMS:
   React-jsi: df07aa95b39c5be3e41199921509bfa929ed2b9d
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
+  react-native-contacts: f97ea51a576325eade1c1e6a9e3be224ccbd466d
   react-native-material-kit: fcd29a6ad901670f8073433d382df2abaadb831f
   react-native-safe-area-context: 86612d2c9a9e94e288319262d10b5f93f0b395f5
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
@@ -424,6 +430,6 @@ SPEC CHECKSUMS:
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
 
-PODFILE CHECKSUM: f7996166ff3be3455050653620c18e880697f8db
+PODFILE CHECKSUM: 9adb701dddedadf788b697c5335d4675b10ca952
 
 COCOAPODS: 1.10.0

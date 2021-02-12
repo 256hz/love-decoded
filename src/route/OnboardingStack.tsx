@@ -48,6 +48,7 @@ import {
 } from '@screens/Onboarding/EmotionalResetButton';
 import BriefOverviewOfButtonsScreen from '@screens/Onboarding/BriefOverviewOfButtons';
 import AddYourContactsScreen from '@screens/Onboarding/AddYourContacts';
+import YouAreReadyScreen from '@screens/Onboarding/YouAreReady';
 
 const OnboardingStack = createStackNavigator();
 
@@ -95,56 +96,58 @@ export enum Screens {
 	FrustratedWithProgress = 'FrustratedWithProgress',
 	BriefOverviewOfButtons = 'BriefOverviewOfButtons',
 	AddYourContacts = 'AddYourContacts',
+	YouAreReady = 'YouAreReady',
 }
 
 export type OnboardingStackParamList = {
-	[Screens.Introduction]: undefined;
-	[Screens.AcknowledgingYourPast]: undefined;
-	[Screens.WhatWouldILikeToLearn]: undefined;
-	[Screens.HavingTheLovingCommunities]: undefined;
-	[Screens.WhenYouForget]: undefined;
-	[Screens.TheScienceOfLove]: undefined;
-	[Screens.FromComfort]: undefined;
-	[Screens.MasteringLove]: undefined;
-	[Screens.Control]: undefined;
-	[Screens.TheJourneyStartsNow]: undefined;
-	[Screens.SignupForm]: undefined;
-	[Screens.ThankYouForSigningUp]: undefined;
-	[Screens.LetTheAppTeachYou]: undefined;
-	[Screens.Dependency]: undefined;
-	[Screens.LoveVsHeartburn]: undefined;
-	[Screens.NavigatingTheStructure]: undefined;
-	[Screens.BornToBeLoved]: undefined;
-	[Screens.SetYourAlertsIntro]: undefined;
-	[Screens.SetYourAlerts]: undefined;
-	[Screens.SetYourAlertsThankYou]: undefined;
-	[Screens.HowCanITell]: undefined;
-	[Screens.NeffSurveyIntro]: undefined;
-	[Screens.NeffSurvey1]: undefined;
-	[Screens.NeffSurvey2]: undefined;
-	[Screens.NeffSurvey3]: undefined;
-	[Screens.NeffSurvey4]: undefined;
-	[Screens.NeffSurvey5]: undefined;
-	[Screens.NeffSurvey6]: undefined;
-	[Screens.NeffSurvey7]: undefined;
-	[Screens.NeffSurvey8]: undefined;
-	[Screens.NeffSurvey9]: undefined;
-	[Screens.NeffSurvey10]: undefined;
-	[Screens.NeffSurvey11]: undefined;
-	[Screens.NeffSurvey12]: undefined;
-	[Screens.NeffSurveyGoodJob]: undefined;
-	[Screens.NeffSurveyBreakdown]: undefined;
-	[Screens.NeffSurveyThankYou]: undefined;
-	[Screens.EmotionalResetButton]: undefined;
-	[Screens.BriefOverviewOfButtons]: undefined;
-	[Screens.FrustratedReadyToQuit]: undefined;
-	[Screens.FrustratedWithApp]: undefined;
-	[Screens.FrustratedWithProgress]: undefined;
-	[Screens.AddYourContacts]: undefined
+	[key in Screens]: undefined;
+	// [Screens.Introduction]: undefined;
+	// [Screens.AcknowledgingYourPast]: undefined;
+	// [Screens.WhatWouldILikeToLearn]: undefined;
+	// [Screens.HavingTheLovingCommunities]: undefined;
+	// [Screens.WhenYouForget]: undefined;
+	// [Screens.TheScienceOfLove]: undefined;
+	// [Screens.FromComfort]: undefined;
+	// [Screens.MasteringLove]: undefined;
+	// [Screens.Control]: undefined;
+	// [Screens.TheJourneyStartsNow]: undefined;
+	// [Screens.SignupForm]: undefined;
+	// [Screens.ThankYouForSigningUp]: undefined;
+	// [Screens.LetTheAppTeachYou]: undefined;
+	// [Screens.Dependency]: undefined;
+	// [Screens.LoveVsHeartburn]: undefined;
+	// [Screens.NavigatingTheStructure]: undefined;
+	// [Screens.BornToBeLoved]: undefined;
+	// [Screens.SetYourAlertsIntro]: undefined;
+	// [Screens.SetYourAlerts]: undefined;
+	// [Screens.SetYourAlertsThankYou]: undefined;
+	// [Screens.HowCanITell]: undefined;
+	// [Screens.NeffSurveyIntro]: undefined;
+	// [Screens.NeffSurvey1]: undefined;
+	// [Screens.NeffSurvey2]: undefined;
+	// [Screens.NeffSurvey3]: undefined;
+	// [Screens.NeffSurvey4]: undefined;
+	// [Screens.NeffSurvey5]: undefined;
+	// [Screens.NeffSurvey6]: undefined;
+	// [Screens.NeffSurvey7]: undefined;
+	// [Screens.NeffSurvey8]: undefined;
+	// [Screens.NeffSurvey9]: undefined;
+	// [Screens.NeffSurvey10]: undefined;
+	// [Screens.NeffSurvey11]: undefined;
+	// [Screens.NeffSurvey12]: undefined;
+	// [Screens.NeffSurveyGoodJob]: undefined;
+	// [Screens.NeffSurveyBreakdown]: undefined;
+	// [Screens.NeffSurveyThankYou]: undefined;
+	// [Screens.EmotionalResetButton]: undefined;
+	// [Screens.BriefOverviewOfButtons]: undefined;
+	// [Screens.FrustratedReadyToQuit]: undefined;
+	// [Screens.FrustratedWithApp]: undefined;
+	// [Screens.FrustratedWithProgress]: undefined;
+	// [Screens.AddYourContacts]: undefined
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Introduction}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.AddYourContacts}>
 		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
@@ -188,5 +191,6 @@ export default () => (
 		<OnboardingStack.Screen name={Screens.FrustratedWithApp} component={FrustratedWithAppScreen} />
 		<OnboardingStack.Screen name={Screens.FrustratedWithProgress} component={FrustratedWithProgressScreen} />
 		<OnboardingStack.Screen name={Screens.AddYourContacts} component={AddYourContactsScreen} />
+		<OnboardingStack.Screen name={Screens.YouAreReady} component={YouAreReadyScreen} />
 	</OnboardingStack.Navigator>
 );

@@ -3,7 +3,7 @@ import { setNeffSurveyResponse, setSurveyResponse } from '@redux/action';
 import { Surveys, SurveyState } from 'redux/types/survey';
 
 const INITIAL_STATE: SurveyState = {
-	// The Neff survey has 12 responses, but is one-indexed here (the first one is left blank).
+	// The Neff survey has 12 responses, and is one-indexed here (the first one is left blank).
 	// This is to make it easy to map questions/page indexes to responses.
 	[Surveys.Neff]: new Array(13).fill(0),
 };
