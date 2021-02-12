@@ -40,8 +40,8 @@ stages:
     
     - task: Gradle@2
       inputs:
-        gradleWrapperFile: 'src/android/gradlew'
-        workingDirectory: 'src/android'
+        gradleWrapperFile: 'android/gradlew'
+        workingDirectory: 'android'
         tasks: 'build'
         publishJUnitResults: false
         javaHomeOption: 'JDKVersion'
