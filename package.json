@@ -6,7 +6,6 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
-    "postinstall": "(cd ios && pod install)",
     "start": "react-native start",
     "test": "jest",
     "typechecking": "tsc --noEmit"
