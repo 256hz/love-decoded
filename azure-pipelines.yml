@@ -53,15 +53,16 @@ stages:
 
     - task: PublishBuildArtifacts@1
       inputs:
-        pathtoPublish: 
+        PathtoPublish: 'ReactNativePipeline$(Build.BuildNumber).apk'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
     - task: AppCenterDistribute@3
       inputs:
+        serverEndpoint: 'app-center'
         appSlug: 'Global-Human-Development/The-Love-Decoded-App'
         appFile: 'ReactNativePipeline$(Build.BuildNumber).apk'
-        symbolsOption: 'Android'
+        buildVersion: '$(Build.BuildNumber)'
         releaseNotesOption: 'input'
         releaseNotesInput: '$(Build.BuildNumber)'
         destinationType: 'groups'
-            artifactName: drop
-            publishLocation: 'container'
   
