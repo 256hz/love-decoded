@@ -1,64 +1,111 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, ReactChild } from 'react';
 import { View, Text } from 'react-native';
+import {
+	LongPressGestureHandler,
+	State,
+	TouchableOpacity,
+} from 'react-native-gesture-handler';
 import { Contact } from 'react-native-contacts';
-import { TouchableHighlight } from 'react-native-gesture-handler';
+import vibrate from 'util/vibrate';
 import styles from './ContactCard.styles';
 
 interface Props {
-	contact: Contact;
+	contact: Partial<Contact>;
+	longPress?: boolean;
 	selected: boolean;
 	toggleSelected: () => void;
 }
 
-export default ({ contact, selected, toggleSelected }: Props) => {
+const SectionHeading = ({ heading }: { heading: string }) => (
+	<Text style={styles.headingText} numberOfLines={1}>
+		{heading}
+	</Text>
+);
+
+const TextWithLabel = ({ label, text }: { label?: string; text?: string }) => (
+	<>
+		{ label ? (
+			<Text style={styles.sectionLabelText} numberOfLines={1}>
+				{label}:
+			</Text>
+		) : null}
+
+		{ text ? (
+			<Text style={styles.sectionText} numberOfLines={1}>
+				{text}
+			</Text>
+		) : null}
+	</>
+);
+
+type TouchWrapperProps = Omit<Props, 'contact' | 'selected'> & { children: ReactChild };
+
+const TouchWrapper = ({ longPress, toggleSelected, children }: TouchWrapperProps) => {
+	const toggle = () => {
+		vibrate('short');
+		toggleSelected();
+	};
+
+	return (
+		longPress
+			? (
+				<LongPressGestureHandler
+					onHandlerStateChange={({ nativeEvent }) => {
+						if (nativeEvent.state === State.END) {
+							toggle();
+						}
+					}}
+					minDurationMs={700}>
+					{children}
+				</LongPressGestureHandler>
+			) : (
+				<TouchableOpacity onPress={toggle}>
+					{children}
+				</TouchableOpacity>
+			)
+	);
+};
+export default ({ contact, longPress, selected, toggleSelected }: Props) => {
 	const {
 		givenName,
 		familyName,
-		phoneNumbers,
-		emailAddresses,
+		phoneNumbers = [],
+		emailAddresses = [],
 	} = contact;
 
 	return (
-		<TouchableHighlight onPress={toggleSelected}>
+		<TouchWrapper longPress={longPress} toggleSelected={toggleSelected}>
 			<View style={[ styles.container, selected && styles.selectedContainer ]}>
 				<View style={styles.sectionContainer}>
-					<Text style={styles.nameText}>
+					<Text style={styles.nameText} numberOfLines={1}>
 						{`${givenName} ${familyName}`}
 					</Text>
 				</View>
 
 				<View style={styles.sectionContainer}>
-					<Text style={styles.headingText}>
-						Email
-					</Text>
+					<SectionHeading heading="Email" />
 					{ emailAddresses.map(({ label, email }) => (
-						<Fragment key={label + email}>
-							<Text style={styles.sectionLabelText}>
-								{label}
-							</Text>
-							<Text style={styles.sectionText}>
-								{email}
-							</Text>
-						</Fragment>
+						<TextWithLabel
+							label={label}
+							text={email}
+							key={(label || '') + email}
+						/>
 					))}
 				</View>
 
 				<View style={styles.sectionContainer}>
-					<Text style={styles.headingText}>
-						Phone
-					</Text>
-					{ phoneNumbers.map(({ label, number }) => (
+					<SectionHeading heading="Phone" />
+					{ phoneNumbers?.map(({ label, number }) => (
 						<Fragment key={label + number}>
-							<Text style={styles.sectionLabelText}>
-								{label}
-							</Text>
-							<Text style={styles.sectionText}>
-								{number}
-							</Text>
+							<TextWithLabel
+								label={label}
+								text={number}
+								key={(label || '') + number}
+							/>
 						</Fragment>
 					))}
 				</View>
 			</View>
-		</TouchableHighlight>
+		</TouchWrapper>
 	);
 };

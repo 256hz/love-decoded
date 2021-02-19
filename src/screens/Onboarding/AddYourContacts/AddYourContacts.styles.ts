@@ -21,8 +21,9 @@ export default StyleSheet.create({
 		alignItems: 'center',
 	},
 	selectedContactsContainer: {
-		width: '100%',
+		// width: '100%',
 		marginTop: 32,
+		marginHorizontal: 32,
 	},
 	selectedContactContainer: {
 		width: '100%',
@@ -30,9 +31,8 @@ export default StyleSheet.create({
 	},
 	selectedContactItemContainer: {
 		width: '100%',
-		height: 32,
-		backgroundColor: colors.GrayTransparent028,
-		borderRadius: 6,
+		backgroundColor: colors.WhiteMoreTransparent,
+		borderRadius: 10,
 	},
 	selectedContactItemText: {
 		...text.body,
@@ -66,21 +66,60 @@ export default StyleSheet.create({
 	modalBackground: {
 		...StyleSheet.absoluteFillObject,
 		flex: 1,
+		paddingVertical: 64,
+		paddingHorizontal: 32,
 		backgroundColor: colors.GrayTransparent073,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	scrollContainer: {
-		flex: 1,
-		justifyContent: 'center',
+		width: '100%',
+		padding: 20,
+	},
+	contactsBackContainer: {
+		width: '100%',
+		flexDirection: 'row',
+		marginTop: 10,
+		marginBottom: 6,
+		marginLeft: 16,
 		alignItems: 'center',
 	},
-	cardContainer: {
-		marginVertical: 64,
-		marginHorizontal: 32,
-		paddingVertical: 32,
-		paddingHorizontal: 16,
+	backText: {
+		...text.body,
+		fontSize: 16,
+		color: colors.PinkTransparent,
+	},
+	cardsContainer: {
 		borderRadius: 13,
 		backgroundColor: colors.White,
+		width: '100%',
+	},
+	loadingContainer: {
+		width: '100%',
+		alignItems: 'center',
+		marginBottom: 14,
+	},
+	spinner: {
+		height: 28,
+		width: 28,
+		marginHorizontal: 16,
+	},
+	cardContainer: {
+		alignItems: 'center',
+		width: '100%',
+	},
+	dividerContainer: {
+		width: '100%',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginVertical: 10,
+		// backgroundColor: colors.Gray62,
+	},
+	divider: {
+		height: 1,
+		width: '100%',
+		// borderRadius: 2,
+		// marginHorizontal: '22.5%',
+		// backgroundColor: colors.PinkTransparent,
 	},
 });

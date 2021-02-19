@@ -4,10 +4,12 @@ import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
-		width: '100%',
 		justifyContent: 'space-between',
+		borderColor: colors.PinkTransparent,
+		borderLeftWidth: 6,
+		borderRadius: 10,
 		paddingHorizontal: 16,
-		paddingVertical: 16,
+		paddingVertical: 10,
 	},
 	selectedContainer: {
 		backgroundColor: colors.OrangeLight,
@@ -23,14 +25,16 @@ export default StyleSheet.create({
 	},
 	sectionLabelText: {
 		...text.body,
-		fontSize: 20,
+		fontSize: 15,
+		textDecorationLine: 'underline',
 	},
 	sectionText: {
 		...text.body,
-		fontSize: 16,
+		fontSize: 20,
 	},
 	headingText: {
 		...text.body,
-		...text.headline,
+		fontWeight: '500',
+		fontSize: 15,
 	},
 });

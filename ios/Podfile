@@ -8,7 +8,6 @@ target 'LoveDecoded' do
 
   use_react_native!(:path => config["reactNativePath"])
 	
-	pod 'react-native-contacts', :path => '../node_modules/react-native-contacts'
 
   target 'LoveDecodedTests' do
     inherit! :complete

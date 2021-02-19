@@ -1,6 +1,11 @@
 export { getAlertTime } from './alerts';
 
 export {
+	getContacts,
+	getContactsArray,
+} from './contacts';
+
+export {
 	getModalContentByType,
 } from './modal';
 

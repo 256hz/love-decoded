@@ -15,6 +15,7 @@ type Props = {
 	hideNextButton?: boolean;
 	showLogo?: boolean;
 	title?: string;
+	titleChild?: ReactChild,
 	titleContainerStyle?: ViewStyle;
 } & AudioPlayerNavigatorProps;
 
@@ -32,6 +33,7 @@ const OnboardingScreen = ({
 	nextTarget,
 	showLogo,
 	title,
+	titleChild = <></>,
 	titleContainerStyle,
 }: Props) => (
 	<View style={styles.container}>
@@ -53,6 +55,7 @@ const OnboardingScreen = ({
 						<Text style={styles.titleText}>
 							{title}
 						</Text>
+						{ titleChild }
 					</View>
 
 					{/* screen contents */}
