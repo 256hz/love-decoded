@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { getModalContentByType } from 'redux/selector';
 import { Modals } from 'redux/types/modal';
-import ContactCardModal from './ContactCardModal/ContactCardModal';
 import ModalBackground from './ModalBackground';
 import styles from './Modals.styles';
 
@@ -16,7 +15,6 @@ export default () => {
 		? (
 			<View style={styles.container}>
 				<ModalBackground />
-				{ !!contactCardModal && <ContactCardModal /> }
 			</View>
 		)
 		: null

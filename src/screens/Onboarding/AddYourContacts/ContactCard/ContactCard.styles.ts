@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import text from 'elements/globalStyles/text';
+import text from '@elements/globalStyles/text';
+import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
@@ -7,6 +8,9 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
 		paddingHorizontal: 16,
 		paddingVertical: 16,
+	},
+	selectedContainer: {
+		backgroundColor: colors.OrangeLight,
 	},
 	nameText: {
 		...text.body,

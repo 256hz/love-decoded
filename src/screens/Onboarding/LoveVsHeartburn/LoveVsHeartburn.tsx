@@ -1,4 +1,4 @@
-import { OnboardingScreen } from 'elements';
+import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';

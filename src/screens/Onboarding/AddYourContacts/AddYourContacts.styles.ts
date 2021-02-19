@@ -1,5 +1,5 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -19,15 +19,6 @@ export default StyleSheet.create({
 		marginTop: 30,
 		marginBottom: 20,
 		alignItems: 'center',
-	},
-	cardContainer: {
-		paddingVertical: 32,
-		flex: 1,
-		margin: 32,
-		borderRadius: 13,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: colors.White,
 	},
 	selectedContactsContainer: {
 		width: '100%',
@@ -74,8 +65,22 @@ export default StyleSheet.create({
 	},
 	modalBackground: {
 		...StyleSheet.absoluteFillObject,
-		backgroundColor: colors.GrayTransparent028,
+		flex: 1,
+		backgroundColor: colors.GrayTransparent073,
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	scrollContainer: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	cardContainer: {
+		marginVertical: 64,
+		marginHorizontal: 32,
+		paddingVertical: 32,
+		paddingHorizontal: 16,
+		borderRadius: 13,
+		backgroundColor: colors.White,
 	},
 });

@@ -2,8 +2,8 @@ import React, { ReactChild } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Logo from '@assets/svg/logo.svg';
-import { AudioPlayerNavigator } from 'elements/AudioPlayerNavigator';
-import { AudioPlayerNavigatorProps } from 'elements/AudioPlayerNavigator/AudioPlayerNavigator';
+import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
+import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 

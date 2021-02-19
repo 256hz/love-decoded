@@ -5,7 +5,7 @@ import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-ha
 import RNPickerSelect from 'react-native-picker-select';
 import { Spinner } from 'react-native-material-kit';
 import { OnboardingScreen } from '@elements';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import { Screens } from 'route/OnboardingStack';
 import styles from './SignupForm.styles';
 

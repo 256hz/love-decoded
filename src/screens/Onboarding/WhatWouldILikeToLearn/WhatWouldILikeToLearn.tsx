@@ -1,4 +1,4 @@
-import { OnboardingScreen, MultiSelectSurvey } from 'elements';
+import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';

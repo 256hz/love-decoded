@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import text from 'elements/globalStyles/text';
-import colors from 'elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
 
 const { width } = Dimensions.get('screen');
 
