@@ -122,4 +122,9 @@ export default StyleSheet.create({
 		right: 0,
 		top: '10%',
 	},
+	shape25: {
+		position: 'absolute',
+		right: 0,
+		top: 0,
+	},
 });

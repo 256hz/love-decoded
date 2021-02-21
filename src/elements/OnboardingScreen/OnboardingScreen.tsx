@@ -1,8 +1,9 @@
 import React, { ReactChild } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import Logo from '@assets/svg/logo.svg';
-import { AudioPlayerNavigator } from 'elements/AudioPlayerNavigator';
-import { AudioPlayerNavigatorProps } from 'elements/AudioPlayerNavigator/AudioPlayerNavigator';
+import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
+import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 
@@ -11,8 +12,10 @@ type Props = {
 	customBottomSection?: ReactChild,
 	drawShapes?: number[];
 	hideBackButton?: boolean;
+	hideNextButton?: boolean;
 	showLogo?: boolean;
 	title?: string;
+	titleChild?: ReactChild,
 	titleContainerStyle?: ViewStyle;
 } & AudioPlayerNavigatorProps;
 
@@ -24,11 +27,13 @@ const OnboardingScreen = ({
 	customButtons,
 	drawShapes,
 	hideBackButton,
+	hideNextButton,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
 	showLogo,
 	title,
+	titleChild = <></>,
 	titleContainerStyle,
 }: Props) => (
 	<View style={styles.container}>
@@ -50,10 +55,14 @@ const OnboardingScreen = ({
 						<Text style={styles.titleText}>
 							{title}
 						</Text>
+						{ titleChild }
 					</View>
-					<View style={styles.container}>
+
+					{/* screen contents */}
+					<ScrollView contentContainerStyle={styles.childrenContainer}>
 						{children}
-					</View>
+					</ScrollView>
+
 				</View>
 
 				{ customBottomSection }
@@ -63,6 +72,7 @@ const OnboardingScreen = ({
 						audioFilename={audioFilename}
 						backTarget={backTarget}
 						hideBackButton={hideBackButton}
+						hideNextButton={hideNextButton}
 						onNextCallback={onNextCallback}
 						nextEnabled={nextEnabled}
 						nextTarget={nextTarget}

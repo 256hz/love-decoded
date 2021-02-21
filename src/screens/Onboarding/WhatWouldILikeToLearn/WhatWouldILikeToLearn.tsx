@@ -1,4 +1,4 @@
-import { OnboardingScreen, MultiSelectSurvey } from 'elements';
+import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
@@ -16,7 +16,7 @@ const options = [
 	'Stop Resenting People',
 	'Heal Important Relationships',
 	'Control Anger with Love',
-	'Stop Unloving Relationships',
+	"Stop People's Unloving Behaviors",
 	'Stop Being a People Pleaser',
 	'Exercise, Eat Healther, Meditate',
 	'Learn Communication Skills',
@@ -62,7 +62,7 @@ export default () => {
 				drawShapes={[ 1, 7, 11 ]}
 				showLogo={true}
 				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
-				audioFilename="music.mp3"
+				audioFilename="music128.mp3"
 				nextTarget={Screens.HavingTheLovingCommunities}
 				onNextCallback={submitResponse}
 			>

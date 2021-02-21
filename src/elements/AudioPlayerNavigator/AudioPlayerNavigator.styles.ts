@@ -7,5 +7,7 @@ export default StyleSheet.create({
 		width: '100%',
 		height: 220,
 		paddingHorizontal: MARGIN,
+		justifyContent: 'space-between',
+		paddingBottom: 71,
 	},
 });

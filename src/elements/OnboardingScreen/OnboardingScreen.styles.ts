@@ -1,4 +1,3 @@
-import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -15,7 +14,7 @@ export default StyleSheet.create({
 		marginTop: 21,
 	},
 	screenContainer: {
-		flex: 1,
+		flexGrow: 1,
 		justifyContent: 'space-between',
 	},
 	titleContainer: {
@@ -29,5 +28,8 @@ export default StyleSheet.create({
 		lineHeight: 30,
 		fontWeight: '500',
 		textAlign: 'center',
+	},
+	childrenContainer: {
+		flexGrow: 1,
 	},
 });

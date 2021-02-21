@@ -1,4 +1,14 @@
 export { getAlertTime } from './alerts';
+
+export {
+	getContacts,
+	getContactsArray,
+} from './contacts';
+
+export {
+	getModalContentByType,
+} from './modal';
+
 export {
 	averageTwoNeffPageScores,
 	getAllSurveys,
@@ -6,5 +16,6 @@ export {
 	getNeffResponseByPageIndex,
 	getSurveyByTitle,
 } from './survey';
+
 export { getUserId } from './user';
 

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	container: {
@@ -33,7 +33,7 @@ export default StyleSheet.create({
 		...text.body,
 		...text.topText,
 		fontSize: 16,
-		color: colors.GrayTransparent073,
+		color: colors.Gray62,
 		marginTop: 8,
 	},
 });

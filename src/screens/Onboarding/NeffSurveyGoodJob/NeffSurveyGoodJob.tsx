@@ -22,7 +22,7 @@ const EnterButton = ({ onPress }: EnterButtonProps) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	const onPress = () => navigate(Screens.AcknowledgingYourPast);
+	const onPress = () => navigate(Screens.EmotionalResetButton);
 	return (
 		<OnboardingScreen
 			drawShapes={[ 0, 6, 13 ]}

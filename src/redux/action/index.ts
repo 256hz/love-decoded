@@ -3,6 +3,10 @@ import {
 } from './alerts';
 
 import {
+	setContact,
+} from './contacts';
+
+import {
 	setNeffSurveyResponse,
 	setSurveyResponse,
 } from './survey';
@@ -14,9 +18,15 @@ import {
 } from './user';
 
 export {
+	clearModal,
+	setModal,
+} from './modal';
+
+export {
 	logIn,
 	logOut,
 	setAlertTime,
+	setContact,
 	setNeffSurveyResponse,
 	setSurveyResponse,
 	setUserProperty,

@@ -1,5 +1,5 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -27,6 +27,7 @@ export default StyleSheet.create({
 	subtitleText: {
 		...text.body,
 		...text.footerText,
+		color: colors.Gray62,
 		fontSize: 16,
 		lineHeight: 33,
 		marginBottom: 32,

@@ -17,7 +17,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 18, 19, 20 ]}
-			nextTarget={Screens.SetYourAlertsThankYou}
+			nextTarget={Screens.HowCanITell}
 			title={'Thank You For Setting\nYour Alerts!'}
 		>
 			<View style={styles.container}>

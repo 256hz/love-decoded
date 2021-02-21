@@ -104,7 +104,7 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
 		title={'Navigating the\nStructure of this App'}
-		audioFilename="music.mp3"
+		audioFilename="music128.mp3"
 		nextTarget={Screens.BornToBeLoved}
 	>
 		<View style={styles.container}>
