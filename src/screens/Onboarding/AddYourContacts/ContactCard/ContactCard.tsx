@@ -24,17 +24,17 @@ const SectionHeading = ({ heading }: { heading: string }) => (
 
 const TextWithLabel = ({ label, text }: { label?: string; text?: string }) => (
 	<>
-		{ label ? (
+		{label && (
 			<Text style={styles.sectionLabelText} numberOfLines={1}>
 				{label}:
 			</Text>
-		) : null}
+		)}
 
-		{ text ? (
+		{text && (
 			<Text style={styles.sectionText} numberOfLines={1}>
 				{text}
 			</Text>
-		) : null}
+		)}
 	</>
 );
 
@@ -50,12 +50,11 @@ const TouchWrapper = ({ longPress, toggleSelected, children }: TouchWrapperProps
 		longPress
 			? (
 				<LongPressGestureHandler
-					onHandlerStateChange={({ nativeEvent }) => {
-						if (nativeEvent.state === State.END) {
-							toggle();
-						}
-					}}
-					minDurationMs={700}>
+					onHandlerStateChange={
+						({ nativeEvent }) => nativeEvent.state === State.END && toggle()
+					}
+					minDurationMs={700}
+				>
 					{children}
 				</LongPressGestureHandler>
 			) : (

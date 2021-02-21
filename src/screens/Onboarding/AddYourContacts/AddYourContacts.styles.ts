@@ -21,13 +21,11 @@ export default StyleSheet.create({
 		alignItems: 'center',
 	},
 	selectedContactsContainer: {
-		// width: '100%',
 		marginTop: 32,
 		marginHorizontal: 32,
 	},
 	selectedContactContainer: {
 		width: '100%',
-		// marginTop: 32,
 	},
 	selectedContactItemContainer: {
 		width: '100%',
@@ -113,13 +111,9 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		marginVertical: 10,
-		// backgroundColor: colors.Gray62,
 	},
 	divider: {
 		height: 1,
 		width: '100%',
-		// borderRadius: 2,
-		// marginHorizontal: '22.5%',
-		// backgroundColor: colors.PinkTransparent,
 	},
 });

@@ -87,7 +87,6 @@ export default ({
 	setCustomSelection,
 	toggleSelected,
 }: Props) => (
-	// <ScrollView contentContainerStyle={styles.multiSelectContainerStyle} style={styles.multiSelectContainer}>
 	<View style={[ styles.multiSelectContainer, styles.multiSelectContainerStyle ]}>
 		{ options.map(option => (
 			<MultiSelectOption
@@ -108,5 +107,4 @@ export default ({
 			onChange={({ nativeEvent: { text } }) => setCustomSelection(text)}
 		/>
 	</View>
-	// </ScrollView>
 );

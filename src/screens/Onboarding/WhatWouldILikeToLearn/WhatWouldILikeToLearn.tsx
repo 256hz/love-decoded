@@ -16,7 +16,7 @@ const options = [
 	'Stop Resenting People',
 	'Heal Important Relationships',
 	'Control Anger with Love',
-	'Stop Unloving Relationships',
+	"Stop People's Unloving Behaviors",
 	'Stop Being a People Pleaser',
 	'Exercise, Eat Healther, Meditate',
 	'Learn Communication Skills',
