@@ -10,7 +10,7 @@ const cards = [ {
 	bottomElement: <Text style={styles.footerText}>swipe left to see more</Text>,
 }, {
 	title: 'Link #1',
-	body: 'Survival rates of cancer patients who are surrounded by love and love self is 40% higher.',
+	body: 'Survival rates are 40% higher in cancer patients who are surrounded by love and self-love.',
 	link: 'https://source.wustl.edu/2012/01/moms-love-good-for-childs-brain/',
 }, {
 	title: 'Link #2',

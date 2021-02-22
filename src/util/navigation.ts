@@ -1,10 +1,10 @@
 import { NavigationContainerRef } from '@react-navigation/native';
-import * as React from 'react';
+import React from 'react';
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
 export const navigate = (routeName, params) => {
-  navigationRef.current?.navigate(routeName, params);
+	navigationRef.current?.navigate(routeName, params);
 };
 
 export const changeStack = (stackName) => {
@@ -12,8 +12,8 @@ export const changeStack = (stackName) => {
 };
 
 const resetRoot = (routeName) => {
-  navigationRef.current?.resetRoot({
-  	index: 0,
-  	routes: [ { name: routeName } ],
-  });
+	navigationRef.current?.resetRoot({
+		index: 0,
+		routes: [ { name: routeName } ],
+	});
 };
