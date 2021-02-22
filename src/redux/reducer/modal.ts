@@ -24,7 +24,7 @@ export const modal = createReducer(INITIAL_STATE, reducer => {
 		.addCase(clearModal, (state, { payload: { modalType } }) => ({
 			...state,
 			[modalType]: undefined,
-			visibleModals: state.visibleModals.filter(modal => modal !== modalType),
+			visibleModals: state.visibleModals.filter(visibleModal => visibleModal !== modalType),
 		}))
 	;
 });
