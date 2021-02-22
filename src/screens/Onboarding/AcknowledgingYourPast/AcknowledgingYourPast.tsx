@@ -27,11 +27,11 @@ export default () => {
 	const dispatch = useDispatch();
 
 	const surveyResponse = useSelector(getSurveyByTitle(Surveys.AcknowledgingYourPast)) as string[] || [];
-	const existingCustomSelection = surveyResponse.find(response => !options.includes(response)) || '';
 
-	const [ selections, setSelections ] = useState<string[]>(
-		(surveyResponse as string[]).filter(response => options.includes(response)),
-	);
+	const defaultSelection = surveyResponse.filter(response => options.includes(response));
+	const [ selections, setSelections ] = useState<string[]>(defaultSelection);
+
+	const existingCustomSelection = surveyResponse.find(response => !options.includes(response)) || '';
 	const [ customSelection, setCustomSelection ] = useState(existingCustomSelection);
 
 	const toggleSelected = (option: string) => {
@@ -62,7 +62,7 @@ export default () => {
 				drawShapes={[ 1, 7, 11 ]}
 				showLogo={true}
 				title="Acknowleding Your Past and Present Sources of Pain"
-				audioFilename="music128.mp3"
+				audioFilename="onboarding-2-sources-of-pain"
 				nextTarget={Screens.WhatWouldILikeToLearn}
 				onNextCallback={submitResponse}
 			>

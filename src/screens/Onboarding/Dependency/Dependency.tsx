@@ -28,7 +28,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
-			audioFilename="music128.mp3"
+			audioFilename="onboarding-15-dependency.mp3"
 			nextTarget={Screens.NavigatingTheStructure}
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}

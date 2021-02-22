@@ -26,7 +26,7 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
 		title={'Mastering Love\nof Self and Others'}
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-7-the-learning-pyramid.mp3"
 		nextTarget={Screens.FromComfort}
 	>
 		<View style={styles.container}>

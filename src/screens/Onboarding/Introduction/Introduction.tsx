@@ -1,11 +1,9 @@
 import React from 'react';
-import {
-	Image, ImageBackground, Text, View,
-} from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
-import { OnboardingStackParamList, Screens } from 'route/OnboardingStack';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { Screens } from 'route/OnboardingStack';
+import { useNavigation } from '@react-navigation/native';
 import styles from './Introduction.styles';
 
 type EnterButtonProps = {
@@ -23,19 +21,12 @@ const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
 	</TouchableOpacity>
 );
 
-type IntroductionScreenNavigationProp = StackNavigationProp<
-OnboardingStackParamList,
-Screens.Introduction
->;
+export default () => {
+	const { navigate } = useNavigation();
 
-type Props = {
-	navigation: IntroductionScreenNavigationProp;
-};
-
-export default ({ navigation: { navigate } }: Props) => {
 	return (
 		<OnboardingScreen
-			audioFilename="music128.mp3"
+			audioFilename="onboarding-1-you-are-born-to-be-loved.mp3"
 			customButtons={
 				<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
 			}

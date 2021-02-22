@@ -27,7 +27,7 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
 		title="Set Your Alerts"
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-18-set-your-alerts.mp3"
 		nextTarget={Screens.SetYourAlerts}
 	>
 		<View style={styles.container}>

@@ -28,7 +28,7 @@ export default () => {
 
 	return (
 		<OnboardingScreen
-			audioFilename="music128.mp3"
+			audioFilename="onboarding-22-neff-self-compassion-survey.mp3"
 			drawShapes={[ 19, 20 ]}
 			title={'The Purpose of\nNeff\'s Self-Compassion Scale'}
 			titleContainerStyle={styles.titleContainerStyle}

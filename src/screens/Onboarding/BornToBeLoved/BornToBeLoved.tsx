@@ -6,7 +6,7 @@ import styles from './BornToBeLoved.styles';
 
 export default () => (
 	<OnboardingScreen
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-17-born-to-be-loved.mp3"
 		drawShapes={[ 6, 10 ]}
 		nextTarget={Screens.SetYourAlertsIntro}
 		title="Born To Be Loved"

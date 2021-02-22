@@ -19,6 +19,26 @@
 		2DCD954D1E0B4F2C00145EB5 /* LoveDecodedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LoveDecodedTests.m */; };
 		3047DA5525A6B7BC00C59DD9 /* music128.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3047DA5425A6B7BC00C59DD9 /* music128.mp3 */; };
 		309574EC25A7D42400908D5C /* music128.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 309574EB25A7D42400908D5C /* music128.mp3 */; };
+		30F504A225E3250800E19A16 /* onboarding-17-born-to-be-loved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5048E25E3250700E19A16 /* onboarding-17-born-to-be-loved.mp3 */; };
+		30F504A325E3250800E19A16 /* onboarding-21-how-can-i-tell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5048F25E3250700E19A16 /* onboarding-21-how-can-i-tell.mp3 */; };
+		30F504A425E3250800E19A16 /* onboarding-13-let-the-app-teach-you.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049025E3250700E19A16 /* onboarding-13-let-the-app-teach-you.mp3 */; };
+		30F504A525E3250800E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049125E3250700E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 */; };
+		30F504A625E3250800E19A16 /* onboarding-18-set-your-alerts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049225E3250700E19A16 /* onboarding-18-set-your-alerts.mp3 */; };
+		30F504A725E3250800E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */; };
+		30F504A825E3250800E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */; };
+		30F504A925E3250800E19A16 /* onboarding-2-sources-of-pain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049525E3250700E19A16 /* onboarding-2-sources-of-pain.mp3 */; };
+		30F504AA25E3250800E19A16 /* onboarding-5-when-you-forget.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049625E3250700E19A16 /* onboarding-5-when-you-forget.mp3 */; };
+		30F504AB25E3250800E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049725E3250700E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 */; };
+		30F504AC25E3250800E19A16 /* onboarding-14-love-vs.-heartburn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049825E3250700E19A16 /* onboarding-14-love-vs.-heartburn.mp3 */; };
+		30F504AD25E3250800E19A16 /* onboarding-1-you-are-born-to-be-loved.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049925E3250700E19A16 /* onboarding-1-you-are-born-to-be-loved.mp3 */; };
+		30F504AE25E3250800E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049A25E3250700E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 */; };
+		30F504AF25E3250800E19A16 /* onboarding-7-the-learning-pyramid.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049B25E3250700E19A16 /* onboarding-7-the-learning-pyramid.mp3 */; };
+		30F504B025E3250800E19A16 /* onboarding-6-the-science-of-love.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049C25E3250800E19A16 /* onboarding-6-the-science-of-love.mp3 */; };
+		30F504B125E3250800E19A16 /* onboarding-15-dependency.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049D25E3250800E19A16 /* onboarding-15-dependency.mp3 */; };
+		30F504B225E3250800E19A16 /* onboarding-3-what-would-i-like-to-learn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049E25E3250800E19A16 /* onboarding-3-what-would-i-like-to-learn.mp3 */; };
+		30F504B325E3250800E19A16 /* onboarding-8-expanding-your-comfort-zone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049F25E3250800E19A16 /* onboarding-8-expanding-your-comfort-zone.mp3 */; };
+		30F504B425E3250800E19A16 /* onboarding-9-control.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F504A025E3250800E19A16 /* onboarding-9-control.mp3 */; };
+		30F504B525E3250800E19A16 /* onboarding-4-unconditional-community.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F504A125E3250800E19A16 /* onboarding-4-unconditional-community.mp3 */; };
 		33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */; };
 		4D5E49FA3D848D3D2D3F705B /* libPods-LoveDecoded-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */; };
 		4E96B39CA1078ADE24D2DFEC /* libPods-LoveDecoded-LoveDecodedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0EB886A458F993EF2D67F /* libPods-LoveDecoded-LoveDecodedTests.a */; };
@@ -62,6 +82,26 @@
 		2D02E4901E0B4A5D006451C7 /* LoveDecoded-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LoveDecoded-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3047DA5425A6B7BC00C59DD9 /* music128.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music128.mp3; path = ../assets/audio/music128.mp3; sourceTree = "<group>"; };
 		309574EB25A7D42400908D5C /* music128.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = music128.mp3; path = ../assets/audio/music128.mp3; sourceTree = "<group>"; };
+		30F5048E25E3250700E19A16 /* onboarding-17-born-to-be-loved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-17-born-to-be-loved.mp3"; path = "../android/app/src/main/res/raw/onboarding-17-born-to-be-loved.mp3"; sourceTree = "<group>"; };
+		30F5048F25E3250700E19A16 /* onboarding-21-how-can-i-tell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-21-how-can-i-tell.mp3"; path = "../android/app/src/main/res/raw/onboarding-21-how-can-i-tell.mp3"; sourceTree = "<group>"; };
+		30F5049025E3250700E19A16 /* onboarding-13-let-the-app-teach-you.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-13-let-the-app-teach-you.mp3"; path = "../android/app/src/main/res/raw/onboarding-13-let-the-app-teach-you.mp3"; sourceTree = "<group>"; };
+		30F5049125E3250700E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-22-neff-self-compassion-survey.mp3"; path = "../android/app/src/main/res/raw/onboarding-22-neff-self-compassion-survey.mp3"; sourceTree = "<group>"; };
+		30F5049225E3250700E19A16 /* onboarding-18-set-your-alerts.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-18-set-your-alerts.mp3"; path = "../android/app/src/main/res/raw/onboarding-18-set-your-alerts.mp3"; sourceTree = "<group>"; };
+		30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-77-neff-self-compassion-scale-will.mp3"; path = "../android/app/src/main/res/raw/onboarding-77-neff-self-compassion-scale-will.mp3"; sourceTree = "<group>"; };
+		30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-38c-erb-ready-to-quit.mp3"; path = "../android/app/src/main/res/raw/onboarding-38c-erb-ready-to-quit.mp3"; sourceTree = "<group>"; };
+		30F5049525E3250700E19A16 /* onboarding-2-sources-of-pain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-2-sources-of-pain.mp3"; path = "../android/app/src/main/res/raw/onboarding-2-sources-of-pain.mp3"; sourceTree = "<group>"; };
+		30F5049625E3250700E19A16 /* onboarding-5-when-you-forget.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-5-when-you-forget.mp3"; path = "../android/app/src/main/res/raw/onboarding-5-when-you-forget.mp3"; sourceTree = "<group>"; };
+		30F5049725E3250700E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-38a-erb-frustrated-with-yourself.mp3"; path = "../android/app/src/main/res/raw/onboarding-38a-erb-frustrated-with-yourself.mp3"; sourceTree = "<group>"; };
+		30F5049825E3250700E19A16 /* onboarding-14-love-vs.-heartburn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-14-love-vs.-heartburn.mp3"; path = "../android/app/src/main/res/raw/onboarding-14-love-vs.-heartburn.mp3"; sourceTree = "<group>"; };
+		30F5049925E3250700E19A16 /* onboarding-1-you-are-born-to-be-loved.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-1-you-are-born-to-be-loved.mp3"; path = "../android/app/src/main/res/raw/onboarding-1-you-are-born-to-be-loved.mp3"; sourceTree = "<group>"; };
+		30F5049A25E3250700E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-38b-erb-frustrated-with-the-app.mp3"; path = "../android/app/src/main/res/raw/onboarding-38b-erb-frustrated-with-the-app.mp3"; sourceTree = "<group>"; };
+		30F5049B25E3250700E19A16 /* onboarding-7-the-learning-pyramid.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-7-the-learning-pyramid.mp3"; path = "../android/app/src/main/res/raw/onboarding-7-the-learning-pyramid.mp3"; sourceTree = "<group>"; };
+		30F5049C25E3250800E19A16 /* onboarding-6-the-science-of-love.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-6-the-science-of-love.mp3"; path = "../android/app/src/main/res/raw/onboarding-6-the-science-of-love.mp3"; sourceTree = "<group>"; };
+		30F5049D25E3250800E19A16 /* onboarding-15-dependency.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-15-dependency.mp3"; path = "../android/app/src/main/res/raw/onboarding-15-dependency.mp3"; sourceTree = "<group>"; };
+		30F5049E25E3250800E19A16 /* onboarding-3-what-would-i-like-to-learn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-3-what-would-i-like-to-learn.mp3"; path = "../android/app/src/main/res/raw/onboarding-3-what-would-i-like-to-learn.mp3"; sourceTree = "<group>"; };
+		30F5049F25E3250800E19A16 /* onboarding-8-expanding-your-comfort-zone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-8-expanding-your-comfort-zone.mp3"; path = "../android/app/src/main/res/raw/onboarding-8-expanding-your-comfort-zone.mp3"; sourceTree = "<group>"; };
+		30F504A025E3250800E19A16 /* onboarding-9-control.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-9-control.mp3"; path = "../android/app/src/main/res/raw/onboarding-9-control.mp3"; sourceTree = "<group>"; };
+		30F504A125E3250800E19A16 /* onboarding-4-unconditional-community.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-4-unconditional-community.mp3"; path = "../android/app/src/main/res/raw/onboarding-4-unconditional-community.mp3"; sourceTree = "<group>"; };
 		39A3D3E2929EE317805EE831 /* Pods-LoveDecoded-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded-tvOSTests/Pods-LoveDecoded-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoveDecoded-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +218,26 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				30F5049925E3250700E19A16 /* onboarding-1-you-are-born-to-be-loved.mp3 */,
+				30F5049525E3250700E19A16 /* onboarding-2-sources-of-pain.mp3 */,
+				30F5049E25E3250800E19A16 /* onboarding-3-what-would-i-like-to-learn.mp3 */,
+				30F504A125E3250800E19A16 /* onboarding-4-unconditional-community.mp3 */,
+				30F5049625E3250700E19A16 /* onboarding-5-when-you-forget.mp3 */,
+				30F5049C25E3250800E19A16 /* onboarding-6-the-science-of-love.mp3 */,
+				30F5049B25E3250700E19A16 /* onboarding-7-the-learning-pyramid.mp3 */,
+				30F5049F25E3250800E19A16 /* onboarding-8-expanding-your-comfort-zone.mp3 */,
+				30F504A025E3250800E19A16 /* onboarding-9-control.mp3 */,
+				30F5049025E3250700E19A16 /* onboarding-13-let-the-app-teach-you.mp3 */,
+				30F5049825E3250700E19A16 /* onboarding-14-love-vs.-heartburn.mp3 */,
+				30F5049D25E3250800E19A16 /* onboarding-15-dependency.mp3 */,
+				30F5048E25E3250700E19A16 /* onboarding-17-born-to-be-loved.mp3 */,
+				30F5049225E3250700E19A16 /* onboarding-18-set-your-alerts.mp3 */,
+				30F5048F25E3250700E19A16 /* onboarding-21-how-can-i-tell.mp3 */,
+				30F5049125E3250700E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 */,
+				30F5049725E3250700E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 */,
+				30F5049A25E3250700E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 */,
+				30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */,
+				30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */,
 				1CD54D1125E2BE9A00B7F6AC /* AppCenter-Config.plist */,
 				309574EB25A7D42400908D5C /* music128.mp3 */,
 				3047DA5425A6B7BC00C59DD9 /* music128.mp3 */,
@@ -362,13 +422,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F504AA25E3250800E19A16 /* onboarding-5-when-you-forget.mp3 in Resources */,
+				30F504B425E3250800E19A16 /* onboarding-9-control.mp3 in Resources */,
+				30F504A825E3250800E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 in Resources */,
 				309574EC25A7D42400908D5C /* music128.mp3 in Resources */,
 				3047DA5525A6B7BC00C59DD9 /* music128.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				1CD54D1225E2BE9A00B7F6AC /* AppCenter-Config.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				30F504A325E3250800E19A16 /* onboarding-21-how-can-i-tell.mp3 in Resources */,
+				30F504A225E3250800E19A16 /* onboarding-17-born-to-be-loved.mp3 in Resources */,
 				D7DA8E89105F4605B970AD00 /* Rubik.ttf in Resources */,
+				30F504B025E3250800E19A16 /* onboarding-6-the-science-of-love.mp3 in Resources */,
+				30F504B325E3250800E19A16 /* onboarding-8-expanding-your-comfort-zone.mp3 in Resources */,
+				30F504AC25E3250800E19A16 /* onboarding-14-love-vs.-heartburn.mp3 in Resources */,
+				30F504B225E3250800E19A16 /* onboarding-3-what-would-i-like-to-learn.mp3 in Resources */,
+				30F504A525E3250800E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 in Resources */,
+				30F504B125E3250800E19A16 /* onboarding-15-dependency.mp3 in Resources */,
+				30F504AB25E3250800E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 in Resources */,
 				33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */,
+				30F504A725E3250800E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 in Resources */,
+				30F504A425E3250800E19A16 /* onboarding-13-let-the-app-teach-you.mp3 in Resources */,
+				30F504AF25E3250800E19A16 /* onboarding-7-the-learning-pyramid.mp3 in Resources */,
+				30F504A625E3250800E19A16 /* onboarding-18-set-your-alerts.mp3 in Resources */,
+				30F504AE25E3250800E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 in Resources */,
+				30F504AD25E3250800E19A16 /* onboarding-1-you-are-born-to-be-loved.mp3 in Resources */,
+				30F504A925E3250800E19A16 /* onboarding-2-sources-of-pain.mp3 in Resources */,
+				30F504B525E3250800E19A16 /* onboarding-4-unconditional-community.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

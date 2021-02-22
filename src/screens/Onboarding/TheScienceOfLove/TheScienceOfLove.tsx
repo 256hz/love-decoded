@@ -37,7 +37,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		showLogo={true}
 		title={'The Science of Love:\nA Pioneering Discovery'}
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-6-the-science-of-love.mp3"
 		nextTarget={Screens.MasteringLove}
 	>
 		<View style={styles.container}>

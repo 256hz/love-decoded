@@ -7,7 +7,7 @@ import styles from './HavingTheLovingCommunities.styles';
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-4-unconditional-community.mp3"
 		nextTarget={Screens.WhenYouForget}
 	>
 		<View style={styles.container}>
