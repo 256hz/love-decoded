@@ -63,11 +63,15 @@ export default ({
 		}
 
 		setIsLoaded(true);
+		setIsPlaying(true);
+		SoundPlayer.play();
+
 		if (!getInfoTimer.current) {
 			getInfoTimer.current = setInterval(async () => {
 				await getInfo();
 			}, 100);
 		}
+
 	}));
 
 	// SoundPlayer event listener. Pauses at the very end of the file so it won't auto-rewind.
