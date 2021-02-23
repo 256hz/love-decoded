@@ -24,7 +24,6 @@
 		30F504A425E3250800E19A16 /* onboarding-13-let-the-app-teach-you.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049025E3250700E19A16 /* onboarding-13-let-the-app-teach-you.mp3 */; };
 		30F504A525E3250800E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049125E3250700E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 */; };
 		30F504A625E3250800E19A16 /* onboarding-18-set-your-alerts.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049225E3250700E19A16 /* onboarding-18-set-your-alerts.mp3 */; };
-		30F504A725E3250800E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */; };
 		30F504A825E3250800E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */; };
 		30F504A925E3250800E19A16 /* onboarding-2-sources-of-pain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049525E3250700E19A16 /* onboarding-2-sources-of-pain.mp3 */; };
 		30F504AA25E3250800E19A16 /* onboarding-5-when-you-forget.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F5049625E3250700E19A16 /* onboarding-5-when-you-forget.mp3 */; };
@@ -87,7 +86,6 @@
 		30F5049025E3250700E19A16 /* onboarding-13-let-the-app-teach-you.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-13-let-the-app-teach-you.mp3"; path = "../android/app/src/main/res/raw/onboarding-13-let-the-app-teach-you.mp3"; sourceTree = "<group>"; };
 		30F5049125E3250700E19A16 /* onboarding-22-neff-self-compassion-survey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-22-neff-self-compassion-survey.mp3"; path = "../android/app/src/main/res/raw/onboarding-22-neff-self-compassion-survey.mp3"; sourceTree = "<group>"; };
 		30F5049225E3250700E19A16 /* onboarding-18-set-your-alerts.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-18-set-your-alerts.mp3"; path = "../android/app/src/main/res/raw/onboarding-18-set-your-alerts.mp3"; sourceTree = "<group>"; };
-		30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-77-neff-self-compassion-scale-will.mp3"; path = "../android/app/src/main/res/raw/onboarding-77-neff-self-compassion-scale-will.mp3"; sourceTree = "<group>"; };
 		30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-38c-erb-ready-to-quit.mp3"; path = "../android/app/src/main/res/raw/onboarding-38c-erb-ready-to-quit.mp3"; sourceTree = "<group>"; };
 		30F5049525E3250700E19A16 /* onboarding-2-sources-of-pain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-2-sources-of-pain.mp3"; path = "../android/app/src/main/res/raw/onboarding-2-sources-of-pain.mp3"; sourceTree = "<group>"; };
 		30F5049625E3250700E19A16 /* onboarding-5-when-you-forget.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "onboarding-5-when-you-forget.mp3"; path = "../android/app/src/main/res/raw/onboarding-5-when-you-forget.mp3"; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				30F5049725E3250700E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 */,
 				30F5049A25E3250700E19A16 /* onboarding-38b-erb-frustrated-with-the-app.mp3 */,
 				30F5049425E3250700E19A16 /* onboarding-38c-erb-ready-to-quit.mp3 */,
-				30F5049325E3250700E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 */,
 				1CD54D1125E2BE9A00B7F6AC /* AppCenter-Config.plist */,
 				309574EB25A7D42400908D5C /* music128.mp3 */,
 				3047DA5425A6B7BC00C59DD9 /* music128.mp3 */,
@@ -441,7 +438,6 @@
 				30F504B125E3250800E19A16 /* onboarding-15-dependency.mp3 in Resources */,
 				30F504AB25E3250800E19A16 /* onboarding-38a-erb-frustrated-with-yourself.mp3 in Resources */,
 				33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */,
-				30F504A725E3250800E19A16 /* onboarding-77-neff-self-compassion-scale-will.mp3 in Resources */,
 				30F504A425E3250800E19A16 /* onboarding-13-let-the-app-teach-you.mp3 in Resources */,
 				30F504AF25E3250800E19A16 /* onboarding-7-the-learning-pyramid.mp3 in Resources */,
 				30F504A625E3250800E19A16 /* onboarding-18-set-your-alerts.mp3 in Resources */,
