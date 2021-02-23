@@ -49,10 +49,10 @@ export default ({
 	const [ isLoaded, setIsLoaded ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
 	const [ currentTime, setCurrentTime ] = useState(0);
-	// The user won't be able to fast forward past the latest time they've listened to.
-	const totalListened = useRef(0);
 	const [ duration, setDuration ] = useState(0);
 
+	// The user won't be able to fast forward past the latest time they've listened to.
+	const totalListened = useRef(0);
 	// Holds the handle for the setInterval that gets position in the audio file.
 	const getInfoTimer = useRef<number>();
 
@@ -132,6 +132,7 @@ export default ({
 			return;
 		}
 
+		// loadSoundFile takes [ 'filename', 'mp3' ]
 		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
@@ -154,13 +155,13 @@ export default ({
 			{ audioFilename
 				? (
 					<AudioPlayerBar
-						onRewind={rewind}
-						onFastForward={fastForward}
-						onTogglePause={togglePause}
-						isPlaying={isPlaying}
-						isLoaded={isLoaded}
 						currentTime={currentTime}
 						duration={duration}
+						isPlaying={isPlaying}
+						isLoaded={isLoaded}
+						onFastForward={fastForward}
+						onRewind={rewind}
+						onTogglePause={togglePause}
 					/>
 				)
 				: <View />

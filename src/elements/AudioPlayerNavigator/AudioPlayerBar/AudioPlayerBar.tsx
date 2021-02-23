@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import BackArrow from '@assets/svg/back-arrow.svg';
@@ -24,8 +24,19 @@ export default ({
 	currentTime,
 	duration,
 }: AudioPlayerBarProps) => {
-	const formatAudioText = (seconds: number) => {
-		return `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+	const [ showRemainingTime, setShowRemainingTime ] = useState(false);
+
+	const toggleTimeView = () => {
+		setShowRemainingTime(() => !showRemainingTime);
+	};
+
+	const formatAudioText = (current: number) => {
+		const secondsToShow = showRemainingTime ? duration - current : current;
+
+		const minutes = Math.floor(secondsToShow / 60);
+		const secondsString = Math.floor(secondsToShow % 60).toString().padStart(2, '0');
+
+		return `${showRemainingTime ? '-' : ''}${minutes}:${secondsString}`;
 	};
 
 	const timeDotOffset = duration > 0
@@ -67,11 +78,13 @@ export default ({
 				}} />
 			</View>
 
-			<View style={styles.audioTimeContainer}>
-				<Text style={styles.text}>
-					{formatAudioText(currentTime)}
-				</Text>
-			</View>
+			<TouchableOpacity onPress={toggleTimeView}>
+				<View style={styles.audioTimeContainer}>
+					<Text style={styles.text}>
+						{formatAudioText(currentTime)}
+					</Text>
+				</View>
+			</TouchableOpacity>
 
 		</View>
 	);

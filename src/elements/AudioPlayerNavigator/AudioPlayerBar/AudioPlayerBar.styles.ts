@@ -65,7 +65,7 @@ export default StyleSheet.create({
 		borderWidth: 2,
 	},
 	audioBarContainer: {
-		width: width - MARGIN * 2,
+		width: TIME_BAR_WIDTH,
 		height: 35,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -86,14 +86,21 @@ export default StyleSheet.create({
 	},
 	audioTimeContainer: {
 		width: TIME_BAR_WIDTH,
-		height: 20,
+		height: 40,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
+		alignItems: 'flex-start',
 		marginTop: -8,
+		paddingLeft: 20,
+		paddingBottom: 20,
 	},
 	text: {
 		fontFamily: 'Roboto-Regular',
 		fontWeight: '400',
 		fontSize: 15,
+	},
+	spinner: {
+		height: 18,
+		width: 18,
 	},
 });
