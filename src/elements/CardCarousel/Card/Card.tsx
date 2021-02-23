@@ -1,13 +1,12 @@
-import { Link } from '@react-navigation/native';
 import React, { ReactChild, ReactElement } from 'react';
 import {
-	Linking,
 	StyleProp,
 	Text,
 	TextStyle,
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { openWebLink } from 'util/linking';
 import styles from './Card.styles';
 
 export type CardEntry = {
@@ -31,12 +30,6 @@ export default ({ item }: { item: CardEntry }) => {
 		title,
 	} = item;
 
-	const openLink = () => {
-		link
-			&& Linking.canOpenURL(link)
-			&& Linking.openURL(link);
-	};
-
 	return (
 		<View style={styles.container}>
 			{ title && (
@@ -56,7 +49,7 @@ export default ({ item }: { item: CardEntry }) => {
 				{ bottomElement }
 				{ link && (
 					// TODO link out to web
-					<TouchableOpacity onPress={openLink}>
+					<TouchableOpacity onPress={() => openWebLink(link)}>
 						<View style={styles.button}>
 							<Text style={styles.buttonText}>click to view</Text>
 						</View>

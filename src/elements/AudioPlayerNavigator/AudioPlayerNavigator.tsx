@@ -36,6 +36,8 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
+const CURRENT_TIME_DOT_UPDATE_FPS = 30;
+
 export default ({
 	audioFilename,
 	backTarget,
@@ -70,7 +72,7 @@ export default ({
 		if (!getInfoTimer.current) {
 			getInfoTimer.current = setInterval(async () => {
 				await getInfo();
-			}, 33.33);
+			}, 1000 / CURRENT_TIME_DOT_UPDATE_FPS);
 		}
 	}));
 

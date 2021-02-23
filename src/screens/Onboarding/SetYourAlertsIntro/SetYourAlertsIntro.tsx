@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';
 import { CardCarousel, OnboardingScreen } from '@elements';
@@ -23,29 +23,34 @@ const cards = [
 	},
 ];
 
-export default () => (
-	<OnboardingScreen
-		drawShapes={[ 1, 7, 11 ]}
-		title="Set Your Alerts"
-		audioFilename="onboarding-18-set-your-alerts.mp3"
-		nextTarget={Screens.SetYourAlerts}
-	>
-		<View style={styles.container}>
-			<View style={styles.topTextContainer}>
-				<Text style={styles.topText}>
-					<Text style={[ styles.topText, styles.boldText ]}>Remember </Text> - Love is Nourishment -
-				</Text>
-				<Text style={styles.topText}>
-					Your alerts are going to coincide with times you choose to nourish yourself.
-				</Text>
-				<Text style={styles.footerText}>
-					Please read all four cards in order to set your alerts - swipe left to see more.
-				</Text>
-			</View>
+export default () => {
+	const [ nextEnabled, setNextEnabled ] = useState(false);
 
-			<View style={styles.cards}>
-				<CardCarousel cards={cards} />
+	return (
+		<OnboardingScreen
+			drawShapes={[ 1, 7, 11 ]}
+			title="Set Your Alerts"
+			audioFilename="onboarding-18-set-your-alerts.mp3"
+			nextTarget={Screens.SetYourAlerts}
+			nextEnabled={nextEnabled}
+		>
+			<View style={styles.container}>
+				<View style={styles.topTextContainer}>
+					<Text style={styles.topText}>
+						<Text style={[ styles.topText, styles.boldText ]}>Remember </Text> - Love is Nourishment -
+					</Text>
+					<Text style={styles.topText}>
+						Your alerts are going to coincide with times you choose to nourish yourself.
+					</Text>
+					<Text style={styles.footerText}>
+						Please read all four cards in order to set your alerts - swipe left to see more.
+					</Text>
+				</View>
+
+				<View style={styles.cards}>
+					<CardCarousel cards={cards} setNextEnabled={setNextEnabled} />
+				</View>
 			</View>
-		</View>
-	</OnboardingScreen>
-);
+		</OnboardingScreen>
+	);
+};

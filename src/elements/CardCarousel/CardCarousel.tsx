@@ -6,6 +6,7 @@ import styles from './CardCarousel.styles';
 
 type Props = {
 	cards: CardEntry[];
+	setNextEnabled: (arg: boolean) => void;
 };
 
 type State = {
@@ -24,6 +25,8 @@ export default class CardCarousel extends Component<Props, State> {
 		};
 	}
 
+
+
 	get pagination() {
 		const { entries, activeSlide } = this.state;
 		return (
@@ -39,6 +42,16 @@ export default class CardCarousel extends Component<Props, State> {
 		);
 	}
 
+	snapToItem = (activeSlide: number) => {
+		this.setState({ activeSlide });
+
+		const { entries } = this.state;
+		if (activeSlide === entries.length - 1) {
+			const { setNextEnabled } = this.props;
+			setNextEnabled(true);
+		}
+	};
+
 	// eslint-disable-next-line class-methods-use-this
 	_renderItem({ item }: { item: CardEntry }) {
 		return <Card item={item} />;
@@ -52,7 +65,7 @@ export default class CardCarousel extends Component<Props, State> {
 				<Carousel
 					data={entries}
 					renderItem={this._renderItem}
-					onSnapToItem={(index: number) => this.setState({ activeSlide: index }) }
+					onSnapToItem={this.snapToItem}
 					sliderWidth={width}
 					itemWidth={width * 0.8}
 					useScrollView={true}

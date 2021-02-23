@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';
 import { CardCarousel, OnboardingScreen } from '@elements';
@@ -32,26 +32,31 @@ const cards = [ {
 },
 ];
 
-export default () => (
-	<OnboardingScreen
-		drawShapes={[ 1, 7, 11 ]}
-		showLogo={true}
-		title={'The Science of Love:\nA Pioneering Discovery'}
-		audioFilename="onboarding-6-the-science-of-love.mp3"
-		nextTarget={Screens.MasteringLove}
-	>
-		<View style={styles.container}>
-			<View style={styles.topTextContainer}>
-				<Text style={styles.topText}>
-					{'Love is Nourishment\nlike'}
-					<Text style={styles.highlight}> Air, Food, And Water </Text>
-					{'\nwhich is why is it necessary to\nlearn to love yourself!'}
-				</Text>
-			</View>
+export default () => {
+	const [ nextEnabled, setNextEnabled ] = useState(false);
 
-			<View style={styles.cards}>
-				<CardCarousel cards={cards} />
+	return (
+		<OnboardingScreen
+			drawShapes={[ 1, 7, 11 ]}
+			showLogo={true}
+			title={'The Science of Love:\nA Pioneering Discovery'}
+			audioFilename="onboarding-6-the-science-of-love.mp3"
+			nextTarget={Screens.MasteringLove}
+			nextEnabled={nextEnabled}
+		>
+			<View style={styles.container}>
+				<View style={styles.topTextContainer}>
+					<Text style={styles.topText}>
+						{'Love is Nourishment\nlike'}
+						<Text style={styles.highlight}> Air, Food, And Water </Text>
+						{'\nwhich is why is it necessary to\nlearn to love yourself!'}
+					</Text>
+				</View>
+
+				<View style={styles.cards}>
+					<CardCarousel cards={cards} setNextEnabled={setNextEnabled} />
+				</View>
 			</View>
-		</View>
-	</OnboardingScreen>
-);
+		</OnboardingScreen>
+	);
+};
