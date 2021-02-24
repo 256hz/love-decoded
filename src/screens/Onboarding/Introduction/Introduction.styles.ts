@@ -12,7 +12,7 @@ export default StyleSheet.create({
 	subTitlesContainer: {
 		alignItems: 'center',
 		position: 'absolute',
-		bottom: 30,
+		bottom: 25,
 		width: '100%',
 	},
 	subTitleContainer: {

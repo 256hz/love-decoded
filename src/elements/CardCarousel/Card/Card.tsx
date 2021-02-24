@@ -6,6 +6,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { openWebLink } from 'util/linking';
 import styles from './Card.styles';
 
 export type CardEntry = {
@@ -19,29 +20,36 @@ export type CardEntry = {
 };
 
 export default ({ item }: { item: CardEntry }) => {
-	const { body, BodyElement, bodyStyle, bottomElement, centerBody, link, title } = item;
+	const {
+		body,
+		BodyElement,
+		bodyStyle,
+		bottomElement,
+		centerBody,
+		link,
+		title,
+	} = item;
 
 	return (
 		<View style={styles.container}>
-			{
-				title && <Text style={[ styles.body, styles.title, styles.highlight ]}>{title}</Text>
-			}
+			{ title && (
+				<Text style={[ styles.body, styles.title, styles.highlight ]}>{title}</Text>
+			)}
 
-			{
-				BodyElement
-					? <BodyElement />
-					: (
-						<View style={centerBody && styles.centerBody}>
-							<Text style={[ styles.body, bodyStyle ]}>{body}</Text>
-						</View>
-					)
+			{ BodyElement
+				? <BodyElement />
+				: (
+					<View style={centerBody && styles.centerBody}>
+						<Text style={[ styles.body, bodyStyle ]}>{body}</Text>
+					</View>
+				)
 			}
 
 			<View style={styles.cardBottom}>
 				{ bottomElement }
 				{ link && (
 					// TODO link out to web
-					<TouchableOpacity onPress={() => { console.log(link); }}>
+					<TouchableOpacity onPress={() => openWebLink(link)}>
 						<View style={styles.button}>
 							<Text style={styles.buttonText}>click to view</Text>
 						</View>

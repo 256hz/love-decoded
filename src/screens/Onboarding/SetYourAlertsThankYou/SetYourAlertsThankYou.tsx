@@ -27,6 +27,7 @@ export default () => {
 					<Text style={[ styles.text, styles.bold ]}>Activities: <Text style={styles.text}>{dayMinutesToTimeString(activitiesAlertMinutes)}</Text></Text>
 					<Text style={[ styles.text, styles.bold ]}>Survey: <Text style={styles.text}>{dayMinutesToTimeString(surveyAlertMinutes)}</Text></Text>
 					<Text style={[ styles.text, styles.bold ]}>Reflection: <Text style={styles.text}>{dayMinutesToTimeString(reflectionAlertMinutes)}</Text></Text>
+					<Text style={styles.subtitle}>You can change the alert times later in your account settings.</Text>
 				</View>
 			</View>
 		</OnboardingScreen>

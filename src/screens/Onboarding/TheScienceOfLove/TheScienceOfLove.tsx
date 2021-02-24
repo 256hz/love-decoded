@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';
 import { CardCarousel, OnboardingScreen } from '@elements';
@@ -10,7 +10,7 @@ const cards = [ {
 	bottomElement: <Text style={styles.footerText}>swipe left to see more</Text>,
 }, {
 	title: 'Link #1',
-	body: 'Survival rates of cancer patients who are surrounded by love and love self is 40% higher.',
+	body: 'Survival rates are 40% higher in cancer patients who are surrounded by love and self-love.',
 	link: 'https://source.wustl.edu/2012/01/moms-love-good-for-childs-brain/',
 }, {
 	title: 'Link #2',
@@ -32,26 +32,31 @@ const cards = [ {
 },
 ];
 
-export default () => (
-	<OnboardingScreen
-		drawShapes={[ 1, 7, 11 ]}
-		showLogo={true}
-		title={'The Science of Love:\nA Pioneering Discovery'}
-		audioFilename="music128.mp3"
-		nextTarget={Screens.MasteringLove}
-	>
-		<View style={styles.container}>
-			<View style={styles.topTextContainer}>
-				<Text style={styles.topText}>
-					{'Love is Nourishment\nlike'}
-					<Text style={styles.highlight}> Air, Food, And Water </Text>
-					{'\nwhich is why is it necessary to\nlearn to love yourself!'}
-				</Text>
-			</View>
+export default () => {
+	const [ nextEnabled, setNextEnabled ] = useState(false);
 
-			<View style={styles.cards}>
-				<CardCarousel cards={cards} />
+	return (
+		<OnboardingScreen
+			drawShapes={[ 1, 7, 11 ]}
+			showLogo={true}
+			title={'The Science of Love:\nA Pioneering Discovery'}
+			audioFilename="onboarding-6-the-science-of-love.mp3"
+			nextTarget={Screens.MasteringLove}
+			nextEnabled={nextEnabled}
+		>
+			<View style={styles.container}>
+				<View style={styles.topTextContainer}>
+					<Text style={styles.topText}>
+						{'Love is Nourishment\nlike'}
+						<Text style={styles.highlight}> Air, Food, And Water </Text>
+						{'\nwhich is why is it necessary to\nlearn to love yourself!'}
+					</Text>
+				</View>
+
+				<View style={styles.cards}>
+					<CardCarousel cards={cards} setNextEnabled={setNextEnabled} />
+				</View>
 			</View>
-		</View>
-	</OnboardingScreen>
-);
+		</OnboardingScreen>
+	);
+};

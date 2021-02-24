@@ -49,7 +49,7 @@ export default () => {
 				</Text>
 
 				<View>
-					<NeffScoreLine heading="Self - Kindess" score={selfKindnessScore} />
+					<NeffScoreLine heading="Self-Kindess" score={selfKindnessScore} />
 					<NeffScoreLine heading="Common Humanity" score={commonHumanityScore} />
 					<NeffScoreLine heading="Mindfulness" score={mindfulnessScore} />
 				</View>
@@ -59,7 +59,7 @@ export default () => {
 				</Text>
 
 				<View>
-					<NeffScoreLine heading="Self - Judgement" score={selfJudgementScore} />
+					<NeffScoreLine heading="Self-Judgement" score={selfJudgementScore} />
 					<NeffScoreLine heading="Isolation" score={isolationScore} />
 					<NeffScoreLine heading="Over-indentification" score={overIdentifiedScore} />
 				</View>

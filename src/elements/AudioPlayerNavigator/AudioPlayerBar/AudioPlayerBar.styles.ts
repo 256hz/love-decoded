@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { Dimensions, StyleSheet } from 'react-native';
 import { MARGIN } from '../AudioPlayerNavigator.styles';
 
@@ -11,10 +12,32 @@ export default StyleSheet.create({
 		width: '100%',
 	},
 	topButtonsContainer: {
-		width: width - MARGIN * 2,
+		width: '100%',
 		height: 40,
 		flexDirection: 'row',
-		justifyContent: 'flex-end',
+		justifyContent: 'space-between',
+		marginBottom: 6,
+	},
+	placeholderContainer: {
+		width: 42,
+	},
+	seekContainer: {
+		alignSelf: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		width: 160,
+	},
+	seekButton: {
+		height: '100%',
+		paddingHorizontal: 12,
+		alignItems: 'center',
+		flexDirection: 'row',
+	},
+	playContainer: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		paddingLeft: 32,
+		alignSelf: 'flex-end',
 	},
 	pauseContainer: {
 		width: 10,
@@ -22,28 +45,27 @@ export default StyleSheet.create({
 		marginRight: 5,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignSelf: 'flex-end',
 	},
 	pauseLine: {
 		width: 2,
 		height: 20,
 		backgroundColor: 'black',
+		alignSelf: 'flex-end',
 	},
 	playButtonContainer: {
-		width: 40,
-		height: 40,
-		borderRadius: 5,
+		height: '100%',
 		justifyContent: 'center',
-		alignItems: 'flex-end',
 	},
 	playLoading: {
 		width: 20,
 		height: 20,
 		borderRadius: 10,
-		borderColor: 'gray',
+		borderColor: colors.GrayBC,
 		borderWidth: 2,
 	},
 	audioBarContainer: {
-		width: width - MARGIN * 2,
+		width: TIME_BAR_WIDTH,
 		height: 35,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
@@ -53,7 +75,7 @@ export default StyleSheet.create({
 		width: TIME_BAR_WIDTH,
 		height: 2,
 		borderRadius: 1,
-		backgroundColor: 'gray',
+		backgroundColor: colors.Gray92,
 	},
 	audioTimeDot: {
 		position: 'absolute',
@@ -64,14 +86,21 @@ export default StyleSheet.create({
 	},
 	audioTimeContainer: {
 		width: TIME_BAR_WIDTH,
-		height: 20,
+		height: 40,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
+		alignItems: 'flex-start',
 		marginTop: -8,
+		paddingLeft: 20,
+		paddingBottom: 20,
 	},
 	text: {
 		fontFamily: 'Roboto-Regular',
 		fontWeight: '400',
 		fontSize: 15,
+	},
+	spinner: {
+		height: 18,
+		width: 18,
 	},
 });

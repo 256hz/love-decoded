@@ -36,6 +36,8 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
+const CURRENT_TIME_DOT_UPDATE_FPS = 30;
+
 export default ({
 	audioFilename,
 	backTarget,
@@ -50,8 +52,9 @@ export default ({
 	const [ isPlaying, setIsPlaying ] = useState(false);
 	const [ currentTime, setCurrentTime ] = useState(0);
 	const [ duration, setDuration ] = useState(0);
-	const [ playedToEnd, setPlayedToEnd ] = useState(false);
 
+	// The user won't be able to fast forward past the latest time they've listened to.
+	const totalListened = useRef(0);
 	// Holds the handle for the setInterval that gets position in the audio file.
 	const getInfoTimer = useRef<number>();
 
@@ -63,10 +66,13 @@ export default ({
 		}
 
 		setIsLoaded(true);
+		setIsPlaying(true);
+		SoundPlayer.play();
+
 		if (!getInfoTimer.current) {
 			getInfoTimer.current = setInterval(async () => {
 				await getInfo();
-			}, 100);
+			}, 1000 / CURRENT_TIME_DOT_UPDATE_FPS);
 		}
 	}));
 
@@ -78,19 +84,35 @@ export default ({
 		}
 
 		SoundPlayer.pause();
-		SoundPlayer.seek(duration - 0.1);
 		setIsPlaying(false);
-		setPlayedToEnd(true);
 	}));
 
 	const getInfo = async () => {
 		try {
 			const { duration: newDuration, currentTime: newCurrentTime } = await SoundPlayer.getInfo();
-			setDuration(newDuration);
-			setCurrentTime(newCurrentTime);
+
+			setCurrentTime(() => newCurrentTime);
+			setDuration(() => newDuration);
+
+			if (newCurrentTime > totalListened.current) {
+				totalListened.current = newCurrentTime;
+			}
 		} catch (e) {
 			console.error('could not get audio info', e);
 		}
+	};
+
+	const rewind = () => {
+		SoundPlayer.seek(Math.max(currentTime - 10, 0));
+	};
+
+	const fastForward = () => {
+		console.log({ currentTime, totalListened });
+		if (currentTime >= totalListened.current) {
+			return;
+		}
+
+		SoundPlayer.seek(Math.min(currentTime + 10, totalListened.current, duration - 0.1));
 	};
 
 	const togglePause = () => {
@@ -112,6 +134,7 @@ export default ({
 			return;
 		}
 
+		// loadSoundFile takes [ 'filename', 'mp3' ]
 		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
@@ -123,26 +146,27 @@ export default ({
 		});
 	}, [ onFinishLoad, audioFilename ]);
 
-	const nextIsEnabled = nextEnabled != undefined
+	const playedToEnd = duration && totalListened.current >= duration - 0.1;
+
+	const allowNextButton = nextEnabled != undefined
 		? nextEnabled && (playedToEnd || __DEV__)
 		: playedToEnd || __DEV__;
 
 	return (
-		<View style={[ styles.container,
-			{ height: audioFilename ? 220 : 150 },
-		]}>
-			{
-				audioFilename
-					? (
-						<AudioPlayerBar
-							onTogglePause={togglePause}
-							isPlaying={isPlaying}
-							isLoaded={isLoaded}
-							currentTime={currentTime}
-							duration={duration}
-						/>
-					)
-					: <View />
+		<View style={[ styles.container, { height: audioFilename ? 220 : 150 } ]}>
+			{ audioFilename
+				? (
+					<AudioPlayerBar
+						currentTime={currentTime}
+						duration={duration}
+						isPlaying={isPlaying}
+						isLoaded={isLoaded}
+						onFastForward={fastForward}
+						onRewind={rewind}
+						onTogglePause={togglePause}
+					/>
+				)
+				: <View />
 			}
 
 			{ customButtons || (
@@ -151,7 +175,7 @@ export default ({
 					hideBackButton={hideBackButton}
 					hideNextButton={hideNextButton}
 					onNextCallback={onNextCallback}
-					nextEnabled={nextIsEnabled}
+					nextEnabled={allowNextButton}
 					nextTarget={nextTarget!}
 				/>
 			)}

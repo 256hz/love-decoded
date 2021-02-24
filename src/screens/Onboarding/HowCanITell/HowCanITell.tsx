@@ -6,7 +6,7 @@ import styles from './HowCanITell.styles';
 
 export default () => (
 	<OnboardingScreen
-		audioFilename="music128.mp3"
+		audioFilename="onboarding-21-how-can-i-tell.mp3"
 		drawShapes={[ 18, 19, 20 ]}
 		nextTarget={Screens.NeffSurveyIntro}
 		title={'How Can I Tell If this App\nIs Working for Me?'}

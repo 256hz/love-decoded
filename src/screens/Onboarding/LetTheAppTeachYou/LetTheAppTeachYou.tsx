@@ -6,6 +6,7 @@ import styles from './LetTheAppTeachYou.styles';
 
 export default () => (
 	<OnboardingScreen
+		audioFilename="onboarding-13-let-the-app-teach-you.mp3"
 		drawShapes={[ 6, 10 ]}
 		hideBackButton={true}
 		nextTarget={Screens.LoveVsHeartburn}

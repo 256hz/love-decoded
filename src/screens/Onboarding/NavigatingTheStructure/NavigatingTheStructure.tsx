@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Screens } from 'route/OnboardingStack';
 import { CardCarousel, OnboardingScreen } from '@elements';
@@ -100,17 +100,22 @@ const cards = [
 	},
 ];
 
-export default () => (
-	<OnboardingScreen
-		drawShapes={[ 1, 7, 11 ]}
-		title={'Navigating the\nStructure of this App'}
-		audioFilename="music128.mp3"
-		nextTarget={Screens.BornToBeLoved}
-	>
-		<View style={styles.container}>
-			<View style={styles.cards}>
-				<CardCarousel cards={cards} />
+export default () => {
+	const [ nextEnabled, setNextEnabled ] = useState(false);
+
+	return (
+		<OnboardingScreen
+			drawShapes={[ 1, 7, 11 ]}
+			title={'Navigating the\nStructure of this App'}
+			audioFilename="music128.mp3"
+			nextTarget={Screens.BornToBeLoved}
+			nextEnabled={nextEnabled}
+		>
+			<View style={styles.container}>
+				<View style={styles.cards}>
+					<CardCarousel cards={cards} setNextEnabled={setNextEnabled} />
+				</View>
 			</View>
-		</View>
-	</OnboardingScreen>
-);
+		</OnboardingScreen>
+	);
+};
