@@ -26,12 +26,11 @@ export default () => {
 
 	return (
 		<OnboardingScreen
-			audioFilename="onboarding-1-you-are-born-to-be-loved.mp3"
+			audioFilename="onboarding_1_you_are_born_to_be_loved.mp3"
 			customButtons={
 				<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
 			}
 			drawShapes={[ 14, 15, 16 ]}
-			showLogo={true}
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

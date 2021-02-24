@@ -60,9 +60,8 @@ export default () => {
 		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
 			<OnboardingScreen
 				drawShapes={[ 1, 7, 11 ]}
-				showLogo={true}
 				title="Acknowleding Your Past and Present Sources of Pain"
-				audioFilename="onboarding-2-sources-of-pain.mp3"
+				audioFilename="onboarding_2_sources_of_pain.mp3"
 				nextTarget={Screens.WhatWouldILikeToLearn}
 				onNextCallback={submitResponse}
 			>

@@ -60,9 +60,8 @@ export default () => {
 		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
 			<OnboardingScreen
 				drawShapes={[ 1, 7, 11 ]}
-				showLogo={true}
 				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
-				audioFilename="onboarding-3-what-would-i-like-to-learn.mp3"
+				audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
 				nextTarget={Screens.HavingTheLovingCommunities}
 				onNextCallback={submitResponse}
 			>
