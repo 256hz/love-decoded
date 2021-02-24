@@ -6,7 +6,7 @@ import styles from './LoveVsHeartburn.styles';
 
 export default () => (
 	<OnboardingScreen
-		audioFilename="onboarding-14-love-vs-heartburn.mp3"
+		audioFilename="onboarding_14_love_vs_heartburn.mp3"
 		drawShapes={[ 1, 7, 11 ]}
 		nextTarget={Screens.Dependency}
 	>

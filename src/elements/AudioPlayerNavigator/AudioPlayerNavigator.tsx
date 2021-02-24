@@ -4,7 +4,7 @@ import React, {
 	useRef,
 	useState,
 } from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import { Screens } from 'route/OnboardingStack';
 import AudioPlayerBar from './AudioPlayerBar';
@@ -36,7 +36,7 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
-const CURRENT_TIME_DOT_UPDATE_FPS = 30;
+const CURRENT_TIME_DOT_UPDATE_FPS = Platform.select({ ios: 30, android: 10, default: 10 });
 
 export default ({
 	audioFilename,

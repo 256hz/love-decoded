@@ -7,7 +7,7 @@ import styles from './WhenYouForget.styles';
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
-		audioFilename="onboarding-5-when-you-forget.mp3"
+		audioFilename="onboarding_5_when_you_forget.mp3"
 		nextTarget={Screens.TheScienceOfLove}
 	>
 		<View style={styles.container}>

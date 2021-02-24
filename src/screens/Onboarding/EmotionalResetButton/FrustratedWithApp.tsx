@@ -6,7 +6,7 @@ import styles from './EmotionalResetButton.styles';
 
 export default () => (
 	<OnboardingScreen
-		audioFilename="onboarding-38b-erb-frustrated-with-the-app.mp3"
+		audioFilename="onboarding_38b_erb_frustrated_with_the_app.mp3"
 		drawShapes={[ 7, 25 ]}
 		hideNextButton={true}
 		nextTarget={Screens.BriefOverviewOfButtons}

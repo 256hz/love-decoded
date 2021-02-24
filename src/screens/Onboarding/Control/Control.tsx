@@ -26,7 +26,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
-			audioFilename="onboarding-9-control.mp3"
+			audioFilename="onboarding_9_control.mp3"
 			nextTarget={Screens.TheJourneyStartsNow}
 			title="Control"
 			onNextCallback={() => dispatch(setSurveyResponse(Surveys.CanYouControlIt, selectedValue))}

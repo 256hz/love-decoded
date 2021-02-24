@@ -38,9 +38,8 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
-			showLogo={true}
 			title={'The Science of Love:\nA Pioneering Discovery'}
-			audioFilename="onboarding-6-the-science-of-love.mp3"
+			audioFilename="onboarding_6_the_science_of_love.mp3"
 			nextTarget={Screens.MasteringLove}
 			nextEnabled={nextEnabled}
 		>
