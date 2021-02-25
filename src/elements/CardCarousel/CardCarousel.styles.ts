@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -11,7 +12,7 @@ export default StyleSheet.create({
 		width: 10,
 		height: 10,
 		borderRadius: 5,
-		backgroundColor: '#F1751B',
+		backgroundColor: colors.Orange,
 	},
 	inactiveDot: {
 		backgroundColor: 'white',

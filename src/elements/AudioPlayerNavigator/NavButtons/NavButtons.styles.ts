@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -11,14 +12,14 @@ export default StyleSheet.create({
 	navButton: {
 		width: 102,
 		height: 35,
-		backgroundColor: 'rgba(241, 117, 27, 0.3)',
+		backgroundColor: colors.OrangeTransparent,
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	disabled: {
-		backgroundColor: 'rgba(0, 0, 0, 0.3)',
+		backgroundColor: colors.GrayTransparent071,
 	},
 	text: {
 		fontFamily: 'Rubik',

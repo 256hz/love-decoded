@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -24,6 +25,6 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	selected: {
-		backgroundColor: 'rgba(248, 123, 32, 0.44)',
+		backgroundColor: colors.OrangeTransparent,
 	},
 });

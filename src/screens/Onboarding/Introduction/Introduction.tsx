@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
@@ -14,7 +14,7 @@ type EnterButtonProps = {
 const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
 	<TouchableOpacity onPress={onPress} disabled={disabled}>
 		<View style={styles.enterButtonContainer}>
-			<View style={styles.enterButton}>
+			<View style={[ styles.enterButton, disabled && styles.disabled ]}>
 				<Text style={styles.buttonText}>Enter</Text>
 			</View>
 		</View>
@@ -23,14 +23,20 @@ const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
 
 export default () => {
 	const { navigate } = useNavigation();
+	const [ nextDisabled, setNextDisabled ] = useState(true);
+	const onAudioEnd = () => setNextDisabled(false);
 
 	return (
 		<OnboardingScreen
 			audioFilename="onboarding_1_you_are_born_to_be_loved.mp3"
 			customButtons={
-				<EnterButton onPress={() => navigate(Screens.AcknowledgingYourPast)} />
+				<EnterButton
+					disabled={nextDisabled}
+					onPress={() => navigate(Screens.AcknowledgingYourPast)}
+				/>
 			}
 			drawShapes={[ 14, 15, 16 ]}
+			onAudioEnd={onAudioEnd}
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

@@ -1,6 +1,12 @@
-import colors from 'elements/globalStyles/color';
 import { Dimensions, StyleSheet } from 'react-native';
-import { MARGIN } from '../AudioPlayerNavigator.styles';
+import colors from 'elements/globalStyles/color';
+import {
+	MARGIN,
+	TOP_BUTTONS_HEIGHT,
+	TIME_BAR_HEIGHT,
+	TIME_HEIGHT,
+	TIME_NUDGE_UP,
+} from '../AudioPlayerNavigator.styles';
 
 const { width } = Dimensions.get('screen');
 
@@ -9,11 +15,11 @@ export const TIME_BAR_WIDTH = width - MARGIN * 2;
 
 export default StyleSheet.create({
 	playerContainer: {
-		width: '100%',
+		width: TIME_BAR_WIDTH,
 	},
 	topButtonsContainer: {
-		width: '100%',
-		height: 40,
+		width: TIME_BAR_WIDTH,
+		height: TOP_BUTTONS_HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginBottom: 6,
@@ -66,7 +72,7 @@ export default StyleSheet.create({
 	},
 	audioBarContainer: {
 		width: TIME_BAR_WIDTH,
-		height: 35,
+		height: TIME_BAR_HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
@@ -86,11 +92,11 @@ export default StyleSheet.create({
 	},
 	audioTimeContainer: {
 		width: TIME_BAR_WIDTH,
-		height: 40,
+		height: TIME_HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
 		alignItems: 'flex-start',
-		marginTop: -8,
+		marginTop: TIME_NUDGE_UP,
 		paddingLeft: 20,
 		paddingBottom: 20,
 	},

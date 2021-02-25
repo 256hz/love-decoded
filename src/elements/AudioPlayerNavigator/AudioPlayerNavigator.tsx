@@ -8,8 +8,8 @@ import { Platform, View } from 'react-native';
 import SoundPlayer from 'react-native-sound-player';
 import { Screens } from 'route/OnboardingStack';
 import AudioPlayerBar from './AudioPlayerBar';
-import styles from './AudioPlayerNavigator.styles';
 import NavButtons from './NavButtons';
+import styles from './AudioPlayerNavigator.styles';
 
 export type AudioPlayerNavigatorProps = AudioPlayerNavigatorStandard | AudioPlayerNavigatorCustomButtons;
 
@@ -19,6 +19,7 @@ type AudioPlayerNavigatorStandard = {
 	backTarget?: Screens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
+	onAudioEnd?: (arg?: any) => void;
 	onNextCallback?: (arg?: any) => void;
 	nextTarget: Screens;
 	nextEnabled?: boolean;
@@ -26,9 +27,12 @@ type AudioPlayerNavigatorStandard = {
 
 // If custom buttons are passed in, the props for the Back & Next buttons should not be.
 type AudioPlayerNavigatorCustomButtons = {
+	// allowed
 	audioFilename?: string;
-	backTarget?: undefined;
 	customButtons: ReactChild;
+	onAudioEnd?: (arg?: any) => void;
+	// disallowed
+	backTarget?: undefined;
 	hideBackButton?: undefined;
 	hideNextButton?: undefined;
 	nextTarget?: undefined;
@@ -36,7 +40,7 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
-const CURRENT_TIME_DOT_UPDATE_FPS = Platform.select({ ios: 30, android: 10, default: 10 });
+const CURRENT_TIME_DOT_UPDATE_FPS = Platform.select({ ios: 30, android: __DEV__ ? 1 : 10, default: 1 });
 
 export default ({
 	audioFilename,
@@ -44,6 +48,7 @@ export default ({
 	customButtons,
 	hideBackButton,
 	hideNextButton,
+	onAudioEnd,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
@@ -53,6 +58,7 @@ export default ({
 	const [ currentTime, setCurrentTime ] = useState(0);
 	const [ duration, setDuration ] = useState(0);
 
+	// const isPlaying = useRef(false);
 	// The user won't be able to fast forward past the latest time they've listened to.
 	const totalListened = useRef(0);
 	// Holds the handle for the setInterval that gets position in the audio file.
@@ -68,13 +74,21 @@ export default ({
 		setIsLoaded(true);
 		setIsPlaying(true);
 		SoundPlayer.play();
-
-		if (!getInfoTimer.current) {
-			getInfoTimer.current = setInterval(async () => {
-				await getInfo();
-			}, 1000 / CURRENT_TIME_DOT_UPDATE_FPS);
-		}
+		toggleGetInfoTimer();
 	}));
+
+	const toggleGetInfoTimer = () => {
+		console.log('toggle', getInfoTimer);
+		if (getInfoTimer.current) {
+			clearInterval(getInfoTimer.current);
+			getInfoTimer.current = undefined;
+			return;
+		}
+
+		getInfoTimer.current = setInterval(async () => {
+			await getInfo();
+		}, 1000 / CURRENT_TIME_DOT_UPDATE_FPS);
+	};
 
 	// SoundPlayer event listener. Pauses at the very end of the file so it won't auto-rewind.
 	const onFinishPlay = useRef(SoundPlayer.addEventListener('FinishedPlaying', ({ success }) => {
@@ -83,16 +97,17 @@ export default ({
 			return;
 		}
 
-		SoundPlayer.pause();
-		setIsPlaying(false);
+		togglePause();
+		onAudioEnd?.();
 	}));
 
 	const getInfo = async () => {
 		try {
 			const { duration: newDuration, currentTime: newCurrentTime } = await SoundPlayer.getInfo();
+			console.log(newCurrentTime);
 
-			setCurrentTime(() => newCurrentTime);
-			setDuration(() => newDuration);
+			setCurrentTime(newCurrentTime);
+			setDuration(newDuration);
 
 			if (newCurrentTime > totalListened.current) {
 				totalListened.current = newCurrentTime;
@@ -104,21 +119,25 @@ export default ({
 
 	const rewind = () => {
 		SoundPlayer.seek(Math.max(currentTime - 10, 0));
+		getInfo();
 	};
 
 	const fastForward = () => {
-		console.log({ currentTime, totalListened });
-		if (currentTime >= totalListened.current) {
+		if (__DEV__) {
+			SoundPlayer.seek(Math.min(currentTime + 10, duration - 0.1));
+			getInfo();
 			return;
 		}
 
 		SoundPlayer.seek(Math.min(currentTime + 10, totalListened.current, duration - 0.1));
+		getInfo();
 	};
 
 	const togglePause = () => {
 		if (!isLoaded) {
 			return;
 		}
+		getInfo();
 
 		if (isPlaying) {
 			SoundPlayer.pause();
@@ -127,6 +146,8 @@ export default ({
 			SoundPlayer.play();
 			setIsPlaying(true);
 		}
+		toggleGetInfoTimer();
+		console.log({ isPlaying, getInfoTimer });
 	};
 
 	useEffect(() => {
@@ -138,7 +159,7 @@ export default ({
 		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
-			clearInterval(getInfoTimer.current || 0);
+			!!getInfoTimer.current && clearInterval(getInfoTimer.current);
 			onFinishLoad.current.remove();
 			onFinishLoad.current = undefined;
 			onFinishPlay.current.remove();
@@ -153,7 +174,7 @@ export default ({
 		: playedToEnd || __DEV__;
 
 	return (
-		<View style={[ styles.container, { height: audioFilename ? 220 : 150 } ]}>
+		<View style={[ styles.container, audioFilename ? styles.withAudioBar : styles.withoutAudioBar ]}>
 			{ audioFilename
 				? (
 					<AudioPlayerBar

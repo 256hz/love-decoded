@@ -28,6 +28,7 @@ const OnboardingScreen = ({
 	drawShapes,
 	hideBackButton,
 	hideNextButton,
+	onAudioEnd,
 	onNextCallback,
 	nextEnabled,
 	nextTarget,
@@ -73,6 +74,7 @@ const OnboardingScreen = ({
 						backTarget={backTarget}
 						hideBackButton={hideBackButton}
 						hideNextButton={hideNextButton}
+						onAudioEnd={onAudioEnd}
 						onNextCallback={onNextCallback}
 						nextEnabled={nextEnabled}
 						nextTarget={nextTarget}
@@ -81,8 +83,9 @@ const OnboardingScreen = ({
 
 				{ audioFilename && customButtons && (
 					<AudioPlayerNavigator
-						customButtons={customButtons}
 						audioFilename={audioFilename}
+						customButtons={customButtons}
+						onAudioEnd={onAudioEnd}
 					/>
 				)}
 			</View>

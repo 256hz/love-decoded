@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
@@ -20,13 +20,13 @@ export default StyleSheet.create({
 	titleContainer: {
 		width: '100%',
 		paddingHorizontal: 32,
-		marginTop: 89,
+		marginTop: '10%',
 	},
 	titleText: {
 		fontFamily: 'Rubik',
 		fontSize: 20,
 		lineHeight: 30,
-		fontWeight: '500',
+		fontWeight: Platform.select({ ios: '500', android: 'bold' }),
 		textAlign: 'center',
 	},
 	childrenContainer: {
