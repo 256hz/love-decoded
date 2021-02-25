@@ -21,7 +21,7 @@ export default () => {
 
 	return (
 		<OnboardingScreen
-			audioFilename="music128.mp3"
+			audioFilename="erb_ready_to_quit_rebecca.mp3"
 			drawShapes={[ 7, 25 ]}
 			nextTarget={Screens.BriefOverviewOfButtons}
 			title={'Your Emotional\nRESET Button'}
