@@ -1,0 +1,66 @@
+trigger:
+  branches:
+    include:
+    - dev
+  tags:
+    include:
+    - v*
+
+pool:
+  vmImage: 'macos-latest'
+
+# variables:
+# - group: React Native App
+
+stages:
+- stage: JavaScriptBuild
+  jobs:
+  - job:
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '14.x'
+
+    - task: Npm@1
+      displayName: 'Run NPM install'
+      inputs:
+        command: custom
+        customCommand: install --ignore-scripts
+
+    - script: npm run typechecking
+      displayName: 'Run TypeScript checks'
+
+    - script: npm run lint
+      displayName: 'Run ESLint'
+
+    # - script: npm run test
+    #   displayName: 'Run Jest Tests'
+    
+    - task: Gradle@2
+      inputs:
+        gradleWrapperFile: 'android/gradlew'
+        workingDirectory: 'android'
+        tasks: 'build'
+        publishJUnitResults: false
+        javaHomeOption: 'JDKVersion'
+        sonarQubeRunAnalysis: false
+
+    - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+      displayName: 'Rename apk'
+
+    # - task: PublishBuildArtifacts@1
+    #   inputs:
+    #     PathtoPublish: 'ReactNativePipeline$(Build.BuildNumber).apk'
+    #     ArtifactName: 'drop'
+    #     publishLocation: 'Container'
+    # - task: AppCenterDistribute@3
+    #   inputs:
+    #     serverEndpoint: 'app-center'
+    #     appSlug: 'Global-Human-Development/The-Love-Decoded-App'
+    #     appFile: 'ReactNativePipeline$(Build.BuildNumber).apk'
+    #     buildVersion: '$(Build.BuildNumber)'
+    #     releaseNotesOption: 'input'
+    #     releaseNotesInput: '$(Build.BuildNumber)'
+    #     destinationType: 'groups'
