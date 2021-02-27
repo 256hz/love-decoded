@@ -50,7 +50,6 @@ stages:
     - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
       displayName: 'Rename apk'
 
-
     - task: PublishBuildArtifacts@1
       inputs:
         PathtoPublish: 'ReactNativePipeline$(Build.BuildNumber).apk'
@@ -65,4 +64,173 @@ stages:
         releaseNotesOption: 'input'
         releaseNotesInput: '$(Build.BuildNumber)'
         destinationType: 'groups'
-  
+
+
+# Below - example, needs to be changed to match our project.  `projectName` needs to be replaced.
+
+- stage: DevCodePush
+  dependsOn: JavaScriptBuild
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  jobs:
+  - job:
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+
+      - task: Npm@1
+        inputs:
+          command: install
+          customRegistry: useFeed
+          customFeed: projectNamepkg
+        displayName: 'Run NPM install'
+
+      - script: npm install -g appcenter-cli
+        displayName: 'Install App Center CLI'
+
+      - script: appcenter login --token $APPCENTER_TOKEN
+        displayName: 'App Center login'
+
+      - script: appcenter codepush release-react -a "projectName/Android" -d Staging -t "^2.0.51" --description $(Build.BuildId)
+        displayName: 'Android Staging Code Push (Smart and Connected)'
+
+      - script: appcenter codepush release-react -a "projectName/iOS" -d Staging -t "^2.0.51" --description $(Build.BuildId)
+        displayName: 'iOS Staging Code Push (Smart and Connected)'
+
+- stage: ProductionCodePush
+  dependsOn: JavaScriptBuild
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - job:
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+
+      - task: Npm@1
+        inputs:
+          command: install
+        displayName: 'Run NPM install'
+
+      - script: npm install -g appcenter-cli
+        displayName: 'Install App Center CLI'
+
+      - script: appcenter login --token $APPCENTER_TOKEN
+        displayName: 'App Center login'
+
+      - script: appcenter codepush release-react -a "projectName/Android" -d Production -t "^2.0.51" --description $(Build.BuildId) --disabled
+        displayName: 'Android Production Code Push (Smart and Connected)'
+
+      - script: appcenter codepush release-react -a "projectName/iOS" -d Production -t "^2.0.51" --description $(Build.BuildId) --disabled
+        displayName: 'iOS Production Code Push (Smart and Connected)'
+
+- stage: iOSReleaseBuild
+  dependsOn: JavaScriptBuild
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
+  jobs:
+  - job:
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+
+      - task: Npm@1
+        displayName: 'Run NPM install'
+        inputs:
+          command: install
+          customRegistry: useFeed
+          customFeed: projectNamepkg
+
+      - task: InstallAppleCertificate@2
+        displayName: 'Install Apple Certificate'
+        inputs:
+          certSecureFile: projectNameDistribution.p12
+
+      - task: InstallAppleProvisioningProfile@1
+        displayName: 'Install Apple Provisioning Profile'
+        inputs:
+          provisioningProfileLocation: 'secureFiles'
+          provProfileSecureFile: App_Store_Distribution.mobileprovision
+
+      - bash: VERSION_NAME=$(git tag --points-at HEAD) && echo "##vso[task.setvariable variable=app_version]${VERSION_NAME//v}"
+        displayName: 'Set version name variable'
+
+      - script: ./ios/bump_version.sh $(app_version) $(Build.BuildId)
+        displayName: 'Bump iOS Versions'
+
+      - task: Xcode@5
+        displayName: 'Build iOS App'
+        inputs:
+          actions: 'archive'
+          configuration: 'Release'
+          sdk: 'iphoneos'
+          xcWorkspacePath: 'ios/projectName.xcworkspace'
+          scheme: 'projectName'
+          xcodeVersion: 'specifyPath'
+          xcodeDeveloperDir: /Applications/Xcode_11.app/Contents/Developer
+          packageApp: true
+          signingOption: 'manual'
+          signingIdentity: $(APPLE_CERTIFICATE_SIGNING_IDENTITY)
+          provisioningProfileUuid: $(APPLE_PROV_PROFILE_UUID)
+          exportMethod: 'app-store'
+          exportPath: '$(agent.buildDirectory)/output/iphoneos/Release'
+
+      - script: npm run ci-source-map $(agent.buildDirectory)/s/projectName.xcarchive/dSYMs/index.ios.map
+        displayName: 'Create RN source map'
+
+      - task: AppCenterDistribute@3
+        displayName: 'Publish iOS to VS App Center'
+        inputs:
+          serverEndpoint: 'projectName VS App Center'
+          appSlug: 'projectName/iOS'
+          appFile: '$(agent.buildDirectory)/output/iphoneos/Release/projectName.ipa'
+          releaseNotesOption: 'input'
+          releaseNotesInput: $(app_version)
+          continueIfSymbolsNotFound: false
+          dsymPath: '$(agent.buildDirectory)/s/projectName.xcarchive/dSYMs/Smart.app.dSYM'
+          symbolsOptions: 'Apple'
+          symbolsIncludeParentDirectory: true
+
+- stage: AndroidReleaseBuild
+  dependsOn: JavaScriptBuild
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
+  jobs:
+  - job:
+    steps:
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '12.x'
+
+      - task: Npm@1
+        displayName: 'Run NPM install'
+        inputs:
+          command: install
+          customRegistry: useFeed
+          customFeed: projectNamepkg
+
+      - bash: VERSION_NAME=$(git tag --points-at HEAD) && echo "##vso[task.setvariable variable=app_version]${VERSION_NAME//v}"
+        displayName: 'Set version name variable'
+
+      - task: Gradle@2
+        displayName: 'Build Android App'
+        inputs:
+          workingDirectory: './android'
+          gradleWrapperFile: 'android/gradlew'
+          gradleOptions: '-Xmx3072m'
+          publishJUnitResults: false
+          tasks: 'app:assembleRelease'
+        env:
+          SMART_KEYSTORE_PASSWORD: $(SMART_KEYSTORE_PASSWORD)
+          SMART_KEY_ALIAS_PASSWORD: $(SMART_KEY_ALIAS_PASSWORD)
+          AZURE_ARTIFACTS_ENV_ACCESS_TOKEN: $(AZURE_ARTIFACTS_ENV_ACCESS_TOKEN)
+          APP_VERSION_CODE: $(Build.BuildId)
+          APP_VERSION_NAME: $(app_version)
+
+      - task: AppCenterDistribute@3
+        displayName: 'Publish Android to VS App Center'
+        inputs:
+          serverEndpoint: 'projectName VS App Center'
+          appSlug: 'projectName/Android'
+          appFile: 'android/app/build/outputs/apk/release/app-release.apk'
+          releaseNotesOption: 'input'
+          releaseNotesInput: $(app_version)

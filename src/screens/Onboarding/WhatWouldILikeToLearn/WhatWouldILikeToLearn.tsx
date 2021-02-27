@@ -1,7 +1,13 @@
 import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { KeyboardAvoidingView, Text, View } from 'react-native';
+import {
+	KeyboardAvoidingView,
+	KeyboardAvoidingViewProps,
+	Platform,
+	Text,
+	View,
+} from 'react-native';
 import { Screens } from 'route/OnboardingStack';
 import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
@@ -23,6 +29,8 @@ const options = [
 	'Develop an Unconditional Community',
 	'Learn the Power of Creating Visions',
 ];
+
+type KAVBehavior = KeyboardAvoidingViewProps['behavior'];
 
 export default () => {
 	const dispatch = useDispatch();
@@ -56,21 +64,25 @@ export default () => {
 		dispatch(setSurveyResponse(Surveys.WhatWouldILikeToLearn, response));
 	};
 
+	const kavBehavior = Platform.select({ ios: 'padding', android: undefined }) as KAVBehavior;
+
 	return (
-		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
+		<KeyboardAvoidingView behavior={kavBehavior} style={styles.kavContainer}>
 			<OnboardingScreen
-				drawShapes={[ 1, 7, 11 ]}
-				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
 				audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
+				drawShapes={[ 1, 7, 11 ]}
 				nextTarget={Screens.HavingTheLovingCommunities}
 				onNextCallback={submitResponse}
-			>
-				<View style={styles.container}>
-					<View style={styles.topTextContainer}>
+				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
+				titleChild={
+					<View style={styles.subtitleContainer}>
 						<Text style={styles.topText}>
 							(scroll and select all that apply)
 						</Text>
 					</View>
+				}
+			>
+				<View style={styles.container}>
 					<MultiSelectSurvey
 						customSelection={customSelection}
 						options={options}

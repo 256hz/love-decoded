@@ -10,7 +10,7 @@ export default () => (
 		drawShapes={[ 6, 10 ]}
 		hideBackButton={true}
 		nextTarget={Screens.LoveVsHeartburn}
-		title="Let The App Teach You"
+		title={'Let The App\nTeach You'}
 		titleContainerStyle={styles.titleContainerStyle}
 	>
 		<View style={styles.container}>

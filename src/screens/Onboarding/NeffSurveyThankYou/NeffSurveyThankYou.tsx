@@ -45,7 +45,7 @@ export default () => {
 						<Text style={styles.headline}>{neffSurveyScore}</Text>
 					</View>
 				</View>
-				<View>
+				<View style={styles.scoreExplanationContainer}>
 					<Text style={[ styles.text, styles.bold ]}>
 						Average Score is around 3.0
 					</Text>

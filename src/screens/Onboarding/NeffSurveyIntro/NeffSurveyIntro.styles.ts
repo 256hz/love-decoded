@@ -18,12 +18,12 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	surveyButtonContainer: {
-		justifyContent: 'center',
+		flex: 1,
+		justifyContent: 'flex-start',
 		alignItems: 'center',
 	},
 	surveyButton: {
 		height: 35,
-		marginTop: 15,
 		backgroundColor: colors.OrangeTransparent,
 		borderRadius: 10,
 		justifyContent: 'center',

@@ -47,12 +47,14 @@ export default StyleSheet.create({
 	enterButton: {
 		width: 102,
 		height: 35,
-		marginTop: 15,
 		backgroundColor: colors.Orange,
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
+	},
+	disabled: {
+		backgroundColor: colors.GrayTransparent073,
 	},
 	buttonText: {
 		fontFamily: 'Rubik',

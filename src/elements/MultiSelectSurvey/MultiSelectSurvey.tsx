@@ -46,15 +46,16 @@ interface MultiSelectCustomOptionProps {
 }
 
 const CustomMultiSelectOption = ({
-	containerStyle,
+	containerStyle = {},
 	onChange,
 	option,
 	selected,
-	textStyle,
+	textStyle = {},
 }: MultiSelectCustomOptionProps) => {
 	return (
 		<View style={[
-			containerStyle || styles.selectionContainer,
+			styles.selectionContainer,
+			containerStyle,
 			selected ? styles.selected : null,
 		] }>
 			<TextInput

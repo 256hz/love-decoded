@@ -10,7 +10,6 @@ export default StyleSheet.create({
 		width: '100%',
 		justifyContent: 'center',
 		alignItems: 'center',
-		marginVertical: 16,
 		paddingHorizontal: 64,
 	},
 	topText: {

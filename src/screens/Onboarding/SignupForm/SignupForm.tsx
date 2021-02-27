@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, KeyboardAvoidingView } from 'react-native';
-import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import {
+	View, Text, KeyboardAvoidingView, Platform,
+} from 'react-native';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import RNPickerSelect from 'react-native-picker-select';
 import { Spinner } from 'react-native-material-kit';
 import { OnboardingScreen } from '@elements';
@@ -152,7 +154,10 @@ export default () => {
 	};
 
 	return (
-		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
+		<KeyboardAvoidingView
+			behavior={Platform.select({ ios: 'padding' })}
+			style={styles.kavContainer}
+		>
 
 			<OnboardingScreen
 				title="Sign Up"
@@ -161,7 +166,7 @@ export default () => {
 				customButtons={<></>}
 			>
 
-				<ScrollView style={styles.container}>
+				<View style={styles.container}>
 
 					<View style={styles.nameContainer}>
 						<TextInput
@@ -292,7 +297,7 @@ export default () => {
 						</TouchableOpacity>
 					</View>
 
-				</ScrollView>
+				</View>
 			</OnboardingScreen>
 		</KeyboardAvoidingView>
 	);
