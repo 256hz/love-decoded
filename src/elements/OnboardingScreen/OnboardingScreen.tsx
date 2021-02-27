@@ -91,7 +91,6 @@ const OnboardingScreen = ({
 							onNextCallback={onNextCallback}
 							nextEnabled={nextEnabled}
 							nextTarget={nextTarget}
-							shouldPause={shouldPause}
 						/>
 					)}
 
@@ -100,7 +99,6 @@ const OnboardingScreen = ({
 							audioFilename={audioFilename}
 							customButtons={customButtons}
 							onAudioEnd={onAudioEnd}
-							shouldPause={shouldPause}
 						/>
 					)}
 				</SafeAreaView>
