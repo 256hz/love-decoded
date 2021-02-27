@@ -72,9 +72,11 @@ export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffS
 			titleContainerStyle={styles.titleContainerStyle}
 		>
 			<View style={styles.container}>
-				<Text style={styles.text}>
-					{prompt}
-				</Text>
+				<View style={styles.prompt}>
+					<Text style={styles.text}>
+						{prompt}
+					</Text>
+				</View>
 
 				<View style={styles.radioButtonContainer}>
 					<RadioButtons

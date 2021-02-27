@@ -6,6 +6,10 @@ export default StyleSheet.create({
 	container: {
 		flex: 1,
 	},
+	titleContainer:{
+		paddingBottom: 0,
+		marginBottom: 0,
+	},
 	pickersContainer: {
 		paddingHorizontal: 83,
 	},
@@ -43,7 +47,6 @@ export default StyleSheet.create({
 		textAlign: 'center',
 		height: '100%',
 		flex: 4,
-		backgroundColor: 'red',
 	},
 	dropdownsContainer: {
 		marginVertical: 8,
@@ -86,5 +89,10 @@ export default StyleSheet.create({
 		...text.body,
 		fontSize: 20,
 		color: colors.Gray33,
+	},
+	subtitleContainer: {
+		marginTop: 8,
+		marginBottom: 0,
+		alignItems: 'center',
 	},
 });

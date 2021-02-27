@@ -13,6 +13,9 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
 		paddingHorizontal: 28,
 	},
+	prompt: {
+		marginBottom: 16,
+	},
 	radioButtonContainer: {
 		flex: 1,
 		alignItems: 'center',
@@ -33,7 +36,7 @@ export default StyleSheet.create({
 		fontWeight: '700',
 	},
 	bottomContainer: {
-		height: 200,
+		height: 120,
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingBottom: 32,

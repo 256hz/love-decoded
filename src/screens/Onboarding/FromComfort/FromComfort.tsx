@@ -24,7 +24,7 @@ export default () => (
 				<View style={styles.circle1}>
 					<View style={styles.circle1text1}>
 						<Text style={styles.circleText}>
-							low risk, low reward
+							low risk/reward
 						</Text>
 					</View>
 					<View style={styles.circle1text2}>

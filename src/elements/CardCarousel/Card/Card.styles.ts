@@ -1,3 +1,4 @@
+import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -5,7 +6,7 @@ export default StyleSheet.create({
 		flex: 1,
 		borderRadius: 6,
 		justifyContent: 'space-between',
-		backgroundColor: 'white',
+		backgroundColor: colors.White,
 		padding: 21,
 		paddingTop: 34,
 	},
@@ -22,7 +23,7 @@ export default StyleSheet.create({
 	},
 	highlight: {
 		fontWeight: '700',
-		color: '#F1751B',
+		color: colors.Orange,
 	},
 	title: {
 		fontSize: 20,
@@ -37,7 +38,7 @@ export default StyleSheet.create({
 		width: 151,
 		height: 34,
 		marginTop: 16,
-		backgroundColor: '#F1751B',
+		backgroundColor: colors.Orange,
 		borderRadius: 4,
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -49,6 +50,6 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	bottomText: {
-		color: 'rgba(151, 151, 151, 0.73)',
+		color: colors.GrayTransparent073,
 	},
 });

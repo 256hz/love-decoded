@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native';
-import colors from '@elements/globalStyles/color';
 import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	titleContainerStyle: {
-		paddingHorizontal: 150,
 		paddingTop: 34,
 	},
 	container: {

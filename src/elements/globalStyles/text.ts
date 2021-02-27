@@ -1,4 +1,4 @@
-import { TextStyle } from 'react-native';
+import { Platform, TextStyle } from 'react-native';
 import colors from './color';
 
 const text = {
@@ -12,7 +12,7 @@ const text = {
 	headline: {
 		fontSize: 22,
 		lineHeight: 28,
-		fontWeight: '500',
+		fontWeight: Platform.select({ ios: '500', android: 'bold' }),
 		textAlign: 'center',
 	} as TextStyle,
 	topText: {
@@ -29,6 +29,9 @@ const text = {
 		color: colors.GrayTransparent073,
 		textAlign: 'center',
 		marginTop: 8,
+	} as TextStyle,
+	bold: {
+		fontWeight: Platform.select({ ios: '500', android: 'bold' }),
 	} as TextStyle,
 };
 

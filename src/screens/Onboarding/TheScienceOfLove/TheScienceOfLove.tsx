@@ -29,8 +29,7 @@ const cards = [ {
 	body: 'In her book “The Love Response”, Dr. Eva Selhub, MD explains how love stimulates the relaxation response which in turn generates the production of oxytocin, the hormone most associated with our immune system and health.',
 	link: 'https://www.drselhub.com/books/the-love-response/',
 	bodyStyle: { fontSize: 13, lineHeight: 19 },
-},
-];
+} ];
 
 export default () => {
 	const [ nextEnabled, setNextEnabled ] = useState(false);
