@@ -12,7 +12,7 @@ export default StyleSheet.create({
 		justifyContent: 'space-around',
 	},
 	frustratedTitleContainerStyle: {
-		paddingTop: 200,
+		paddingTop: 32,
 	},
 	text: {
 		...text.body,
@@ -31,8 +31,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
-		marginTop: 25,
-		// marginBottom: 50,
+		marginTop: 8,
 		paddingHorizontal: 25,
 	},
 	navButtonText: {

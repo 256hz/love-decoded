@@ -88,12 +88,16 @@ export default () => {
 			nextTarget={Screens.SetYourAlertsThankYou}
 			nextEnabled={isNextEnabled}
 			title="Set Your Alerts"
+			titleContainerStyle={styles.titleContainer}
+			titleChild={
+				<View style={styles.subtitleContainer}>
+					<Text style={styles.subtitleText}>
+						tap the time to change it
+					</Text>
+				</View>
+			}
 		>
 			<View style={styles.container}>
-				<Text style={styles.subtitleText}>
-					tap the time to change it
-				</Text>
-
 				<View style={styles.pickersContainer}>
 
 					<TimePicker

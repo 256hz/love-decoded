@@ -20,7 +20,9 @@ export default StyleSheet.create({
 	titleContainer: {
 		width: '100%',
 		paddingHorizontal: 32,
-		marginTop: '10%',
+		paddingTop: 32,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	titleText: {
 		fontFamily: 'Rubik',

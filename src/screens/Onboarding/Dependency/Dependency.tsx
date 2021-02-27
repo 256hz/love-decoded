@@ -33,10 +33,10 @@ export default () => {
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}
 			onNextCallback={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
-			nextEnabled={!!selectedValue}
+			nextEnabled={!!(selectedValue || surveyResponse)}
 		>
 			<View style={styles.container}>
-				<View style={styles.textContainer}>
+				<View>
 					<Text style={styles.body}>
 						Have you come to realize that being dependent on others for Love can be
 						<Text style={[ styles.body, styles.bold ]}>
@@ -57,7 +57,7 @@ export default () => {
 					<Text style={styles.body}>
 						Research shows that over 95% of people answered Yes to this question.
 					</Text>
-
+					<View style={{ width: '100%', height: 20 }} />
 					<Text style={[ styles.body, styles.highlight, styles.bold ]}>
 						How does that make you feel?
 					</Text>

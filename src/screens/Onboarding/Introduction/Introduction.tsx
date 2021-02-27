@@ -24,7 +24,6 @@ const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
 export default () => {
 	const { navigate } = useNavigation();
 	const [ nextDisabled, setNextDisabled ] = useState(true);
-	const onAudioEnd = () => setNextDisabled(false);
 
 	return (
 		<OnboardingScreen
@@ -36,7 +35,8 @@ export default () => {
 				/>
 			}
 			drawShapes={[ 14, 15, 16 ]}
-			onAudioEnd={onAudioEnd}
+			onAudioEnd={() => setNextDisabled(false)}
+			scrollDisabled={true}
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

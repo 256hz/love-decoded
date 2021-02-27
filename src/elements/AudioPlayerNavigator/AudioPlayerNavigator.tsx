@@ -40,7 +40,8 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
-const CURRENT_TIME_DOT_UPDATE_FPS = Platform.select({ ios: 30, android: __DEV__ ? 1 : 10, default: 1 });
+// the simulators/emulators have limited CPU, so restricted to 1 update/s for dev
+const CURRENT_TIME_DOT_UPDATE_FPS = __DEV__ ? 1 : Platform.select({ ios: 30, android: 30, default: 1 });
 
 export default ({
 	audioFilename,
@@ -159,6 +160,7 @@ export default ({
 		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
 
 		return (() => {
+			SoundPlayer.pause();
 			!!getInfoTimer.current && clearInterval(getInfoTimer.current);
 			onFinishLoad.current.remove();
 			onFinishLoad.current = undefined;
@@ -190,16 +192,18 @@ export default ({
 				: <View />
 			}
 
-			{ customButtons || (
-				<NavButtons
-					backTarget={backTarget}
-					hideBackButton={hideBackButton}
-					hideNextButton={hideNextButton}
-					onNextCallback={onNextCallback}
-					nextEnabled={allowNextButton}
-					nextTarget={nextTarget!}
-				/>
-			)}
+			<View style={styles.bottomContainer}>
+				{ customButtons || (
+					<NavButtons
+						backTarget={backTarget}
+						hideBackButton={hideBackButton}
+						hideNextButton={hideNextButton}
+						onNextCallback={onNextCallback}
+						nextEnabled={allowNextButton}
+						nextTarget={nextTarget!}
+					/>
+				)}
+			</View>
 		</View>
 	);
 };

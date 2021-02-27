@@ -5,21 +5,21 @@ export default StyleSheet.create({
 	container: {
 		width: '100%',
 		height: 35,
-		marginTop: 50,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		flexGrow: 1,
 	},
 	navButton: {
 		width: 102,
 		height: 35,
-		backgroundColor: colors.OrangeTransparent,
+		backgroundColor: colors.OrangeButton,
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
 	disabled: {
-		backgroundColor: colors.GrayTransparent071,
+		backgroundColor: colors.GrayButton,
 	},
 	text: {
 		fontFamily: 'Rubik',

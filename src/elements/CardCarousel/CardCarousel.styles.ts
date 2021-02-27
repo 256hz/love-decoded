@@ -15,7 +15,7 @@ export default StyleSheet.create({
 		backgroundColor: colors.Orange,
 	},
 	inactiveDot: {
-		backgroundColor: 'white',
+		backgroundColor: colors.White,
 		opacity: 1,
 	},
 });

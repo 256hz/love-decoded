@@ -22,13 +22,11 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	selectionContainer: {
-		marginVertical: 8,
-		paddingVertical: 8,
-		paddingHorizontal: 32,
-		minWidth: 170,
-		maxWidth: 280,
-		minHeight: 52,
 		borderRadius: 15,
+		marginVertical: 8,
+		marginHorizontal: 16,
+		paddingVertical: 20,
+		paddingHorizontal: 32,
 		justifyContent: 'center',
 	},
 	selectionText: {
@@ -36,5 +34,9 @@ export default StyleSheet.create({
 		fontWeight: '400',
 		fontSize: 19,
 		textAlign: 'center',
+	},
+	subtitleContainer: {
+		marginTop: 30,
+		alignItems: 'center',
 	},
 });

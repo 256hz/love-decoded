@@ -69,18 +69,20 @@ export default () => {
 	return (
 		<KeyboardAvoidingView behavior={kavBehavior} style={styles.kavContainer}>
 			<OnboardingScreen
-				drawShapes={[ 1, 7, 11 ]}
-				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
 				audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
+				drawShapes={[ 1, 7, 11 ]}
 				nextTarget={Screens.HavingTheLovingCommunities}
 				onNextCallback={submitResponse}
-			>
-				<View style={styles.container}>
-					<View style={styles.topTextContainer}>
+				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
+				titleChild={
+					<View style={styles.subtitleContainer}>
 						<Text style={styles.topText}>
 							(scroll and select all that apply)
 						</Text>
 					</View>
+				}
+			>
+				<View style={styles.container}>
 					<MultiSelectSurvey
 						customSelection={customSelection}
 						options={options}

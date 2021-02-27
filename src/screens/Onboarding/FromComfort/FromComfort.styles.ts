@@ -31,7 +31,7 @@ export default StyleSheet.create({
 		color: colors.Orange,
 	},
 	allCirclesContainer: {
-		flex: 1,
+		width: '100%',
 		marginHorizontal: 10,
 	},
 	circleText: {
@@ -41,7 +41,7 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	circle1: {
-		...StyleSheet.absoluteFillObject,
+		flex: 1,
 		width: width * 0.9516908213,
 		height: width * 0.9516908213,
 		borderColor: colors.Black,
@@ -51,8 +51,8 @@ export default StyleSheet.create({
 	},
 	circle1text1: {
 		position: 'absolute',
-		left: width / 8.28,
-		top: width / 2.5875,
+		left: width / 7.5,
+		top: width / 2.65,
 	},
 	circle1text2: {
 		position: 'absolute',

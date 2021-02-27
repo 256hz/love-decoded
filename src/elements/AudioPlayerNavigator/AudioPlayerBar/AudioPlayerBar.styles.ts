@@ -25,7 +25,7 @@ export default StyleSheet.create({
 		marginBottom: 6,
 	},
 	placeholderContainer: {
-		width: 42,
+		width: 52,
 	},
 	seekContainer: {
 		alignSelf: 'center',
@@ -56,7 +56,7 @@ export default StyleSheet.create({
 	pauseLine: {
 		width: 2,
 		height: 20,
-		backgroundColor: 'black',
+		backgroundColor: colors.Black,
 		alignSelf: 'flex-end',
 	},
 	playButtonContainer: {
@@ -88,7 +88,7 @@ export default StyleSheet.create({
 		width: TIME_DOT_SIZE,
 		height: TIME_DOT_SIZE,
 		borderRadius: TIME_DOT_SIZE / 2,
-		backgroundColor: 'black',
+		backgroundColor: colors.Black,
 	},
 	audioTimeContainer: {
 		width: TIME_BAR_WIDTH,

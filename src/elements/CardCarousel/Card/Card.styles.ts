@@ -6,7 +6,7 @@ export default StyleSheet.create({
 		flex: 1,
 		borderRadius: 6,
 		justifyContent: 'space-between',
-		backgroundColor: 'white',
+		backgroundColor: colors.White,
 		padding: 21,
 		paddingTop: 34,
 	},

@@ -7,7 +7,7 @@ export default StyleSheet.create({
 		marginBottom: 34,
 	},
 	container: {
-		flexGrow: 1,
+		flex: 1,
 		paddingHorizontal: 33,
 		justifyContent: 'space-between',
 	},
@@ -15,8 +15,8 @@ export default StyleSheet.create({
 		...text.body,
 	},
 	bold: {
-		fontWeight: '700',
-		lineHeight: 45,
+		...text.bold,
+		marginTop: 12,
 	},
 	headline: {
 		...text.body,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
 	},
 	middleContainer: {
 		flex: 1,
-		minHeight: 200,
+		marginTop: 16,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
@@ -39,7 +39,7 @@ export default StyleSheet.create({
 		marginBottom: 16,
 	},
 	bottomContainer: {
-		height: 220,
+		height: 140,
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingBottom: 32,
@@ -56,5 +56,8 @@ export default StyleSheet.create({
 	},
 	navButtonText: {
 		marginRight: 5,
+	},
+	scoreExplanationContainer: {
+		marginBottom: 16,
 	},
 });

@@ -3,12 +3,12 @@ import { Dimensions, StyleSheet } from 'react-native';
 // imported in AudioPlayerBar from here to prevent a require cycle
 export const TOP_BUTTONS_HEIGHT = 40;
 export const TIME_BAR_HEIGHT = 35;
-export const TIME_HEIGHT = 40;
+export const TIME_HEIGHT = 35;
 export const TIME_NUDGE_UP = -7;
 
 const { height } = Dimensions.get('screen');
-const TOTAL_AUDIO_BAR_HEIGHT = TOP_BUTTONS_HEIGHT + TIME_BAR_HEIGHT + TIME_HEIGHT - TIME_NUDGE_UP;
-const BOTTOM_CONTENT_HEIGHT = height * 0.1;
+const TOTAL_AUDIO_BAR_HEIGHT = TOP_BUTTONS_HEIGHT + TIME_BAR_HEIGHT + TIME_HEIGHT + TIME_NUDGE_UP;
+const BOTTOM_CONTENT_HEIGHT = Math.min(height * 0.1, 100);
 
 export const MARGIN = 25;
 
@@ -17,7 +17,11 @@ export default StyleSheet.create({
 		width: '100%',
 		paddingHorizontal: MARGIN,
 		justifyContent: 'space-between',
-		paddingBottom: 71,
+		paddingTop: 10,
+	},
+	bottomContainer: {
+		flex: 1,
+		alignItems: 'center',
 	},
 	withAudioBar: {
 		height: TOTAL_AUDIO_BAR_HEIGHT + BOTTOM_CONTENT_HEIGHT,

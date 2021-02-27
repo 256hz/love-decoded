@@ -9,7 +9,7 @@ export default StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingHorizontal: 16,
-		paddingTop: 18,
+		paddingVertical: 18,
 	},
 	titlePadding: {
 		paddingTop: 42,
