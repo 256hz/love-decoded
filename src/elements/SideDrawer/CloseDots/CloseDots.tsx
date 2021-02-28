@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import { TouchableOpacity, View } from 'react-native';
 import SettingsDot from '@assets/svg/settings-dot.svg';
 import colors from '@elements/globalStyles/color';
@@ -13,13 +12,4 @@ export default ({ onPress }: { onPress: () => void }) => (
 			<SettingsDot fill={colors.Pink} />
 		</View>
 	</TouchableOpacity>
-=======
-import { View } from 'react-native';
-import styles from './CloseDots.styles';
-
-export default () => (
-	<View style={styles.container}>
-		<View />
-	</View>
->>>>>>> Tab and drawer navigators
 );

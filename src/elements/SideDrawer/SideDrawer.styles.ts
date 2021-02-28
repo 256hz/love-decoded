@@ -1,23 +1,15 @@
-<<<<<<< HEAD
 import colors from 'elements/globalStyles/color';
-=======
->>>>>>> Tab and drawer navigators
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
-<<<<<<< HEAD
 		justifyContent: 'space-between',
 		flexGrow: 1,
-=======
-
->>>>>>> Tab and drawer navigators
 	},
 	topContainer: {
 		width: '100%',
 		flexDirection: 'row',
 	},
-<<<<<<< HEAD
 	iconContainer: {
 		width: 22,
 		height: 22,
@@ -50,23 +42,5 @@ export default StyleSheet.create({
 		alignItems: 'flex-end',
 		paddingVertical: 16,
 		paddingRight: 28,
-=======
-	profileContainer: {
-		width: 250,
-		height: 150,
-		justifyContent: 'space-between',
-		alignItems: 'center',
-	},
-	dotsContainer: {
-		width: 30,
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start',
-	},
-	profileImageContainer: {
-		width: 100,
-		height: 100,
-		borderRadius: 50,
-		overflow: 'hidden',
->>>>>>> Tab and drawer navigators
 	},
 });
