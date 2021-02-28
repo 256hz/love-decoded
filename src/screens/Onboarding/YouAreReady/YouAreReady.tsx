@@ -3,7 +3,7 @@ import { OnboardingScreen } from 'elements';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/enums';
+import { StepScreens } from 'route/StepStack';
 import { changeStack } from 'util/navigation';
 import styles from './YouAreReady.styles';
 
@@ -35,7 +35,7 @@ export default () => {
 				<Text style={styles.headlineText}>
 					{'You Are Ready\nFor Step 1'}
 				</Text>
-				<EnterButton onPress={() => navigate(Screens.Introduction)} />
+				<EnterButton onPress={() => changeStack(StepScreens.Home)} />
 			</View>
 		</OnboardingScreen>
 	);

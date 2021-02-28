@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { setSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';
@@ -27,7 +27,7 @@ export default () => {
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
 			audioFilename="onboarding_9_control.mp3"
-			nextTarget={Screens.TheJourneyStartsNow}
+			nextTarget={OnboardingScreens.TheJourneyStartsNow}
 			title="Control"
 			onNextCallback={() => dispatch(setSurveyResponse(Surveys.CanYouControlIt, selectedValue))}
 			nextEnabled={selectedValue !== ''}

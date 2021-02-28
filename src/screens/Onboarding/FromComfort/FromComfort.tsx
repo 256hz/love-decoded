@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import styles from './FromComfort.styles';
 
@@ -9,7 +9,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		title={'From Comfort to Fear\nto Learning to Growth'}
 		audioFilename="onboarding_8_expanding_your_comfort_zone.mp3"
-		nextTarget={Screens.Control}
+		nextTarget={OnboardingScreens.Control}
 	>
 		<View style={styles.container}>
 			<View style={styles.bodyContainer}>

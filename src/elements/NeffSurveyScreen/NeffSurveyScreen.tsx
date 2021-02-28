@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import { setNeffSurveyResponse } from '@redux/action';
 import { getNeffResponseByPageIndex } from '@redux/selector';
@@ -46,7 +46,7 @@ const NextButtonWithText = ({ disabled, onPress }: { disabled: boolean, onPress:
 );
 
 type NeffSurveyScreenProps = {
-	nextTarget: Screens,
+	nextTarget: OnboardingScreens,
 	pageIndex: NeffSurveyPageIndex,
 	prompt: string,
 	reverseScoring?: boolean;

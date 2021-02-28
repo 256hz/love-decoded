@@ -4,14 +4,14 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './NavButtons.styles';
 
 interface Props {
-	backTarget?: Screens;
+	backTarget?: OnboardingScreens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
-	nextTarget: Screens;
+	nextTarget: OnboardingScreens;
 	nextEnabled: boolean;
 	onNextCallback?: (arg?: any) => void;
 }

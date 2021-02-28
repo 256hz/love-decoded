@@ -4,7 +4,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Screen } from 'react-native-screens';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './TheJourneyStartsNow.styles';
 
 export default () => {
@@ -27,7 +27,7 @@ export default () => {
 					</Text>
 				</View>
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity onPress={() => navigate(Screens.SignupForm)}>
+					<TouchableOpacity onPress={() => navigate(OnboardingScreens.SignupForm)}>
 						<View style={styles.button}>
 							<Text style={[ styles.highlightText, styles.buttonText ]}>
 								Sign Up

@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { averageTwoNeffPageScores } from 'redux/selector';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './NeffSurveyBreakdown.styles';
 
 type NeffScoreLineProps = {
@@ -41,7 +41,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 22, 23, 24 ]}
-			nextTarget={Screens.NeffSurveyGoodJob}
+			nextTarget={OnboardingScreens.NeffSurveyGoodJob}
 		>
 			<ScrollView contentContainerStyle={styles.container}>
 				<Text style={styles.text}>

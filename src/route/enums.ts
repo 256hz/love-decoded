@@ -1,4 +1,4 @@
-export enum Screens {
+export enum OnboardingScreens {
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',
 	WhatWouldILikeToLearn = 'WhatWouldILikeToLearn',

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { AlertTime } from '@redux/types/alerts';
 import { setAlertTime } from '@redux/action';
@@ -85,7 +85,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 18, 19, 20 ]}
-			nextTarget={Screens.SetYourAlertsThankYou}
+			nextTarget={OnboardingScreens.SetYourAlertsThankYou}
 			nextEnabled={isNextEnabled}
 			title="Set Your Alerts"
 			titleContainerStyle={styles.titleContainer}

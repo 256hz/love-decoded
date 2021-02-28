@@ -8,7 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Spinner } from 'react-native-material-kit';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './SignupForm.styles';
 
 const MINUMUM_PASSWORD_LENGTH = 6;
@@ -149,7 +149,7 @@ export default () => {
 		});
 		setWaitingForBackend(true);
 		setTimeout(() => {
-			navigate(Screens.ThankYouForSigningUp);
+			navigate(OnboardingScreens.ThankYouForSigningUp);
 		}, 2500);
 	};
 

@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { getAllSurveys } from 'redux/selector';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './NeffSurveyIntro.styles';
 
 type SurveyButtonProps = {
@@ -35,9 +35,13 @@ export default () => {
 			onAudioEnd={() => setNextDisabled(false)}
 			title={'The Purpose of\nNeff\'s Self-Compassion Scale'}
 			titleContainerStyle={styles.titleContainerStyle}
+<<<<<<< HEAD
 			customButtons={
 				<SurveyButton onPress={() => navigate(Screens.NeffSurvey1)} disabled={nextDisabled} />
 			}
+=======
+			customButtons={<SurveyButton onPress={() => navigate(OnboardingScreens.NeffSurvey1)} />}
+>>>>>>> Tab and drawer navigators
 		>
 			<View style={styles.container}>
 				<Text style={styles.text}>

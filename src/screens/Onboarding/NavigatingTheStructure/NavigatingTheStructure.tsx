@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './NavigatingTheStructure.styles';
 
@@ -108,7 +108,7 @@ export default () => {
 			drawShapes={[ 1, 7, 11 ]}
 			title={'Navigating the\nStructure of this App'}
 			audioFilename="home_page_explanation_rebecca.mp3"
-			nextTarget={Screens.BornToBeLoved}
+			nextTarget={OnboardingScreens.BornToBeLoved}
 			nextEnabled={nextEnabled}
 		>
 			<View style={styles.container}>

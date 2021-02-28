@@ -2,7 +2,7 @@ import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';
@@ -61,7 +61,7 @@ export default () => {
 			<OnboardingScreen
 				audioFilename="onboarding_2_sources_of_pain.mp3"
 				drawShapes={[ 1, 7, 11 ]}
-				nextTarget={Screens.WhatWouldILikeToLearn}
+				nextTarget={OnboardingScreens.WhatWouldILikeToLearn}
 				onNextCallback={submitResponse}
 				title="Acknowleding Your Past and Present Sources of Pain"
 				titleChild={

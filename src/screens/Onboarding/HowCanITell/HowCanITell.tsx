@@ -1,14 +1,14 @@
 import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './HowCanITell.styles';
 
 export default () => (
 	<OnboardingScreen
 		audioFilename="onboarding_21_how_can_i_tell.mp3"
 		drawShapes={[ 18, 19, 20 ]}
-		nextTarget={Screens.NeffSurveyIntro}
+		nextTarget={OnboardingScreens.NeffSurveyIntro}
 		title={'How Can I Tell If this App\nIs Working for Me?'}
 		titleContainerStyle={styles.titleContainerStyle}
 	>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
 import styles from './Introduction.styles';
 
@@ -31,7 +31,7 @@ export default () => {
 			customButtons={
 				<EnterButton
 					disabled={nextDisabled}
-					onPress={() => navigate(Screens.AcknowledgingYourPast)}
+					onPress={() => navigate(OnboardingScreens.AcknowledgingYourPast)}
 				/>
 			}
 			drawShapes={[ 14, 15, 16 ]}

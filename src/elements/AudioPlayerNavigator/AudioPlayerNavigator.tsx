@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import {
 	fastForwardAudio,
 	loadAudioFile,
@@ -28,12 +28,12 @@ export type AudioPlayerNavigatorProps = AudioPlayerNavigatorStandard | AudioPlay
 type AudioPlayerNavigatorStandard = {
 	audioFilename?: string;
 	customButtons?: undefined;
-	backTarget?: Screens;
+	backTarget?: OnboardingScreens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: (arg?: any) => void;
 	onNextCallback?: (arg?: any) => void;
-	nextTarget: Screens;
+	nextTarget: OnboardingScreens;
 	nextEnabled?: boolean;
 };
 
