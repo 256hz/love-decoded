@@ -15,7 +15,7 @@ export default StyleSheet.create({
 	},
 	journalSpace: {
 		height: '100%',
-		width: 4,
+		width: 3,
 	},
 	labelText: {
 		...text.body,

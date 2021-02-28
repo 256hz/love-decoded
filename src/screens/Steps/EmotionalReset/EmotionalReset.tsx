@@ -4,6 +4,7 @@ import styles from './EmotionalReset.styles';
 
 export default () => (
 	<View style={styles.container}>
-		<Text>Reset</Text>
+		<Text>Emotional Reset</Text>
+		<Text>Coming Soon!</Text>
 	</View>
 );
