@@ -47,7 +47,7 @@ stages:
         javaHomeOption: 'JDKVersion'
         sonarQubeRunAnalysis: false
 
-    - script: mv android/app/build/outputs/apk/debug/app-debug.apk ReactNativePipeline$(Build.BuildNumber).apk
+    - script: mv android/app/build/app-release.apk LoveDecodedTest$(Build.BuildNumber).apk
       displayName: 'Rename apk'
 
     - task: PublishBuildArtifacts@1
