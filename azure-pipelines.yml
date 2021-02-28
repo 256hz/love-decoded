@@ -55,7 +55,7 @@ stages:
         apksignerKeystoreAlias: 'upload'
         apksignerKeyPassword: 'J3susCC77__'
 
-    - script: mv android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
+    - script: mv android/app/build/outputs/apk/release/app-release.apk ReactNativePipeline$(Build.BuildNumber).apk
       displayName: 'Rename apk'
 
     - task: PublishBuildArtifacts@1
