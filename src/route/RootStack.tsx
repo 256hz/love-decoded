@@ -8,8 +8,13 @@ import HomeDrawer from './HomeDrawer';
 
 const Stack = createStackNavigator();
 
+enum RootScreens {
+	Home = 'HomeTab',
+	Onboarding = 'Onboarding',
+}
+
 export default () => {
-	const isLoggedIn = false; // replace with selector
+	const isLoggedIn = true; // replace with selector
 
 	return (
 		<NavigationContainer ref={navigationRef}>
