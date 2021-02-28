@@ -54,7 +54,10 @@ import { Screens } from './enums';
 const OnboardingStack = createStackNavigator();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> Tab and drawer navigators
 export enum OnboardingScreens {
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',

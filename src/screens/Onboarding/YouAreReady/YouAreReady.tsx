@@ -4,6 +4,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StepScreens } from 'route/StepStack';
+import { OnboardingScreens } from 'route/enums';
 import { changeStack } from 'util/navigation';
 import styles from './YouAreReady.styles';
 

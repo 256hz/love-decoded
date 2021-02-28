@@ -26,6 +26,10 @@ export default () => {
 			audioFilename="erb_ready_to_quit_rebecca.mp3"
 			drawShapes={[ 7, 25 ]}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
+>>>>>>> Tab and drawer navigators
 =======
 			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
 >>>>>>> Tab and drawer navigators
@@ -41,10 +45,14 @@ export default () => {
 						Frustrated with your progress? Something making you sad?
 					</Text>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<NextButtonWithText
 						onPress={() => navigate(Screens.FrustratedWithProgress)}
 						disabled={linksDisabled}
 					/>
+=======
+					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedWithProgress)} />
+>>>>>>> Tab and drawer navigators
 =======
 					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedWithProgress)} />
 >>>>>>> Tab and drawer navigators
@@ -54,10 +62,14 @@ export default () => {
 						Frustrated with the app technology?
 					</Text>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<NextButtonWithText
 						onPress={() => navigate(Screens.FrustratedWithApp)}
 						disabled={linksDisabled}
 					/>
+=======
+					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedWithApp)} />
+>>>>>>> Tab and drawer navigators
 =======
 					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedWithApp)} />
 >>>>>>> Tab and drawer navigators
@@ -67,10 +79,14 @@ export default () => {
 						Ready to quit on yourself and the App?
 					</Text>
 <<<<<<< HEAD
+<<<<<<< HEAD
 					<NextButtonWithText
 						onPress={() => navigate(Screens.FrustratedReadyToQuit)}
 						disabled={linksDisabled}
 					/>
+=======
+					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedReadyToQuit)} />
+>>>>>>> Tab and drawer navigators
 =======
 					<NextButtonWithText onPress={() => navigate(OnboardingScreens.FrustratedReadyToQuit)} />
 >>>>>>> Tab and drawer navigators

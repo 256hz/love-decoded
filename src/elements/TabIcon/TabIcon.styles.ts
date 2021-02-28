@@ -15,7 +15,11 @@ export default StyleSheet.create({
 	},
 	journalSpace: {
 		height: '100%',
+<<<<<<< HEAD
 		width: 3,
+=======
+		width: 4,
+>>>>>>> Tab and drawer navigators
 	},
 	labelText: {
 		...text.body,

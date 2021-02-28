@@ -35,13 +35,12 @@ export default () => {
 			onAudioEnd={() => setNextDisabled(false)}
 			title={'The Purpose of\nNeff\'s Self-Compassion Scale'}
 			titleContainerStyle={styles.titleContainerStyle}
-<<<<<<< HEAD
 			customButtons={
-				<SurveyButton onPress={() => navigate(Screens.NeffSurvey1)} disabled={nextDisabled} />
+				<SurveyButton
+					onPress={() => navigate(OnboardingScreens.NeffSurvey1)}
+					disabled={nextDisabled}
+				/>
 			}
-=======
-			customButtons={<SurveyButton onPress={() => navigate(OnboardingScreens.NeffSurvey1)} />}
->>>>>>> Tab and drawer navigators
 		>
 			<View style={styles.container}>
 				<Text style={styles.text}>

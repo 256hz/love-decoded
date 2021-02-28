@@ -2,6 +2,7 @@ import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { OnboardingScreens } from 'route/enums';
 import styles from './EmotionalResetButton.styles';
 
@@ -28,6 +29,8 @@ export default () => {
 	);
 };
 =======
+=======
+>>>>>>> Tab and drawer navigators
 import { OnboardingScreens } from 'route/OnboardingStack';
 import styles from './EmotionalResetButton.styles';
 
