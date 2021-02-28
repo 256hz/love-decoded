@@ -41,7 +41,8 @@ type AudioPlayerNavigatorCustomButtons = {
 };
 
 // the simulators/emulators have limited CPU, so restricted to 1 update/s for dev
-const CURRENT_TIME_DOT_UPDATE_FPS = __DEV__ ? 1 : Platform.select({ ios: 30, android: 30, default: 1 });
+const CURRENT_TIME_DOT_UPDATE_FPS = 1;
+// const CURRENT_TIME_DOT_UPDATE_FPS = __DEV__ ? 1 : Platform.select({ ios: 30, android: 30, default: 1 });
 
 export default ({
 	audioFilename,
