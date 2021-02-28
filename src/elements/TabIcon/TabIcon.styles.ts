@@ -20,6 +20,7 @@ export default StyleSheet.create({
 	labelText: {
 		...text.body,
 		fontSize: 12,
+		textAlign: 'center',
 		color: colors.Gray62,
 	},
 	labelSelected: {

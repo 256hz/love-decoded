@@ -5,9 +5,10 @@ import styles from './StepScreen.styles';
 
 type Props = {
 	children: ReactChild;
+	showSidebarOpener?: boolean;
 };
 
-export default ({ children }: Props) => (
+export default ({ children, showSidebarOpener }: Props) => (
 	<SafeAreaView style={styles.container}>
 		<View />
 	</SafeAreaView>

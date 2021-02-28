@@ -5,5 +5,6 @@ export default StyleSheet.create({
 	tabBar: {
 		height: 100,
 		paddingVertical: 6,
+		paddingRight: 16,
 	},
 });
