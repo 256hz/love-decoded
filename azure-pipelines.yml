@@ -37,7 +37,10 @@ stages:
 
     # - script: npm run test
     #   displayName: 'Run Jest Tests'
-    
+    - task: AndroidSigning@3
+      inputs:
+        apkFiles: '**/*.apk'
+        apksignerKeystoreFile: 'test.jks'
     - task: Gradle@2
       inputs:
         gradleWrapperFile: 'android/gradlew'
