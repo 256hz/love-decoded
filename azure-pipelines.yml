@@ -37,20 +37,22 @@ stages:
 
     # - script: npm run test
     #   displayName: 'Run Jest Tests'
+    
+    - task: Gradle@2
+      inputs:
+        workingDirectory: 'android'
+        gradleWrapperFile:  'android/gradlew'
+        gradleOptions: '-Xmx3072m'
+        publishJUnitResults: false
+        testResultsFiles: '**/TEST-*.xml'
+        tasks: 'assembleRelease'
+      
     - task: AndroidSigning@3
       inputs:
         apkFiles: '**/*.apk'
         apksignerKeystoreFile: 'test.jks'
-    - task: Gradle@2
-      inputs:
-        gradleWrapperFile: 'android/gradlew'
-        workingDirectory: 'android'
-        tasks: 'build'
-        publishJUnitResults: false
-        javaHomeOption: 'JDKVersion'
-        sonarQubeRunAnalysis: false
 
-    - script: mv src/android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
+    - script: mv android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
       displayName: 'Rename apk'
 
     - task: PublishBuildArtifacts@1
