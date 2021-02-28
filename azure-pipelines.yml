@@ -50,7 +50,10 @@ stages:
     - task: AndroidSigning@3
       inputs:
         apkFiles: '**/*.apk'
-        apksignerKeystoreFile: 'test.jks'
+        apksignerKeystoreFile: 'azure.jks'
+        apksignerKeystorePassword: 'J3susCC77__'
+        apksignerKeystoreAlias: 'upload'
+        apksignerKeyPassword: 'J3susCC77__'
 
     - script: mv android/app/build/outputs/apk/release/app-release-unsigned.apk ReactNativePipeline$(Build.BuildNumber).apk
       displayName: 'Rename apk'
