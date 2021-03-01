@@ -10,7 +10,8 @@ export default StyleSheet.create({
 		width: '100%',
 		justifyContent: 'center',
 		alignItems: 'center',
-		paddingHorizontal: 64,
+		paddingHorizontal: 32,
+		paddingTop: 16,
 	},
 	topText: {
 		...text.body,

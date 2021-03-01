@@ -8,7 +8,7 @@ export const TIME_NUDGE_UP = -7;
 
 const { height } = Dimensions.get('screen');
 const TOTAL_AUDIO_BAR_HEIGHT = TOP_BUTTONS_HEIGHT + TIME_BAR_HEIGHT + TIME_HEIGHT + TIME_NUDGE_UP;
-const BOTTOM_CONTENT_HEIGHT = Math.min(height * 0.1, 100);
+const BOTTOM_CONTENT_HEIGHT = 100;
 
 export const MARGIN = 25;
 

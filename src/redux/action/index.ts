@@ -3,6 +3,13 @@ export {
 } from './alerts';
 
 export {
+	setAppState,
+	appActivated,
+	appBackgrounded,
+	appInactivated,
+} from './appState';
+
+export {
 	fastForwardAudio,
 	loadAudioFile,
 	pauseAudio,

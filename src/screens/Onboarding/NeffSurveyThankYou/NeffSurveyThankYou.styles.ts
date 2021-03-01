@@ -21,7 +21,7 @@ export default StyleSheet.create({
 	headline: {
 		...text.body,
 		fontSize: 20,
-		fontWeight: '500',
+		...text.bold,
 	},
 	middleContainer: {
 		flex: 1,

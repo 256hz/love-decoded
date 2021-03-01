@@ -16,7 +16,7 @@ export default StyleSheet.create({
 		lineHeight: 50,
 	},
 	bold: {
-		fontWeight: '500',
+		...text.bold,
 	},
 	headline: {
 		fontWeight: '700',

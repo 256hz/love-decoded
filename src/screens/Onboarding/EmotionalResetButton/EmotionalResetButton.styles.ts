@@ -16,8 +16,8 @@ export default StyleSheet.create({
 	},
 	text: {
 		...text.body,
-		fontSize: 20,
-		lineHeight: 28,
+		fontSize: 16,
+		lineHeight: 24,
 		textAlign: 'center',
 	},
 	bottomContainer: {
@@ -36,8 +36,10 @@ export default StyleSheet.create({
 	},
 	navButtonText: {
 		fontSize: 16,
-		// lineHeight: 16,
-		fontWeight: '500',
+		...text.bold,
 		color: colors.White,
+	},
+	disabled: {
+		backgroundColor: colors.GrayButton,
 	},
 });

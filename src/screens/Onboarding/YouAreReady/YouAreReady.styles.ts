@@ -30,12 +30,13 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
+		marginTop: 16,
 		marginBottom: 80,
 	},
 	buttonText: {
 		...text.body,
+		...text.bold,
 		fontSize: 20,
-		fontWeight: '500',
 		color: colors.White,
 	},
 });

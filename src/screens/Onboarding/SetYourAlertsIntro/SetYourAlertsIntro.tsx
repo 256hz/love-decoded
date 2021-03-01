@@ -37,7 +37,7 @@ export default () => {
 			<View style={styles.container}>
 				<View style={styles.topTextContainer}>
 					<Text style={styles.topText}>
-						<Text style={[ styles.topText, styles.boldText ]}>Remember </Text> - Love is Nourishment -
+						<Text style={[ styles.topText, styles.boldText ]}>Remember </Text> -{'\n'}Love is Nourishment -
 					</Text>
 					<Text style={styles.topText}>
 						Your alerts are going to coincide with times you choose to nourish yourself.

@@ -34,7 +34,7 @@ export default StyleSheet.create({
 	},
 	headingText: {
 		...text.body,
-		fontWeight: '500',
+		...text.bold,
 		fontSize: 15,
 	},
 });

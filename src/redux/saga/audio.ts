@@ -9,6 +9,9 @@ import {
 } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import {
+	appActivated,
+	appBackgrounded,
+	appInactivated,
 	fastForwardAudio,
 	loadAudioFile,
 	pauseAudio,
@@ -30,7 +33,7 @@ import { resetAudioPlayer, setAudioPlayCompleted } from 'redux/action/audio';
 
 const soundPlayerEmitter = eventChannel(emitter => {
 	const onLoad = SoundPlayer.addEventListener('FinishedLoadingFile', ({ success }) => {
-		console.log('load');
+		// console.log('load');
 		if (!success) {
 			console.error('error loading audio file');
 			return;
@@ -45,7 +48,7 @@ const soundPlayerEmitter = eventChannel(emitter => {
 export function* watchForSuccessfulLoad() {
 	yield takeEvery(soundPlayerEmitter, function* (success: boolean) {
 		if (success) {
-			console.log('audioIsLoaded');
+			// console.log('audioIsLoaded');
 			yield put(setAudioIsLoaded(true));
 			yield put(playAudio());
 		}
@@ -55,7 +58,7 @@ export function* watchForSuccessfulLoad() {
 function* getInfo() {
 	try {
 		const { currentTime, duration } = yield call([ SoundPlayer, 'getInfo' ]);
-		console.log({ currentTime, duration });
+		// console.log({ currentTime, duration });
 		yield put(setAudioInfo(currentTime, duration));
 	} catch (error) {
 		console.error('error getting audio info', error);
@@ -70,7 +73,7 @@ function* loopGetInfo() {
 
 	yield put(setAudioIsGettingInfo(true));
 
-	console.log('looping');
+	// console.log('looping');
 	while (true) {
 		const isPlaying = yield select(isAudioPlaying);
 		if (!isPlaying) {
@@ -80,14 +83,15 @@ function* loopGetInfo() {
 		yield call(getInfo);
 
 		const { currentTime, duration } = yield select(getAudioInfo);
-		if (currentTime >= duration - 0.1) {
+		if (currentTime >= duration - 0.5) {
+			yield delay(300);
 			yield put(setAudioPlayCompleted(true));
 			break;
 		}
 
 		yield delay(1000);
 	}
-	console.log('end loop');
+	// console.log('end loop');
 
 	yield call(getInfo);
 	yield put(setAudioIsGettingInfo(false));
@@ -96,7 +100,7 @@ function* loopGetInfo() {
 export function* watchForLoadAudioFile() {
 	yield takeLeading(loadAudioFile, function* ({ payload: { filename, extension } }) {
 		try {
-			console.log('loading');
+			// console.log('loading');
 			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
 		} catch (error) {
 			console.error(error);
@@ -109,7 +113,7 @@ export function* watchForLoadAudioFile() {
 
 export function* watchForPlayAudio() {
 	yield takeLeading(playAudio, function* () {
-		console.log('play');
+		// console.log('play');
 		const isLoaded = yield select(isAudioLoaded);
 
 		if (isLoaded) {
@@ -122,7 +126,7 @@ export function* watchForPlayAudio() {
 
 export function* watchForPauseAudio() {
 	yield takeLeading(pauseAudio, function* () {
-		console.log('pause');
+		// console.log('pause');
 		const isLoaded = yield select(isAudioLoaded);
 
 		if (isLoaded) {
@@ -134,7 +138,7 @@ export function* watchForPauseAudio() {
 
 export function* watchForFastForwardAudio() {
 	yield takeLeading(fastForwardAudio, function* () {
-		console.log('ff');
+		// console.log('ff');
 		const isLoaded = yield select(isAudioLoaded);
 		if (!isLoaded) {
 			return;
@@ -160,7 +164,7 @@ export function* watchForFastForwardAudio() {
 
 export function* watchForRewindAudio() {
 	yield takeEvery(rewindAudio, function* () {
-		console.log('rw');
+		// console.log('rw');
 		const isLoaded = yield select(isAudioLoaded);
 		if (!isLoaded) {
 			return;
@@ -182,7 +186,6 @@ function* seek(seekTarget: number) {
 	} catch (error) {
 		console.error('could not seek', error);
 	}
-
 }
 
 export function* watchForSetAudioPlayCompleted() {
@@ -193,5 +196,11 @@ export function* watchForSetAudioPlayCompleted() {
 
 		yield put(pauseAudio());
 		yield call(seek, 0);
+	});
+}
+
+export function* resetOnAppStateChange() {
+	yield takeEvery([ appInactivated, appBackgrounded ], function* () {
+		yield put(pauseAudio());
 	});
 }

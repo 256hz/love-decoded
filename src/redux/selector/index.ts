@@ -1,6 +1,10 @@
 export { getAlertTime } from './alerts';
 
 export {
+	getAppState,
+} from './appState';
+
+export {
 	getAudioInfo,
 	getAudioTotalPlayed,
 	getAudioPlayCompleted,

@@ -7,7 +7,7 @@ import styles from './LetTheAppTeachYou.styles';
 export default () => (
 	<OnboardingScreen
 		audioFilename="onboarding_13_let_the_app_teach_you.mp3"
-		drawShapes={[ 6, 10 ]}
+		drawShapes={[ 6, 25 ]}
 		hideBackButton={true}
 		nextTarget={Screens.LoveVsHeartburn}
 		title={'Let The App\nTeach You'}
@@ -20,8 +20,10 @@ export default () => (
 				You Will Let The App Teach You <Text style={[ styles.text, styles.highlightText ]}>Mastery</Text>.
 			</Text>
 
-			<Text style={styles.text}>{'\n'}
-				<Text style={[ styles.text, styles.highlightText ]}>You will see </Text>your good qualities, not just your weaknesses.{'\n'}
+			<Text style={styles.text}>
+				{'\n'}
+				<Text style={[ styles.text, styles.highlightText ]}>You will see </Text>your good qualities, not just your weaknesses.
+				{'\n\n'}
 				<Text style={[ styles.text, styles.highlightText ]}>You will believe </Text>growth and Self Love are possible.
 			</Text>
 		</View>

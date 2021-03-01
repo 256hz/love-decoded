@@ -37,7 +37,7 @@ export default StyleSheet.create({
 		fontSize: 16,
 	},
 	boldText: {
-		fontWeight: '500',
+		...text.bold,
 	},
 	addMoreContainer: {
 		flex: 1,

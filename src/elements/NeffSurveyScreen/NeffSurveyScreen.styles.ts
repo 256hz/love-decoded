@@ -54,4 +54,7 @@ export default StyleSheet.create({
 	navButtonText: {
 		marginRight: 5,
 	},
+	disabled: {
+		backgroundColor: colors.GrayButton,
+	},
 });
