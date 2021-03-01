@@ -2,7 +2,7 @@ import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';

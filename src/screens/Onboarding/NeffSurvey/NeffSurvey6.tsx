@@ -1,6 +1,6 @@
 import React from 'react';
 import { NeffSurveyScreen } from '@elements';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 
 export default () => (
 	<NeffSurveyScreen

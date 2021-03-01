@@ -6,6 +6,7 @@ export type AlertsState = {
 	[key in AlertTime]: number;
 };
 
+// minutes from midnight
 const INITIAL_STATE: AlertsState = {
 	[AlertTime.Morning]: 5 * 60,  // 5am
 	[AlertTime.Activities]: 11 * 60,  // 11am

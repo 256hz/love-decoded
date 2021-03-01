@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { setSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';

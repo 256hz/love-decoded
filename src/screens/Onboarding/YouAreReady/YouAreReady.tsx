@@ -3,7 +3,7 @@ import { OnboardingScreen } from 'elements';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { changeStack } from 'util/navigation';
 import styles from './YouAreReady.styles';
 

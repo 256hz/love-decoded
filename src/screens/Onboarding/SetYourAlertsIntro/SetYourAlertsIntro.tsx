@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './SetYourAlertsIntro.styles';
 

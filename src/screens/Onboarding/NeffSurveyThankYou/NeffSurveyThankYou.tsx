@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import NextArrow from '@assets/svg/next-arrow.svg';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { getNeffAverage } from '@redux/selector';
 import { OnboardingScreen } from '@elements';
 import styles from './NeffSurveyThankYou.styles';

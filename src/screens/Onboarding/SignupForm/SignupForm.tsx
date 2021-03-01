@@ -8,7 +8,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Spinner } from 'react-native-material-kit';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import styles from './SignupForm.styles';
 
 const MINUMUM_PASSWORD_LENGTH = 6;

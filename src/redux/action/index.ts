@@ -1,17 +1,32 @@
-import {
+export {
 	setAlertTime,
 } from './alerts';
 
-import {
+export {
+	fastForwardAudio,
+	loadAudioFile,
+	pauseAudio,
+	playAudio,
+	resetAudioPlayer,
+	rewindAudio,
+	setAudioInfo,
+	setAudioIsGettingInfo,
+	setAudioIsLoaded,
+	setAudioIsPlaying,
+	setAudioPlayCompleted,
+	setAudioTotalPlayed,
+} from './audio';
+
+export {
 	setContact,
 } from './contacts';
 
-import {
+export {
 	setNeffSurveyResponse,
 	setSurveyResponse,
 } from './survey';
 
-import {
+export {
 	setUserProperty,
 	logIn,
 	logOut,
@@ -21,13 +36,3 @@ export {
 	clearModal,
 	setModal,
 } from './modal';
-
-export {
-	logIn,
-	logOut,
-	setAlertTime,
-	setContact,
-	setNeffSurveyResponse,
-	setSurveyResponse,
-	setUserProperty,
-};

@@ -1,6 +1,6 @@
 import React, { ReactChild } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import Triangle5 from '@assets/svg/mastering-love/triangle-5.svg';
 import Triangle10 from '@assets/svg/mastering-love/triangle-10.svg';
 import Triangle20 from '@assets/svg/mastering-love/triangle-20.svg';

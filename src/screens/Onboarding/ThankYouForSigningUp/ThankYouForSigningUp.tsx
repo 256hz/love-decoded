@@ -1,7 +1,7 @@
 import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import styles from './ThankYouForSigningUp.styles';
 
 export default () => (

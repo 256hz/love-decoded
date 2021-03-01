@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import { setNeffSurveyResponse } from '@redux/action';
 import { getNeffResponseByPageIndex } from '@redux/selector';
