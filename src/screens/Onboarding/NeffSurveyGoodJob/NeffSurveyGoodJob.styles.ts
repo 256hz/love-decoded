@@ -41,7 +41,7 @@ export default StyleSheet.create({
 	buttonText: {
 		...text.body,
 		fontSize: 20,
-		fontWeight: '500',
+		...text.bold,
 		color: colors.White,
 	},
 });

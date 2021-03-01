@@ -46,6 +46,7 @@ export default class CardCarousel extends Component<Props, State> {
 		this.setState({ activeSlide });
 
 		const { entries } = this.state;
+
 		if (activeSlide === entries.length - 1) {
 			const { setNextEnabled } = this.props;
 			setNextEnabled(true);

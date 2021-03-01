@@ -80,7 +80,6 @@ export default ({
 
 	useEffect(() => {
 		dispatch(resetAudioPlayer());
-
 		if (!audioFilename) {
 			return;
 		}
@@ -101,9 +100,25 @@ export default ({
 		onNextCallback?.();
 	};
 
-	const allowNextButton = nextEnabled != undefined
-		? nextEnabled && playedToEnd
-		: playedToEnd;
+	const allowNextButton = (() => {
+		if (nextEnabled === undefined && audioFilename === undefined) {
+			return true;
+		}
+
+		if (nextEnabled === undefined && audioFilename !== undefined) {
+			return playedToEnd;
+		}
+
+		if (nextEnabled !== undefined && audioFilename === undefined) {
+			return nextEnabled;
+		}
+
+		if (nextEnabled !== undefined && audioFilename !== undefined) {
+			return nextEnabled && playedToEnd;
+		}
+
+		return true;
+	})();
 
 	return (
 		<View style={[ styles.container, audioFilename ? styles.withAudioBar : styles.withoutAudioBar ]}>

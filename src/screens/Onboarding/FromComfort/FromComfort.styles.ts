@@ -146,7 +146,7 @@ export default StyleSheet.create({
 	},
 	middleLine: {
 		position: 'absolute',
-		top: width / 1.3573770492,
+		top: width / 1.3,
 		left: width / 3.9428571429,
 		height: 0,
 		width: width / 1.389261745,
@@ -178,11 +178,11 @@ export default StyleSheet.create({
 		fontSize: 12,
 		lineHeight: 15,
 		textAlign: 'center',
-		fontWeight: '500',
+		...text.bold,
 	},
 	middleTextContainer: {
 		position: 'absolute',
-		top: width / 1.4628975265,
+		top: width / 1.4,
 		left: width / 5.175,
 	},
 	middleTextBox: {

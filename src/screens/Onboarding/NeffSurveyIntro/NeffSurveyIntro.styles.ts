@@ -24,15 +24,18 @@ export default StyleSheet.create({
 	},
 	surveyButton: {
 		height: 35,
-		backgroundColor: colors.OrangeTransparent,
+		backgroundColor: colors.OrangeButton,
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
 	},
+	disabled: {
+		backgroundColor: colors.GrayButton,
+	},
 	buttonText: {
 		fontFamily: 'Rubik',
-		fontWeight: '500',
+		...text.bold,
 		fontSize: 18,
 		marginHorizontal: 21,
 	},

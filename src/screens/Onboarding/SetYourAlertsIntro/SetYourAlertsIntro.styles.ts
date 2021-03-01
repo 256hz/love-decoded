@@ -9,7 +9,6 @@ export default StyleSheet.create({
 	topTextContainer: {
 		width: '100%',
 		justifyContent: 'center',
-		alignItems: 'center',
 		marginVertical: 16,
 		paddingHorizontal: 39,
 	},
