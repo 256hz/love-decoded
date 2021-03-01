@@ -93,7 +93,7 @@ export default ({
 		if (playedToEnd) {
 			onAudioEnd?.();
 		}
-	}, [ playedToEnd ]);
+	}, [ playedToEnd, onAudioEnd ]);
 
 	const wrapOnNext = () => {
 		dispatch(pauseAudio());
