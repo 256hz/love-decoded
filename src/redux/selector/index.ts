@@ -1,6 +1,15 @@
 export { getAlertTime } from './alerts';
 
 export {
+	getAudioInfo,
+	getAudioTotalPlayed,
+	getAudioPlayCompleted,
+	isAudioGettingInfo,
+	isAudioLoaded,
+	isAudioPlaying,
+} from './audio';
+
+export {
 	getContacts,
 	getContactsArray,
 } from './contacts';

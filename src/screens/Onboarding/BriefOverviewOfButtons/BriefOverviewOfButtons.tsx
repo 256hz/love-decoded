@@ -6,7 +6,7 @@ import Home from '@assets/svg/home.svg';
 import Journal1 from '@assets/svg/journal-1.svg';
 import Journal2 from '@assets/svg/journal-2.svg';
 import SettingsDot from '@assets/svg/settings-dot.svg';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import styles from './BriefOverviewOfButtons.styles';
 

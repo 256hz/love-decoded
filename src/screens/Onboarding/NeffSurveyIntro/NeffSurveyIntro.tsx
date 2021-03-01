@@ -5,7 +5,7 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { getAllSurveys } from 'redux/selector';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import styles from './NeffSurveyIntro.styles';
 
 type SurveyButtonProps = {

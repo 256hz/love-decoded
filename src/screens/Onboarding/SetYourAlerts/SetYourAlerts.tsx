@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { AlertTime } from '@redux/types/alerts';
 import { setAlertTime } from '@redux/action';

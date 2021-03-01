@@ -6,7 +6,7 @@ import {
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Contacts, { Contact } from 'react-native-contacts';
 import { Spinner } from 'react-native-material-kit';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import AddPlus from '@assets/svg/add-plus.svg';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';

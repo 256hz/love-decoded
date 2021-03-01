@@ -8,7 +8,7 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';

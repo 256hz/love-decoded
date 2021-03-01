@@ -1,12 +1,24 @@
 import React, {
 	ReactChild,
 	useEffect,
-	useRef,
-	useState,
 } from 'react';
-import { Platform, View } from 'react-native';
-import SoundPlayer from 'react-native-sound-player';
-import { Screens } from 'route/OnboardingStack';
+import { View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { Screens } from 'route/enums';
+import {
+	fastForwardAudio,
+	loadAudioFile,
+	pauseAudio,
+	playAudio,
+	resetAudioPlayer,
+	rewindAudio,
+} from '@redux/action';
+import {
+	getAudioInfo,
+	getAudioPlayCompleted,
+	isAudioLoaded,
+	isAudioPlaying,
+} from '@redux/selector';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';
@@ -40,10 +52,6 @@ type AudioPlayerNavigatorCustomButtons = {
 	onNextCallback?: undefined;
 };
 
-// the simulators/emulators have limited CPU, so restricted to 1 update/s for dev
-const CURRENT_TIME_DOT_UPDATE_FPS = 1;
-// const CURRENT_TIME_DOT_UPDATE_FPS = __DEV__ ? 1 : Platform.select({ ios: 30, android: 30, default: 1 });
-
 export default ({
 	audioFilename,
 	backTarget,
@@ -55,126 +63,47 @@ export default ({
 	nextEnabled,
 	nextTarget,
 }: AudioPlayerNavigatorProps) => {
-	const [ isLoaded, setIsLoaded ] = useState(false);
-	const [ isPlaying, setIsPlaying ] = useState(false);
-	const [ currentTime, setCurrentTime ] = useState(0);
-	const [ duration, setDuration ] = useState(0);
+	const dispatch = useDispatch();
 
-	// const isPlaying = useRef(false);
-	// The user won't be able to fast forward past the latest time they've listened to.
-	const totalListened = useRef(0);
-	// Holds the handle for the setInterval that gets position in the audio file.
-	const getInfoTimer = useRef<number>();
+	const { currentTime, duration } = useSelector(getAudioInfo);
+	const isLoaded = useSelector(isAudioLoaded);
+	const isPlaying = useSelector(isAudioPlaying);
+	const playedToEnd = useSelector(getAudioPlayCompleted);
 
-	// SoundPlayer event listener. Starts checking the current time for changes on load.
-	const onFinishLoad = useRef(SoundPlayer.addEventListener('FinishedLoadingFile', ({ success }) => {
-		if (!success) {
-			console.error('error loading audio file');
-			return;
-		}
+	const fastForward = () => dispatch(fastForwardAudio());
 
-		setIsLoaded(true);
-		setIsPlaying(true);
-		SoundPlayer.play();
-		toggleGetInfoTimer();
-	}));
-
-	const toggleGetInfoTimer = () => {
-		console.log('toggle', getInfoTimer);
-		if (getInfoTimer.current) {
-			clearInterval(getInfoTimer.current);
-			getInfoTimer.current = undefined;
-			return;
-		}
-
-		getInfoTimer.current = setInterval(async () => {
-			await getInfo();
-		}, 1000 / CURRENT_TIME_DOT_UPDATE_FPS);
-	};
-
-	// SoundPlayer event listener. Pauses at the very end of the file so it won't auto-rewind.
-	const onFinishPlay = useRef(SoundPlayer.addEventListener('FinishedPlaying', ({ success }) => {
-		if (!success) {
-			console.error('error playing audio file');
-			return;
-		}
-
-		togglePause();
-		onAudioEnd?.();
-	}));
-
-	const getInfo = async () => {
-		try {
-			const { duration: newDuration, currentTime: newCurrentTime } = await SoundPlayer.getInfo();
-			console.log(newCurrentTime);
-
-			setCurrentTime(newCurrentTime);
-			setDuration(newDuration);
-
-			if (newCurrentTime > totalListened.current) {
-				totalListened.current = newCurrentTime;
-			}
-		} catch (e) {
-			console.error('could not get audio info', e);
-		}
-	};
-
-	const rewind = () => {
-		SoundPlayer.seek(Math.max(currentTime - 10, 0));
-		getInfo();
-	};
-
-	const fastForward = () => {
-		if (__DEV__) {
-			SoundPlayer.seek(Math.min(currentTime + 10, duration - 0.1));
-			getInfo();
-			return;
-		}
-
-		SoundPlayer.seek(Math.min(currentTime + 10, totalListened.current, duration - 0.1));
-		getInfo();
-	};
+	const rewind = () => dispatch(rewindAudio());
 
 	const togglePause = () => {
-		if (!isLoaded) {
-			return;
-		}
-		getInfo();
-
-		if (isPlaying) {
-			SoundPlayer.pause();
-			setIsPlaying(false);
-		} else {
-			SoundPlayer.play();
-			setIsPlaying(true);
-		}
-		toggleGetInfoTimer();
-		console.log({ isPlaying, getInfoTimer });
+		dispatch(isPlaying ? pauseAudio() : playAudio());
 	};
 
 	useEffect(() => {
+		dispatch(resetAudioPlayer());
+
 		if (!audioFilename) {
 			return;
 		}
 
-		// loadSoundFile takes [ 'filename', 'mp3' ]
-		SoundPlayer.loadSoundFile(...audioFilename.split('.'));
+		const [ filename, extension ] = audioFilename.split('.');
+		dispatch(loadAudioFile(filename, extension));
+	}, [ audioFilename, dispatch ]);
 
-		return (() => {
-			SoundPlayer.pause();
-			!!getInfoTimer.current && clearInterval(getInfoTimer.current);
-			onFinishLoad.current.remove();
-			onFinishLoad.current = undefined;
-			onFinishPlay.current.remove();
-			onFinishPlay.current = undefined;
-		});
-	}, [ onFinishLoad, audioFilename ]);
+	useEffect(() => {
+		if (playedToEnd) {
+			onAudioEnd?.();
+		}
+	}, [ playedToEnd ]);
 
-	const playedToEnd = duration && totalListened.current >= duration - 0.1;
+	const wrapOnNext = () => {
+		dispatch(pauseAudio());
+		dispatch(resetAudioPlayer());
+		onNextCallback?.();
+	};
 
 	const allowNextButton = nextEnabled != undefined
-		? nextEnabled && (playedToEnd || __DEV__)
-		: playedToEnd || __DEV__;
+		? nextEnabled && playedToEnd
+		: playedToEnd;
 
 	return (
 		<View style={[ styles.container, audioFilename ? styles.withAudioBar : styles.withoutAudioBar ]}>
@@ -199,7 +128,7 @@ export default ({
 						backTarget={backTarget}
 						hideBackButton={hideBackButton}
 						hideNextButton={hideNextButton}
-						onNextCallback={onNextCallback}
+						onNextCallback={wrapOnNext}
 						nextEnabled={allowNextButton}
 						nextTarget={nextTarget!}
 					/>

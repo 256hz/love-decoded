@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { OnboardingScreen } from '@elements';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { useSelector } from 'react-redux';
 import { getAlertTime } from 'redux/selector';
 import { AlertTime } from 'redux/types/alerts';

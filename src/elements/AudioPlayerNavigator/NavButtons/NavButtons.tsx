@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import styles from './NavButtons.styles';
 
 interface Props {

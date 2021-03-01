@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/OnboardingStack';
+import { Screens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import styles from './FromComfort.styles';
 
