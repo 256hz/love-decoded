@@ -6,12 +6,12 @@ import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { OnboardingScreens } from 'route/enums';
 import {
-	fastForwardAudio,
-	loadAudioFile,
+	// fastForwardAudio,
+	playAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
-	rewindAudio,
+	// rewindAudio,
 } from '@redux/action';
 import {
 	getAudioInfo,
@@ -26,15 +26,19 @@ import styles from './AudioPlayerNavigator.styles';
 export type AudioPlayerNavigatorProps = AudioPlayerNavigatorStandard | AudioPlayerNavigatorCustomButtons;
 
 type AudioPlayerNavigatorStandard = {
+	// allowed
 	audioFilename?: string;
-	customButtons?: undefined;
+	backEnabled?: boolean;
 	backTarget?: OnboardingScreens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: (arg?: any) => void;
-	onNextCallback?: (arg?: any) => void;
+	onPressBack?: (arg?: any) => void;
+	onPressNext?: (arg?: any) => void;
 	nextTarget: OnboardingScreens;
 	nextEnabled?: boolean;
+	// disallowed
+	customButtons?: undefined;
 };
 
 // If custom buttons are passed in, the props for the Back & Next buttons should not be.
@@ -44,22 +48,26 @@ type AudioPlayerNavigatorCustomButtons = {
 	customButtons: ReactChild;
 	onAudioEnd?: (arg?: any) => void;
 	// disallowed
+	backEnabled?: undefined;
 	backTarget?: undefined;
 	hideBackButton?: undefined;
 	hideNextButton?: undefined;
 	nextTarget?: undefined;
 	nextEnabled?: undefined;
-	onNextCallback?: undefined;
+	onPressNext?: undefined;
+	onPressBack?: undefined;
 };
 
 export default ({
 	audioFilename,
+	backEnabled = true,
 	backTarget,
 	customButtons,
 	hideBackButton,
 	hideNextButton,
 	onAudioEnd,
-	onNextCallback,
+	onPressBack,
+	onPressNext,
 	nextEnabled,
 	nextTarget,
 }: AudioPlayerNavigatorProps) => {
@@ -70,37 +78,30 @@ export default ({
 	const isPlaying = useSelector(isAudioPlaying);
 	const playedToEnd = useSelector(getAudioPlayCompleted);
 
-	const fastForward = () => dispatch(fastForwardAudio());
+	// const fastForward = () => dispatch(fastForwardAudio());
 
-	const rewind = () => dispatch(rewindAudio());
+	// const rewind = () => dispatch(rewindAudio());
 
 	const togglePause = () => {
 		dispatch(isPlaying ? pauseAudio() : playAudio());
 	};
 
 	useEffect(() => {
-		dispatch(resetAudioPlayer());
 		if (!audioFilename) {
 			return;
 		}
 
-		const [ filename, extension ] = audioFilename.split('.');
-		dispatch(loadAudioFile(filename, extension));
-	}, [ audioFilename, dispatch ]);
-
-	useEffect(() => {
-		if (playedToEnd) {
-			onAudioEnd?.();
+		if (!playedToEnd && currentTime === 0) {
+			const [ filename, extension ] = audioFilename.split('.');
+			dispatch(playAudioFile(filename, extension));
+			return;
 		}
-	}, [ playedToEnd, onAudioEnd ]);
 
-	const wrapOnNext = () => {
-		dispatch(pauseAudio());
-		dispatch(resetAudioPlayer());
-		onNextCallback?.();
-	};
+		console.log('onAudioEnd');
+		onAudioEnd?.();
+	}, [ audioFilename, playedToEnd, dispatch, onAudioEnd ]);
 
-	const allowNextButton = (() => {
+	const isNextEnabled = (() => {
 		if (nextEnabled === undefined && audioFilename === undefined) {
 			return true;
 		}
@@ -116,12 +117,13 @@ export default ({
 		if (nextEnabled !== undefined && audioFilename !== undefined) {
 			return nextEnabled && playedToEnd;
 		}
-
-		return true;
 	})();
 
 	return (
-		<View style={[ styles.container, audioFilename ? styles.withAudioBar : styles.withoutAudioBar ]}>
+		<View style={[
+			styles.container,
+			// audioFilename ? styles.withAudioBar : styles.withoutAudioBar,
+		]}>
 			{ audioFilename
 				? (
 					<AudioPlayerBar
@@ -129,8 +131,8 @@ export default ({
 						duration={duration}
 						isPlaying={isPlaying}
 						isLoaded={isLoaded}
-						onFastForward={fastForward}
-						onRewind={rewind}
+						// onFastForward={fastForward}
+						// onRewind={rewind}
 						onTogglePause={togglePause}
 					/>
 				)
@@ -140,11 +142,14 @@ export default ({
 			<View style={styles.bottomContainer}>
 				{ customButtons || (
 					<NavButtons
+						backEnabled={backEnabled}
 						backTarget={backTarget}
 						hideBackButton={hideBackButton}
 						hideNextButton={hideNextButton}
-						onNextCallback={wrapOnNext}
-						nextEnabled={allowNextButton}
+						onPressBack={onPressBack}
+						onPressNext={onPressNext}
+						// nextEnabled={isNextEnabled}
+						nextEnabled={true}
 						nextTarget={nextTarget!}
 					/>
 				)}

@@ -28,17 +28,22 @@ export default ({ isLoaded, isPlaying }: Props) => {
 		}
 
 		setHidePlay(true);
-
-		setTimeout(() => {
+		let hideButtonTimeout;
+		const showButtonTimeout = setTimeout(() => {
 			setHidePlay(false);
 
 			!isPlaying && isBlinking.current && (
-				setTimeout(() => {
+				hideButtonTimeout = setTimeout(() => {
 					hide();
 				}, SHOW_FOR_MS)
 			);
 
 		}, HIDE_FOR_MS);
+
+		return (() => {
+			clearTimeout(showButtonTimeout);
+			clearTimeout(hideButtonTimeout);
+		});
 	}, [ isPlaying ]);
 
 	useEffect(() => {

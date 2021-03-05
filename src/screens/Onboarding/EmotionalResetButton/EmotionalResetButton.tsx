@@ -19,7 +19,6 @@ const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabl
 export default () => {
 	const { navigate } = useNavigation();
 	const [ linksDisabled, setLinksDisabled ] = useState(true);
-	console.log({ linksDisabled });
 
 	return (
 		<OnboardingScreen

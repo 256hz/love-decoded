@@ -35,7 +35,11 @@ export default StyleSheet.create({
 		marginBottom: 30,
 	},
 	radioButtonsContainer: {
-		flex: 1,
+		// justifyContent: 'center',
 		alignItems: 'center',
+	},
+	radioButtonsStyle: {
+		// justifyContent: 'center',
+		// alignItems: 'center',
 	},
 });

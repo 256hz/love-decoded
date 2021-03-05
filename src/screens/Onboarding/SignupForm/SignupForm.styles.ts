@@ -7,9 +7,10 @@ export default StyleSheet.create({
 		flex: 1,
 	},
 	container: {
-		flex: 1,
+		flexGrow: 1,
 		paddingHorizontal: 16,
 		paddingVertical: 18,
+		justifyContent: 'space-between',
 	},
 	titlePadding: {
 		paddingTop: 42,
@@ -33,7 +34,7 @@ export default StyleSheet.create({
 		height: '100%',
 		fontSize: 16,
 		lineHeight: 18,
-		color: colors.GrayBC,
+		color: colors.Gray92,
 	},
 	text: {
 		...text.body,
@@ -81,6 +82,7 @@ export default StyleSheet.create({
 		backgroundColor: colors.Orange,
 		justifyContent: 'center',
 		alignItems: 'center',
+		marginBottom: 30,
 	},
 	buttonText: {
 		...text.body,
@@ -89,7 +91,7 @@ export default StyleSheet.create({
 		fontWeight: '700',
 	},
 	disabled: {
-		backgroundColor: colors.GrayTransparent073,
+		backgroundColor: colors.GrayButton,
 	},
 	errorContainer: {
 		width: '100%',

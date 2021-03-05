@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const loadAudioFile = createAction('LOAD_AUDIO_FILE',
+export const playAudioFile = createAction('LOAD_AUDIO_FILE',
 	(filename: string, extension: string) => ({ payload: { filename, extension } }));
 
 export const setAudioIsLoaded = createAction('SET_AUDIO_IS_LOADED',
@@ -26,7 +26,13 @@ export const rewindAudio = createAction('REWIND_AUDIO');
 
 export const fastForwardAudio = createAction('FAST_FORWARD_AUDIO');
 
-export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER');
+export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER',
+	(clearPlayCompleted?: boolean) => ({ payload: { clearPlayCompleted } }));
+
+export const setCurrentAudioFilename = createAction('SET_CURRENT_AUDIO_FILENAME',
+	(filename: string) => ({ payload: { filename } }));
 
 export const setAudioPlayCompleted = createAction('SET_AUDIO_PLAY_COMPLETED',
 	(playCompleted: boolean) => ({ payload: { playCompleted } }));
+
+export const stopGettingAudioInfo = createAction('STOP_GETTING_AUDIO_INFO');

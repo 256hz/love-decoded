@@ -58,7 +58,7 @@ export type OnboardingStackParamList = {
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={OnboardingScreens.Introduction}>
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={OnboardingScreens.HowCanITell}>
 		<OnboardingStack.Screen name={OnboardingScreens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={OnboardingScreens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={OnboardingScreens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />

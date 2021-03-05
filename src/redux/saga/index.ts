@@ -6,14 +6,15 @@ export {
 
 
 export {
-	resetOnAppStateChange,
+	pauseOnBackground,
 	watchForSuccessfulLoad,
-	watchForLoadAudioFile,
+	watchForPlayAudioFile,
 	watchForPlayAudio,
 	watchForPauseAudio,
-	watchForFastForwardAudio,
-	watchForRewindAudio,
+	// watchForFastForwardAudio,
+	// watchForRewindAudio,
 	watchForSetAudioPlayCompleted,
+	watchForResetAudio,
 } from './audio';
 
 export { watchForLogIn } from './user';

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import NextArrow from '@assets/svg/next-arrow.svg';
-import BackArrow from '@assets/svg/back-arrow.svg';
+// import NextArrow from '@assets/svg/next-arrow.svg';
+// import BackArrow from '@assets/svg/back-arrow.svg';
 import PlayPauseButton from './PlayPauseButton';
 import styles, { TIME_BAR_WIDTH, TIME_DOT_SIZE } from './AudioPlayerBar.styles';
 
 interface AudioPlayerBarProps {
-	onRewind: () => void;
-	onFastForward: () => void;
+	// onRewind: () => void;
+	// onFastForward: () => void;
 	onTogglePause: () => void;
 	isPlaying: boolean;
 	isLoaded: boolean;
@@ -16,8 +16,8 @@ interface AudioPlayerBarProps {
 }
 
 export default ({
-	onRewind,
-	onFastForward,
+	// onRewind,
+	// onFastForward,
 	onTogglePause,
 	isPlaying,
 	isLoaded,
@@ -46,6 +46,7 @@ export default ({
 	return (
 		<View style={styles.playerContainer}>
 
+			{/* FF/RW - out for now
 			<View style={styles.topButtonsContainer}>
 				<View style={styles.placeholderContainer} />
 
@@ -69,6 +70,7 @@ export default ({
 					</View>
 				</TouchableOpacity>
 			</View>
+			*/}
 
 			<View style={styles.audioBarContainer}>
 				<View style={styles.audioBar} />
@@ -76,6 +78,11 @@ export default ({
 					...styles.audioTimeDot,
 					left: timeDotOffset,
 				}} />
+				<TouchableOpacity onPress={onTogglePause} disabled={!isLoaded}>
+					<View style={styles.playContainer}>
+						<PlayPauseButton isPlaying={isPlaying} isLoaded={isLoaded} />
+					</View>
+				</TouchableOpacity>
 			</View>
 
 			<TouchableOpacity onPress={toggleTimeView}>

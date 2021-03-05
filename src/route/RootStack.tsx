@@ -14,7 +14,7 @@ enum RootScreens {
 }
 
 export default () => {
-	const isLoggedIn = true; // replace with selector
+	const isLoggedIn = false; // replace with selector
 
 	return (
 		<NavigationContainer ref={navigationRef}>

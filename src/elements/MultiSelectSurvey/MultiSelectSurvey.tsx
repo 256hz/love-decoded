@@ -50,7 +50,7 @@ const CustomMultiSelectOption = ({
 	onChange,
 	option,
 	selected,
-	textStyle = {},
+	textStyle,
 }: MultiSelectCustomOptionProps) => {
 	return (
 		<View style={[

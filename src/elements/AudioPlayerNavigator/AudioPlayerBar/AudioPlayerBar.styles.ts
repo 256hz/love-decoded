@@ -11,7 +11,7 @@ import {
 const { width } = Dimensions.get('screen');
 
 export const TIME_DOT_SIZE = 18;
-export const TIME_BAR_WIDTH = width - MARGIN * 2;
+export const TIME_BAR_WIDTH = width - MARGIN * 4;
 
 export default StyleSheet.create({
 	playerContainer: {
@@ -74,7 +74,6 @@ export default StyleSheet.create({
 		width: TIME_BAR_WIDTH,
 		height: TIME_BAR_HEIGHT,
 		flexDirection: 'row',
-		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
 	audioBar: {

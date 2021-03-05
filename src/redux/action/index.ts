@@ -11,7 +11,7 @@ export {
 
 export {
 	fastForwardAudio,
-	loadAudioFile,
+	playAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
@@ -22,6 +22,8 @@ export {
 	setAudioIsPlaying,
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
+	setCurrentAudioFilename,
+	stopGettingAudioInfo,
 } from './audio';
 
 export {
