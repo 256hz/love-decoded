@@ -15,5 +15,7 @@ export const getAudioTotalPlayed = createSelector(audio, ({ totalPlayed }) => to
 
 export const getAudioPlayCompleted = createSelector(audio, ({ playCompleted }) => playCompleted);
 
+export const getAudioFilename = createSelector(audio, ({ audioFilename }) => audioFilename);
+
 export const getAudioInfo = createSelector(audio,
 	({ currentTime, duration }) => ({ currentTime, duration }));

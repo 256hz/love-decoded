@@ -4,6 +4,7 @@ export enum RootStacks {
 }
 
 export enum OnboardingScreens {
+	Splash = 'Splash',
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',
 	WhatWouldILikeToLearn = 'WhatWouldILikeToLearn',

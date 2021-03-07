@@ -17,6 +17,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* LoveDecodedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* LoveDecodedTests.m */; };
+		3051D20A25F4A0C400B2D7D1 /* one_second_silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3051D20925F4A0C300B2D7D1 /* one_second_silence.mp3 */; };
 		30872BF625E77AFD0091C6E3 /* home_page_explanation_rebecca.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30872BF525E77AFD0091C6E3 /* home_page_explanation_rebecca.mp3 */; };
 		30872BF825E77BC70091C6E3 /* erb_ready_to_quit_rebecca.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30872BF725E77BC60091C6E3 /* erb_ready_to_quit_rebecca.mp3 */; };
 		30CB673825E62D9100E7340D /* onboarding_22_neff_self_compassion_survey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30CB672525E62D9000E7340D /* onboarding_22_neff_self_compassion_survey.mp3 */; };
@@ -79,6 +80,7 @@
 		1CD54D1125E2BE9A00B7F6AC /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AppCenter-Config.plist"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* LoveDecoded-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LoveDecoded-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* LoveDecoded-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LoveDecoded-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3051D20925F4A0C300B2D7D1 /* one_second_silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = one_second_silence.mp3; path = ../assets/audio/one_second_silence.mp3; sourceTree = "<group>"; };
 		30872BF525E77AFD0091C6E3 /* home_page_explanation_rebecca.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = home_page_explanation_rebecca.mp3; path = ../assets/audio/onboarding/home_page_explanation_rebecca.mp3; sourceTree = "<group>"; };
 		30872BF725E77BC60091C6E3 /* erb_ready_to_quit_rebecca.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = erb_ready_to_quit_rebecca.mp3; path = ../assets/audio/onboarding/erb_ready_to_quit_rebecca.mp3; sourceTree = "<group>"; };
 		30CB672525E62D9000E7340D /* onboarding_22_neff_self_compassion_survey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = onboarding_22_neff_self_compassion_survey.mp3; path = ../assets/audio/onboarding/onboarding_22_neff_self_compassion_survey.mp3; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				30CB672925E62D9000E7340D /* onboarding_38b_erb_frustrated_with_the_app.mp3 */,
 				30CB673525E62D9000E7340D /* onboarding_38c_erb_ready_to_quit.mp3 */,
 				1CD54D1125E2BE9A00B7F6AC /* AppCenter-Config.plist */,
+				3051D20925F4A0C300B2D7D1 /* one_second_silence.mp3 */,
 				13B07FAE1A68108700A75B9A /* LoveDecoded */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* LoveDecodedTests */,
@@ -429,6 +432,7 @@
 				1CD54D1225E2BE9A00B7F6AC /* AppCenter-Config.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				30CB673925E62D9100E7340D /* onboarding_14_love_vs_heartburn.mp3 in Resources */,
+				3051D20A25F4A0C400B2D7D1 /* one_second_silence.mp3 in Resources */,
 				30CB674325E62D9100E7340D /* onboarding_8_expanding_your_comfort_zone.mp3 in Resources */,
 				D7DA8E89105F4605B970AD00 /* Rubik.ttf in Resources */,
 				30CB673D25E62D9100E7340D /* onboarding_13_let_the_app_teach_you.mp3 in Resources */,
