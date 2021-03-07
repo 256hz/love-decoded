@@ -1,3 +1,8 @@
+export enum RootStacks {
+	HomeTabs = 'HomeTabs',
+	OnboardingStack = 'OnboardingStack',
+}
+
 export enum OnboardingScreens {
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',
@@ -43,4 +48,8 @@ export enum OnboardingScreens {
 	BriefOverviewOfButtons = 'BriefOverviewOfButtons',
 	AddYourContacts = 'AddYourContacts',
 	YouAreReady = 'YouAreReady',
+}
+
+export enum StepScreens {
+	Home = 'Home',
 }

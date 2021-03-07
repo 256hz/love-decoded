@@ -4,6 +4,8 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { resetAudioPlayer } from 'redux/action';
 import styles from './EmotionalResetButton.styles';
 
 const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabled?: boolean }) => (
@@ -18,7 +20,12 @@ const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabl
 
 export default () => {
 	const { navigate } = useNavigation();
+	const dispatch = useDispatch();
 	const [ linksDisabled, setLinksDisabled ] = useState(true);
+	const onPress = () => {
+		dispatch(resetAudioPlayer(true, 'erb-onNext'));
+		navigate(OnboardingScreens.FrustratedWithProgress);
+	};
 
 	return (
 		<OnboardingScreen
@@ -36,7 +43,7 @@ export default () => {
 						Frustrated with your progress? Something making you sad?
 					</Text>
 					<NextButtonWithText
-						onPress={() => navigate(OnboardingScreens.FrustratedWithProgress)}
+						onPress={onPress}
 						disabled={linksDisabled}
 					/>
 				</View>

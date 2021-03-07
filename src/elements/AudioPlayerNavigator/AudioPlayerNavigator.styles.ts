@@ -21,9 +21,9 @@ export default StyleSheet.create({
 		marginBottom: 25,
 	},
 	bottomContainer: {
-		flex: 1,
-		alignItems: 'center',
-		marginBottom: 32,
+		// height: BOTTOM_CONTENT_HEIGHT,
+		// alignItems: 'center',
+		// marginBottom: 32,
 	},
 	withAudioBar: {
 		height: TOTAL_AUDIO_BAR_HEIGHT + BOTTOM_CONTENT_HEIGHT,

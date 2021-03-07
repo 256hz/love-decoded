@@ -11,9 +11,6 @@ export {
 	watchForPlayAudioFile,
 	watchForPlayAudio,
 	watchForPauseAudio,
-	// watchForFastForwardAudio,
-	// watchForRewindAudio,
-	watchForSetAudioPlayCompleted,
 	watchForResetAudio,
 } from './audio';
 

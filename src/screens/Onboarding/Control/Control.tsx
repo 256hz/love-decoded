@@ -52,6 +52,8 @@ export default () => {
 						setSelectedValue={setSelectedValue}
 					/>
 				</View>
+
+				<View />
 			</View>
 		</OnboardingScreen>
 	);

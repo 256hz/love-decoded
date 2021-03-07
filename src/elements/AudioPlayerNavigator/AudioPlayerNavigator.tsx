@@ -6,12 +6,10 @@ import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { OnboardingScreens } from 'route/enums';
 import {
-	// fastForwardAudio,
 	playAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
-	// rewindAudio,
 } from '@redux/action';
 import {
 	getAudioInfo,
@@ -19,6 +17,7 @@ import {
 	isAudioLoaded,
 	isAudioPlaying,
 } from '@redux/selector';
+import { useIsFocused } from '@react-navigation/native';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';
@@ -77,29 +76,39 @@ export default ({
 	const isLoaded = useSelector(isAudioLoaded);
 	const isPlaying = useSelector(isAudioPlaying);
 	const playedToEnd = useSelector(getAudioPlayCompleted);
-
-	// const fastForward = () => dispatch(fastForwardAudio());
-
-	// const rewind = () => dispatch(rewindAudio());
+	const isFocused = useIsFocused();
 
 	const togglePause = () => {
 		dispatch(isPlaying ? pauseAudio() : playAudio());
 	};
 
 	useEffect(() => {
-		if (!audioFilename) {
+		if (!isFocused) {
+			return;
+		}
+
+		if (!audioFilename ) {
+			dispatch(resetAudioPlayer(true, 'no audio filename'));
 			return;
 		}
 
 		if (!playedToEnd && currentTime === 0) {
-			const [ filename, extension ] = audioFilename.split('.');
-			dispatch(playAudioFile(filename, extension));
+			dispatch(playAudioFile(audioFilename));
 			return;
 		}
 
-		console.log('onAudioEnd');
-		onAudioEnd?.();
-	}, [ audioFilename, playedToEnd, dispatch, onAudioEnd ]);
+		if (playedToEnd) {
+			console.log('onAudioEnd');
+			onAudioEnd?.();
+		}
+	}, [
+		audioFilename,
+		currentTime,
+		dispatch,
+		isFocused,
+		onAudioEnd,
+		playedToEnd,
+	]);
 
 	const isNextEnabled = (() => {
 		if (nextEnabled === undefined && audioFilename === undefined) {
@@ -122,7 +131,6 @@ export default ({
 	return (
 		<View style={[
 			styles.container,
-			// audioFilename ? styles.withAudioBar : styles.withoutAudioBar,
 		]}>
 			{ audioFilename
 				? (
@@ -131,8 +139,6 @@ export default ({
 						duration={duration}
 						isPlaying={isPlaying}
 						isLoaded={isLoaded}
-						// onFastForward={fastForward}
-						// onRewind={rewind}
 						onTogglePause={togglePause}
 					/>
 				)
@@ -148,8 +154,8 @@ export default ({
 						hideNextButton={hideNextButton}
 						onPressBack={onPressBack}
 						onPressNext={onPressNext}
-						// nextEnabled={isNextEnabled}
-						nextEnabled={true}
+						nextEnabled={isNextEnabled}
+						// nextEnabled={true}
 						nextTarget={nextTarget!}
 					/>
 				)}

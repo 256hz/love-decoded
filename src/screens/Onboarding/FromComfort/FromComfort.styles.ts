@@ -146,7 +146,7 @@ export default StyleSheet.create({
 	},
 	middleLine: {
 		position: 'absolute',
-		top: width / 1.3,
+		top: width / 1.33,
 		left: width / 3.9428571429,
 		height: 0,
 		width: width / 1.389261745,

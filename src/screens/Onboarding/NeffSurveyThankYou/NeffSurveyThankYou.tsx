@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import NextArrow from '@assets/svg/next-arrow.svg';
 import { OnboardingScreens } from 'route/enums';
 import { getNeffAverage } from '@redux/selector';
 import { OnboardingScreen } from '@elements';
+import { resetAudioPlayer } from 'redux/action';
 import styles from './NeffSurveyThankYou.styles';
 
 const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (
@@ -23,7 +24,12 @@ const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (
 
 export default () => {
 	const { navigate } = useNavigation();
+	const dispatch = useDispatch();
 	const neffSurveyScore = useSelector(getNeffAverage);
+	const onPress = () => {
+		navigate(OnboardingScreens.NeffSurveyBreakdown);
+		dispatch(resetAudioPlayer(true, 'neffSurveyThankYou-onNext'));
+	};
 
 	return (
 		<OnboardingScreen
@@ -31,7 +37,7 @@ export default () => {
 			title={'Thank You for Taking\nThis Initial Survey'}
 			titleContainerStyle={styles.titleContainerStyle}
 			customButtons={<></>}
-			customBottomSection={<NextButtonWithText onPress={() => navigate(OnboardingScreens.NeffSurveyBreakdown)} />}
+			customBottomSection={<NextButtonWithText onPress={onPress} />}
 		>
 			<ScrollView contentContainerStyle={styles.container}>
 				<Text style={styles.text}>

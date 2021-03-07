@@ -4,6 +4,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { resetAudioPlayer } from 'redux/action';
 import styles from './NeffSurveyGoodJob.styles';
 
 type EnterButtonProps = {
@@ -22,7 +24,12 @@ const EnterButton = ({ onPress }: EnterButtonProps) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	const onPress = () => navigate(OnboardingScreens.EmotionalResetButton);
+	const dispatch = useDispatch();
+	const onPress = () => {
+		navigate(OnboardingScreens.EmotionalResetButton);
+		dispatch(resetAudioPlayer(true, 'neffSurveyGoodJob-onNext'));
+	};
+
 	return (
 		<OnboardingScreen
 			drawShapes={[ 0, 6, 13 ]}

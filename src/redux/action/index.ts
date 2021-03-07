@@ -10,12 +10,10 @@ export {
 } from './appState';
 
 export {
-	fastForwardAudio,
 	playAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
-	rewindAudio,
 	setAudioInfo,
 	setAudioIsGettingInfo,
 	setAudioIsLoaded,

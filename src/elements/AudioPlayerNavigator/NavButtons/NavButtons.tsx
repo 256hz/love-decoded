@@ -6,7 +6,7 @@ import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import { OnboardingScreens } from 'route/enums';
 import { useDispatch } from 'react-redux';
-import { resetAudioPlayer } from 'redux/action';
+import { pauseAudio, resetAudioPlayer } from 'redux/action';
 import styles from './NavButtons.styles';
 
 interface Props {
@@ -36,7 +36,7 @@ export default ({
 
 	const onBack = () => {
 		onPressBack?.();
-		dispatch(resetAudioPlayer(true));
+		dispatch(resetAudioPlayer(true, 'onBack'));
 		backTarget
 			? navigate(backTarget)
 			: canGoBack() && goBack();
@@ -44,8 +44,8 @@ export default ({
 
 	const onNext = () => {
 		onPressNext?.();
-		dispatch(resetAudioPlayer(true));
-		nextTarget && navigate(nextTarget);
+		dispatch(resetAudioPlayer(true, 'onNext'));
+		navigate(nextTarget);
 	};
 
 	return (

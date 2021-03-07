@@ -12,6 +12,7 @@ export const changeStack = (stackName) => {
 };
 
 const resetRoot = (routeName) => {
+	console.log(navigationRef.current?.resetRoot, { name:routeName });
 	navigationRef.current?.resetRoot({
 		index: 0,
 		routes: [ { name: routeName } ],
