@@ -9,6 +9,7 @@ export {
 	getAudioInfo,
 	getAudioTotalPlayed,
 	getAudioPlayCompleted,
+	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
 	isAudioPlaying,

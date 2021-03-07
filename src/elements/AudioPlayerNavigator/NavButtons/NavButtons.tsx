@@ -1,12 +1,12 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { OnboardingScreens } from 'route/enums';
 import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
-import { OnboardingScreens } from 'route/enums';
-import { useDispatch } from 'react-redux';
-import { pauseAudio, resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import styles from './NavButtons.styles';
 
 interface Props {

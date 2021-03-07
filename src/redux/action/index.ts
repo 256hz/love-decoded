@@ -22,6 +22,7 @@ export {
 	setAudioTotalPlayed,
 	setCurrentAudioFilename,
 	stopGettingAudioInfo,
+	tryResumeAudio,
 } from './audio';
 
 export {

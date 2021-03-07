@@ -1,4 +1,4 @@
-import { AppState } from 'react-native';
+import { AppState, AppStateStatus } from 'react-native';
 import { eventChannel } from 'redux-saga';
 import {
 	call, put, select, take, takeEvery,
@@ -9,6 +9,7 @@ import {
 	appInactivated,
 	resetAudioPlayer,
 	setAppState,
+	tryResumeAudio,
 } from 'redux/action';
 import { getLastActiveEpochSeconds } from 'redux/selector/appState';
 
@@ -34,7 +35,10 @@ export function* watchForAppStateChanges() {
 			break;
 		}
 
-		yield call(resetAudioPlayerIfLongInactive);
+		if (appState === 'active') {
+			// yield put(tryResumeAudio());
+			// yield call(resetAudioPlayerIfLongInactive);
+		}
 		yield put(setAppState(data));
 	}
 }

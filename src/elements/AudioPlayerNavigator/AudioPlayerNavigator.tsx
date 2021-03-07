@@ -2,8 +2,9 @@ import React, {
 	ReactChild,
 	useEffect,
 } from 'react';
-import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { useIsFocused } from '@react-navigation/native';
+import { View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
 import {
 	playAudioFile,
@@ -17,7 +18,6 @@ import {
 	isAudioLoaded,
 	isAudioPlaying,
 } from '@redux/selector';
-import { useIsFocused } from '@react-navigation/native';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';
@@ -126,6 +126,8 @@ export default ({
 		if (nextEnabled !== undefined && audioFilename !== undefined) {
 			return nextEnabled && playedToEnd;
 		}
+
+		return true;
 	})();
 
 	return (
@@ -155,7 +157,6 @@ export default ({
 						onPressBack={onPressBack}
 						onPressNext={onPressNext}
 						nextEnabled={isNextEnabled}
-						// nextEnabled={true}
 						nextTarget={nextTarget!}
 					/>
 				)}

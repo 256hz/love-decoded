@@ -20,6 +20,8 @@ export const setAudioTotalPlayed = createAction('SET_AUDIO_TOTAL_PLAYED',
 
 export const playAudio = createAction('PLAY_AUDIO');
 
+export const tryResumeAudio = createAction('TRY_RESUME_AUDIO');
+
 export const pauseAudio = createAction('PAUSE_AUDIO');
 
 export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER',

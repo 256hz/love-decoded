@@ -25,6 +25,7 @@ import {
 } from '@redux/action';
 import {
 	getAudioInfo,
+	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
 	isAudioPlaying,
@@ -163,15 +164,14 @@ export function* pauseOnBackground() {
 	});
 }
 
-export function* resetOnActive() {
+export function* resumeOnActive() {
 	yield takeEvery(appActivated, function* () {
 		const { currentPosition } = yield select(getAudioInfo);
-		if (currentPosition !== 0) {
-			yield put(playAudio());
-			return;
-		}
+		const playerIsActive = yield select(isAudioActive);
 
-		yield put(resetAudioPlayer(true, 'appActivated'));
+		if (playerIsActive && currentPosition !== 0) {
+			yield put(playAudio());
+		}
 	});
 }
 

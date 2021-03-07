@@ -6,7 +6,6 @@ export const TIME_BAR_HEIGHT = 35;
 export const TIME_HEIGHT = 35;
 export const TIME_NUDGE_UP = -7;
 
-const { height } = Dimensions.get('screen');
 const TOTAL_AUDIO_BAR_HEIGHT = TIME_BAR_HEIGHT + TIME_HEIGHT + TIME_NUDGE_UP;
 const BOTTOM_CONTENT_HEIGHT = 30;
 
@@ -21,9 +20,7 @@ export default StyleSheet.create({
 		marginBottom: 25,
 	},
 	bottomContainer: {
-		// height: BOTTOM_CONTENT_HEIGHT,
-		// alignItems: 'center',
-		// marginBottom: 32,
+
 	},
 	withAudioBar: {
 		height: TOTAL_AUDIO_BAR_HEIGHT + BOTTOM_CONTENT_HEIGHT,

@@ -9,13 +9,13 @@ import {
 	setAudioIsPlaying,
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
-	setCurrentAudioFilename,
 } from '@redux/action';
 
 export type AudioState = {
 	audioFilename?: string;
 	currentTime: number;
 	duration: number;
+	isActive: boolean;
 	isGettingInfo: boolean;
 	isLoaded: boolean;
 	isPlaying: boolean;
@@ -27,6 +27,7 @@ const INITIAL_STATE = {
 	currentTime: 0,
 	duration: 0,
 	audioFilename: '',
+	isActive: false,
 	isGettingInfo: false,
 	isLoaded: false,
 	isPlaying: false,
@@ -36,7 +37,7 @@ const INITIAL_STATE = {
 
 export const audio = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setAudioIsLoaded, (state, { payload: { isLoaded } }) => ({ ...state, isLoaded }));
-	addCase(setAudioIsPlaying, (state, { payload: { isPlaying } }) => ({ ...state, isPlaying }));
+	addCase(setAudioIsPlaying, (state, { payload: { isPlaying } }) => ({ ...state, isPlaying, isActive: true }));
 	addCase(setAudioIsGettingInfo, (state, { payload: { isGettingInfo } }) => ({ ...state, isGettingInfo }));
 	addCase(setAudioInfo, (state, { payload: { currentTime, duration } }) => ({ ...state, currentTime, duration }));
 	addCase(setAudioTotalPlayed, (state, { payload: { totalPlayed } }) => ({ ...state, totalPlayed }));
