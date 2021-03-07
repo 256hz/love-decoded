@@ -1,7 +1,7 @@
 import { Dimensions, StyleSheet } from 'react-native';
 
 // imported in AudioPlayerBar from here to prevent a require cycle
-// export const TOP_BUTTONS_HEIGHT = 40;
+export const TOP_BUTTONS_HEIGHT = 40;
 export const TIME_BAR_HEIGHT = 35;
 export const TIME_HEIGHT = 35;
 export const TIME_NUDGE_UP = -7;

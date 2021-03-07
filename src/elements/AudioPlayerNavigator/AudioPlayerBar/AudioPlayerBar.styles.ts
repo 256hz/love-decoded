@@ -2,7 +2,6 @@ import { Dimensions, StyleSheet } from 'react-native';
 import colors from 'elements/globalStyles/color';
 import {
 	MARGIN,
-	TOP_BUTTONS_HEIGHT,
 	TIME_BAR_HEIGHT,
 	TIME_HEIGHT,
 	TIME_NUDGE_UP,
@@ -19,7 +18,6 @@ export default StyleSheet.create({
 	},
 	topButtonsContainer: {
 		width: TIME_BAR_WIDTH,
-		height: TOP_BUTTONS_HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		marginBottom: 6,
