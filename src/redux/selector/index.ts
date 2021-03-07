@@ -7,6 +7,7 @@ export {
 
 export {
 	getAudioInfo,
+	getAudioFilename,
 	getAudioTotalPlayed,
 	getAudioPlayCompleted,
 	isAudioActive,

@@ -7,7 +7,6 @@ import {
 	select,
 	take,
 	takeEvery,
-	takeLeading,
 } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import {
@@ -24,6 +23,7 @@ import {
 	appActivated,
 } from '@redux/action';
 import {
+	getAudioFilename,
 	getAudioInfo,
 	isAudioActive,
 	isAudioGettingInfo,
@@ -38,7 +38,7 @@ import {
 
 export function* watchForPlayAudioFile() {
 	yield takeEvery(playAudioFile, function* ({ payload: { audioFilename } }) {
-		// yield put(resetAudioPlayer(true));
+		yield put(resetAudioPlayer(true));
 		yield put(setAudioIsLoaded(false));
 
 		try {
@@ -79,15 +79,24 @@ const soundPlayerEmitter = eventChannel(emitter => {
 
 export function* watchForSuccessfulLoad() {
 	yield takeEvery(soundPlayerEmitter, function* (success: boolean) {
-		if (success) {
-			console.log('loaded');
-			yield put(setAudioIsLoaded(true));
-			yield put(playAudio());
+		if (!success) {
+			console.error('did not load audio file');
+			return;
 		}
+		
+		console.log('loaded');
+		yield put(setAudioIsLoaded(true));
+		yield put(playAudio());
 	});
 }
 
 function* getInfo() {
+	const isLoaded = yield select(isAudioLoaded);
+	if (!isLoaded) {
+		console.log('tried to get info before file loaded');
+		return;
+	}
+
 	try {
 		const { currentTime, duration } = yield call([ SoundPlayer, 'getInfo' ]);
 		console.log({ currentTime, duration });
@@ -115,7 +124,11 @@ function* getInfoWhilePlaying() {
 			break;
 		}
 
-		yield call(getInfo);
+		try {
+			yield call(getInfo);
+		} catch (error) {
+			console.error(error);
+		}
 
 		// check for end of play
 		const { currentTime, duration } = yield select(getAudioInfo);
@@ -160,7 +173,7 @@ function* seek(seekTarget: number) {
 
 export function* pauseOnBackground() {
 	yield takeEvery([ appInactivated, appBackgrounded ], function* () {
-		yield put(pauseAudio());
+		// yield put(pauseAudio());
 	});
 }
 
@@ -170,6 +183,7 @@ export function* resumeOnActive() {
 		const playerIsActive = yield select(isAudioActive);
 
 		if (playerIsActive && currentPosition !== 0) {
+			console.log('resuming');
 			yield put(playAudio());
 		}
 	});

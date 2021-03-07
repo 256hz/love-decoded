@@ -46,7 +46,11 @@ export default ({
 					...styles.audioTimeDot,
 					left: timeDotOffset,
 				}} />
-				<TouchableOpacity onPress={onTogglePause} disabled={!isLoaded}>
+				<TouchableOpacity
+					onPress={onTogglePause}
+					disabled={!isLoaded}
+					hitSlop={styles.playSlop}
+				>
 					<View style={styles.playContainer}>
 						<PlayPauseButton isPlaying={isPlaying} isLoaded={isLoaded} />
 					</View>

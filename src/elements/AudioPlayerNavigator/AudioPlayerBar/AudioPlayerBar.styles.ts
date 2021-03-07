@@ -61,6 +61,12 @@ export default StyleSheet.create({
 		height: '100%',
 		justifyContent: 'center',
 	},
+	playSlop: {
+		left: 20,
+		right: 20,
+		top: 20,
+		bottom: 20,
+	},
 	playLoading: {
 		width: 20,
 		height: 20,

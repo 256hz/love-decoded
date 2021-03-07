@@ -1,6 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-	playAudio,
 	playAudioFile,
 	resetAudioPlayer,
 	setAudioInfo,
@@ -12,7 +11,7 @@ import {
 } from '@redux/action';
 
 export type AudioState = {
-	audioFilename?: string;
+	audioFilename: string;
 	currentTime: number;
 	duration: number;
 	isActive: boolean;

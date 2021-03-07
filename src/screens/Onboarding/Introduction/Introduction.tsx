@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
@@ -26,15 +26,13 @@ const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
 export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
+
 	const [ nextDisabled, setNextDisabled ] = useState(true);
+
 	const onPress = () => {
 		navigate(OnboardingScreens.AcknowledgingYourPast);
 		dispatch(resetAudioPlayer(true, 'introduction-onNext'));
 	};
-
-	useEffect(() => {
-		dispatch(resetAudioPlayer(true, 'introduction'));
-	}, [ dispatch ]);
 
 	return (
 		<OnboardingScreen
