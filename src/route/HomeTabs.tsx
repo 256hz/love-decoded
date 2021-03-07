@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TabIcon } from 'elements';
+import { TabIcon } from '@elements/TabIcon';
 import Journal from 'screens/Steps/Journal';
 import Faq from 'screens/Steps/Faq';
 import EmotionalReset from 'screens/Steps/EmotionalReset';
@@ -28,6 +28,7 @@ export default () => {
 					/>
 				),
 			})}
+			lazy={false}
 			tabBarOptions={{
 				keyboardHidesTabBar: true,
 				showLabel: false,

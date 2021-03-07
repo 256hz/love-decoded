@@ -54,7 +54,7 @@ export default () => {
 		toggleContacts();
 		setTimeout(() => {
 			setContacts(mockContacts.sort(sortContacts));
-		}, 1500);
+		}, 750);
 	};
 
 	/*

@@ -10,18 +10,19 @@ export {
 } from './appState';
 
 export {
-	fastForwardAudio,
-	loadAudioFile,
+	playAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
-	rewindAudio,
 	setAudioInfo,
 	setAudioIsGettingInfo,
 	setAudioIsLoaded,
 	setAudioIsPlaying,
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
+	setCurrentAudioFilename,
+	stopGettingAudioInfo,
+	tryResumeAudio,
 } from './audio';
 
 export {

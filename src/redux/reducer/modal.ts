@@ -11,20 +11,19 @@ const INITIAL_STATE: ModalState = {
 	visibleModals: [],
 };
 
-export const modal = createReducer(INITIAL_STATE, reducer => {
-	reducer
-		.addCase(setModal, (state, { payload: { modalType, content } }) => ({
-			...state,
-			[modalType]: content,
-			visibleModals: [
-				...state.visibleModals,
-				modalType,
-			],
-		}))
-		.addCase(clearModal, (state, { payload: { modalType } }) => ({
-			...state,
-			[modalType]: undefined,
-			visibleModals: state.visibleModals.filter(visibleModal => visibleModal !== modalType),
-		}))
+export const modal = createReducer(INITIAL_STATE, ({ addCase }) => {
+	addCase(setModal, (state, { payload: { modalType, content } }) => ({
+		...state,
+		[modalType]: content,
+		visibleModals: [
+			...state.visibleModals,
+			modalType,
+		],
+	}));
+	addCase(clearModal, (state, { payload: { modalType } }) => ({
+		...state,
+		[modalType]: undefined,
+		visibleModals: state.visibleModals.filter(visibleModal => visibleModal !== modalType),
+	}))
 	;
 });

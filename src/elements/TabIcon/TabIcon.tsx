@@ -6,7 +6,7 @@ import FAQ from '@assets/svg/faq.svg';
 import Journal1 from '@assets/svg/journal-1.svg';
 import Journal2 from '@assets/svg/journal-2.svg';
 import Reset from '@assets/svg/emotional-reset.svg';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import styles from './TabIcon.styles';
 
 const Journal = ({ fill }: { fill: string }) => (

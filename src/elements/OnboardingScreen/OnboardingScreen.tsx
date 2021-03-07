@@ -1,11 +1,10 @@
-import React, { ReactChild, useState } from 'react';
+import React, { ReactChild } from 'react';
 import { Text, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { useFocusEffect } from '@react-navigation/native';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 
@@ -32,7 +31,7 @@ const OnboardingScreen = ({
 	hideBackButton,
 	hideNextButton,
 	onAudioEnd,
-	onNextCallback,
+	onPressNext,
 	nextEnabled,
 	nextTarget,
 	scrollDisabled = false,
@@ -40,73 +39,65 @@ const OnboardingScreen = ({
 	title,
 	titleChild = <></>,
 	titleContainerStyle,
-}: Props) => {
-	const [ shouldPause, setShouldPause ] = useState(false);
-
-	// pause when navigating away
-	useFocusEffect(() => {
-		return () => {
-			setShouldPause(true);
-		};
-	});
-
-	return (
-		<View style={styles.container}>
-			<BackgroundFade drawShapes={drawShapes}>
-				<SafeAreaView style={styles.screenContainer}>
-					<View style={styles.container}>
-						{ showLogo && (
-							<View style={styles.logoContainer}>
-								<Logo />
-							</View>
-						)}
-
-						<View style={[
-							styles.titleContainer,
-							showLogo && styles.titleLogoMargin,
-							titleContainerStyle,
-						]}>
-							<Text style={styles.titleText}>
-								{title}
-							</Text>
-							{ titleChild }
+}: Props) => (
+	<View style={styles.container}>
+		{/* Background image/shapes */}
+		<BackgroundFade drawShapes={drawShapes}>
+			<SafeAreaView style={styles.screenContainer}>
+				<View style={styles.container}>
+					{ showLogo && (
+						<View style={styles.logoContainer}>
+							<Logo />
 						</View>
+					)}
 
-						{/* screen contents */}
-						<ScrollWrapper scrollDisabled={scrollDisabled}>
-							{children}
-						</ScrollWrapper>
+					{/* Title */}
+					<View style={[
+						styles.titleContainer,
+						showLogo && styles.titleLogoMargin,
+						titleContainerStyle,
+					]}>
+						<Text style={styles.titleText}>
+							{title}
+						</Text>
+						{ titleChild }
 					</View>
 
+					{/* screen contents */}
+					<ScrollWrapper scrollDisabled={scrollDisabled}>
+						{children}
+					</ScrollWrapper>
+				</View>
 
-					{ customBottomSection }
 
-					{ nextTarget && (
-						<AudioPlayerNavigator
-							audioFilename={audioFilename}
-							backTarget={backTarget}
-							hideBackButton={hideBackButton}
-							hideNextButton={hideNextButton}
-							onAudioEnd={onAudioEnd}
-							onNextCallback={onNextCallback}
-							nextEnabled={nextEnabled}
-							nextTarget={nextTarget}
-						/>
-					)}
+				{ customBottomSection }
 
-					{ audioFilename && customButtons && (
-						<AudioPlayerNavigator
-							audioFilename={audioFilename}
-							customButtons={customButtons}
-							onAudioEnd={onAudioEnd}
-						/>
-					)}
-				</SafeAreaView>
-			</BackgroundFade>
-		</View>
+				{ nextTarget && (
+					<AudioPlayerNavigator
+						audioFilename={audioFilename}
+						backTarget={backTarget}
+						hideBackButton={hideBackButton}
+						hideNextButton={hideNextButton}
+						onAudioEnd={onAudioEnd}
+						onPressNext={onPressNext}
+						nextEnabled={nextEnabled}
+						nextTarget={nextTarget}
+					/>
+				)}
 
-	);
-};
+				{ audioFilename && customButtons && (
+					<AudioPlayerNavigator
+						audioFilename={audioFilename}
+						customButtons={customButtons}
+						onAudioEnd={onAudioEnd}
+					/>
+				)}
+			</SafeAreaView>
+		</BackgroundFade>
+	</View>
+
+);
+
 const ScrollWrapper = ({ scrollDisabled, children }: { scrollDisabled: boolean, children: ReactChild }) => (
 	scrollDisabled
 		? <View style={styles.childrenContainer}>{children}</View>

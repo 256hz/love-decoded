@@ -8,16 +8,15 @@ const INITIAL_STATE: SurveyState = {
 	[Surveys.Neff]: new Array(13).fill(0),
 };
 
-export const survey = createReducer(INITIAL_STATE, reducer => {
-	reducer
-		.addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
-			const currentResponses = [ ...state[Surveys.Neff] ];
-			currentResponses[pageIndex] = response;
+export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
+	addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
+		const currentResponses = [ ...state[Surveys.Neff] ];
+		currentResponses[pageIndex] = response;
 
-			return {
-				...state,
-				[Surveys.Neff]: currentResponses,
-			};
-		})
-		.addCase(setSurveyResponse, (state, { payload: { title, response } }) => ({ ...state, [title]: response }));
+		return {
+			...state,
+			[Surveys.Neff]: currentResponses,
+		};
+	});
+	addCase(setSurveyResponse, (state, { payload: { title, response } }) => ({ ...state, [title]: response }));
 });

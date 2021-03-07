@@ -8,7 +8,8 @@ import NextArrow from '@assets/svg/next-arrow.svg';
 import { setNeffSurveyResponse } from '@redux/action';
 import { getNeffResponseByPageIndex } from '@redux/selector';
 import { NeffSurveyPageIndex, NeffSurveyResponse } from '@redux/types/survey';
-import { OnboardingScreen, RadioButtons } from '@elements';
+import { OnboardingScreen } from '@elements/OnboardingScreen';
+import { RadioButtons } from '@elements/RadioButtons';
 import styles from './NeffSurveyScreen.styles';
 
 const getNeffSurveyButtons = (reverseScoring?: boolean) => [
@@ -68,7 +69,7 @@ export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffS
 					onPress={() => navigate(nextTarget)}
 				/>
 			}
-			title={'Neff\'s Self-Compassion\nScale Survey'}
+			title={"Neff's Self-Compassion\nScale Survey"}
 			titleContainerStyle={styles.titleContainerStyle}
 		>
 			<View style={styles.container}>

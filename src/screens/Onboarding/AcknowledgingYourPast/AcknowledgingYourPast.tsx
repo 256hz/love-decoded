@@ -62,7 +62,7 @@ export default () => {
 				audioFilename="onboarding_2_sources_of_pain.mp3"
 				drawShapes={[ 1, 7, 11 ]}
 				nextTarget={OnboardingScreens.WhatWouldILikeToLearn}
-				onNextCallback={submitResponse}
+				onPressNext={submitResponse}
 				title="Acknowleding Your Past and Present Sources of Pain"
 				titleChild={
 					<View style={styles.subtitleContainer}>
@@ -73,11 +73,6 @@ export default () => {
 				}
 			>
 				<View style={styles.container}>
-					{/* <View style={styles.topTextContainer}>
-						<Text style={styles.topText}>
-							(scroll and select all that apply)
-						</Text>
-					</View> */}
 					<MultiSelectSurvey
 						customSelection={customSelection}
 						options={options}

@@ -39,6 +39,7 @@ export default StyleSheet.create({
 	},
 	cardCenterBody: {
 		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	textBody: {
 		...text.body,

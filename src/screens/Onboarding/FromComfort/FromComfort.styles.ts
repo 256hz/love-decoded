@@ -42,8 +42,8 @@ export default StyleSheet.create({
 	},
 	circle1: {
 		flex: 1,
-		width: width * 0.9516908213,
-		height: width * 0.9516908213,
+		width: width * 0.952,
+		height: width * 0.952,
 		borderColor: colors.Black,
 		borderWidth: 1,
 		borderRadius: width / 2,
@@ -61,17 +61,17 @@ export default StyleSheet.create({
 	},
 	circle2: {
 		...StyleSheet.absoluteFillObject,
-		width: width * 0.7342995169,
-		height: width * 0.7342995169,
+		width: width * 0.734,
+		height: width * 0.734,
 		borderColor: colors.Black,
 		borderWidth: 1,
 		borderRadius: width / 2,
 		left: width / 41.4,
-		top: width / 7.5272727273,
+		top: width / 7.527,
 	},
 	circle2text1: {
 		position: 'absolute',
-		left: width / 4.8705882353,
+		left: width / 4.87,
 		top: width / 6.9,
 	},
 	circle2text2: {
@@ -86,17 +86,17 @@ export default StyleSheet.create({
 	},
 	circle3: {
 		...StyleSheet.absoluteFillObject,
-		width: width * 0.5169082126,
-		height: width * 0.5169082126,
+		width: width * 0.517,
+		height: width * 0.517,
 		borderColor: colors.Black,
 		borderWidth: 1,
-		borderRadius: width * 0.6376811594,
+		borderRadius: width * 0.638,
 		left: width / 20.7,
 		top: width / 4.14,
 	},
 	circle3text1: {
 		position: 'absolute',
-		left: width / 2.5090909091,
+		left: width / 2.509,
 		top: width / -20.7,
 	},
 	circle3text2: {
@@ -111,18 +111,18 @@ export default StyleSheet.create({
 	},
 	circle3text4: {
 		position: 'absolute',
-		left: width / 2.2378378378,
-		top: width / 2.1789473684,
+		left: width / 2.238,
+		top: width / 2.179,
 	},
 	circle4: {
 		...StyleSheet.absoluteFillObject,
-		width: width * 0.3236714976,
-		height: width * 0.3236714976,
+		width: width * 0.324,
+		height: width * 0.324,
 		borderColor: colors.Black,
 		borderWidth: 1,
 		borderRadius: width / 2,
 		left: width / 13.8,
-		top: width / 2.9571428571,
+		top: width / 2.957,
 	},
 	circle4text1: {
 		position: 'absolute',
@@ -131,7 +131,7 @@ export default StyleSheet.create({
 	},
 	circle4text2: {
 		position: 'absolute',
-		left: width / 1.5622641509,
+		left: width / 1.562,
 		top: width / -6.9,
 	},
 	circle4text3: {
@@ -142,14 +142,14 @@ export default StyleSheet.create({
 	circle4text4: {
 		position: 'absolute',
 		left: width / 1.84,
-		top: width / 2.1789473684,
+		top: width / 2.179,
 	},
 	middleLine: {
 		position: 'absolute',
-		top: width / 1.3,
-		left: width / 3.9428571429,
+		top: width / 1.33,
+		left: width / 3.943,
 		height: 0,
-		width: width / 1.389261745,
+		width: width / 1.389,
 		borderColor: colors.Orange,
 		borderWidth: 1.5,
 	},
@@ -168,7 +168,7 @@ export default StyleSheet.create({
 		left: width / 4.6,
 	},
 	middleDot3: {
-		left: width / 2.4352941176,
+		left: width / 2.435,
 	},
 	middleDot4: {
 		left: width / 1.656,
@@ -182,7 +182,7 @@ export default StyleSheet.create({
 	},
 	middleTextContainer: {
 		position: 'absolute',
-		top: width / 1.4,
+		top: width / 1.43,
 		left: width / 5.175,
 	},
 	middleTextBox: {
@@ -192,12 +192,12 @@ export default StyleSheet.create({
 		left: width / 138,
 	},
 	middleText2: {
-		left: width / 3.7636363636,
+		left: width / 3.764,
 	},
 	middleText3: {
 		left: width / 2.3,
 	},
 	middleText4: {
-		left: width / 1.5681818182,
+		left: width / 1.568,
 	},
 });

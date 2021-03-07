@@ -3,37 +3,69 @@ import {
 	call,
 	delay,
 	put,
+	race,
 	select,
+	take,
 	takeEvery,
 	takeLeading,
 } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import {
-	appActivated,
 	appBackgrounded,
 	appInactivated,
-	fastForwardAudio,
-	loadAudioFile,
+	playAudioFile,
 	pauseAudio,
 	playAudio,
-	rewindAudio,
 	setAudioInfo,
 	setAudioIsGettingInfo,
 	setAudioIsLoaded,
 	setAudioIsPlaying,
+	stopGettingAudioInfo,
+	appActivated,
 } from '@redux/action';
 import {
 	getAudioInfo,
-	getAudioTotalPlayed,
+	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
 	isAudioPlaying,
 } from '@redux/selector';
-import { resetAudioPlayer, setAudioPlayCompleted } from 'redux/action/audio';
+import {
+	resetAudioPlayer,
+	setAudioPlayCompleted,
+	setAudioTotalPlayed,
+} from 'redux/action/audio';
+
+export function* watchForPlayAudioFile() {
+	yield takeEvery(playAudioFile, function* ({ payload: { audioFilename } }) {
+		// yield put(resetAudioPlayer(true));
+		yield put(setAudioIsLoaded(false));
+
+		try {
+			const [ filename, extension ] = audioFilename.split('.');
+			console.log('loading:', filename, extension);
+			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
+		} catch (error) {
+			console.error(error);
+		}
+	});
+}
+
+export function* watchForPlayAudio() {
+	yield takeEvery(playAudio, function* () {
+		const isLoaded = yield select(isAudioLoaded);
+
+		if (isLoaded) {
+			console.log('play');
+			SoundPlayer.play();
+			yield put(setAudioIsPlaying(true));
+			yield call(getInfoWhilePlaying);
+		}
+	});
+}
 
 const soundPlayerEmitter = eventChannel(emitter => {
 	const onLoad = SoundPlayer.addEventListener('FinishedLoadingFile', ({ success }) => {
-		// console.log('load');
 		if (!success) {
 			console.error('error loading audio file');
 			return;
@@ -48,7 +80,7 @@ const soundPlayerEmitter = eventChannel(emitter => {
 export function* watchForSuccessfulLoad() {
 	yield takeEvery(soundPlayerEmitter, function* (success: boolean) {
 		if (success) {
-			// console.log('audioIsLoaded');
+			console.log('loaded');
 			yield put(setAudioIsLoaded(true));
 			yield put(playAudio());
 		}
@@ -58,14 +90,15 @@ export function* watchForSuccessfulLoad() {
 function* getInfo() {
 	try {
 		const { currentTime, duration } = yield call([ SoundPlayer, 'getInfo' ]);
-		// console.log({ currentTime, duration });
+		console.log({ currentTime, duration });
 		yield put(setAudioInfo(currentTime, duration));
+		yield put(setAudioTotalPlayed(currentTime));
 	} catch (error) {
 		console.error('error getting audio info', error);
 	}
 }
 
-function* loopGetInfo() {
+function* getInfoWhilePlaying() {
 	const isGettingInfo = yield select(isAudioGettingInfo);
 	if (isGettingInfo) {
 		return;
@@ -73,109 +106,46 @@ function* loopGetInfo() {
 
 	yield put(setAudioIsGettingInfo(true));
 
-	// console.log('looping');
+	console.log('getting info');
 	while (true) {
 		const isPlaying = yield select(isAudioPlaying);
-		if (!isPlaying) {
+		const isStillGettingInfo = yield select(isAudioGettingInfo);
+
+		if (!isPlaying || !isStillGettingInfo) {
 			break;
 		}
 
 		yield call(getInfo);
 
+		// check for end of play
 		const { currentTime, duration } = yield select(getAudioInfo);
-		if (currentTime >= duration - 0.5) {
-			yield delay(300);
+		if (currentTime >= duration - 1) {
+			const timeLeft = duration - currentTime;
+			console.log('ending in:', timeLeft);
+			yield delay(timeLeft);
 			yield put(setAudioPlayCompleted(true));
+			console.log('completed');
+			yield put(resetAudioPlayer(false, 'onCompleted'));
 			break;
 		}
 
-		yield delay(1000);
+		const [ stop, waited ] = yield race([ take(stopGettingAudioInfo), delay(1000) ]);
+		if (stop) {
+			yield call(getInfo);
+			break;
+		}
 	}
-	// console.log('end loop');
 
-	yield call(getInfo);
 	yield put(setAudioIsGettingInfo(false));
-}
-
-export function* watchForLoadAudioFile() {
-	yield takeLeading(loadAudioFile, function* ({ payload: { filename, extension } }) {
-		try {
-			// console.log('loading');
-			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
-		} catch (error) {
-			console.error(error);
-			return;
-		}
-
-		yield call([ SoundPlayer, 'play' ]);
-	});
-}
-
-export function* watchForPlayAudio() {
-	yield takeLeading(playAudio, function* () {
-		// console.log('play');
-		const isLoaded = yield select(isAudioLoaded);
-
-		if (isLoaded) {
-			SoundPlayer.play();
-			yield put(setAudioIsPlaying(true));
-			yield call(loopGetInfo);
-		}
-	});
+	console.log('end getting info loop');
 }
 
 export function* watchForPauseAudio() {
-	yield takeLeading(pauseAudio, function* () {
-		// console.log('pause');
-		const isLoaded = yield select(isAudioLoaded);
-
-		if (isLoaded) {
-			SoundPlayer.pause();
-			yield put(setAudioIsPlaying(false));
-		}
-	});
-}
-
-export function* watchForFastForwardAudio() {
-	yield takeLeading(fastForwardAudio, function* () {
-		// console.log('ff');
-		const isLoaded = yield select(isAudioLoaded);
-		if (!isLoaded) {
-			return;
-		}
-
-		const { currentTime, duration } = yield select(getAudioInfo);
-		const totalPlayed = yield select(getAudioTotalPlayed);
-		if (duration === 0) {
-			return;
-		}
-
-		if (__DEV__) {
-			const seekTarget = Math.min(currentTime + 10, duration - 0.5);
-			yield call(seek, seekTarget);
-			yield call(getInfo);
-		}
-
-		if (currentTime < totalPlayed - 2) {
-			yield call(seek, Math.min(currentTime + 10, totalPlayed - 0.5, duration - 0.5));
-		}
-	});
-}
-
-export function* watchForRewindAudio() {
-	yield takeEvery(rewindAudio, function* () {
-		// console.log('rw');
-		const isLoaded = yield select(isAudioLoaded);
-		if (!isLoaded) {
-			return;
-		}
-
-		const { currentTime, duration } = yield select(getAudioInfo);
-		if (duration === 0) {
-			return;
-		}
-
-		yield call(seek, Math.max(0, currentTime - 10));
+	yield takeEvery(pauseAudio, function* () {
+		console.log('pause');
+		SoundPlayer.pause();
+		yield put(setAudioIsPlaying(false));
+		yield put(stopGettingAudioInfo());
 	});
 }
 
@@ -184,23 +154,31 @@ function* seek(seekTarget: number) {
 		yield call([ SoundPlayer, 'seek' ], seekTarget);
 		yield call(getInfo);
 	} catch (error) {
-		console.error('could not seek', error);
+		console.error(`error seeking to ${seekTarget} in audio`, error);
 	}
 }
 
-export function* watchForSetAudioPlayCompleted() {
-	yield takeEvery(setAudioPlayCompleted, function* ({ payload: { playCompleted } }) {
-		if (!playCompleted) {
-			return;
-		}
-
+export function* pauseOnBackground() {
+	yield takeEvery([ appInactivated, appBackgrounded ], function* () {
 		yield put(pauseAudio());
-		yield call(seek, 0);
 	});
 }
 
-export function* resetOnAppStateChange() {
-	yield takeEvery([ appInactivated, appBackgrounded ], function* () {
+export function* resumeOnActive() {
+	yield takeEvery(appActivated, function* () {
+		const { currentPosition } = yield select(getAudioInfo);
+		const playerIsActive = yield select(isAudioActive);
+
+		if (playerIsActive && currentPosition !== 0) {
+			yield put(playAudio());
+		}
+	});
+}
+
+export function* watchForResetAudio() {
+	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, clearPlayCompleted } }) {
+		console.log(clearPlayCompleted ? 'hard' : 'soft', 'reset from:', source || 'unknown');
 		yield put(pauseAudio());
+		yield call(seek, 0);
 	});
 }

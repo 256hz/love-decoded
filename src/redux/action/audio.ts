@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const loadAudioFile = createAction('LOAD_AUDIO_FILE',
-	(filename: string, extension: string) => ({ payload: { filename, extension } }));
+export const playAudioFile = createAction('PLAY_AUDIO_FILE',
+	(audioFilename: string) => ({ payload: { audioFilename } }));
 
 export const setAudioIsLoaded = createAction('SET_AUDIO_IS_LOADED',
 	(isLoaded: boolean) => ({ payload: { isLoaded } }));
@@ -20,13 +20,17 @@ export const setAudioTotalPlayed = createAction('SET_AUDIO_TOTAL_PLAYED',
 
 export const playAudio = createAction('PLAY_AUDIO');
 
+export const tryResumeAudio = createAction('TRY_RESUME_AUDIO');
+
 export const pauseAudio = createAction('PAUSE_AUDIO');
 
-export const rewindAudio = createAction('REWIND_AUDIO');
+export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER',
+	(clearPlayCompleted?: boolean, source?: string) => ({ payload: { clearPlayCompleted, source } }));
 
-export const fastForwardAudio = createAction('FAST_FORWARD_AUDIO');
-
-export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER');
+export const setCurrentAudioFilename = createAction('SET_CURRENT_AUDIO_FILENAME',
+	(audioFilename: string) => ({ payload: { audioFilename } }));
 
 export const setAudioPlayCompleted = createAction('SET_AUDIO_PLAY_COMPLETED',
 	(playCompleted: boolean) => ({ payload: { playCompleted } }));
+
+export const stopGettingAudioInfo = createAction('STOP_GETTING_AUDIO_INFO');

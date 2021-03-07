@@ -29,7 +29,7 @@ export default () => {
 			audioFilename="onboarding_9_control.mp3"
 			nextTarget={OnboardingScreens.TheJourneyStartsNow}
 			title="Control"
-			onNextCallback={() => dispatch(setSurveyResponse(Surveys.CanYouControlIt, selectedValue))}
+			onPressNext={() => dispatch(setSurveyResponse(Surveys.CanYouControlIt, selectedValue))}
 			nextEnabled={selectedValue !== ''}
 		>
 			<View style={styles.container}>
@@ -47,10 +47,13 @@ export default () => {
 					<Text style={styles.subtitle}>Can You Control It?</Text>
 					<RadioButtons
 						buttons={radioButtons}
+						containerStyle={styles.radioButtonsStyle}
 						selectedValue={selectedValue}
 						setSelectedValue={setSelectedValue}
 					/>
 				</View>
+
+				<View />
 			</View>
 		</OnboardingScreen>
 	);

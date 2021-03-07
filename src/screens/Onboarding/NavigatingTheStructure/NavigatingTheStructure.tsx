@@ -7,7 +7,7 @@ import styles from './NavigatingTheStructure.styles';
 const cards = [
 	{
 		BodyElement: () => (
-			<View style={styles.cardContainer}>
+			<View style={[ styles.cardContainer, styles.cardCenterBody ]}>
 				<Text style={styles.textBody}>
 					The course is divided into 3 stages –
 					<Text style={[ styles.textBody, styles.highlight ]}>
@@ -34,7 +34,7 @@ const cards = [
 				<Text style={styles.textBody}>
 					Each step takes 7 days or more to complete and each day has
 					<Text style={[ styles.textBody, styles.highlight ]}>
-						{' 4 components'}
+						{' 4 components:'}
 					</Text>
 				</Text>
 

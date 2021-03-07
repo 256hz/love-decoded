@@ -2,12 +2,14 @@ export { getAlertTime } from './alerts';
 
 export {
 	getAppState,
+	getLastActiveEpochSeconds,
 } from './appState';
 
 export {
 	getAudioInfo,
 	getAudioTotalPlayed,
 	getAudioPlayCompleted,
+	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
 	isAudioPlaying,

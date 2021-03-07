@@ -32,7 +32,7 @@ export default () => {
 			nextTarget={OnboardingScreens.NavigatingTheStructure}
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}
-			onNextCallback={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
+			onPressNext={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
 			nextEnabled={!!(selectedValue || surveyResponse)}
 		>
 			<View style={styles.container}>
