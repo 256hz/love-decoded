@@ -1,10 +1,9 @@
-import { useNavigation } from '@react-navigation/native';
 import { OnboardingScreen } from 'elements';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/enums';
 import { changeStack } from 'util/navigation';
+import { RootStacks } from 'route/enums';
 import styles from './YouAreReady.styles';
 
 type EnterButtonProps = {
@@ -21,22 +20,18 @@ const EnterButton = ({ onPress }: EnterButtonProps) => (
 	</TouchableOpacity>
 );
 
-export default () => {
-	const { navigate } = useNavigation();
-
-	return (
-		<OnboardingScreen
-			drawShapes={[ 0, 6, 13 ]}
-			customBottomSection={<></>}
-			customButtons={<></>}
-			titleContainerStyle={styles.titleContainerStyle}
-		>
-			<View style={styles.container}>
-				<Text style={styles.headlineText}>
-					{'You Are Ready\nFor Step 1'}
-				</Text>
-				<EnterButton onPress={() => navigate(Screens.Introduction)} />
-			</View>
-		</OnboardingScreen>
-	);
-};
+export default () => (
+	<OnboardingScreen
+		drawShapes={[ 0, 6, 13 ]}
+		customBottomSection={<></>}
+		customButtons={<></>}
+		titleContainerStyle={styles.titleContainerStyle}
+	>
+		<View style={styles.container}>
+			<Text style={styles.headlineText}>
+				{'You Are Ready\nFor Step 1'}
+			</Text>
+			<EnterButton onPress={() => changeStack(RootStacks.HomeTabs)} />
+		</View>
+	</OnboardingScreen>
+);

@@ -1,6 +1,6 @@
 import React, { ReactChild } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import Triangle5 from '@assets/svg/mastering-love/triangle-5.svg';
 import Triangle10 from '@assets/svg/mastering-love/triangle-10.svg';
 import Triangle20 from '@assets/svg/mastering-love/triangle-20.svg';
@@ -27,7 +27,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		title={'Mastering Love\nof Self and Others'}
 		audioFilename="onboarding_7_the_learning_pyramid.mp3"
-		nextTarget={Screens.FromComfort}
+		nextTarget={OnboardingScreens.FromComfort}
 	>
 		<View style={styles.container}>
 			<View style={styles.bodyContainer}>

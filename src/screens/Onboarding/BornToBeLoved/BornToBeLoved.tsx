@@ -1,14 +1,14 @@
 import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './BornToBeLoved.styles';
 
 export default () => (
 	<OnboardingScreen
 		audioFilename="onboarding_17_born_to_be_loved.mp3"
 		drawShapes={[ 6, 10 ]}
-		nextTarget={Screens.SetYourAlertsIntro}
+		nextTarget={OnboardingScreens.SetYourAlertsIntro}
 		title="Born To Be Loved"
 		titleContainerStyle={styles.titleContainerStyle}
 	>

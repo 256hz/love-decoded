@@ -49,59 +49,59 @@ import {
 import BriefOverviewOfButtonsScreen from '@screens/Onboarding/BriefOverviewOfButtons';
 import AddYourContactsScreen from '@screens/Onboarding/AddYourContacts';
 import YouAreReadyScreen from '@screens/Onboarding/YouAreReady';
-import { Screens } from './enums';
+import { OnboardingScreens } from './enums';
 
 const OnboardingStack = createStackNavigator();
 
 export type OnboardingStackParamList = {
-	[key in Screens]: undefined;
+	[key in OnboardingScreens]: undefined;
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={Screens.Introduction}>
-		<OnboardingStack.Screen name={Screens.Introduction} component={IntroductionScreen} />
-		<OnboardingStack.Screen name={Screens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
-		<OnboardingStack.Screen name={Screens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
-		<OnboardingStack.Screen name={Screens.HavingTheLovingCommunities} component={HavingTheLovingCommunitiesScreen} />
-		<OnboardingStack.Screen name={Screens.WhenYouForget} component={WhenYouForgetScreen} />
-		<OnboardingStack.Screen name={Screens.TheScienceOfLove} component={TheScienceOfLoveScreen} />
-		<OnboardingStack.Screen name={Screens.MasteringLove} component={MasteringLoveScreen} />
-		<OnboardingStack.Screen name={Screens.FromComfort} component={FromComfortScreen} />
-		<OnboardingStack.Screen name={Screens.Control} component={ControlScreen} />
-		<OnboardingStack.Screen name={Screens.TheJourneyStartsNow} component={TheJourneyStartsNowScreen} />
-		<OnboardingStack.Screen name={Screens.SignupForm} component={SignupFormScreen} />
-		<OnboardingStack.Screen name={Screens.ThankYouForSigningUp} component={ThankYouForSigningUpScreen} />
-		<OnboardingStack.Screen name={Screens.LetTheAppTeachYou} component={LetTheAppTeachYouScreen} />
-		<OnboardingStack.Screen name={Screens.Dependency} component={DependencyScreen} />
-		<OnboardingStack.Screen name={Screens.LoveVsHeartburn} component={LoveVsHeartburnScreen} />
-		<OnboardingStack.Screen name={Screens.NavigatingTheStructure} component={NavigatingTheStructureScreen} />
-		<OnboardingStack.Screen name={Screens.BornToBeLoved} component={BornToBeLovedScreen} />
-		<OnboardingStack.Screen name={Screens.SetYourAlertsIntro} component={SetYourAlertsIntroScreen} />
-		<OnboardingStack.Screen name={Screens.SetYourAlerts} component={SetYourAlertsScreen} />
-		<OnboardingStack.Screen name={Screens.SetYourAlertsThankYou} component={SetYourAlertsThankYouScreen} />
-		<OnboardingStack.Screen name={Screens.HowCanITell} component={HowCanITellScreen} />
-		<OnboardingStack.Screen name={Screens.NeffSurveyIntro} component={NeffSurveyIntroScreen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey1} component={NeffSurvey1Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey2} component={NeffSurvey2Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey3} component={NeffSurvey3Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey4} component={NeffSurvey4Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey5} component={NeffSurvey5Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey6} component={NeffSurvey6Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey7} component={NeffSurvey7Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey8} component={NeffSurvey8Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey9} component={NeffSurvey9Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey10} component={NeffSurvey10Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey11} component={NeffSurvey11Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurvey12} component={NeffSurvey12Screen} />
-		<OnboardingStack.Screen name={Screens.NeffSurveyBreakdown} component={NeffSurveyBreakdownScreen} />
-		<OnboardingStack.Screen name={Screens.NeffSurveyThankYou} component={NeffSurveyThankYouScreen} />
-		<OnboardingStack.Screen name={Screens.NeffSurveyGoodJob} component={NeffSurveyGoodJobScreen} />
-		<OnboardingStack.Screen name={Screens.EmotionalResetButton} component={EmotionalResetButtonScreen} />
-		<OnboardingStack.Screen name={Screens.BriefOverviewOfButtons} component={BriefOverviewOfButtonsScreen} />
-		<OnboardingStack.Screen name={Screens.FrustratedReadyToQuit} component={FrustratedReadyToQuitScreen} />
-		<OnboardingStack.Screen name={Screens.FrustratedWithApp} component={FrustratedWithAppScreen} />
-		<OnboardingStack.Screen name={Screens.FrustratedWithProgress} component={FrustratedWithProgressScreen} />
-		<OnboardingStack.Screen name={Screens.AddYourContacts} component={AddYourContactsScreen} />
-		<OnboardingStack.Screen name={Screens.YouAreReady} component={YouAreReadyScreen} />
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={OnboardingScreens.Introduction}>
+		<OnboardingStack.Screen name={OnboardingScreens.Introduction} component={IntroductionScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.HavingTheLovingCommunities} component={HavingTheLovingCommunitiesScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.WhenYouForget} component={WhenYouForgetScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.TheScienceOfLove} component={TheScienceOfLoveScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.MasteringLove} component={MasteringLoveScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.FromComfort} component={FromComfortScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.Control} component={ControlScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.TheJourneyStartsNow} component={TheJourneyStartsNowScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.SignupForm} component={SignupFormScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.ThankYouForSigningUp} component={ThankYouForSigningUpScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.LetTheAppTeachYou} component={LetTheAppTeachYouScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.Dependency} component={DependencyScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.LoveVsHeartburn} component={LoveVsHeartburnScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NavigatingTheStructure} component={NavigatingTheStructureScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.BornToBeLoved} component={BornToBeLovedScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.SetYourAlertsIntro} component={SetYourAlertsIntroScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.SetYourAlerts} component={SetYourAlertsScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.SetYourAlertsThankYou} component={SetYourAlertsThankYouScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.HowCanITell} component={HowCanITellScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurveyIntro} component={NeffSurveyIntroScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey1} component={NeffSurvey1Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey2} component={NeffSurvey2Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey3} component={NeffSurvey3Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey4} component={NeffSurvey4Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey5} component={NeffSurvey5Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey6} component={NeffSurvey6Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey7} component={NeffSurvey7Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey8} component={NeffSurvey8Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey9} component={NeffSurvey9Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey10} component={NeffSurvey10Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey11} component={NeffSurvey11Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurvey12} component={NeffSurvey12Screen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurveyBreakdown} component={NeffSurveyBreakdownScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurveyThankYou} component={NeffSurveyThankYouScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.NeffSurveyGoodJob} component={NeffSurveyGoodJobScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.EmotionalResetButton} component={EmotionalResetButtonScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.BriefOverviewOfButtons} component={BriefOverviewOfButtonsScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.FrustratedReadyToQuit} component={FrustratedReadyToQuitScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.FrustratedWithApp} component={FrustratedWithAppScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.FrustratedWithProgress} component={FrustratedWithProgressScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.AddYourContacts} component={AddYourContactsScreen} />
+		<OnboardingStack.Screen name={OnboardingScreens.YouAreReady} component={YouAreReadyScreen} />
 	</OnboardingStack.Navigator>
 );

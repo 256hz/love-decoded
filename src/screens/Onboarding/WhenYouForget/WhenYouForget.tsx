@@ -1,14 +1,14 @@
 import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './WhenYouForget.styles';
 
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 1, 7, 11 ]}
 		audioFilename="onboarding_5_when_you_forget.mp3"
-		nextTarget={Screens.TheScienceOfLove}
+		nextTarget={OnboardingScreens.TheScienceOfLove}
 	>
 		<View style={styles.container}>
 			<Text style={styles.headline}>

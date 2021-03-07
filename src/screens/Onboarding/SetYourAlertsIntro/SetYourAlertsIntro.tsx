@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './SetYourAlertsIntro.styles';
 
@@ -31,7 +31,7 @@ export default () => {
 			drawShapes={[ 1, 7, 11 ]}
 			title="Set Your Alerts"
 			audioFilename="onboarding_18_set_your_alerts.mp3"
-			nextTarget={Screens.SetYourAlerts}
+			nextTarget={OnboardingScreens.SetYourAlerts}
 			nextEnabled={nextEnabled}
 		>
 			<View style={styles.container}>

@@ -14,7 +14,6 @@ const INITIAL_STATE: AlertsState = {
 	[AlertTime.Reflection]: 17 * 60,  // 5pm
 };
 
-export const alerts = createReducer(INITIAL_STATE, reducer => {
-	reducer
-		.addCase(setAlertTime, (state, { payload: { alert, time } }) => ({ ...state, [alert]: time }));
+export const alerts = createReducer(INITIAL_STATE, ({ addCase }) => {
+	addCase(setAlertTime, (state, { payload: { alert, time } }) => ({ ...state, [alert]: time }));
 });

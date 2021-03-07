@@ -1,20 +1,20 @@
 import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './EmotionalResetButton.styles';
 
 export default () => {
-	const [ backDisabled, setBackDisabled ] = useState(true);
+	const [ backEnabled, setBackEnabled ] = useState(false);
 
 	return (
 		<OnboardingScreen
 			audioFilename="onboarding_38b_erb_frustrated_with_the_app.mp3"
+			backEnabled={backEnabled}
 			drawShapes={[ 7, 25 ]}
 			hideNextButton={true}
-			hideBackButton={backDisabled}
-			onAudioEnd={() => setBackDisabled(false)}
-			nextTarget={Screens.BriefOverviewOfButtons}
+			onAudioEnd={() => setBackEnabled(true)}
+			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
 			title="Emotional RESET Button"
 			titleContainerStyle={styles.frustratedTitleContainerStyle}
 		>

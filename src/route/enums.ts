@@ -1,4 +1,9 @@
-export enum Screens {
+export enum RootStacks {
+	HomeTabs = 'HomeTabs',
+	OnboardingStack = 'OnboardingStack',
+}
+
+export enum OnboardingScreens {
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',
 	WhatWouldILikeToLearn = 'WhatWouldILikeToLearn',
@@ -43,4 +48,8 @@ export enum Screens {
 	BriefOverviewOfButtons = 'BriefOverviewOfButtons',
 	AddYourContacts = 'AddYourContacts',
 	YouAreReady = 'YouAreReady',
+}
+
+export enum StepScreens {
+	Home = 'Home',
 }

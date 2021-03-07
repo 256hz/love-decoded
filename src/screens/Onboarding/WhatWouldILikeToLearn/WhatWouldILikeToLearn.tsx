@@ -8,7 +8,7 @@ import {
 	Text,
 	View,
 } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { setSurveyResponse } from 'redux/action';
 import { getSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';
@@ -71,8 +71,8 @@ export default () => {
 			<OnboardingScreen
 				audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
 				drawShapes={[ 1, 7, 11 ]}
-				nextTarget={Screens.HavingTheLovingCommunities}
-				onNextCallback={submitResponse}
+				nextTarget={OnboardingScreens.HavingTheLovingCommunities}
+				onPressNext={submitResponse}
 				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
 				titleChild={
 					<View style={styles.subtitleContainer}>

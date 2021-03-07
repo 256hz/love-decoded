@@ -18,7 +18,6 @@ export default StyleSheet.create({
 		textAlign: 'center',
 	},
 	surveyButtonContainer: {
-		flex: 1,
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 	},

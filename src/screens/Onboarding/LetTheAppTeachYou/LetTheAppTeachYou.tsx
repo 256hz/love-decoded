@@ -1,7 +1,7 @@
 import { OnboardingScreen } from '@elements';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import styles from './LetTheAppTeachYou.styles';
 
 export default () => (
@@ -9,7 +9,7 @@ export default () => (
 		audioFilename="onboarding_13_let_the_app_teach_you.mp3"
 		drawShapes={[ 6, 25 ]}
 		hideBackButton={true}
-		nextTarget={Screens.LoveVsHeartburn}
+		nextTarget={OnboardingScreens.LoveVsHeartburn}
 		title={'Let The App\nTeach You'}
 		titleContainerStyle={styles.titleContainerStyle}
 	>

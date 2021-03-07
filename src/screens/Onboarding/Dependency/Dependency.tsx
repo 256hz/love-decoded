@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { setSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';
@@ -29,10 +29,10 @@ export default () => {
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
 			audioFilename="onboarding_15_dependency.mp3"
-			nextTarget={Screens.NavigatingTheStructure}
+			nextTarget={OnboardingScreens.NavigatingTheStructure}
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}
-			onNextCallback={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
+			onPressNext={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
 			nextEnabled={!!(selectedValue || surveyResponse)}
 		>
 			<View style={styles.container}>

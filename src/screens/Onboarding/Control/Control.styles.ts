@@ -6,6 +6,7 @@ export default StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingHorizontal: 16,
+		justifyContent: 'space-between',
 	},
 	textContainer: {
 		marginTop: 30,
@@ -35,7 +36,8 @@ export default StyleSheet.create({
 		marginBottom: 30,
 	},
 	radioButtonsContainer: {
-		flex: 1,
 		alignItems: 'center',
+	},
+	radioButtonsStyle: {
 	},
 });

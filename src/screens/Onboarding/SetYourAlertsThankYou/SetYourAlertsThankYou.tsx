@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { OnboardingScreen } from '@elements';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { useSelector } from 'react-redux';
 import { getAlertTime } from 'redux/selector';
 import { AlertTime } from 'redux/types/alerts';
@@ -17,7 +17,7 @@ export default () => {
 	return (
 		<OnboardingScreen
 			drawShapes={[ 18, 19, 20 ]}
-			nextTarget={Screens.HowCanITell}
+			nextTarget={OnboardingScreens.HowCanITell}
 			title={'Thank You For Setting\nYour Alerts!'}
 		>
 			<View style={styles.container}>

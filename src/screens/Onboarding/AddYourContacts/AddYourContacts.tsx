@@ -6,7 +6,7 @@ import {
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Contacts, { Contact } from 'react-native-contacts';
 import { Spinner } from 'react-native-material-kit';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import AddPlus from '@assets/svg/add-plus.svg';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
@@ -54,7 +54,7 @@ export default () => {
 		toggleContacts();
 		setTimeout(() => {
 			setContacts(mockContacts.sort(sortContacts));
-		}, 1500);
+		}, 750);
 	};
 
 	/*
@@ -82,7 +82,7 @@ export default () => {
 	return (
 		<>
 			<OnboardingScreen
-				nextTarget={Screens.YouAreReady}
+				nextTarget={OnboardingScreens.YouAreReady}
 				drawShapes={[ 5, 7, 11 ]}
 				title={'Having The Loving\nCommunity You Deserve'}
 				titleChild={

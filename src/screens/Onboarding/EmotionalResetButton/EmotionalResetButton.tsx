@@ -2,8 +2,10 @@ import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
+import { resetAudioPlayer } from 'redux/action';
 import styles from './EmotionalResetButton.styles';
 
 const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabled?: boolean }) => (
@@ -18,18 +20,22 @@ const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabl
 
 export default () => {
 	const { navigate } = useNavigation();
+	const dispatch = useDispatch();
 	const [ linksDisabled, setLinksDisabled ] = useState(true);
-	console.log({ linksDisabled });
+	const onPress = () => {
+		dispatch(resetAudioPlayer(true, 'erb-onNext'));
+		navigate(OnboardingScreens.FrustratedWithProgress);
+	};
 
 	return (
 		<OnboardingScreen
 			audioFilename="erb_ready_to_quit_rebecca.mp3"
 			drawShapes={[ 7, 25 ]}
-			title={'Your Emotional\nRESET Button'}
-			titleContainerStyle={styles.titleContainerStyle}
 			hideBackButton={true}
 			onAudioEnd={() => setLinksDisabled(false)}
-			nextTarget={Screens.BriefOverviewOfButtons}
+			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
+			title={'Your Emotional\nRESET Button'}
+			titleContainerStyle={styles.titleContainerStyle}
 		>
 			<View style={styles.container}>
 				<View>
@@ -37,7 +43,7 @@ export default () => {
 						Frustrated with your progress? Something making you sad?
 					</Text>
 					<NextButtonWithText
-						onPress={() => navigate(Screens.FrustratedWithProgress)}
+						onPress={onPress}
 						disabled={linksDisabled}
 					/>
 				</View>
@@ -46,7 +52,7 @@ export default () => {
 						Frustrated with the app technology?
 					</Text>
 					<NextButtonWithText
-						onPress={() => navigate(Screens.FrustratedWithApp)}
+						onPress={() => navigate(OnboardingScreens.FrustratedWithApp)}
 						disabled={linksDisabled}
 					/>
 				</View>
@@ -55,7 +61,7 @@ export default () => {
 						Ready to quit on yourself and the App?
 					</Text>
 					<NextButtonWithText
-						onPress={() => navigate(Screens.FrustratedReadyToQuit)}
+						onPress={() => navigate(OnboardingScreens.FrustratedReadyToQuit)}
 						disabled={linksDisabled}
 					/>
 				</View>

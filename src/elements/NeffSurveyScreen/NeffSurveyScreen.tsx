@@ -3,12 +3,13 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import { setNeffSurveyResponse } from '@redux/action';
 import { getNeffResponseByPageIndex } from '@redux/selector';
 import { NeffSurveyPageIndex, NeffSurveyResponse } from '@redux/types/survey';
-import { OnboardingScreen, RadioButtons } from '@elements';
+import { OnboardingScreen } from '@elements/OnboardingScreen';
+import { RadioButtons } from '@elements/RadioButtons';
 import styles from './NeffSurveyScreen.styles';
 
 const getNeffSurveyButtons = (reverseScoring?: boolean) => [
@@ -46,7 +47,7 @@ const NextButtonWithText = ({ disabled, onPress }: { disabled: boolean, onPress:
 );
 
 type NeffSurveyScreenProps = {
-	nextTarget: Screens,
+	nextTarget: OnboardingScreens,
 	pageIndex: NeffSurveyPageIndex,
 	prompt: string,
 	reverseScoring?: boolean;
@@ -68,7 +69,7 @@ export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffS
 					onPress={() => navigate(nextTarget)}
 				/>
 			}
-			title={'Neff\'s Self-Compassion\nScale Survey'}
+			title={"Neff's Self-Compassion\nScale Survey"}
 			titleContainerStyle={styles.titleContainerStyle}
 		>
 			<View style={styles.container}>

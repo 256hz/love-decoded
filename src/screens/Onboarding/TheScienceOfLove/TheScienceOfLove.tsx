@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { Screens } from 'route/enums';
+import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './TheScienceOfLove.styles';
 
@@ -39,7 +39,7 @@ export default () => {
 			drawShapes={[ 1, 7, 11 ]}
 			title={'The Science of Love:\nA Pioneering Discovery'}
 			audioFilename="onboarding_6_the_science_of_love.mp3"
-			nextTarget={Screens.MasteringLove}
+			nextTarget={OnboardingScreens.MasteringLove}
 			nextEnabled={nextEnabled}
 		>
 			<View style={styles.container}>

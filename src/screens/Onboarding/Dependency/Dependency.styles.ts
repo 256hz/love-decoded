@@ -6,7 +6,7 @@ export default StyleSheet.create({
 	container: {
 		flexGrow: 1,
 		paddingHorizontal: 39,
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 	},
 	titleContainer: {
 		paddingBottom: 32,

@@ -3,6 +3,8 @@ import State from 'redux/RootState';
 
 const audio = (state: State) => (state || {}).audio || {};
 
+export const isAudioActive = createSelector(audio, ({ isActive }) => isActive);
+
 export const isAudioLoaded = createSelector(audio, ({ isLoaded }) => isLoaded);
 
 export const isAudioPlaying = createSelector(audio, ({ isPlaying }) => isPlaying);

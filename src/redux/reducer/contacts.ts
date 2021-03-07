@@ -8,10 +8,9 @@ export type ContactsState = {
 
 const INITIAL_STATE: ContactsState = {};
 
-export const contacts = createReducer(INITIAL_STATE, reducer => {
-	reducer
-		.addCase(setContact, (state, { payload: { contact } }) => ({
-			...state,
-			[contact.recordID]: state[contact.recordID] ? undefined : contact,
-		}));
+export const contacts = createReducer(INITIAL_STATE, ({ addCase }) => {
+	addCase(setContact, (state, { payload: { contact } }) => ({
+		...state,
+		[contact.recordID]: state[contact.recordID] ? undefined : contact,
+	}));
 });

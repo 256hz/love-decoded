@@ -38,5 +38,6 @@ export default StyleSheet.create({
 	subtitleContainer: {
 		marginTop: 30,
 		alignItems: 'center',
+		marginBottom: 12,
 	},
 });

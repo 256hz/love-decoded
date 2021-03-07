@@ -23,9 +23,7 @@ const INITIAL_STATE: UserState = {
 	current_activity: undefined,
 };
 
-export const user = createReducer(INITIAL_STATE, reducer => {
-	reducer
-		.addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }))
-		.addCase(logOut, state => INITIAL_STATE)
-	;
+export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
+	addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
+	addCase(logOut, state => INITIAL_STATE);
 });
