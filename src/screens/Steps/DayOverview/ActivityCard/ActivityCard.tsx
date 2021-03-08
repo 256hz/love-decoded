@@ -3,38 +3,45 @@ import { Text, View } from 'react-native';
 import ClockCircle from '@assets/svg/clock-circle.svg';
 import ClockHands from '@assets/svg/clock-hands.svg';
 import styles from './ActivityCard.styles';
+import { ActivityStatus } from '../DayOverview';
 
 type Props = {
 	title: string;
 	subtitle: string;
-	active?: boolean;
-	completed?: boolean;
+	status: ActivityStatus;
 };
 
-export default ({ title, subtitle, active, completed }: Props) => (
-	<View style={styles.container}>
-		<View style={styles.topContainer}>
-			<View>
-				<View style={styles.topSquare} />
-				<View>
-					<Text style={styles.cardTitleText}>
-						{title}
-					</Text>
-					<View style={styles.subtitleContainer}>
-						<Clock />
-						<Text style={styles.subtitleText}>
-							{subtitle}
+export default ({ title, subtitle, status }: Props) => {
+	return (
+		<View style={[ styles.container, styles[`${status}Container`] ]}>
+
+			<View style={styles.topContainer}>
+
+				<View style={styles.topInnerContainer}>
+					<View style={[ styles.topSquare, styles[`${status}TopSquare`] ]} />
+
+					<View>
+						<Text style={[ styles.cardTitleText, styles[`${status}CardTitleText`] ]}>
+							{title}
 						</Text>
+						<View style={styles.subtitleContainer}>
+							<Clock />
+							<Text style={styles.subtitleText}>
+								{subtitle}
+							</Text>
+						</View>
 					</View>
+
 				</View>
+
+				<View style={[ styles.circle, styles[`${status}Circle`] ]} />
+
 			</View>
 
-			<View style={[ styles.circle, completed && styles.fillActive ]} />
+			<View style={[ styles.progressBar, styles[`${status}ProgressBar`] ]} />
 		</View>
-
-		<View style={[ styles.emptyProgressBar, active && styles.fillActive ]} />
-	</View>
-);
+	);
+};
 
 const Clock = () => (
 	<View style={styles.clockContainer}>

@@ -23,7 +23,7 @@ const SavedContact = ({ contact, toggleSelected }: { contact: Contact, toggleSel
 	<View style={styles.selectedContactItemContainer}>
 		<ContactCard
 			contact={contact}
-			longPress={true}
+			longPress
 			selected={false}
 			toggleSelected={toggleSelected}
 		/>

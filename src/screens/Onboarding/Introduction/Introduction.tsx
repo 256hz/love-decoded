@@ -45,7 +45,7 @@ export default () => {
 			}
 			drawShapes={[ 14, 15, 16 ]}
 			onAudioEnd={() => setNextDisabled(false)}
-			scrollDisabled={true}
+			scrollDisabled
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

@@ -12,7 +12,7 @@ export default () => {
 			audioFilename="onboarding_38b_erb_frustrated_with_the_app.mp3"
 			backEnabled={backEnabled}
 			drawShapes={[ 7, 25 ]}
-			hideNextButton={true}
+			hideNextButton
 			onAudioEnd={() => setBackEnabled(true)}
 			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
 			title="Emotional RESET Button"

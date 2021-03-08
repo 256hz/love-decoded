@@ -12,7 +12,7 @@ const StepStack = createStackNavigator();
 
 const headerStyle: ViewStyle = {
 	height: 100,
-	backgroundColor: colors.White,
+	backgroundColor: colors.GrayFB,
 	shadowColor: 'transparent',
 	borderBottomWidth: 0,
 	borderBottomColor: 'transparent',
