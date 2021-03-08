@@ -1,9 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from '@screens/Steps/Home';
 import { HeaderBackButton, HeaderOpenButton } from '@elements';
 import colors from 'elements/globalStyles/color';
 import { ViewStyle } from 'react-native';
+
+import HomeScreen from '@screens/Steps/Home';
+import DayOverviewScreen from '@screens/Steps/DayOverview';
 import { StepScreens } from './enums';
 
 const StepStack = createStackNavigator();
@@ -36,5 +38,6 @@ export default ({ navigation }) => (
 		screenOptions={{ headerStyle }}
 	>
 		<StepStack.Screen name={StepScreens.Home} component={HomeScreen} options={Headers(navigation).Drawer} />
+		<StepStack.Screen name={StepScreens.DayOverview} component={DayOverviewScreen} options={Headers(navigation).Back} />
 	</StepStack.Navigator>
 );

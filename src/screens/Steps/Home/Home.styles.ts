@@ -7,7 +7,6 @@ export default StyleSheet.create({
 		flex: 1,
 	},
 	titleContainer: {
-		marginTop: 23,
 		marginBottom: 20,
 	},
 	headline: {
