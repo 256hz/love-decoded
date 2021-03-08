@@ -4,11 +4,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { SideDrawer } from '@elements/SideDrawer';
 import HomeTabs, { TabNames } from './HomeTabs';
 
-const Drawer = createDrawerNavigator();
+type DrawerParamList = {
+	[TabNames.HomeScreen]: undefined;
+};
 
-enum DrawerScreens {
-	DrawerScreen = 'Drawer',
-}
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default () => {
 	return (

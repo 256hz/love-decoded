@@ -180,9 +180,10 @@ export function* pauseOnBackground() {
 export function* resumeOnActive() {
 	yield takeEvery(appActivated, function* () {
 		const { currentPosition } = yield select(getAudioInfo);
+		const isLoaded = yield select(isAudioLoaded);
 		const playerIsActive = yield select(isAudioActive);
 
-		if (playerIsActive && currentPosition !== 0) {
+		if (isLoaded && playerIsActive && currentPosition !== 0) {
 			console.log('resuming');
 			yield put(playAudio());
 		}

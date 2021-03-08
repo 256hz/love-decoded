@@ -6,4 +6,12 @@ const user = (state: State) => (state || {}).user || {};
 
 export const getUserId = createSelector(user, userState => userState[UserProperty.ID]);
 
-export const allState = createSelector(state => state, astate => astate);
+export const getUserProgress = createSelector(user, userState => ({
+	currentActivity: userState.current_activity,
+	currentDay: userState.current_day,
+	currentStep: userState.current_step,
+}));
+
+export const getUserFirstName = createSelector(user, ({ first_name }) => first_name);
+
+export const getUserEmail = createSelector(user, ({ email }) => email);

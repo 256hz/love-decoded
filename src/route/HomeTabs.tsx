@@ -7,8 +7,6 @@ import EmotionalReset from 'screens/Steps/EmotionalReset';
 import StepStack from './StepStack';
 import styles from './HomeTabs.styles';
 
-const Tab = createBottomTabNavigator();
-
 export enum TabNames {
 	HomeScreen = 'Home',
 	JournalScreen = 'Journal',
@@ -16,10 +14,17 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
+type TabParamList = {
+	[key in TabNames]: undefined;
+};
+
+const Tab = createBottomTabNavigator<TabParamList>();
+
 export default () => {
 	return (
 		<Tab.Navigator
-			initialRouteName="HomeScreen"
+			initialRouteName={TabNames.HomeScreen}
+			lazy={false}
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused }) => (
 					<TabIcon
@@ -28,7 +33,6 @@ export default () => {
 					/>
 				),
 			})}
-			lazy={false}
 			tabBarOptions={{
 				keyboardHidesTabBar: true,
 				showLabel: false,
