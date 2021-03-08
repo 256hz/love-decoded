@@ -33,5 +33,10 @@ export {
 	getSurveyByTitle,
 } from './survey';
 
-export { getUserId } from './user';
+export {
+	getUserEmail,
+	getUserFirstName,
+	getUserId,
+	getUserProgress,
+} from './user';
 

@@ -7,20 +7,16 @@ export type UserState = {
 };
 
 const INITIAL_STATE: UserState = {
-	id: undefined,
-	first_name: undefined,
-	last_name: undefined,
-	email: undefined,
-	password_hash: undefined,
-	gender: undefined,
-	age_group_start: undefined,
-	activity_time_1: undefined,
-	activity_time_2: undefined,
-	activity_time_3: undefined,
-	activity_time_4: undefined,
-	current_step: undefined,
-	current_day: undefined,
-	current_activity: undefined,
+	[UserProperty.ID]: undefined,
+	[UserProperty.FIRST_NAME]: 'Jasmine',
+	[UserProperty.LAST_NAME]: '',
+	[UserProperty.EMAIL]: 'jasminecook@gmail.com',
+	[UserProperty.PASSWORD_HASH]: undefined,
+	[UserProperty.GENDER]: undefined,
+	[UserProperty.AGE_GROUP_START]: 20,
+	[UserProperty.CURRENT_STEP]: 1,
+	[UserProperty.CURRENT_DAY]: 1,
+	[UserProperty.CURRENT_ACTIVITY]: 1,
 };
 
 export const user = createReducer(INITIAL_STATE, ({ addCase }) => {

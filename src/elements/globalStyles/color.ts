@@ -5,6 +5,7 @@ const colors = {
 	Gray92: '#928E8E',
 	GrayBC: '#BCBCBC',
 	GrayButton: 'rgba(205, 205, 205, 0.8)',
+	GrayF3: '#F3F3F3',
 	GrayTransparent073: 'rgba(151, 151, 151, 0.73)',
 	GrayTransparent071: 'rgba(0, 0, 0, 0.71)',
 	GrayTransparent028: 'rgba(0, 0, 0, 0.28)',

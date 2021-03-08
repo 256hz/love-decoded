@@ -6,10 +6,14 @@ import { RootStacks } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
 
-const Stack = createStackNavigator();
+type RootStackParamList = {
+	[key in RootStacks]: undefined;
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default () => {
-	const isLoggedIn = false; // replace with selector
+	const isLoggedIn = true; // replace with selector
 
 	return (
 		<NavigationContainer ref={navigationRef}>

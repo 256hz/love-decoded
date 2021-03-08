@@ -32,12 +32,7 @@ export default () => {
 			onAudioEnd={() => setNextDisabled(false)}
 			title={"The Purpose of\nNeff's Self-Compassion Scale"}
 			titleContainerStyle={styles.titleContainerStyle}
-			customButtons={
-				<SurveyButton
-					onPress={() => { console.log('press'); navigate(OnboardingScreens.NeffSurvey1); }}
-					disabled={nextDisabled}
-				/>
-			}
+			customButtons={<SurveyButton onPress={() => navigate(OnboardingScreens.NeffSurvey1)} />}
 		>
 			<View style={styles.container}>
 				<Text style={styles.text}>
