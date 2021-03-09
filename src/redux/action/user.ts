@@ -9,3 +9,5 @@ export const logIn = createAction('LOG_IN',
 
 export const logOut = createAction('LOG_OUT');
 
+export const advanceUserActivity = createAction('ADVANCE_USER_ACTIVITY');
+

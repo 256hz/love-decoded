@@ -4,19 +4,8 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: colors.GrayFB,
-	},
-	headerContainer: {
-		width: '100%',
-		height: 87,
-		flexDirection: 'row',
 		justifyContent: 'space-between',
-		alignItems: 'center',
-	},
-	headerIconContainer: {
-		height: '100%',
-		paddingHorizontal: 32,
-		justifyContent: 'center',
+		backgroundColor: colors.GrayFB,
 	},
 	childrenContainer: {
 		flexGrow: 1,
