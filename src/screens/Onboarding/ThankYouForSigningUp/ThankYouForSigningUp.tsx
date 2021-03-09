@@ -7,7 +7,7 @@ import styles from './ThankYouForSigningUp.styles';
 export default () => (
 	<OnboardingScreen
 		drawShapes={[ 6, 10 ]}
-		hideBackButton={true}
+		hideBackButton
 		nextTarget={OnboardingScreens.LetTheAppTeachYou}
 	>
 		<View style={styles.container}>

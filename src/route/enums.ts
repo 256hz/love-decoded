@@ -53,4 +53,5 @@ export enum OnboardingScreens {
 
 export enum StepScreens {
 	Home = 'Home',
+	DayOverview = 'DayOverview',
 }

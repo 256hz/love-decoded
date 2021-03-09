@@ -5,14 +5,17 @@ import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress } from '@redux/selector';
+import { StepScreens } from 'route/enums';
 import styles from './Home.styles';
 
 export default () => {
 	const { navigate } = useNavigation();
-	const onPress = () => navigate('');
+	const onPress = () => navigate(StepScreens.DayOverview);
 
 	const { currentActivity, currentDay, currentStep } = useSelector(getUserProgress);
 	const firstName = useSelector(getUserFirstName);
+	// currentActivity is 1-indexed to match day/step
+	const progress = (currentActivity as number - 1) * 25;
 
 	return (
 		<StepScreen>
@@ -39,7 +42,7 @@ export default () => {
 					</Text>
 				</View>
 
-				<ProgressBar progress={0.5} />
+				<ProgressBar progress={progress || 2} />
 
 				<CourseButton onPress={onPress} />
 			</View>
@@ -50,7 +53,11 @@ export default () => {
 const ProgressBar = ({ progress }) => (
 	<View style={styles.progressBarContainer}>
 		<View style={styles.emptyProgressBar} />
-		<View style={[ styles.progress, { width: `${Math.round(progress * 100)}%` } ]} />
+		<View style={[ styles.progress, {
+			width: `${progress}%`,
+			borderTopRightRadius: progress < 100 ? 0 : 6,
+			borderBottomRightRadius: progress < 100 ? 0 : 6,
+		} ]} />
 	</View>
 );
 

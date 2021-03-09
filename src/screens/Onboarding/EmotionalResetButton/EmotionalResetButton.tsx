@@ -31,7 +31,7 @@ export default () => {
 		<OnboardingScreen
 			audioFilename="erb_ready_to_quit_rebecca.mp3"
 			drawShapes={[ 7, 25 ]}
-			hideBackButton={true}
+			hideBackButton
 			onAudioEnd={() => setLinksDisabled(false)}
 			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
 			title={'Your Emotional\nRESET Button'}

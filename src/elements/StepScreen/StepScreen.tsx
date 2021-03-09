@@ -1,21 +1,23 @@
 import React, { ReactChild } from 'react';
-import { View } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './StepScreen.styles';
 
 type Props = {
 	children: ReactChild;
+	containerStyle?: ViewStyle;
 	scrollDisabled?: boolean;
 };
 
 export default ({
 	children,
+	containerStyle = {},
 	scrollDisabled = false,
 }: Props) => {
 
 	return (
-		<View style={styles.container}>
+		<View style={[ styles.container, containerStyle ]}>
 			<SafeAreaView style={styles.container}>
 
 				<ScrollWrapper scrollDisabled={scrollDisabled}>

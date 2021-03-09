@@ -5,9 +5,9 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
+		paddingHorizontal: 16,
 	},
 	titleContainer: {
-		marginTop: 23,
 		marginBottom: 20,
 	},
 	headline: {
