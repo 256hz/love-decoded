@@ -3,6 +3,7 @@ export { CardCarousel } from './CardCarousel';
 export { DrawerDots } from './DrawerDots';
 export { HeaderBackButton } from './HeaderBackButton';
 export { HeaderOpenButton } from './HeaderOpenButton';
+export { ListTextInput } from './ListTextInput';
 export { MultiSelectSurvey } from './MultiSelectSurvey';
 export { NeffSurveyScreen } from './NeffSurveyScreen';
 export { OnboardingScreen } from './OnboardingScreen';

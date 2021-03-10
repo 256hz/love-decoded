@@ -1,13 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
-import { StepScreen } from 'elements';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { StepScreens } from 'route/enums';
 import { getUserProgress } from '@redux/selector';
 import { Activity } from '@redux/types/user';
-import { StepScreens } from 'route/enums';
-import ActivityCard from './ActivityCard';
+import { StepScreen } from '@elements';
 import { ActivityStatus } from './ActivityCard/ActivityCard';
+import ActivityCard from './ActivityCard';
 import styles from './DayOverview.styles';
 
 const getStatus = (currentActivity: Activity, thisActivity: Activity) => {
@@ -50,7 +50,7 @@ export default () => {
 				<ActivityCard
 					title="Activities"
 					subtitle="Afternoon"
-					onPress={() => navigate(StepScreens.Intention)}
+					onPress={() => navigate(StepScreens.Activities)}
 					status={getStatus(currentActivity, 2)}
 				/>
 

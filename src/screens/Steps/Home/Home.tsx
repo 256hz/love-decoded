@@ -15,7 +15,7 @@ export default () => {
 	const { currentActivity, currentDay, currentStep } = useSelector(getUserProgress);
 	const firstName = useSelector(getUserFirstName);
 	// currentActivity is 1-indexed to match day/step
-	const progress = (currentActivity as number - 1) * 25;
+	const progress = (currentActivity - 1) * 25;
 
 	return (
 		<StepScreen>
@@ -29,7 +29,7 @@ export default () => {
 
 				<View style={styles.subtitleContainer}>
 					<Text style={styles.subtitle}>
-						{'Today\'s Progress'}
+						Today's Progress
 					</Text>
 				</View>
 
@@ -42,7 +42,7 @@ export default () => {
 					</Text>
 				</View>
 
-				<ProgressBar progress={progress || 2} />
+				<ProgressBar progress={progress} />
 
 				<CourseButton onPress={onPress} />
 			</View>
@@ -50,7 +50,7 @@ export default () => {
 	);
 };
 
-const ProgressBar = ({ progress }) => (
+const ProgressBar = ({ progress }: { progress: number }) => (
 	<View style={styles.progressBarContainer}>
 		<View style={styles.emptyProgressBar} />
 		<View style={[ styles.progress, {
@@ -61,7 +61,7 @@ const ProgressBar = ({ progress }) => (
 	</View>
 );
 
-const CourseButton = ({ onPress }) => (
+const CourseButton = ({ onPress }: { onPress: () => void }) => (
 	<View style={styles.buttonContainer}>
 		<TouchableOpacity onPress={onPress}>
 			<View style={styles.courseButton}>

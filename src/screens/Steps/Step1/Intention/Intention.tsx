@@ -5,8 +5,6 @@ import { StepScreens } from 'route/enums';
 import styles from './Intention.styles';
 
 export default () => {
-	const title = 'Discovering Your Lovable Qualities';
-	const subtitle = 'Intention';
 	const [ howAreYouFeeling, setHowAreYouFeeling ] = useState(1);
 
 	console.log(howAreYouFeeling);
@@ -14,16 +12,12 @@ export default () => {
 	return (
 		<StepScreen
 			audioFilename="one_second_silence.mp3"
+			hideHeader
 			nextTarget={StepScreens.GoodJob}
-			// TODO: why
-			containerStyle={{ paddingTop: -44 }}
+			title="Discovering Your Lovable Qualities"
+			subtitle="Intention"
 		>
 			<View>
-				<View style={styles.titleContainer}>
-					<Text style={styles.titleText}>{title}</Text>
-					<Text style={styles.subtitleText}>{subtitle}</Text>
-				</View>
-
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={[ styles.bodyText, { textAlign: 'center' } ]}>

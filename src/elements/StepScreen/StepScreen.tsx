@@ -1,7 +1,6 @@
 import React, { ReactChild } from 'react';
-import { View, ViewStyle } from 'react-native';
+import { Text, View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StepScreens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import styles from './StepScreen.styles';
@@ -12,12 +11,15 @@ type Props = {
 	audioFilename?: string;
 	backTarget?: StepScreens;
 	hideBackButton?: boolean;
+	hideHeader?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: () => void;
 	onPressNext?: () => void;
 	nextEnabled?: boolean;
 	nextTarget?: StepScreens;
 	scrollDisabled?: boolean;
+	title?: string;
+	subtitle?: string;
 };
 
 export default ({
@@ -27,15 +29,29 @@ export default ({
 	scrollDisabled = false,
 	backTarget,
 	hideBackButton,
+	hideHeader,
 	hideNextButton,
 	onAudioEnd,
 	onPressNext,
 	nextEnabled,
 	nextTarget,
+	title,
+	subtitle,
 }: Props) => {
 	console.log(containerStyle);
 	return (
-		<SafeAreaView style={[ styles.container, containerStyle ]}>
+		<View
+			style={[ styles.container, containerStyle ]}
+		>
+			{ title && (
+				// create titleRightElement for infoBubble
+				<View style={styles.titleContainer}>
+					<Text style={styles.titleText}>{title}</Text>
+					{ subtitle && (
+						<Text style={styles.subtitleText}>{subtitle}</Text>
+					)}
+				</View>
+			)}
 
 			<ScrollWrapper scrollDisabled={scrollDisabled}>
 				{children}
@@ -53,7 +69,7 @@ export default ({
 					nextTarget={nextTarget}
 				/>
 			)}
-		</SafeAreaView>
+		</View>
 	);
 };
 

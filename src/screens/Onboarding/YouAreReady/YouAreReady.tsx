@@ -2,7 +2,7 @@ import { OnboardingScreen } from 'elements';
 import React from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { changeStack } from 'util/navigation';
+import { resetRoot } from 'util/navigation';
 import { RootStacks } from 'route/enums';
 import styles from './YouAreReady.styles';
 
@@ -31,7 +31,7 @@ export default () => (
 			<Text style={styles.headlineText}>
 				{'You Are Ready\nFor Step 1'}
 			</Text>
-			<EnterButton onPress={() => changeStack(RootStacks.HomeTabs)} />
+			<EnterButton onPress={() => resetRoot(RootStacks.HomeTabs)} />
 		</View>
 	</OnboardingScreen>
 );

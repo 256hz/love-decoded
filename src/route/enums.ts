@@ -54,6 +54,8 @@ export enum OnboardingScreens {
 export enum StepScreens {
 	Home = 'Home',
 	DayOverview = 'DayOverview',
-	Intention = 'Intention',
 	GoodJob = 'GoodJob',
+	Step1Intention = 'Step1Intention',
+	Step1Activities1 = 'Step1Activities1',
+	Step1Activities2 = 'Step1Activities2',
 }
