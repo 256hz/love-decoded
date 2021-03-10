@@ -30,17 +30,18 @@ export {
 } from './contacts';
 
 export {
+	clearModal,
+	setModal,
+} from './modal';
+
+export {
 	setNeffSurveyResponse,
 	setSurveyResponse,
 } from './survey';
 
 export {
+	advanceUserActivity,
 	setUserProperty,
 	logIn,
 	logOut,
 } from './user';
-
-export {
-	clearModal,
-	setModal,
-} from './modal';
