@@ -7,15 +7,10 @@ import styles from './Intention.styles';
 export default () => {
 	const [ howAreYouFeeling, setHowAreYouFeeling ] = useState(1);
 
-	console.log(howAreYouFeeling);
-
 	return (
 		<StepScreen
 			audioFilename="one_second_silence.mp3"
-			hideHeader
 			nextTarget={StepScreens.GoodJob}
-			title="Discovering Your Lovable Qualities"
-			subtitle="Intention"
 		>
 			<View>
 				<View style={styles.bodyContainer}>

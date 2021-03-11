@@ -11,19 +11,4 @@ export default StyleSheet.create({
 	childrenContainer: {
 		flexGrow: 1,
 	},
-	titleContainer: {
-		paddingHorizontal: 23,
-		backgroundColor: colors.GrayF3,
-	},
-	titleText: {
-		...text.body,
-		...text.bold,
-		fontSize: 18,
-		marginBottom: 14,
-	},
-	subtitleText: {
-		...text.body,
-		fontSize: 17,
-		marginBottom: 27,
-	},
 });

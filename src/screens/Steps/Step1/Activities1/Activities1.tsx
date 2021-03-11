@@ -2,22 +2,25 @@ import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
+import Info from '@assets/svg/info.svg';
 import { StepScreens } from 'route/enums';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './Activities1.styles';
 
 export default () => {
 	const [ listOfLovableQualities, setListOfLovableQualities ] = useState(SingleBullet);
 
+	const onPressInfoBubble = () => {
+
+	};
+
 	return (
 		<StepScreen
 			hideHeader
 			nextTarget={StepScreens.Step1Activities2}
-			title="List of Lovable Qualities"
-			subtitle="Activities"
 			// scrollDisabled
 		>
 			<View style={styles.container}>
-
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
@@ -25,14 +28,20 @@ export default () => {
 						</Text>
 					</View>
 
-					<View style={styles.textItemContainer}>
+					<View style={[ styles.textItemContainer, styles.row ]}>
 						<Text style={styles.bodyText}>
 							Keep adding to your list and learning it.
 						</Text>
+
+						<TouchableOpacity onPress={onPressInfoBubble}>
+							<View style={styles.infoBubble}>
+								<Info />
+							</View>
+						</TouchableOpacity>
 					</View>
 
 					<ListTextInput
-						containerStyle={{ marginBottom: 32 }}
+						containerStyle={styles.textInputContainer}
 						text={listOfLovableQualities}
 						setText={setListOfLovableQualities}
 					/>

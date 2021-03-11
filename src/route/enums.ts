@@ -58,4 +58,5 @@ export enum StepScreens {
 	Step1Intention = 'Step1Intention',
 	Step1Activities1 = 'Step1Activities1',
 	Step1Activities2 = 'Step1Activities2',
+	Step1Activities3 = 'Step1Activities3',
 }

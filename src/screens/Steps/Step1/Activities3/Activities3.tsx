@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import { StepScreens } from 'route/enums';
-import styles from './Activities2.styles';
+import styles from './Activities3.styles';
 
 export default () => {
 	const [ missingQualities, setMissingQualities ] = useState(SingleBullet);
@@ -11,7 +11,8 @@ export default () => {
 
 	return (
 		<StepScreen
-			nextTarget={StepScreens.Step1Activities3}
+			audioFilename="one_second_silence.mp3"
+			nextTarget={StepScreens.Step1Activities2}
 			// scrollDisabled
 		>
 			<View style={styles.container}>
@@ -19,27 +20,11 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-							Which loveable qualities do others think are missing from your list?
+							Invite feedback from friends and family every day. You will spend one week on this step. Sharing your list helps you learn.
 						</Text>
 					</View>
 
-					<ListTextInput
-						containerStyle={{ marginBottom: 16 }}
-						text={missingQualities}
-						setText={setMissingQualities}
-					/>
-
-					<View style={styles.textItemContainer}>
-						<Text style={styles.bodyText}>
-							Which loveable qualities on your list do others not agree with?
-						</Text>
-					</View>
-
-					<ListTextInput
-						containerStyle={{ marginBottom: 16 }}
-						text={disagreeQualities}
-						setText={setDisagreeQualities}
-					/>
+					<View style={styles.shareContainer} />
 				</View>
 			</View>
 		</StepScreen>

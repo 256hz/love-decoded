@@ -11,15 +11,12 @@ type Props = {
 	audioFilename?: string;
 	backTarget?: StepScreens;
 	hideBackButton?: boolean;
-	hideHeader?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: () => void;
 	onPressNext?: () => void;
 	nextEnabled?: boolean;
 	nextTarget?: StepScreens;
 	scrollDisabled?: boolean;
-	title?: string;
-	subtitle?: string;
 };
 
 export default ({
@@ -29,29 +26,16 @@ export default ({
 	scrollDisabled = false,
 	backTarget,
 	hideBackButton,
-	hideHeader,
 	hideNextButton,
 	onAudioEnd,
 	onPressNext,
 	nextEnabled,
 	nextTarget,
-	title,
-	subtitle,
 }: Props) => {
-	console.log(containerStyle);
 	return (
 		<View
 			style={[ styles.container, containerStyle ]}
 		>
-			{ title && (
-				// create titleRightElement for infoBubble
-				<View style={styles.titleContainer}>
-					<Text style={styles.titleText}>{title}</Text>
-					{ subtitle && (
-						<Text style={styles.subtitleText}>{subtitle}</Text>
-					)}
-				</View>
-			)}
 
 			<ScrollWrapper scrollDisabled={scrollDisabled}>
 				{children}

@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-	View, Text, ViewStyle, Keyboard,
+	Keyboard,
+	View,
+	ViewStyle,
 } from 'react-native';
-import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import Info from '@assets/svg/info.svg';
+import { TextInput } from 'react-native-gesture-handler';
 import styles from './ListTextInput.styles';
 
 export const SingleBullet = '  \u2022 ';
@@ -55,15 +56,6 @@ export default ({
 				textAlignVertical="top"
 				value={text}
 			/>
-
-			{ showInfoBubble && (
-				// move to stepscreen
-				<TouchableOpacity onPress={onPressInfoBubble}>
-					<View style={styles.infoBubble}>
-						<Info />
-					</View>
-				</TouchableOpacity>
-			)}
 		</View>
 	);
 };

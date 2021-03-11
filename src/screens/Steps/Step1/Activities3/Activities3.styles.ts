@@ -12,22 +12,14 @@ export default StyleSheet.create({
 	bodyText: {
 		...text.body,
 	},
-	boldText: {
-		...text.body,
-		...text.bold,
-	},
 	textItemContainer: {
-		marginBottom: 18,
+		marginBottom: 24,
+		marginTop: 8,
 	},
-	row: {
-		flexDirection: 'row',
-		justifyContent: 'space-between',
+	shareContainer: {
+		flex: 1,
+		justifyContent: 'center',
 		alignItems: 'center',
 	},
-	textInputContainer: {
-		marginBottom: 32,
-	},
-	infoBubble: {
-		padding: 15,
-	},
+
 });

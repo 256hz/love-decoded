@@ -22,10 +22,4 @@ export default StyleSheet.create({
 			width: 0,
 		},
 	},
-	infoBubble: {
-		position: 'absolute',
-		bottom: 0,
-		right: 0,
-		padding: 15,
-	},
 });
