@@ -1,6 +1,5 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { ReactChild } from 'react';
+import { View } from 'react-native';
 import BackButton from './BackButton';
 import DrawerButton from './DrawerButton';
 import styles from './Header.styles';
@@ -30,22 +29,14 @@ type Props = {
 };
 
 export default ({ navigation, type, headerProps }: Props) => {
-	const headerComponent = (() => {
-		switch (type) {
-			case HeaderType.Back:
-				return <BackButton navigation={navigation} />;
-			case HeaderType.Drawer:
-				return <DrawerButton navigation={navigation} />;
-			case HeaderType.Title:
-				return <TitleText title={headerProps?.title} subtitle={headerProps?.subtitle} />;
-			default:
-				return <></>;
-		}
-	})();
-
-	return (
-		<View style={styles.container}>
-			{ headerComponent }
-		</View>
-	);
+	switch (type) {
+		case HeaderType.Back:
+			return <BackButton navigation={navigation} />;
+		case HeaderType.Drawer:
+			return <DrawerButton navigation={navigation} />;
+		case HeaderType.Title:
+			return <TitleText title={headerProps?.title} subtitle={headerProps?.subtitle} />;
+		default:
+			return <></>;
+	}
 };

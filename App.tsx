@@ -8,8 +8,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootStack from 'route/RootStack';
 import getStore from 'redux/getStore';
 import Modals from '@elements/Modals';
+import colors from 'elements/globalStyles/color';
 
 export const { store, persistor } = getStore();
+
+StatusBar.setBackgroundColor(colors.GrayTransparent028);
+StatusBar.setTranslucent(true);
 
 const App = () => (
 	<Provider store={store}>

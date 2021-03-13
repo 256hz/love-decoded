@@ -1,21 +1,29 @@
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
+import colors from 'elements/globalStyles/color';
+
+export const TITLE_HEADER_HEIGHT = 150 - (StatusBar.currentHeight || 0);
 
 export default StyleSheet.create({
+	titleHeader: {
+		height: TITLE_HEADER_HEIGHT,
+		backgroundColor: colors.GrayF3,
+	},
 	titleContainer: {
-		padding: 23,
+		flex: 1,
+		alignItems: 'flex-start',
+		paddingLeft: 23,
+		paddingTop: 23,
 	},
 	titleText: {
 		...text.body,
 		...text.bold,
 		fontSize: 18,
-		textAlign: 'left',
 		marginBottom: 14,
 	},
 	subtitleText: {
 		...text.body,
 		fontSize: 17,
-		textAlign: 'left',
 		marginBottom: 27,
 	},
 });

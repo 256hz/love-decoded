@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
-import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import { StepScreens } from 'route/enums';
 import styles from './Activities3.styles';
 
 export default () => {
-	const [ missingQualities, setMissingQualities ] = useState(SingleBullet);
-	const [ disagreeQualities, setDisagreeQualities ] = useState(SingleBullet);
 
 	return (
 		<StepScreen
 			audioFilename="one_second_silence.mp3"
-			nextTarget={StepScreens.Step1Activities2}
+			nextTarget={StepScreens.GoodJob}
 			// scrollDisabled
 		>
 			<View style={styles.container}>

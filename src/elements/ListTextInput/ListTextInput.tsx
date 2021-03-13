@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
 	Keyboard,
 	View,
@@ -11,9 +11,7 @@ export const SingleBullet = '  \u2022 ';
 
 type Props = {
 	containerStyle?: ViewStyle;
-	onPressInfoBubble?: () => void;
 	setText: (arg: string) => void;
-	showInfoBubble?: boolean;
 	style?: ViewStyle;
 	text: string;
 };
@@ -23,34 +21,26 @@ export default ({
 	setText,
 	style,
 	containerStyle,
-	showInfoBubble,
-	onPressInfoBubble,
 }: Props) => {
-	const onKeyPress = ({ nativeEvent: { key } }) => {
-		if (key === 'Enter') {
-			setText(`${text}\n  \u2022 `);
+	const onChangeText = (newText: string) => {
+		if (newText.length === 0) {
+			setText(SingleBullet);
 			return;
 		}
 
-		if (key.match(/^[\w -"':;,.\(\)\{\}\[\]\\\/]$/)) {
-			setText(`${text}${key}`);
-			return;
-		}
+		const lastCharacter = newText[newText.length - 1];
+		const isAddingBullet = newText.length > text.length;
 
-		if (key === 'Backspace') {
-			setText(text.substr(0, text.length - 1));
-
-			if (text.replace(' ', '') === '') {
-				setText(SingleBullet);
-			}
-		}
+		lastCharacter === '\n' && isAddingBullet
+			? setText(`${newText}${SingleBullet}`)
+			: setText(newText);
 	};
 
 	return (
 		<View style={[ styles.container, containerStyle ]}>
 			<TextInput
 				multiline
-				onKeyPress={onKeyPress}
+				onChangeText={onChangeText}
 				onBlur={Keyboard.dismiss}
 				style={[ styles.textInput, style ]}
 				textAlignVertical="top"

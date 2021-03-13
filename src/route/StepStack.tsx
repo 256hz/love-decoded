@@ -23,14 +23,17 @@ export default ({ navigation }) => (
 	<StepStack.Navigator
 		mode="card"
 		headerMode="float"
-		initialRouteName={StepScreens.Step1Activities1}
+		initialRouteName={StepScreens.Home}
 		screenOptions={{ headerStyle }}
 	>
-		<StepStack.Screen name={StepScreens.Home} component={HomeScreen} options={DrawerHeader(navigation)} />
-		<StepStack.Screen name={StepScreens.DayOverview} component={DayOverviewScreen} options={BackHeader(navigation)} />
+		<StepStack.Screen name={StepScreens.Home} component={HomeScreen}
+			options={{ ...DrawerHeader(navigation), gestureEnabled: false }} />
+		<StepStack.Screen name={StepScreens.DayOverview} component={DayOverviewScreen}
+			options={BackHeader(navigation)} />
 		<StepStack.Screen name={StepScreens.Step1Intention} component={IntentionScreen}
 			options={TitleHeader('Discovering Your Lovable Qualities', 'Intention')} />
-		<StepStack.Screen name={StepScreens.GoodJob} component={GoodJobScreen} options={EmptyHeader()} />
+		<StepStack.Screen name={StepScreens.GoodJob} component={GoodJobScreen}
+			options={EmptyHeader()} />
 		<StepStack.Screen name={StepScreens.Step1Activities1} component={Step1Activities1Screen}
 			options={TitleHeader('List of Lovable Qualities', 'Activities')} />
 		<StepStack.Screen name={StepScreens.Step1Activities2} component={Step1Activities2Screen}

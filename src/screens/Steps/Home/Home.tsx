@@ -1,14 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress } from '@redux/selector';
 import { StepScreens } from 'route/enums';
+import { logOut } from 'redux/action';
 import styles from './Home.styles';
 
+
 export default () => {
+	const dispatch = useDispatch();
+	// dispatch(logOut());
 	const { navigate } = useNavigation();
 	const onPress = () => navigate(StepScreens.DayOverview);
 
@@ -29,7 +33,7 @@ export default () => {
 
 				<View style={styles.subtitleContainer}>
 					<Text style={styles.subtitle}>
-						Today's Progress
+						{'Today\'s Progress'}
 					</Text>
 				</View>
 

@@ -1,23 +1,18 @@
 import React from 'react';
-import { Dimensions, ViewStyle } from 'react-native';
-import colors from '@elements/globalStyles/color';
 import Header, { HeaderType } from './Header';
+import styles from './Header.styles';
+import titleStyles from './Title/Title.styles';
 
-export const headerStyle: ViewStyle = {
-	backgroundColor: colors.GrayFB,
-	shadowColor: 'transparent',
-	borderBottomWidth: 0,
-	borderBottomColor: 'transparent',
-	elevation: 0,
-	height: 100,
-};
+export const headerStyle = [ styles.defaultHeader, styles.removeBottomBorder ];
 
 export const BackHeader = navigation => ({
 	headerLeft: () => <Header type={HeaderType.Back} navigation={navigation} />,
+	headerTitle: () => <></>,
 });
 
 export const DrawerHeader = navigation => ({
 	headerLeft: () => <Header type={HeaderType.Drawer} navigation={navigation} />,
+	headerTitle: () => <></>,
 });
 
 export const EmptyHeader = () => ({
@@ -25,8 +20,8 @@ export const EmptyHeader = () => ({
 });
 
 export const TitleHeader = (title?: string, subtitle?: string) => ({
-	headerLeft: () => <></>,
-	headerStyle: { height: 150 },
-	headerTitle: () => <Header type={HeaderType.Title} headerProps={{ title, subtitle }} />,
-	headerTitleContainerStyle: { width: '100%' },
+	headerLeft: () => <Header type={HeaderType.Title} headerProps={{ title, subtitle }} />,
+	headerStyle: [ titleStyles.titleHeader, styles.removeBottomBorder ],
+	headerTitle: () => <></>,
+	headerTitleContainerStyle: styles.emptyContainer,
 });

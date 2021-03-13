@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabIcon } from '@elements/TabIcon';
 import Journal from 'screens/Steps/Journal';
 import Faq from 'screens/Steps/Faq';
 import EmotionalReset from 'screens/Steps/EmotionalReset';
+import { EmitterSubscription, Keyboard, Platform } from 'react-native';
 import StepStack from './StepStack';
 import styles from './HomeTabs.styles';
 
@@ -21,6 +22,8 @@ type TabParamList = {
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export default () => {
+	const visible = useTabBarVisibility();
+
 	return (
 		<Tab.Navigator
 			initialRouteName={TabNames.HomeScreen}
@@ -34,9 +37,9 @@ export default () => {
 				),
 			})}
 			tabBarOptions={{
-				keyboardHidesTabBar: true,
+				keyboardHidesTabBar: Platform.select({ android: true }),
 				showLabel: false,
-				style: styles.tabBar,
+				style: [ styles.tabBar, !visible && { width: 0, height: 0 } ],
 			}}
 		>
 			<Tab.Screen
@@ -57,4 +60,28 @@ export default () => {
 			/>
 		</Tab.Navigator>
 	);
+};
+
+const useTabBarVisibility = () => {
+	const [ visible, setVisible ] = useState(true);
+	const keyboardEventListeners = useRef<EmitterSubscription[]>([]);
+
+	useEffect(() => {
+		const listeners = keyboardEventListeners.current;
+
+		if (Platform.OS === 'android') {
+			listeners?.push(
+				Keyboard.addListener('keyboardDidShow', () =>
+					setVisible(false),
+				),
+			);
+			listeners?.push(
+				Keyboard.addListener('keyboardDidHide', () => setVisible(true)),
+			);
+		}
+
+		return () => listeners && listeners.forEach((event) => event.remove());
+	}, []);
+
+	return visible;
 };

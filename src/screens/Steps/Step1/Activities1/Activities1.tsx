@@ -11,13 +11,13 @@ export default () => {
 	const [ listOfLovableQualities, setListOfLovableQualities ] = useState(SingleBullet);
 
 	const onPressInfoBubble = () => {
-
+		console.log('info');
 	};
 
 	return (
 		<StepScreen
-			hideHeader
 			nextTarget={StepScreens.Step1Activities2}
+			audioFilename="one_second_silence.mp3"
 			// scrollDisabled
 		>
 			<View style={styles.container}>
