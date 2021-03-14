@@ -66,4 +66,5 @@ export enum StepScreens {
 	Step1Activities1 = 'Step1Activities1',
 	Step1Activities2 = 'Step1Activities2',
 	Step1Activities3 = 'Step1Activities3',
+	Step1Survey = 'Step1Survey',
 }
