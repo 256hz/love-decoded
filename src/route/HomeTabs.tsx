@@ -1,18 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
-import Journal from 'screens/Steps/Journal';
-import Faq from 'screens/Steps/Faq';
-import EmotionalReset from 'screens/Steps/EmotionalReset';
+import Journal from '@screens/Steps/Journal';
+import Faq from '@screens/Steps/Faq';
+import EmotionalReset from '@screens/Steps/EmotionalReset';
 import StepStack from './StepStack';
 import styles from './HomeTabs.styles';
-
-export enum TabNames {
-	HomeScreen = 'Home',
-	JournalScreen = 'Journal',
-	FAQScreen = 'FAQ',
-	ResetScreen = 'Emotional Reset',
-}
 
 type TabParamList = {
 	[key in TabNames]: undefined;
@@ -21,6 +15,7 @@ type TabParamList = {
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export default () => {
+
 	return (
 		<Tab.Navigator
 			initialRouteName={TabNames.HomeScreen}

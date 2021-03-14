@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { HowAreYouFeelingResponse } from 'redux/types/survey';
 import Slider from 'rn-range-slider';
 import styles from './Slider.styles';
 
@@ -15,7 +16,12 @@ const RailSelected = () => (
 	<View style={styles.railSelected} />
 );
 
-export default ({ onValueChanged }) => {
+type Props = {
+	onValueChanged: () => void;
+	value: HowAreYouFeelingResponse;
+};
+
+export default ({ onValueChanged, value }) => {
 	const sliderLabels = Array.from({ length: 10 }, (_, i) => i + 1);
 
 	return (
@@ -23,6 +29,7 @@ export default ({ onValueChanged }) => {
 			<Slider
 				disableRange
 				onValueChanged={onValueChanged}
+				low={value}
 				min={1}
 				max={10}
 				step={1}

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
 import { resetAudioPlayer } from '@redux/action';
@@ -11,10 +11,10 @@ import styles from './NavButtons.styles';
 
 interface Props {
 	backEnabled?: boolean;
-	backTarget?: OnboardingScreens;
+	backTarget?: OnboardingScreens | StepScreens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
-	nextTarget: OnboardingScreens;
+	nextTarget: OnboardingScreens | StepScreens;
 	nextEnabled: boolean;
 	onPressBack?: (arg?: any) => void;
 	onPressNext?: (arg?: any) => void;

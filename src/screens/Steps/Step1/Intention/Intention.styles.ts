@@ -5,21 +5,6 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 	},
-	titleContainer: {
-		paddingHorizontal: 23,
-		backgroundColor: colors.GrayF3,
-	},
-	titleText: {
-		...text.body,
-		...text.bold,
-		fontSize: 18,
-		marginBottom: 14,
-	},
-	subtitleText: {
-		...text.body,
-		fontSize: 17,
-		marginBottom: 27,
-	},
 	bodyContainer: {
 		flex: 1,
 		padding: 22,

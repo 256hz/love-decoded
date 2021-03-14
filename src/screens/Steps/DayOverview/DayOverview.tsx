@@ -1,13 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
-import { StepScreen } from 'elements';
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { StepScreens } from 'route/enums';
 import { getUserProgress } from '@redux/selector';
 import { Activity } from '@redux/types/user';
-import { StepScreens } from 'route/enums';
-import ActivityCard from './ActivityCard';
+import { StepScreen } from '@elements';
 import { ActivityStatus } from './ActivityCard/ActivityCard';
+import ActivityCard from './ActivityCard';
 import styles from './DayOverview.styles';
 
 const getStatus = (currentActivity: Activity, thisActivity: Activity) => {
@@ -43,28 +43,28 @@ export default () => {
 				<ActivityCard
 					title="Intention"
 					subtitle="Morning"
-					onPress={() => navigate(StepScreens.Intention)}
+					onPress={() => navigate(StepScreens.Step1Intention)}
 					status={getStatus(currentActivity, 1)}
 				/>
 
 				<ActivityCard
 					title="Activities"
 					subtitle="Afternoon"
-					onPress={() => navigate(StepScreens.Intention)}
+					onPress={() => navigate(StepScreens.Step1Activities1)}
 					status={getStatus(currentActivity, 2)}
 				/>
 
 				<ActivityCard
 					title="Survey"
 					subtitle="Evening"
-					onPress={() => navigate(StepScreens.Intention)}
+					onPress={() => navigate(StepScreens.Step1Intention)}
 					status={getStatus(currentActivity, 3)}
 				/>
 
 				<ActivityCard
 					title="Reflection"
 					subtitle="Bedtime"
-					onPress={() => navigate(StepScreens.Intention)}
+					onPress={() => navigate(StepScreens.Step1Intention)}
 					status={getStatus(currentActivity, 4)}
 				/>
 			</View>

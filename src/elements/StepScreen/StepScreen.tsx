@@ -1,7 +1,6 @@
 import React, { ReactChild } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StepScreens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import styles from './StepScreen.styles';
@@ -33,9 +32,8 @@ export default ({
 	nextEnabled,
 	nextTarget,
 }: Props) => {
-	console.log(containerStyle);
 	return (
-		<SafeAreaView style={[ styles.container, containerStyle ]}>
+		<View style={[ styles.container, containerStyle ]}>
 
 			<ScrollWrapper scrollDisabled={scrollDisabled}>
 				{children}
@@ -53,7 +51,7 @@ export default ({
 					nextTarget={nextTarget}
 				/>
 			)}
-		</SafeAreaView>
+		</View>
 	);
 };
 

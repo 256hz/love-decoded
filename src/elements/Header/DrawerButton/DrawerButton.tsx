@@ -1,8 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { DrawerDots } from '@elements';
-import styles from './HeaderOpenButton.styles';
+import { DrawerDots } from '@elements/DrawerDots';
+import styles from './DrawerButton.styles';
 
 export default ({ navigation }) => (
 	<TouchableOpacity onPress={navigation?.openDrawer}>

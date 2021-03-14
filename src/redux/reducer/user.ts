@@ -56,9 +56,9 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 
 		return ({
 			...state,
-			[UserProperty.CURRENT_ACTIVITY]: advanceDay ? 1 : (activity + 1) as Activity,
-			[UserProperty.CURRENT_DAY]: advanceDay && advanceStep ? 1 : advanceDay ? (day + 1) as Day : day,
-			[UserProperty.CURRENT_STEP]: advanceStep && advanceCourse ? 1 : advanceStep ? (step + 1) as Step : step,
+			[UserProperty.CURRENT_ACTIVITY]: advanceDay ? 1 : activity + 1 as Activity,
+			[UserProperty.CURRENT_DAY]: advanceDay && advanceStep ? 1 : advanceDay ? day + 1 as Day : day,
+			[UserProperty.CURRENT_STEP]: advanceStep && advanceCourse ? 1 : advanceStep ? step + 1 as Step : step,
 			[UserProperty.CURRENT_COURSE]: advanceCourse ? (course || 1 + 1) as Course : course,
 		});
 	});

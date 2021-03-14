@@ -8,6 +8,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingHorizontal: 32,
+		backgroundColor: colors.White,
 	},
 	checkCircleContainer: {
 		height: 95,

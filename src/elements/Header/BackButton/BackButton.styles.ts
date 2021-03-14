@@ -4,7 +4,7 @@ export default StyleSheet.create({
 	container: {
 		height: '100%',
 		justifyContent: 'center',
-		paddingHorizontal: 32,
+		paddingHorizontal: 23,
 	},
 });
 

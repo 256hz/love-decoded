@@ -9,8 +9,8 @@ import {
 	View,
 } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setSurveyResponse } from 'redux/action';
-import { getSurveyByTitle } from 'redux/selector';
+import { setOnboardingSurveyResponse } from 'redux/action';
+import { getOnboardingSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';
 
 import styles from './WhatWouldILikeToLearn.styles';
@@ -35,7 +35,7 @@ type KAVBehavior = KeyboardAvoidingViewProps['behavior'];
 export default () => {
 	const dispatch = useDispatch();
 
-	const surveyResponse = useSelector(getSurveyByTitle(Surveys.WhatWouldILikeToLearn)) as string[] || [];
+	const surveyResponse = useSelector(getOnboardingSurveyByTitle(Surveys.WhatWouldILikeToLearn)) as string[] || [];
 	const existingCustomSelection = surveyResponse.find(response => !options.includes(response)) || '';
 	const [ selections, setSelections ] = useState<string[]>(
 		(surveyResponse as string[]).filter(response => options.includes(response)),
@@ -61,7 +61,7 @@ export default () => {
 			response.push(customSelection);
 		}
 
-		dispatch(setSurveyResponse(Surveys.WhatWouldILikeToLearn, response));
+		dispatch(setOnboardingSurveyResponse(Surveys.WhatWouldILikeToLearn, response));
 	};
 
 	const kavBehavior = Platform.select({ ios: 'padding', android: undefined }) as KAVBehavior;

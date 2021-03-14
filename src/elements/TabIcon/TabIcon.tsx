@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { TabNames } from 'route/HomeTabs';
+import { TabNames } from 'route/enums';
 import Home from '@assets/svg/home.svg';
 import FAQ from '@assets/svg/faq.svg';
 import Journal1 from '@assets/svg/journal-1.svg';

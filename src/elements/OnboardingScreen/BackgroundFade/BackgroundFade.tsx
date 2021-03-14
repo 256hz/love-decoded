@@ -11,7 +11,7 @@ interface Props {
 export default ({ children = <></>, drawShapes = [] }: Props) => (
 	<>
 		<ImageBackground
-			source={require('@assets/png/default-background.png')}
+			source={require('@assets/png/onboarding-background.png')}
 			style={styles.background}
 			resizeMode="cover"
 		>
