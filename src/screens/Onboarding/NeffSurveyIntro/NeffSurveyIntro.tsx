@@ -8,7 +8,7 @@ import styles from './NeffSurveyIntro.styles';
 
 type SurveyButtonProps = {
 	onPress: () => void;
-	disabled: boolean;
+	disabled?: boolean;
 };
 
 const SurveyButton = ({ onPress, disabled }: SurveyButtonProps) => (
@@ -32,7 +32,12 @@ export default () => {
 			onAudioEnd={() => setNextDisabled(false)}
 			title={"The Purpose of\nNeff's Self-Compassion Scale"}
 			titleContainerStyle={styles.titleContainerStyle}
-			customButtons={<SurveyButton onPress={() => navigate(OnboardingScreens.NeffSurvey1)} />}
+			customButtons={
+				<SurveyButton
+					disabled={nextDisabled}
+					onPress={() => navigate(OnboardingScreens.NeffSurvey1)}
+				/>
+			}
 		>
 			<View style={styles.container}>
 				<Text style={styles.text}>

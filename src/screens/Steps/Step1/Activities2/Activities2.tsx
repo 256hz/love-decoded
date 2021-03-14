@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import { StepScreens } from 'route/enums';
+import { useDispatch, useSelector } from 'react-redux';
+import { setStepSurveyResponse } from 'redux/action';
+import { getUserProgress, getStepSurvey } from 'redux/selector';
+import {
+	Courses, Steps, DayFromNumber, Activities,
+} from 'redux/types/survey';
 import styles from './Activities2.styles';
 
 export default () => {
-	const [ missingQualities, setMissingQualities ] = useState(SingleBullet);
-	const [ disagreeQualities, setDisagreeQualities ] = useState(SingleBullet);
+	const dispatch = useDispatch();
+	const { currentDay } = useSelector(getUserProgress);
+	const missingResponse = useSelector(
+		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesOthersMissing),
+	);
+	const doNotAgreeResponse = useSelector(
+		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesOthersDoNotAgree),
+	);
+
+	const setResponse = (text: string, activity: Activities) => {
+		dispatch(setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], activity, text));
+	};
 
 	return (
 		<StepScreen
@@ -24,9 +40,9 @@ export default () => {
 					</View>
 
 					<ListTextInput
-						containerStyle={{ marginBottom: 16 }}
-						text={missingQualities}
-						setText={setMissingQualities}
+						containerStyle={styles.textInput}
+						text={missingResponse || SingleBullet}
+						setText={text => setResponse(text, Activities.LovableQualitiesOthersMissing)}
 					/>
 
 					<View style={styles.textItemContainer}>
@@ -36,9 +52,9 @@ export default () => {
 					</View>
 
 					<ListTextInput
-						containerStyle={{ marginBottom: 16 }}
-						text={disagreeQualities}
-						setText={setDisagreeQualities}
+						containerStyle={styles.textInput}
+						text={doNotAgreeResponse || SingleBullet}
+						setText={text => setResponse(text, Activities.LovableQualitiesOthersDoNotAgree)}
 					/>
 				</View>
 			</View>

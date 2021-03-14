@@ -1,5 +1,5 @@
 import React, { ReactChild } from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import { View, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StepScreens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
@@ -33,9 +33,7 @@ export default ({
 	nextTarget,
 }: Props) => {
 	return (
-		<View
-			style={[ styles.container, containerStyle ]}
-		>
+		<View style={[ styles.container, containerStyle ]}>
 
 			<ScrollWrapper scrollDisabled={scrollDisabled}>
 				{children}

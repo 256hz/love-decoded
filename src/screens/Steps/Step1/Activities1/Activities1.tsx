@@ -5,10 +5,25 @@ import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInp
 import Info from '@assets/svg/info.svg';
 import { StepScreens } from 'route/enums';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStepSurvey, getUserProgress } from 'redux/selector';
+import {
+	Activities, Courses, DayFromNumber, Steps,
+} from 'redux/types/survey';
+import { setStepSurveyResponse } from 'redux/action';
 import styles from './Activities1.styles';
 
 export default () => {
-	const [ listOfLovableQualities, setListOfLovableQualities ] = useState(SingleBullet);
+	const dispatch = useDispatch();
+
+	const { currentDay } = useSelector(getUserProgress);
+	const savedResponse = useSelector(
+		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesSelf),
+	);
+
+	const setResponse = (text: string) => {
+		dispatch(setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesSelf, text));
+	};
 
 	const onPressInfoBubble = () => {
 		console.log('info');
@@ -42,8 +57,8 @@ export default () => {
 
 					<ListTextInput
 						containerStyle={styles.textInputContainer}
-						text={listOfLovableQualities}
-						setText={setListOfLovableQualities}
+						text={savedResponse || SingleBullet}
+						setText={setResponse}
 					/>
 				</View>
 			</View>

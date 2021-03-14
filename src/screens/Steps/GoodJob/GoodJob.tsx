@@ -1,13 +1,12 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, Pressable } from 'react-native';
 import { StepScreens } from 'route/enums';
-import { resetRoot } from 'util/navigation';
 import Check from '@assets/svg/checkmark.svg';
 import { Activity } from '@redux/types/user';
 import { getUserProgress } from '@redux/selector';
-import { advanceUserActivity, logOut } from 'redux/action';
-import { useNavigation } from '@react-navigation/native';
+import { advanceUserActivity } from '@redux/action';
 import styles from './GoodJob.styles';
 
 const completedActivity = {
@@ -21,6 +20,7 @@ const nextActivity = {
 	[Activity.Morning]: 'Lunch-time',
 	[Activity.Afternoon]: 'Dinner-time',
 	[Activity.Evening]: 'Bedtime',
+	[Activity.Bedtime]: 'Breakfast',
 };
 
 export default () => {
@@ -31,15 +31,12 @@ export default () => {
 	const nextActivityText = nextActivity[currentActivity];
 
 	const onPressScreen = () => {
-		// dispatch(logOut());
 		dispatch(advanceUserActivity());
-		// resetRoot(StepScreens.Home);
 		navigate(StepScreens.Home);
 	};
 
 	return (
 		<Pressable onPress={onPressScreen} style={styles.container}>
-			{/* <View style={styles.container}> */}
 			<View style={styles.checkCircleContainer}>
 				<View style={styles.checkCircle} />
 
@@ -67,7 +64,6 @@ export default () => {
 			<Text style={styles.headlineText}>
 				Keep going! You got this!
 			</Text>
-			{/* </View> */}
 		</Pressable>
 	);
 };

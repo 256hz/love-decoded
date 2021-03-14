@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { Slider, StepScreen } from '@elements';
 import { StepScreens } from 'route/enums';
+import { Slider, StepScreen } from '@elements';
+import { getStepSurvey, getUserProgress } from '@redux/selector';
+import { setStepSurveyResponse } from '@redux/action';
+import {
+	Courses, DayFromNumber, HowAreYouFeelingResponse, Steps, Surveys,
+} from '@redux/types/survey';
 import styles from './Intention.styles';
 
 export default () => {
-	const [ howAreYouFeeling, setHowAreYouFeeling ] = useState(1);
+	const dispatch = useDispatch();
+	const { currentDay } = useSelector(getUserProgress);
+
+	const response = useSelector(getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Surveys.HowAreYouFeeling));
+
+	const setResponse = (number: HowAreYouFeelingResponse) => {
+		dispatch(setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], Surveys.HowAreYouFeeling, number));
+	};
 
 	return (
 		<StepScreen
@@ -21,7 +34,7 @@ export default () => {
 					</View>
 
 					<View style={styles.sliderContainer}>
-						<Slider onValueChanged={setHowAreYouFeeling} />
+						<Slider onValueChanged={setResponse} value={response} />
 					</View>
 
 					<Text style={styles.textItemContainer}>

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
+import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
@@ -8,6 +9,7 @@ export default StyleSheet.create({
 	bodyContainer: {
 		flex: 1,
 		padding: 22,
+		justifyContent: 'space-between',
 	},
 	bodyText: {
 		...text.body,
@@ -17,9 +19,16 @@ export default StyleSheet.create({
 		marginTop: 8,
 	},
 	shareContainer: {
-		flex: 1,
+		height: 189,
+		padding: 16,
+		borderRadius: 26,
+		backgroundColor: colors.GrayF3,
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+	},
+	shareItem: {
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
-
 });

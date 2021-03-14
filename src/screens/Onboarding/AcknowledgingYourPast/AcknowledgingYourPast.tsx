@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setSurveyResponse } from 'redux/action';
-import { getSurveyByTitle } from 'redux/selector';
+import { setOnboardingSurveyResponse } from 'redux/action';
+import { getOnboardingSurveyByTitle } from 'redux/selector';
 import { Surveys } from 'redux/types/survey';
 
 import styles from './AcknowledgingYourPast.styles';
@@ -26,7 +26,7 @@ const options = [
 export default () => {
 	const dispatch = useDispatch();
 
-	const surveyResponse = useSelector(getSurveyByTitle(Surveys.AcknowledgingYourPast)) as string[] || [];
+	const surveyResponse = useSelector(getOnboardingSurveyByTitle(Surveys.AcknowledgingYourPast)) as string[] || [];
 
 	const defaultSelection = surveyResponse.filter(response => options.includes(response));
 	const [ selections, setSelections ] = useState<string[]>(defaultSelection);
@@ -53,7 +53,7 @@ export default () => {
 			response.push(customSelection);
 		}
 
-		dispatch(setSurveyResponse(Surveys.AcknowledgingYourPast, response));
+		dispatch(setOnboardingSurveyResponse(Surveys.AcknowledgingYourPast, response));
 	};
 
 	return (

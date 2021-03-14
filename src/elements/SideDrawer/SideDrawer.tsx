@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { DrawerContentScrollView } from '@react-navigation/drawer';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Profile1 from '@assets/svg/drawer-profile-1.svg';
@@ -19,6 +19,8 @@ import LogOut1 from '@assets/svg/drawer-logout-1.svg';
 import LogOut2 from '@assets/svg/drawer-logout-2.svg';
 import Logo from '@assets/svg/logo-sm.svg';
 
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/action';
 import CloseDots from './CloseDots';
 import UserHeader from './UserHeader';
 import DrawerLink from './DrawerLink';
@@ -26,6 +28,11 @@ import styles from './SideDrawer.styles';
 
 export default (props) => {
 	const { navigation } = props;
+	const dispatch = useDispatch();
+	const onPressLogo = () => {
+		dispatch(logOut());
+		navigation.closeDrawer();
+	};
 
 	return (
 		<DrawerContentScrollView {...props}>
@@ -48,7 +55,9 @@ export default (props) => {
 				</View>
 
 				<View style={styles.footerContainer}>
-					<Logo />
+					<Pressable onPress={onPressLogo}>
+						<Logo />
+					</Pressable>
 				</View>
 			</SafeAreaView>
 		</DrawerContentScrollView>

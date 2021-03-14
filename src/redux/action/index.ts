@@ -35,8 +35,9 @@ export {
 } from './modal';
 
 export {
+	setOnboardingSurveyResponse,
 	setNeffSurveyResponse,
-	setSurveyResponse,
+	setStepSurveyResponse,
 } from './survey';
 
 export {

@@ -51,6 +51,13 @@ export enum OnboardingScreens {
 	YouAreReady = 'YouAreReady',
 }
 
+export enum TabNames {
+	HomeScreen = 'Home',
+	JournalScreen = 'Journal',
+	FAQScreen = 'FAQ',
+	ResetScreen = 'Emotional Reset',
+}
+
 export enum StepScreens {
 	Home = 'Home',
 	DayOverview = 'DayOverview',

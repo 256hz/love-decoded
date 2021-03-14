@@ -131,9 +131,7 @@ export default ({
 	})();
 
 	return (
-		<View style={[
-			styles.container,
-		]}>
+		<View style={styles.container}>
 			{ audioFilename
 				? (
 					<AudioPlayerBar

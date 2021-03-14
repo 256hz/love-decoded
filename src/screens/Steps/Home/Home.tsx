@@ -1,25 +1,22 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { StepScreens } from 'route/enums';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress } from '@redux/selector';
-import { StepScreens } from 'route/enums';
-import { logOut } from 'redux/action';
 import styles from './Home.styles';
 
 
 export default () => {
-	const dispatch = useDispatch();
-	// dispatch(logOut());
 	const { navigate } = useNavigation();
 	const onPress = () => navigate(StepScreens.DayOverview);
 
 	const { currentActivity, currentDay, currentStep } = useSelector(getUserProgress);
 	const firstName = useSelector(getUserFirstName);
-	// currentActivity is 1-indexed to match day/step
-	const progress = (currentActivity - 1) * 25;
+	// currentActivity is 1-indexed
+	const progressPercent = (currentActivity - 1) * 25;
 
 	return (
 		<StepScreen>
@@ -46,7 +43,7 @@ export default () => {
 					</Text>
 				</View>
 
-				<ProgressBar progress={progress} />
+				<ProgressBar progressPercent={progressPercent} />
 
 				<CourseButton onPress={onPress} />
 			</View>
@@ -54,13 +51,13 @@ export default () => {
 	);
 };
 
-const ProgressBar = ({ progress }: { progress: number }) => (
+const ProgressBar = ({ progressPercent }: { progressPercent: number }) => (
 	<View style={styles.progressBarContainer}>
 		<View style={styles.emptyProgressBar} />
 		<View style={[ styles.progress, {
-			width: `${progress}%`,
-			borderTopRightRadius: progress < 100 ? 0 : 6,
-			borderBottomRightRadius: progress < 100 ? 0 : 6,
+			width: `${progressPercent || 2}%`,
+			borderTopRightRadius: progressPercent < 100 ? 0 : 6,
+			borderBottomRightRadius: progressPercent < 100 ? 0 : 6,
 		} ]} />
 	</View>
 );

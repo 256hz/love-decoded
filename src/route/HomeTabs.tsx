@@ -1,19 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
-import Journal from 'screens/Steps/Journal';
-import Faq from 'screens/Steps/Faq';
-import EmotionalReset from 'screens/Steps/EmotionalReset';
-import { EmitterSubscription, Keyboard, Platform } from 'react-native';
+import Journal from '@screens/Steps/Journal';
+import Faq from '@screens/Steps/Faq';
+import EmotionalReset from '@screens/Steps/EmotionalReset';
 import StepStack from './StepStack';
 import styles from './HomeTabs.styles';
-
-export enum TabNames {
-	HomeScreen = 'Home',
-	JournalScreen = 'Journal',
-	FAQScreen = 'FAQ',
-	ResetScreen = 'Emotional Reset',
-}
 
 type TabParamList = {
 	[key in TabNames]: undefined;
@@ -22,7 +15,6 @@ type TabParamList = {
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export default () => {
-	const visible = useTabBarVisibility();
 
 	return (
 		<Tab.Navigator
@@ -37,9 +29,9 @@ export default () => {
 				),
 			})}
 			tabBarOptions={{
-				keyboardHidesTabBar: Platform.select({ android: true }),
+				keyboardHidesTabBar: true,
 				showLabel: false,
-				style: [ styles.tabBar, !visible && { width: 0, height: 0 } ],
+				style: styles.tabBar,
 			}}
 		>
 			<Tab.Screen
@@ -60,28 +52,4 @@ export default () => {
 			/>
 		</Tab.Navigator>
 	);
-};
-
-const useTabBarVisibility = () => {
-	const [ visible, setVisible ] = useState(true);
-	const keyboardEventListeners = useRef<EmitterSubscription[]>([]);
-
-	useEffect(() => {
-		const listeners = keyboardEventListeners.current;
-
-		if (Platform.OS === 'android') {
-			listeners?.push(
-				Keyboard.addListener('keyboardDidShow', () =>
-					setVisible(false),
-				),
-			);
-			listeners?.push(
-				Keyboard.addListener('keyboardDidHide', () => setVisible(true)),
-			);
-		}
-
-		return () => listeners && listeners.forEach((event) => event.remove());
-	}, []);
-
-	return visible;
 };
