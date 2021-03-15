@@ -5,8 +5,8 @@ import { OnboardingScreens } from 'route/enums';
 import { setOnboardingSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';
-import { Surveys } from 'redux/types/survey';
-import { getOnboardingSurveyByTitle } from 'redux/selector';
+import { Surveys } from '@redux/types/survey';
+import { getOnboardingSurveyByTitle } from '@redux/selector';
 import styles from './Dependency.styles';
 
 const radioButtons: IRadioButton[] = [

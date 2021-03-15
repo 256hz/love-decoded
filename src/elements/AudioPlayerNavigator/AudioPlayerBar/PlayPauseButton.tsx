@@ -12,7 +12,7 @@ interface Props {
 	isPlaying: boolean;
 }
 
-const HIDE_FOR_MS = 400;
+const HIDE_FOR_MS = 500;
 const SHOW_FOR_MS = 600;
 
 export default ({ isLoaded, isPlaying }: Props) => {

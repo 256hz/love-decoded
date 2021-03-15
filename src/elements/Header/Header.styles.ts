@@ -1,10 +1,9 @@
 import colors from 'elements/globalStyles/color';
-import { Platform, StatusBar, StyleSheet } from 'react-native';
-import { TITLE_HEADER_HEIGHT } from './Title/Title.styles';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	defaultHeader: {
-		backgroundColor: colors.GrayF3,
+		backgroundColor: colors.White,
 		height: 100,
 	},
 	removeBottomBorder: {

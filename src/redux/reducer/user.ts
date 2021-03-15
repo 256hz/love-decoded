@@ -7,48 +7,49 @@ import {
 	Step,
 	UserProperty,
 } from '@redux/types/user';
-import { setUserProperty, logOut, advanceUserActivity } from '@redux/action';
+import {
+	setUserProperty, logOut, advanceUserActivity, logIn,
+} from '@redux/action';
 
 export type UserState = {
-	[UserProperty.ID]?: string,
-	[UserProperty.FIRST_NAME]?: string,
-	[UserProperty.LAST_NAME]?: string,
-	[UserProperty.EMAIL]?: string,
-	[UserProperty.PASSWORD_HASH]?: string,
-	[UserProperty.GENDER]?: string,
-	[UserProperty.AGE_GROUP_START]?: AgeGroup,
-	[UserProperty.CURRENT_COURSE]: Course,
-	[UserProperty.CURRENT_STEP]: Step,
-	[UserProperty.CURRENT_DAY]: Day,
-	[UserProperty.CURRENT_ACTIVITY]: Activity,
+	[UserProperty.Id]?: string,
+	[UserProperty.FirstName]?: string,
+	[UserProperty.LastName]?: string,
+	[UserProperty.Email]?: string,
+	[UserProperty.PasswordHash]?: string,
+	[UserProperty.Gender]?: string,
+	[UserProperty.AgeGroupStart]?: AgeGroup,
+	[UserProperty.CurrentCourse]: Course,
+	[UserProperty.CurrentStep]: Step,
+	[UserProperty.CurrentDay]: Day,
+	[UserProperty.CurrentActivity]: Activity,
 };
 
 const INITIAL_STATE: UserState = {
-	[UserProperty.ID]: undefined,
-	[UserProperty.FIRST_NAME]: 'Jasmine',
-	[UserProperty.LAST_NAME]: '',
-	[UserProperty.EMAIL]: 'jasminecook@gmail.com',
-	[UserProperty.PASSWORD_HASH]: undefined,
-	[UserProperty.GENDER]: undefined,
-	[UserProperty.AGE_GROUP_START]: 20,
-	[UserProperty.CURRENT_COURSE]: 1,
-	[UserProperty.CURRENT_STEP]: 1,
-	[UserProperty.CURRENT_DAY]: 1,
-	[UserProperty.CURRENT_ACTIVITY]: 1,
+	[UserProperty.Id]: undefined,
+	[UserProperty.FirstName]: 'Jasmine',
+	[UserProperty.LastName]: '',
+	[UserProperty.Email]: 'jasminecook@gmail.com',
+	[UserProperty.PasswordHash]: undefined,
+	[UserProperty.Gender]: undefined,
+	[UserProperty.AgeGroupStart]: 20,
+	[UserProperty.CurrentCourse]: 1,
+	[UserProperty.CurrentStep]: 1,
+	[UserProperty.CurrentDay]: 1,
+	[UserProperty.CurrentActivity]: 1,
 };
 
 export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
+	addCase(logIn, (state, { payload: { username, password } }) => ({ ...state, [UserProperty.Email]: username }));
 	addCase(logOut, state => INITIAL_STATE);
 	addCase(advanceUserActivity, state => {
 		const {
-			[UserProperty.CURRENT_ACTIVITY]: activity,
-			[UserProperty.CURRENT_DAY]: day,
-			[UserProperty.CURRENT_STEP]: step,
-			[UserProperty.CURRENT_COURSE]: course,
+			[UserProperty.CurrentActivity]: activity,
+			[UserProperty.CurrentDay]: day,
+			[UserProperty.CurrentStep]: step,
+			[UserProperty.CurrentCourse]: course,
 		} = state;
-
-		console.log({ activity, day, step, course });
 
 		const advanceDay = activity === 4;
 		const advanceStep = advanceDay && day === 7;
@@ -56,10 +57,10 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 
 		return ({
 			...state,
-			[UserProperty.CURRENT_ACTIVITY]: advanceDay ? 1 : activity + 1 as Activity,
-			[UserProperty.CURRENT_DAY]: advanceDay && advanceStep ? 1 : advanceDay ? day + 1 as Day : day,
-			[UserProperty.CURRENT_STEP]: advanceStep && advanceCourse ? 1 : advanceStep ? step + 1 as Step : step,
-			[UserProperty.CURRENT_COURSE]: advanceCourse ? (course || 1 + 1) as Course : course,
+			[UserProperty.CurrentActivity]: advanceDay ? 1 : activity + 1 as Activity,
+			[UserProperty.CurrentDay]: advanceDay && advanceStep ? 1 : advanceDay ? day + 1 as Day : day,
+			[UserProperty.CurrentStep]: advanceStep && advanceCourse ? 1 : advanceStep ? step + 1 as Step : step,
+			[UserProperty.CurrentCourse]: advanceCourse ? (course || 1 + 1) as Course : course,
 		});
 	});
 });

@@ -20,7 +20,9 @@ import LogOut2 from '@assets/svg/drawer-logout-2.svg';
 import Logo from '@assets/svg/logo-sm.svg';
 
 import { useDispatch } from 'react-redux';
-import { logOut } from 'redux/action';
+import { logOut } from '@redux/action';
+import { resetRoot } from 'util/navigation';
+import { OnboardingScreens, RootStacks } from 'route/enums';
 import CloseDots from './CloseDots';
 import UserHeader from './UserHeader';
 import DrawerLink from './DrawerLink';
@@ -29,8 +31,14 @@ import styles from './SideDrawer.styles';
 export default (props) => {
 	const { navigation } = props;
 	const dispatch = useDispatch();
+
 	const onPressLogo = () => {
 		dispatch(logOut());
+		navigation.closeDrawer();
+	};
+
+	const onPressLogOut = () => {
+		navigation.navigate(RootStacks.OnboardingStack);
 		navigation.closeDrawer();
 	};
 
@@ -40,22 +48,57 @@ export default (props) => {
 				<View>
 					<View style={styles.topContainer}>
 						<UserHeader />
+
 						<CloseDots onPress={navigation.closeDrawer} />
 					</View>
-					<DrawerLink icon={<ProfileIcon />} label="Profile" />
-					<DrawerLink icon={<Goals />} label="Goals" />
-					<DrawerLink icon={<SourcesIcon />} label="Sources of Pain" />
-					<DrawerLink icon={<Community />} label="My Unconditional Community" />
+
+					<DrawerLink
+						icon={<ProfileIcon />}
+						label="Profile"
+					/>
+
+					<DrawerLink
+						icon={<Goals />}
+						label="Goals"
+					/>
+
+					<DrawerLink
+						icon={<SourcesIcon />}
+						label="Sources of Pain"
+					/>
+
+					<DrawerLink
+						icon={<Community />}
+						label="My Unconditional Community"
+					/>
+
 					<Divider />
-					<DrawerLink icon={<Facebook />} label="Join Our Private Facebook Group" />
-					<DrawerLink icon={<Email />} label="Email Us" />
+
+					<DrawerLink
+						icon={<Facebook />}
+						label="Join Our Private Facebook Group"
+					/>
+
+					<DrawerLink
+						icon={<Email />}
+						label="Email Us"
+					/>
+
 					<Divider />
-					<DrawerLink icon={<SettingsIcon />} label="Settings" />
-					<DrawerLink icon={<LogOutIcon />} label="Log Out" />
+					<DrawerLink
+						icon={<SettingsIcon />}
+						label="Settings"
+					/>
+
+					<DrawerLink
+						icon={<LogOutIcon />}
+						label="Log Out"
+						onPress={onPressLogOut}
+					/>
 				</View>
 
 				<View style={styles.footerContainer}>
-					<Pressable onPress={onPressLogo}>
+					<Pressable onLongPress={onPressLogo}>
 						<Logo />
 					</Pressable>
 				</View>

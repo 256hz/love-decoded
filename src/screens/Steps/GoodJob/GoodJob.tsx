@@ -27,12 +27,25 @@ export default () => {
 	const dispatch = useDispatch();
 	const { navigate } = useNavigation();
 	const { currentActivity } = useSelector(getUserProgress);
+
 	const currentActivityText = completedActivity[currentActivity];
 	const nextActivityText = nextActivity[currentActivity];
 
+	const completedFullDay = currentActivity === Activity.Bedtime;
+
+	const topText = completedFullDay ? 'Complete!' : 'Good Job';
+
+	const headlineText = completedFullDay
+		? 'Congrats on\nCompleting This Day!'
+		: `You thought about Loving Yourself during ${currentActivityText}!`;
+
+	const bodyText = completedFullDay
+		? 'Tomorrow is waiting for you\nto Love yourself some more!'
+		: `Your ${nextActivityText} Alert will signal the next interaction.`;
+
 	const onPressScreen = () => {
 		dispatch(advanceUserActivity());
-		navigate(StepScreens.Home);
+		navigate(completedFullDay ? StepScreens.Congratulations : StepScreens.Home);
 	};
 
 	return (
@@ -46,20 +59,25 @@ export default () => {
 			</View>
 
 			<Text style={styles.goodJobText}>
-				Good Job
+				{topText}
 			</Text>
 
 			<Text style={styles.headlineText}>
-				You thought about Loving Yourself during {currentActivityText}!
+				{headlineText}
 			</Text>
 
 			<Text style={styles.bodyText}>
-				Your {nextActivityText} Alert will signal the next interaction.
+				{bodyText}
 			</Text>
 
-			<Text style={styles.bodyText}>
-				Between alerts, the Home, Journal, and FAQ buttons below are available for use.
-			</Text>
+			{	currentActivity !== Activity.Bedtime
+				? (
+					<Text style={styles.bodyText}>
+						Between alerts, the Home, Journal, and FAQ buttons below are available for use.
+					</Text>
+				)
+				: null
+			}
 
 			<Text style={styles.headlineText}>
 				Keep going! You got this!

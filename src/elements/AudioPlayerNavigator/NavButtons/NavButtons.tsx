@@ -11,16 +11,18 @@ import styles from './NavButtons.styles';
 
 interface Props {
 	backEnabled?: boolean;
+	backNavigationDisabled?: boolean;
 	backTarget?: OnboardingScreens | StepScreens;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
-	nextTarget: OnboardingScreens | StepScreens;
-	nextEnabled: boolean;
+	nextTarget?: OnboardingScreens | StepScreens;
+	nextEnabled?: boolean;
 	onPressBack?: (arg?: any) => void;
 	onPressNext?: (arg?: any) => void;
 }
 
 export default ({
+	backNavigationDisabled,
 	backEnabled,
 	backTarget,
 	hideBackButton,
@@ -37,6 +39,10 @@ export default ({
 	const onBack = () => {
 		onPressBack?.();
 		dispatch(resetAudioPlayer(true, 'onBack'));
+		if (backNavigationDisabled) {
+			return;
+		}
+
 		backTarget
 			? navigate(backTarget)
 			: canGoBack() && goBack();
@@ -45,8 +51,10 @@ export default ({
 	const onNext = () => {
 		onPressNext?.();
 		dispatch(resetAudioPlayer(true, 'onNext'));
-		navigate(nextTarget);
+		navigate(nextTarget!);
 	};
+
+	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	return (
 		<View style={styles.container}>
@@ -60,7 +68,7 @@ export default ({
 						>
 							<View style={[
 								styles.navButton,
-								(!backEnabled || !canGoBack()) && styles.disabled,
+								backDisabled && styles.disabled,
 							]}>
 								<BackArrow />
 								<Text style={styles.text}>Back</Text>

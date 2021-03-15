@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import State from 'redux/RootState';
+import State from '@redux/RootState';
 
 const appState = (rootState: State) => rootState?.appState || {};
 

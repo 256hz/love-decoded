@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import styles from './EmotionalResetButton.styles';
 
 const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabled?: boolean }) => (

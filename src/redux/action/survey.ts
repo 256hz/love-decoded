@@ -6,14 +6,19 @@ import {
 	NeffSurveyResponse,
 	Steps,
 	SurveyResponse,
-} from 'redux/types/survey';
+} from '@redux/types/survey';
 
 export const setOnboardingSurveyResponse = createAction('SET_ONBOARDING_SURVEY_RESPONSE',
 	(title: string, response: SurveyResponse) => ({ payload: { title, response } }));
 
-export const setStepSurveyResponse = createAction('SET_STEP_SURVEY_RESPONSE',
+export const setDaySurveyResponse = createAction('SET_DAY_SURVEY_RESPONSE',
 	(course: Courses, step: Steps, day: Days, title: string, response: SurveyResponse) => ({
 		payload: { course, step, day, title, response },
+	}));
+
+export const setStepActivityResponse = createAction('SET_STEP_ACTIVITY_RESPONSE',
+	(course: Courses, step: Steps, title: string, response: SurveyResponse) => ({
+		payload: { course, step, title, response },
 	}));
 
 export const setNeffSurveyResponse = createAction('SET_NEFF_SURVEY_RESPONSE',

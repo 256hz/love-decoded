@@ -1,5 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { setNeffSurveyResponse, setStepSurveyResponse, setOnboardingSurveyResponse } from '@redux/action';
+import {
+	setNeffSurveyResponse, setDaySurveyResponse, setOnboardingSurveyResponse, setStepActivityResponse,
+} from '@redux/action';
 import {
 	Activities,
 	Course1Step1,
@@ -8,25 +10,31 @@ import {
 	DayValues,
 	Surveys,
 	SurveyState,
-} from 'redux/types/survey';
+} from '@redux/types/survey';
 
 // initial values
-const course1Step1State = {};
-const course1Step2State = {};
+const course1Step1State = {
+	[Activities.LovableQualitiesSelf]: '',
+	[Activities.LovableQualitiesOthersMissing]: '',
+	[Activities.LovableQualitiesOthersDoNotAgree]: '',
+};
+const course1Step2State = {
+	[Activities.SelfTalkPositivelySituations]: '',
+	[Activities.SelfTalkPositivelyReaction]: '',
+	[Activities.SelfTalkPositivelyRevision]: '',
+};
 
 DayValues.forEach(day => {
 	course1Step1State[day] = {
 		[Surveys.HowAreYouFeeling]: 1,
-		[Activities.LovableQualitiesSelf]: '',
-		[Activities.LovableQualitiesOthersMissing]: '',
-		[Activities.LovableQualitiesOthersDoNotAgree]: '',
+		[Surveys.LovableQualitiesWriteDown]: '',
+		[Surveys.LovableQualitiesRecite]: '',
+		[Surveys.LovableQualitiesShare]: '',
+		[Surveys.LovableQualitiesSmile]: '',
+		[Surveys.LovableQualitiesSilly]: '',
 	};
-
 	course1Step2State[day] = {
 		[Surveys.HowAreYouFeeling]: 1,
-		[Activities.SelfTalkPositivelySituations]: '',
-		[Activities.SelfTalkPositivelyReaction]: '',
-		[Activities.SelfTalkPositivelyRevision]: '',
 	};
 });
 
@@ -60,7 +68,18 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 		};
 	});
 
-	addCase(setStepSurveyResponse, (state, { payload: { course, step, day, title, response } }) => ({
+	addCase(setStepActivityResponse, (state, { payload: { course, step, title, response } }) => ({
+		...state,
+		[course]: {
+			...state[course],
+			[step]: {
+				...state[course][step],
+				[title]: response,
+			},
+		},
+	}));
+
+	addCase(setDaySurveyResponse, (state, { payload: { course, step, day, title, response } }) => ({
 		...state,
 		[course]: {
 			...state[course],

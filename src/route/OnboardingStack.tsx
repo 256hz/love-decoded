@@ -1,7 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import SplashScreen from '@screens/Splash';
 import IntroductionScreen from '@screens/Onboarding/Introduction';
 import AcknowledgingYourPastScreen from '@screens/Onboarding/AcknowledgingYourPast';
 import WhatWouldILikeToLearnScreen from '@screens/Onboarding/WhatWouldILikeToLearn';
@@ -59,8 +58,7 @@ export type OnboardingStackParamList = {
 };
 
 export default () => (
-	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={OnboardingScreens.Splash}>
-		<OnboardingStack.Screen name={OnboardingScreens.Splash} component={SplashScreen} />
+	<OnboardingStack.Navigator mode="card" headerMode="none" initialRouteName={OnboardingScreens.Introduction}>
 		<OnboardingStack.Screen name={OnboardingScreens.Introduction} component={IntroductionScreen} />
 		<OnboardingStack.Screen name={OnboardingScreens.AcknowledgingYourPast} component={AcknowledgingYourPastScreen} />
 		<OnboardingStack.Screen name={OnboardingScreens.WhatWouldILikeToLearn} component={WhatWouldILikeToLearnScreen} />

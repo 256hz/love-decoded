@@ -9,9 +9,9 @@ import {
 	View,
 } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setOnboardingSurveyResponse } from 'redux/action';
-import { getOnboardingSurveyByTitle } from 'redux/selector';
-import { Surveys } from 'redux/types/survey';
+import { setOnboardingSurveyResponse } from '@redux/action';
+import { getOnboardingSurveyByTitle } from '@redux/selector';
+import { Surveys } from '@redux/types/survey';
 
 import styles from './WhatWouldILikeToLearn.styles';
 

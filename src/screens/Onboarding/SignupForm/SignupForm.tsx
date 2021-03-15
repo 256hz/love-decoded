@@ -257,18 +257,21 @@ export default () => {
 							</View>
 						</View>
 
-						{ showGenderTextInput && (
-							<>
-								<TextInput
-									style={styles.textInput}
-									placeholder="enter your gender"
-									onChangeText={setCustomGender}
-									onEndEditing={validateInputs}
-									value={customGender}
-								/>
-								{ hasErrors.customGender && <ErrorText text={errors.name} />}
-							</>
-						)}
+						{ showGenderTextInput
+							? (
+								<>
+									<TextInput
+										style={styles.textInput}
+										placeholder="enter your gender"
+										onChangeText={setCustomGender}
+										onEndEditing={validateInputs}
+										value={customGender}
+									/>
+									{ hasErrors.customGender && <ErrorText text={errors.name} />}
+								</>
+							)
+							: null
+						}
 					</View>
 
 					<View>

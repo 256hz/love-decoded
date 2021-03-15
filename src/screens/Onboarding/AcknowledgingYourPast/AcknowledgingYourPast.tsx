@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { KeyboardAvoidingView, Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setOnboardingSurveyResponse } from 'redux/action';
-import { getOnboardingSurveyByTitle } from 'redux/selector';
-import { Surveys } from 'redux/types/survey';
+import { setOnboardingSurveyResponse } from '@redux/action';
+import { getOnboardingSurveyByTitle } from '@redux/selector';
+import { Surveys } from '@redux/types/survey';
 
 import styles from './AcknowledgingYourPast.styles';
 

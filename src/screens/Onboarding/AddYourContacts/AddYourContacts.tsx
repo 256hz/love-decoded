@@ -130,36 +130,39 @@ export default () => {
 				</View>
 			</OnboardingScreen>
 
-			{ showContacts && (
-				<View style={styles.modalBackground}>
-					<View style={styles.cardsContainer}>
-						<TouchableOpacity onPress={toggleContacts}>
-							<View style={styles.contactsBackContainer}>
-								<Text style={styles.backText}>{'< Back'}</Text>
-							</View>
-						</TouchableOpacity>
-						<ScrollView contentContainerStyle={styles.scrollContainer}>
-							{ contacts.length
-								? contacts.map((contact, i) => (
-									<View style={styles.cardContainer} key={contact.recordID}>
-										<ContactCard
-											key={contact.recordID}
-											contact={contact}
-											selected={!!savedContacts[contact.recordID]}
-											toggleSelected={() => toggleSelected(contact)}
-										/>
-
-										{ i < contacts.length - 1 ? <Divider /> : null }
-									</View>
-								))
-								: (<View style={styles.loadingContainer}>
-									<Spinner style={styles.spinner} strokeColor={colors.RedTransparent} />
+			{ showContacts
+				? (
+					<View style={styles.modalBackground}>
+						<View style={styles.cardsContainer}>
+							<TouchableOpacity onPress={toggleContacts}>
+								<View style={styles.contactsBackContainer}>
+									<Text style={styles.backText}>{'< Back'}</Text>
 								</View>
-								)}
-						</ScrollView>
+							</TouchableOpacity>
+							<ScrollView contentContainerStyle={styles.scrollContainer}>
+								{ contacts.length
+									? contacts.map((contact, i) => (
+										<View style={styles.cardContainer} key={contact.recordID}>
+											<ContactCard
+												key={contact.recordID}
+												contact={contact}
+												selected={!!savedContacts[contact.recordID]}
+												toggleSelected={() => toggleSelected(contact)}
+											/>
+
+											{ i < contacts.length - 1 ? <Divider /> : null }
+										</View>
+									))
+									: (<View style={styles.loadingContainer}>
+										<Spinner style={styles.spinner} strokeColor={colors.RedTransparent} />
+									</View>
+									)}
+							</ScrollView>
+						</View>
 					</View>
-				</View>
-			)}
+				)
+				: null
+			}
 		</>
 	);
 };

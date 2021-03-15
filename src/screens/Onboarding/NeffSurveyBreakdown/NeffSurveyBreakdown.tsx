@@ -3,7 +3,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
-import { averageTwoNeffPageScores } from 'redux/selector';
+import { averageTwoNeffPageScores } from '@redux/selector';
 import { OnboardingScreens } from 'route/enums';
 import styles from './NeffSurveyBreakdown.styles';
 

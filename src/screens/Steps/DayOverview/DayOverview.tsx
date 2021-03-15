@@ -44,28 +44,28 @@ export default () => {
 					title="Intention"
 					subtitle="Morning"
 					onPress={() => navigate(StepScreens.Step1Intention)}
-					status={getStatus(currentActivity, 1)}
+					status={getStatus(currentActivity, Activity.Morning)}
 				/>
 
 				<ActivityCard
 					title="Activities"
 					subtitle="Afternoon"
 					onPress={() => navigate(StepScreens.Step1Activities1)}
-					status={getStatus(currentActivity, 2)}
+					status={getStatus(currentActivity, Activity.Afternoon)}
 				/>
 
 				<ActivityCard
 					title="Survey"
 					subtitle="Evening"
-					onPress={() => navigate(StepScreens.Step1Intention)}
-					status={getStatus(currentActivity, 3)}
+					onPress={() => navigate(StepScreens.Step1Survey)}
+					status={getStatus(currentActivity, Activity.Evening)}
 				/>
 
 				<ActivityCard
 					title="Reflection"
 					subtitle="Bedtime"
-					onPress={() => navigate(StepScreens.Step1Intention)}
-					status={getStatus(currentActivity, 4)}
+					onPress={() => navigate(StepScreens.Step1Reflection)}
+					status={getStatus(currentActivity, Activity.Bedtime)}
 				/>
 			</View>
 		</StepScreen>

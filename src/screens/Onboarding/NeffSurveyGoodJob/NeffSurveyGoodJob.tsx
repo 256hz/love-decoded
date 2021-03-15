@@ -5,7 +5,7 @@ import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import styles from './NeffSurveyGoodJob.styles';
 
 type EnterButtonProps = {

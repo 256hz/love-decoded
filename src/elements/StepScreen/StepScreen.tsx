@@ -6,10 +6,11 @@ import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import styles from './StepScreen.styles';
 
 type Props = {
-	children: ReactChild;
-	containerStyle?: ViewStyle;
 	audioFilename?: string;
 	backTarget?: StepScreens;
+	children: ReactChild;
+	containerStyle?: ViewStyle;
+	customMiddleContent?: ReactChild;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: () => void;
@@ -23,6 +24,7 @@ export default ({
 	audioFilename,
 	children,
 	containerStyle = {},
+	customMiddleContent,
 	scrollDisabled = false,
 	backTarget,
 	hideBackButton,
@@ -39,18 +41,21 @@ export default ({
 				{children}
 			</ScrollWrapper>
 
-			{ nextTarget && (
-				<AudioPlayerNavigator
-					audioFilename={audioFilename}
-					backTarget={backTarget}
-					hideBackButton={hideBackButton}
-					hideNextButton={hideNextButton}
-					onAudioEnd={onAudioEnd}
-					onPressNext={onPressNext}
-					nextEnabled={nextEnabled}
-					nextTarget={nextTarget}
-				/>
-			)}
+			{ nextTarget
+				? (
+					<AudioPlayerNavigator
+						audioFilename={audioFilename}
+						backTarget={backTarget}
+						customMiddleContent={customMiddleContent}
+						hideBackButton={hideBackButton}
+						hideNextButton={hideNextButton}
+						onAudioEnd={onAudioEnd}
+						onPressNext={onPressNext}
+						nextEnabled={nextEnabled}
+						nextTarget={nextTarget}
+					/>
+				) : null
+			}
 		</View>
 	);
 };
