@@ -7,6 +7,6 @@ export default () => (
 		nextTarget={OnboardingScreens.NeffSurvey12}
 		pageIndex={11}
 		prompt="I’m disapproving and judgmental about my own flaws and inadequacies."
-		reverseScoring={true}
+		reverseScoring
 	/>
 );

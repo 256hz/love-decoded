@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreen } from '@elements';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import { useDispatch } from 'react-redux';
 import styles from './Introduction.styles';
 
@@ -45,7 +45,7 @@ export default () => {
 			}
 			drawShapes={[ 14, 15, 16 ]}
 			onAudioEnd={() => setNextDisabled(false)}
-			scrollDisabled={true}
+			scrollDisabled
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

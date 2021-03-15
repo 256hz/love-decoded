@@ -3,24 +3,32 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { StatusBar } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootStack from 'route/RootStack';
 import getStore from 'redux/getStore';
 import Modals from '@elements/Modals';
+import colors from 'elements/globalStyles/color';
 
 export const { store, persistor } = getStore();
 
-const App = () => (
-	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor()}>
-			<SafeAreaProvider>
-				<StatusBar barStyle="dark-content" />
-				<RootStack />
-				<Modals />
-			</SafeAreaProvider>
-		</PersistGate>
-	</Provider>
-);
+const App = () => {
+	if (Platform.OS === 'android') {
+		StatusBar.setBackgroundColor(colors.GrayTransparent028);
+		StatusBar.setTranslucent(true);
+	}
+
+	return (
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor()}>
+				<SafeAreaProvider>
+					<StatusBar barStyle="dark-content" />
+					<RootStack />
+					<Modals />
+				</SafeAreaProvider>
+			</PersistGate>
+		</Provider>
+	);
+};
 
 export default App;

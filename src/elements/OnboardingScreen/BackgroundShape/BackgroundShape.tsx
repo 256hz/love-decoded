@@ -27,6 +27,8 @@ import Svg22 from '@assets/svg/shape-22.svg';
 import Svg23 from '@assets/svg/shape-23.svg';
 import Svg24 from '@assets/svg/shape-24.svg';
 import Svg25 from '@assets/svg/shape-25.svg';
+import Svg26 from '@assets/svg/shape-26.svg';
+import Svg27 from '@assets/svg/shape-27.svg';
 
 import styles from './BackgroundShape.styles';
 
@@ -59,6 +61,8 @@ const svgs = [
 	<Svg23 />,
 	<Svg24 />,
 	<Svg25 />,
+	<Svg26 />,
+	<Svg27 />,
 ];
 
 const Shape = ({ shapeToDraw }: { shapeToDraw: number }) => {
@@ -73,12 +77,10 @@ const Shape = ({ shapeToDraw }: { shapeToDraw: number }) => {
 };
 
 export default ({ drawShapes }: { drawShapes: number[] }) => (
-	<View style={{ flex: 1, paddingTop: 62 }}>
-		<View style={{ flex: 1 }}>
-			{ drawShapes.map(shape => (
-				<Shape shapeToDraw={shape} key={shape}/>
-			))}
-		</View>
+	<View style={styles.container}>
+		{ drawShapes.map(shape => (
+			<Shape shapeToDraw={shape} key={shape}/>
+		))}
 	</View>
 );
 

@@ -5,7 +5,7 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused } from '@react-navigation/native';
 import { View } from 'react-native';
-import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 import {
 	playAudioFile,
 	pauseAudio,
@@ -28,13 +28,14 @@ type AudioPlayerNavigatorStandard = {
 	// allowed
 	audioFilename?: string;
 	backEnabled?: boolean;
-	backTarget?: OnboardingScreens;
+	backTarget?: OnboardingScreens | StepScreens;
+	customMiddleContent?: ReactChild;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: (arg?: any) => void;
 	onPressBack?: (arg?: any) => void;
 	onPressNext?: (arg?: any) => void;
-	nextTarget: OnboardingScreens;
+	nextTarget: OnboardingScreens | StepScreens;
 	nextEnabled?: boolean;
 	// disallowed
 	customButtons?: undefined;
@@ -44,6 +45,7 @@ type AudioPlayerNavigatorStandard = {
 type AudioPlayerNavigatorCustomButtons = {
 	// allowed
 	audioFilename?: string;
+	customMiddleContent?: ReactChild;
 	customButtons: ReactChild;
 	onAudioEnd?: (arg?: any) => void;
 	// disallowed
@@ -62,6 +64,7 @@ export default ({
 	backEnabled = true,
 	backTarget,
 	customButtons,
+	customMiddleContent,
 	hideBackButton,
 	hideNextButton,
 	onAudioEnd,
@@ -87,7 +90,7 @@ export default ({
 			return;
 		}
 
-		if (!audioFilename ) {
+		if (!audioFilename) {
 			dispatch(resetAudioPlayer(true, 'no audio filename'));
 			return;
 		}
@@ -131,9 +134,7 @@ export default ({
 	})();
 
 	return (
-		<View style={[
-			styles.container,
-		]}>
+		<View style={styles.container}>
 			{ audioFilename
 				? (
 					<AudioPlayerBar
@@ -148,6 +149,8 @@ export default ({
 			}
 
 			<View style={styles.bottomContainer}>
+				{ customMiddleContent }
+
 				{ customButtons || (
 					<NavButtons
 						backEnabled={backEnabled}

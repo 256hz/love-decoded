@@ -7,7 +7,7 @@ import NextArrow from '@assets/svg/next-arrow.svg';
 import { OnboardingScreens } from 'route/enums';
 import { getNeffAverage } from '@redux/selector';
 import { OnboardingScreen } from '@elements';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import styles from './NeffSurveyThankYou.styles';
 
 const NextButtonWithText = ({ onPress }: { onPress: () => void }) => (

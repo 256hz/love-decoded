@@ -69,7 +69,7 @@ export default class CardCarousel extends Component<Props, State> {
 					onSnapToItem={this.snapToItem}
 					sliderWidth={width}
 					itemWidth={width * 0.8}
-					useScrollView={true}
+					useScrollView
 					inactiveSlideOpacity={0.9}
 				/>
 				{ this.pagination }

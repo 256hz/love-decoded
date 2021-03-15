@@ -1,14 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { TabNames } from 'route/enums';
 import { SideDrawer } from '@elements/SideDrawer';
-import HomeTabs, { TabNames } from './HomeTabs';
+import HomeTabs from './HomeTabs';
 
-const Drawer = createDrawerNavigator();
+type DrawerParamList = {
+	[TabNames.HomeScreen]: undefined;
+};
 
-enum DrawerScreens {
-	DrawerScreen = 'Drawer',
-}
+const Drawer = createDrawerNavigator<DrawerParamList>();
 
 export default () => {
 	return (

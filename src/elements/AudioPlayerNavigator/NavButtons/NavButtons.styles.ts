@@ -7,7 +7,6 @@ export default StyleSheet.create({
 		height: 35,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		flexGrow: 1,
 	},
 	navButton: {
 		width: 102,

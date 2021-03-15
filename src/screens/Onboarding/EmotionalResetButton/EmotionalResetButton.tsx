@@ -5,7 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
 import styles from './EmotionalResetButton.styles';
 
 const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabled?: boolean }) => (
@@ -31,7 +31,7 @@ export default () => {
 		<OnboardingScreen
 			audioFilename="erb_ready_to_quit_rebecca.mp3"
 			drawShapes={[ 7, 25 ]}
-			hideBackButton={true}
+			hideBackButton
 			onAudioEnd={() => setLinksDisabled(false)}
 			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
 			title={'Your Emotional\nRESET Button'}

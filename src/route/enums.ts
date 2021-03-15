@@ -1,10 +1,10 @@
 export enum RootStacks {
+	Splash = 'Splash',
 	HomeTabs = 'HomeTabs',
 	OnboardingStack = 'OnboardingStack',
 }
 
 export enum OnboardingScreens {
-	Splash = 'Splash',
 	Introduction = 'Introduction',
 	AcknowledgingYourPast = 'AcknowledgingYourPast',
 	WhatWouldILikeToLearn = 'WhatWouldILikeToLearn',
@@ -51,6 +51,23 @@ export enum OnboardingScreens {
 	YouAreReady = 'YouAreReady',
 }
 
+export enum TabNames {
+	HomeScreen = 'Home',
+	JournalScreen = 'Journal',
+	FAQScreen = 'FAQ',
+	ResetScreen = 'Emotional Reset',
+}
+
 export enum StepScreens {
 	Home = 'Home',
+	DayOverview = 'DayOverview',
+	GoodJob = 'GoodJob',
+	Step1Intention = 'Step1Intention',
+	Step1Activities1 = 'Step1Activities1',
+	Step1Activities2 = 'Step1Activities2',
+	Step1Activities3 = 'Step1Activities3',
+	Step1Survey = 'Step1Survey',
+	Step1Reflection = 'Step1Reflection',
+	Step1Visualization = 'Step1Visualization',
+	Congratulations = 'Congratulations',
 }

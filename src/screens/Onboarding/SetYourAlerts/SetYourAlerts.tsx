@@ -48,11 +48,14 @@ const TimePicker = ({
 				</View>
 			</View>
 
-			{ hasError && (
-				<View style={styles.errorContainer}>
-					<Text style={styles.errorText}>Must be later than the time above it.</Text>
-				</View>
-			)}
+			{ hasError
+				? (
+					<View style={styles.errorContainer}>
+						<Text style={styles.errorText}>Must be later than the time above it.</Text>
+					</View>
+				)
+				: null
+			}
 		</View>
 	);
 };

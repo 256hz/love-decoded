@@ -1,34 +1,30 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
-import Journal from 'screens/Steps/Journal';
-import Faq from 'screens/Steps/Faq';
-import EmotionalReset from 'screens/Steps/EmotionalReset';
+import Journal from '@screens/Steps/Journal';
+import Faq from '@screens/Steps/Faq';
+import EmotionalReset from '@screens/Steps/EmotionalReset';
 import StepStack from './StepStack';
 import styles from './HomeTabs.styles';
 
-const Tab = createBottomTabNavigator();
+type TabParamList = {
+	[key in TabNames]: undefined;
+};
 
-export enum TabNames {
-	HomeScreen = 'Home',
-	JournalScreen = 'Journal',
-	FAQScreen = 'FAQ',
-	ResetScreen = 'Emotional Reset',
-}
+const Tab = createBottomTabNavigator<TabParamList>();
 
 export default () => {
+
 	return (
 		<Tab.Navigator
-			initialRouteName="HomeScreen"
+			initialRouteName={TabNames.HomeScreen}
+			lazy={false}
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused }) => (
-					<TabIcon
-						tabName={route.name as TabNames}
-						selected={focused}
-					/>
+					<TabIcon tabName={route.name as TabNames} selected={focused} />
 				),
 			})}
-			lazy={false}
 			tabBarOptions={{
 				keyboardHidesTabBar: true,
 				showLabel: false,

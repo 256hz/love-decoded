@@ -28,10 +28,17 @@ export {
 export {
 	averageTwoNeffPageScores,
 	getAllSurveys,
+	getDaySurvey,
+	getOnboardingSurveyByTitle,
 	getNeffAverage,
 	getNeffResponseByPageIndex,
-	getSurveyByTitle,
+	getStepActivity,
 } from './survey';
 
-export { getUserId } from './user';
+export {
+	getUserEmail,
+	getUserFirstName,
+	getUserId,
+	getUserProgress,
+} from './user';
 

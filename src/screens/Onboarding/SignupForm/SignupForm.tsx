@@ -208,7 +208,7 @@ export default () => {
 							onChangeText={setPassword}
 							onEndEditing={validateInputs}
 							value={password}
-							secureTextEntry={true}
+							secureTextEntry
 						/>
 						{ hasErrors.password && <ErrorText text={errors.password} />}
 						<TextInput
@@ -217,7 +217,7 @@ export default () => {
 							onChangeText={setConfirmPassword}
 							onEndEditing={validateInputs}
 							value={confirmPassword}
-							secureTextEntry={true}
+							secureTextEntry
 						/>
 						{ hasErrors.passwordMatch && <ErrorText text={errors.passwordMatch} />}
 
@@ -257,18 +257,21 @@ export default () => {
 							</View>
 						</View>
 
-						{ showGenderTextInput && (
-							<>
-								<TextInput
-									style={styles.textInput}
-									placeholder="enter your gender"
-									onChangeText={setCustomGender}
-									onEndEditing={validateInputs}
-									value={customGender}
-								/>
-								{ hasErrors.customGender && <ErrorText text={errors.name} />}
-							</>
-						)}
+						{ showGenderTextInput
+							? (
+								<>
+									<TextInput
+										style={styles.textInput}
+										placeholder="enter your gender"
+										onChangeText={setCustomGender}
+										onEndEditing={validateInputs}
+										value={customGender}
+									/>
+									{ hasErrors.customGender && <ErrorText text={errors.name} />}
+								</>
+							)
+							: null
+						}
 					</View>
 
 					<View>

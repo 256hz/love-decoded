@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setSurveyResponse } from '@redux/action';
+import { setOnboardingSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';
-import { Surveys } from 'redux/types/survey';
-import { getSurveyByTitle } from 'redux/selector';
+import { Surveys } from '@redux/types/survey';
+import { getOnboardingSurveyByTitle } from '@redux/selector';
 import styles from './Dependency.styles';
 
 const radioButtons: IRadioButton[] = [
@@ -23,7 +23,7 @@ const radioButtons: IRadioButton[] = [
 export default () => {
 	const dispatch = useDispatch();
 	const [ selectedValue, setSelectedValue ] = useState('');
-	const surveyResponse = useSelector(getSurveyByTitle(Surveys.Dependency)) as string;
+	const surveyResponse = useSelector(getOnboardingSurveyByTitle(Surveys.Dependency)) as string;
 
 	return (
 		<OnboardingScreen
@@ -32,7 +32,7 @@ export default () => {
 			nextTarget={OnboardingScreens.NavigatingTheStructure}
 			title="Dependency"
 			titleContainerStyle={styles.titleContainer}
-			onPressNext={() => dispatch(setSurveyResponse(Surveys.Dependency, selectedValue))}
+			onPressNext={() => dispatch(setOnboardingSurveyResponse(Surveys.Dependency, selectedValue))}
 			nextEnabled={!!(selectedValue || surveyResponse)}
 		>
 			<View style={styles.container}>

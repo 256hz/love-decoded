@@ -45,11 +45,13 @@ const OnboardingScreen = ({
 		<BackgroundFade drawShapes={drawShapes}>
 			<SafeAreaView style={styles.screenContainer}>
 				<View style={styles.container}>
-					{ showLogo && (
+					{ showLogo ? (
 						<View style={styles.logoContainer}>
 							<Logo />
 						</View>
-					)}
+					)
+						: null
+					}
 
 					{/* Title */}
 					<View style={[
@@ -72,26 +74,32 @@ const OnboardingScreen = ({
 
 				{ customBottomSection }
 
-				{ nextTarget && (
-					<AudioPlayerNavigator
-						audioFilename={audioFilename}
-						backTarget={backTarget}
-						hideBackButton={hideBackButton}
-						hideNextButton={hideNextButton}
-						onAudioEnd={onAudioEnd}
-						onPressNext={onPressNext}
-						nextEnabled={nextEnabled}
-						nextTarget={nextTarget}
-					/>
-				)}
+				{ nextTarget
+					? (
+						<AudioPlayerNavigator
+							audioFilename={audioFilename}
+							backTarget={backTarget}
+							hideBackButton={hideBackButton}
+							hideNextButton={hideNextButton}
+							onAudioEnd={onAudioEnd}
+							onPressNext={onPressNext}
+							nextEnabled={nextEnabled}
+							nextTarget={nextTarget}
+						/>
+					)
+					: null
+				}
 
-				{ audioFilename && customButtons && (
-					<AudioPlayerNavigator
-						audioFilename={audioFilename}
-						customButtons={customButtons}
-						onAudioEnd={onAudioEnd}
-					/>
-				)}
+				{ audioFilename && customButtons
+					? (
+						<AudioPlayerNavigator
+							audioFilename={audioFilename}
+							customButtons={customButtons}
+							onAudioEnd={onAudioEnd}
+						/>
+					)
+					: null
+				}
 			</SafeAreaView>
 		</BackgroundFade>
 	</View>

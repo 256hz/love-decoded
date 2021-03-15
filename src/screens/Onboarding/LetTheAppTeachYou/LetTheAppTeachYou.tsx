@@ -8,7 +8,7 @@ export default () => (
 	<OnboardingScreen
 		audioFilename="onboarding_13_let_the_app_teach_you.mp3"
 		drawShapes={[ 6, 25 ]}
-		hideBackButton={true}
+		hideBackButton
 		nextTarget={OnboardingScreens.LoveVsHeartburn}
 		title={'Let The App\nTeach You'}
 		titleContainerStyle={styles.titleContainerStyle}

@@ -10,8 +10,8 @@ import {
 	resetAudioPlayer,
 	setAppState,
 	tryResumeAudio,
-} from 'redux/action';
-import { getLastActiveEpochSeconds } from 'redux/selector/appState';
+} from '@redux/action';
+import { getLastActiveEpochSeconds } from '@redux/selector/appState';
 
 const appStateChannel = eventChannel(emitter => {
 	const listener = status => {
@@ -35,10 +35,6 @@ export function* watchForAppStateChanges() {
 			break;
 		}
 
-		if (appState === 'active') {
-			// yield put(tryResumeAudio());
-			// yield call(resetAudioPlayerIfLongInactive);
-		}
 		yield put(setAppState(data));
 	}
 }

@@ -5,18 +5,23 @@ import { View } from 'react-native';
 import { Spinner } from 'react-native-material-kit';
 import Logo from '@assets/svg/logo.svg';
 import SoundPlayer from 'react-native-sound-player';
-import { OnboardingScreens } from 'route/enums';
+import { RootStacks } from 'route/enums';
 import { BackgroundFade } from '@elements/OnboardingScreen/BackgroundFade';
 import colors from 'elements/globalStyles/color';
-import { resetAudioPlayer } from 'redux/action';
+import { resetAudioPlayer } from '@redux/action';
+import { resetRoot } from 'util/navigation';
 import styles from './SplashScreen.styles';
 
-export default () => {
+type Props = {
+	destination: RootStacks;
+};
+
+export default ({ destination }) => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		// load an empty sound here so the Android media player initializes before we play
+		// load an empty sound here so the Android media player initializes
 		try {
 			SoundPlayer.loadSoundFile('one_second_silence', 'mp3');
 		} catch (error) {
@@ -25,11 +30,11 @@ export default () => {
 
 		const nextTimeout = setTimeout(() => {
 			dispatch(resetAudioPlayer(true, 'splash'));
-			navigate(OnboardingScreens.Introduction);
-		}, 3000);
+			resetRoot(destination);
+		}, 1000);
 
 		return () => clearTimeout(nextTimeout);
-	}, [ dispatch, navigate ]);
+	}, [ dispatch, destination, navigate ]);
 
 	return (
 		<View style={styles.container}>

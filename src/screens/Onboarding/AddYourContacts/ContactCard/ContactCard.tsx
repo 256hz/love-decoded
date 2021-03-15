@@ -24,17 +24,23 @@ const SectionHeading = ({ heading }: { heading: string }) => (
 
 const TextWithLabel = ({ label, text }: { label?: string; text?: string }) => (
 	<>
-		{label && (
-			<Text style={styles.sectionLabelText} numberOfLines={1}>
-				{label}:
-			</Text>
-		)}
+		{ label
+			? (
+				<Text style={styles.sectionLabelText} numberOfLines={1}>
+					{label}:
+				</Text>
+			)
+			: null
+		}
 
-		{text && (
-			<Text style={styles.sectionText} numberOfLines={1}>
-				{text}
-			</Text>
-		)}
+		{ text
+			? (
+				<Text style={styles.sectionText} numberOfLines={1}>
+					{text}
+				</Text>
+			)
+			: null
+		}
 	</>
 );
 

@@ -8,7 +8,7 @@ import styles from './NeffSurveyIntro.styles';
 
 type SurveyButtonProps = {
 	onPress: () => void;
-	disabled: boolean;
+	disabled?: boolean;
 };
 
 const SurveyButton = ({ onPress, disabled }: SurveyButtonProps) => (
@@ -34,8 +34,8 @@ export default () => {
 			titleContainerStyle={styles.titleContainerStyle}
 			customButtons={
 				<SurveyButton
-					onPress={() => { console.log('press'); navigate(OnboardingScreens.NeffSurvey1); }}
 					disabled={nextDisabled}
+					onPress={() => navigate(OnboardingScreens.NeffSurvey1)}
 				/>
 			}
 		>

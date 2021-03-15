@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
-import { setSurveyResponse } from '@redux/action';
+import { setOnboardingSurveyResponse } from '@redux/action';
 import { IRadioButton } from '@elements/RadioButtons/RadioButtons';
 import { OnboardingScreen, RadioButtons } from '@elements';
-import { Surveys } from 'redux/types/survey';
+import { Surveys } from '@redux/types/survey';
 import styles from './Control.styles';
 
 const radioButtons: IRadioButton[] = [
@@ -29,7 +29,7 @@ export default () => {
 			audioFilename="onboarding_9_control.mp3"
 			nextTarget={OnboardingScreens.TheJourneyStartsNow}
 			title="Control"
-			onPressNext={() => dispatch(setSurveyResponse(Surveys.CanYouControlIt, selectedValue))}
+			onPressNext={() => dispatch(setOnboardingSurveyResponse(Surveys.CanYouControlIt, selectedValue))}
 			nextEnabled={selectedValue !== ''}
 		>
 			<View style={styles.container}>
