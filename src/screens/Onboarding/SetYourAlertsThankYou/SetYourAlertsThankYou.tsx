@@ -3,8 +3,8 @@ import { Text, View } from 'react-native';
 import { OnboardingScreen } from '@elements';
 import { OnboardingScreens } from 'route/enums';
 import { useSelector } from 'react-redux';
-import { getAlertTime } from 'redux/selector';
-import { AlertTime } from 'redux/types/alerts';
+import { getAlertTime } from '@redux/selector';
+import { AlertTime } from '@redux/types/alerts';
 import styles from './SetYourAlertsThankYou.styles';
 import { dayMinutesToTimeString } from '../SetYourAlerts/SetYourAlerts';
 

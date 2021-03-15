@@ -22,7 +22,7 @@ export default StyleSheet.create({
 		height: 189,
 		padding: 16,
 		borderRadius: 26,
-		backgroundColor: colors.GrayF3,
+		backgroundColor: colors.GrayFB,
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		alignItems: 'center',

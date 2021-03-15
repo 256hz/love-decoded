@@ -34,16 +34,16 @@ import {
 	resetAudioPlayer,
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
-} from 'redux/action/audio';
+} from '@redux/action/audio';
 
 export function* watchForPlayAudioFile() {
 	yield takeEvery(playAudioFile, function* ({ payload: { audioFilename } }) {
-		yield put(resetAudioPlayer(true));
+		yield put(resetAudioPlayer(true, 'on load'));
 		yield put(setAudioIsLoaded(false));
 
 		try {
+			console.log('loading:', audioFilename);
 			const [ filename, extension ] = audioFilename.split('.');
-			console.log('loading:', filename, extension);
 			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
 		} catch (error) {
 			console.error(error);
@@ -83,7 +83,7 @@ export function* watchForSuccessfulLoad() {
 			console.error('did not load audio file');
 			return;
 		}
-		
+
 		console.log('loaded');
 		yield put(setAudioIsLoaded(true));
 		yield put(playAudio());
@@ -169,12 +169,6 @@ function* seek(seekTarget: number) {
 	} catch (error) {
 		console.error(`error seeking to ${seekTarget} in audio`, error);
 	}
-}
-
-export function* pauseOnBackground() {
-	yield takeEvery([ appInactivated, appBackgrounded ], function* () {
-		// yield put(pauseAudio());
-	});
 }
 
 export function* resumeOnActive() {

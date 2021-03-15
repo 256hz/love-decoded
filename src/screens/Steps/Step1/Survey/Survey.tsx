@@ -1,68 +1,100 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { setStepSurveyResponse } from '@redux/action';
-import { getStepSurvey, getUserProgress } from '@redux/selector';
-import { Courses, DayFromNumber, Steps } from '@redux/types/survey';
+import { setDaySurveyResponse } from '@redux/action';
+import { getDaySurvey, getUserProgress } from '@redux/selector';
+import {
+	Courses, DayFromNumber, Steps, Surveys,
+} from '@redux/types/survey';
 import { TitleWithProgressHeader } from '@elements/Header/HeaderOptions';
-import RootState from 'redux/RootState';
+import RootState from '@redux/RootState';
+import { useNavigation } from '@react-navigation/native';
+import { StepScreens } from 'route/enums';
+import NavButtons from 'elements/AudioPlayerNavigator/NavButtons';
 import styles from './Survey.styles';
 
 const prompts = [
 	{
 		prompt: 'How many lovable qualities did you write down today?',
-		key: 'lovable_qualities_write_down',
+		key: Surveys.LovableQualitiesWriteDown,
 	},
 	{
 		prompt: 'How many of your lovable qualities did you share with others?',
-		key: 'lovable_qualities_share_with_others',
+		key: Surveys.LovableQualitiesShare,
 	},
 	{
 		prompt: 'How many of your lovable quailties can you now recite by memory?',
-		key: 'lovable_qualities_recite_by_memory',
+		key: Surveys.LovableQualitiesRecite,
 	},
 	{
 		prompt: 'How many times did you smile thinking about your loveable qualities?',
-		key: 'lovable_qualities_smile_thinking',
+		key: Surveys.LovableQualitiesSmile,
 	},
 	{
 		prompt: 'How many times did you think it was silly?',
-		key: 'lovable_qualities_silly',
+		key: Surveys.LovableQualitiesSilly,
 	},
 ];
 
 export default ({ navigation }) => {
 	const dispatch = useDispatch();
+	const { navigate } = useNavigation();
+
+	const timeoutRef = useRef(-1);
 	const { currentDay } = useSelector(getUserProgress);
 	const [ currentPrompt, setCurrentPrompt ] = useState(0);
 
-	// nav to this in DayOverview
-
-	// make survey in redux, reducer/selector?
 	const response = useSelector<RootState>(
-		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], prompts[currentPrompt].key),
+		getDaySurvey(Courses.One, Steps.One, DayFromNumber[currentDay], prompts[currentPrompt].key),
 	);
 
-	const onPress = (value) => dispatch(
-		setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], prompts[value].key, value),
-		// set timeout for moving to the next prompt or nav to good job
-	);
+
+	const onPress = (value: string) => {
+		dispatch(
+			setDaySurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], prompts[currentPrompt].key, value),
+		);
+
+		timeoutRef.current = setTimeout(() => {
+			currentPrompt < prompts.length - 1
+				? setCurrentPrompt(currentPrompt + 1)
+				: navigate(StepScreens.GoodJob);
+		}, 500);
+	};
 
 	useEffect(() => {
 		navigation.setOptions(
 			TitleWithProgressHeader(currentPrompt, prompts.length, 'Discovering Your Lovable Qualities', 'Survey'),
 		);
+
+		return () => clearTimeout(timeoutRef.current);
 	}, [ currentPrompt, setCurrentPrompt, navigation ]);
 
 	return (
 		<View style={styles.container}>
-			<Text>{prompts[currentPrompt]}</Text>
+			{ prompts?.[currentPrompt]?.prompt
+				? (
+					<View style={styles.promptContainer}>
+						<Text style={styles.promptText}>
+							{prompts[currentPrompt].prompt}
+						</Text>
+					</View>
+				)
+				: null
+			}
+
 			<View>
-				<SurveyButton label="0-2" value="0-2" onPress={onPress} response={response} />
-				<SurveyButton label="3-5" value="3-5" onPress={onPress} response={response} />
-				<SurveyButton label="6+" value="6+" onPress={onPress} response={response} />
+				<SurveyButton label="0-2" value="0-2" onPress={onPress} response={response as string} />
+				<SurveyButton label="3-5" value="3-5" onPress={onPress} response={response as string} />
+				<SurveyButton label="6+" value="6+" onPress={onPress} response={response as string} />
 			</View>
+
+			<NavButtons
+				backNavigationDisabled
+				hideNextButton
+				hideBackButton={currentPrompt === 0}
+				onPressBack={() => setCurrentPrompt(currentPrompt - 1)}
+			/>
 		</View>
 	);
 };

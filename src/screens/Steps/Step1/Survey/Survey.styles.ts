@@ -5,8 +5,16 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingHorizontal: 23,
-		justifyContent: 'space-around',
+		padding: 23,
+		justifyContent: 'space-between',
+		backgroundColor: colors.White,
+	},
+	promptContainer: {
+		marginTop: 47,
+	},
+	promptText: {
+		...text.body,
+		fontSize: 16,
 	},
 	surveyButton: {
 		width: '100%',
@@ -17,11 +25,11 @@ export default StyleSheet.create({
 		backgroundColor: colors.White,
 		borderRadius: 6,
 		shadowRadius: 4,
-		shadowOpacity: 0.5,
+		shadowOpacity: 0.25,
 		shadowColor: colors.Gray33,
 		shadowOffset: {
 			height: 4,
-			width: 4,
+			width: 0,
 		},
 		elevation: 4,
 	},
@@ -31,10 +39,9 @@ export default StyleSheet.create({
 	buttonText: {
 		...text.body,
 		...text.bold,
-		fontSize: 20,
+		fontSize: 24,
 	},
 	buttonTextSelected: {
 		color: colors.White,
-
 	},
 });

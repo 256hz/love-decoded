@@ -1,28 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
-import { StepScreen } from '@elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import Info from '@assets/svg/info.svg';
 import { StepScreens } from 'route/enums';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useDispatch, useSelector } from 'react-redux';
-import { getStepSurvey, getUserProgress } from 'redux/selector';
-import {
-	Activities, Courses, DayFromNumber, Steps,
-} from 'redux/types/survey';
-import { setStepSurveyResponse } from 'redux/action';
+import { setStepActivityResponse } from '@redux/action';
+import RootState from '@redux/RootState';
+import { getStepActivity } from '@redux/selector';
+import { Activities, Courses, Steps } from '@redux/types/survey';
+import { StepScreen } from '@elements';
 import styles from './Activities1.styles';
 
 export default () => {
 	const dispatch = useDispatch();
 
-	const { currentDay } = useSelector(getUserProgress);
-	const savedResponse = useSelector(
-		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesSelf),
+	const savedResponse = useSelector<RootState>(
+		getStepActivity(Courses.One, Steps.One, Activities.LovableQualitiesSelf),
 	);
 
 	const setResponse = (text: string) => {
-		dispatch(setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesSelf, text));
+		dispatch(setStepActivityResponse(Courses.One, Steps.One, Activities.LovableQualitiesSelf, text));
 	};
 
 	const onPressInfoBubble = () => {
@@ -32,7 +30,7 @@ export default () => {
 	return (
 		<StepScreen
 			nextTarget={StepScreens.Step1Activities2}
-			audioFilename="one_second_silence.mp3"
+			// audioFilename="one_second_silence.mp3"
 			// scrollDisabled
 		>
 			<View style={styles.container}>
@@ -57,7 +55,7 @@ export default () => {
 
 					<ListTextInput
 						containerStyle={styles.textInputContainer}
-						text={savedResponse || SingleBullet}
+						text={savedResponse as string || SingleBullet}
 						setText={setResponse}
 					/>
 				</View>

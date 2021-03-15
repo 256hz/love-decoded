@@ -19,17 +19,19 @@ export const EmptyHeader = () => ({
 	headerShown: false,
 });
 
-export const TitleHeader = (title?: string, subtitle?: string) => ({
+export const TitleHeader = (title: string, subtitle?: string) => ({
 	headerLeft: () => <Header type={HeaderType.Title} headerProps={{ title, subtitle }} />,
 	headerStyle: [ titleStyles.titleHeader, styles.removeBottomBorder ],
 	headerTitle: () => <></>,
 	headerTitleContainerStyle: styles.emptyContainer,
+	headerRight: () => <></>,
+	headerRightContainerStyle: styles.emptyContainer,
 });
 
 export const TitleWithProgressHeader = (
 	activeProgressDot: number,
 	totalProgressDots: number,
-	title?: string,
+	title: string,
 	subtitle?: string,
 ) => ({
 	headerLeft: () => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { getUserEmail, getUserFirstName } from 'redux/selector';
+import { getUserEmail, getUserFirstName } from '@redux/selector';
 import styles from './UserHeader.styles';
 
 export default () => {

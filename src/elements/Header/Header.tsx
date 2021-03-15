@@ -20,7 +20,7 @@ type SingleButtonProps = {
 
 type TitleProps = {
 	headerProps: {
-		title?: string;
+		title: string;
 		subtitle?: string;
 		activeProgressDot?: never;
 		totalProgressDots?: never;
@@ -31,7 +31,7 @@ type TitleProps = {
 
 type TitleWithProgressProps = {
 	headerProps: {
-		title?: string;
+		title: string;
 		subtitle?: string;
 		activeProgressDot: number;
 		totalProgressDots: number;
@@ -47,13 +47,13 @@ export default ({ navigation, type, headerProps }: Props) => {
 		case HeaderType.Drawer:
 			return <DrawerButton navigation={navigation} />;
 		case HeaderType.Title:
-			return <TitleText title={headerProps?.title} subtitle={headerProps?.subtitle} />;
+			return <TitleText title={headerProps!.title} subtitle={headerProps!.subtitle} />;
 		case HeaderType.TitleWithProgress:
 			return <TitleText
-				title={headerProps?.title}
-				subtitle={headerProps?.subtitle}
-				activeProgressDot={headerProps?.activeProgressDot}
-				totalProgressDots={headerProps?.totalProgressDots}
+				title={headerProps!.title}
+				subtitle={headerProps!.subtitle}
+				activeProgressDot={headerProps!.activeProgressDot}
+				totalProgressDots={headerProps!.totalProgressDots}
 			/>;
 		default:
 			return <></>;

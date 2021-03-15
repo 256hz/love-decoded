@@ -22,10 +22,7 @@ export default () => {
 			lazy={false}
 			screenOptions={({ route }) => ({
 				tabBarIcon: ({ focused }) => (
-					<TabIcon
-						tabName={route.name as TabNames}
-						selected={focused}
-					/>
+					<TabIcon tabName={route.name as TabNames} selected={focused} />
 				),
 			})}
 			tabBarOptions={{

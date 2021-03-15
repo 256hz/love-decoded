@@ -35,9 +35,10 @@ export {
 } from './modal';
 
 export {
+	setDaySurveyResponse,
 	setOnboardingSurveyResponse,
 	setNeffSurveyResponse,
-	setStepSurveyResponse,
+	setStepActivityResponse,
 } from './survey';
 
 export {

@@ -8,12 +8,11 @@ export default StyleSheet.create({
 		marginVertical: 16,
 		paddingLeft: 19,
 		flexDirection: 'row',
-		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	iconContainer: {
-		height: '100%',
 		marginRight: 19,
-		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	textContainer: {
 		flex: 1,

@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+	container: {
+		flex: 1,
+		paddingTop: 62,
+	},
 	shape0: {
 		position: 'absolute',
 		left: -2,
@@ -123,6 +127,16 @@ export default StyleSheet.create({
 		top: '10%',
 	},
 	shape25: {
+		position: 'absolute',
+		right: 0,
+		top: 0,
+	},
+	shape26: {
+		position: 'absolute',
+		right: 0,
+		bottom: 0,
+	},
+	shape27: {
 		position: 'absolute',
 		right: 0,
 		top: 0,

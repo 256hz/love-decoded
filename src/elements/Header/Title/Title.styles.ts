@@ -1,19 +1,22 @@
-import { StatusBar, StyleSheet } from 'react-native';
+import { Dimensions, StatusBar, StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
 import colors from 'elements/globalStyles/color';
 
 export const TITLE_HEADER_HEIGHT = 150 - (StatusBar.currentHeight || 0);
-export const TITLE_WITH_PROGRESS_HEIGHT = TITLE_HEADER_HEIGHT + 79;
-export const PROGRESS_WIDTH = 208;
+export const PROGRESS_HEIGHT = 57;
+export const PROGRESS_WIDTH = 224;
+export const TITLE_WITH_PROGRESS_HEIGHT = TITLE_HEADER_HEIGHT - 16 + PROGRESS_HEIGHT;
 
 export default StyleSheet.create({
 	titleHeader: {
 		height: TITLE_HEADER_HEIGHT,
-		backgroundColor: colors.GrayF3,
+		backgroundColor: colors.GrayFB,
+	},
+	headerContainer: {
+		flex: 1,
+		width: Dimensions.get('screen').width,
 	},
 	titleContainer: {
-		flex: 1,
-		alignItems: 'flex-start',
 		paddingLeft: 23,
 		paddingTop: 23,
 	},
@@ -28,8 +31,14 @@ export default StyleSheet.create({
 		fontSize: 17,
 		marginBottom: 27,
 	},
+	progressBar: {
+		width: Dimensions.get('screen').width,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	progressContainer: {
-		flex: 1,
+		width: PROGRESS_WIDTH,
+		height: PROGRESS_HEIGHT,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},

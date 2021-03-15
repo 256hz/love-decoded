@@ -4,25 +4,23 @@ import { StepScreen } from '@elements';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import { StepScreens } from 'route/enums';
 import { useDispatch, useSelector } from 'react-redux';
-import { setStepSurveyResponse } from 'redux/action';
-import { getUserProgress, getStepSurvey } from 'redux/selector';
-import {
-	Courses, Steps, DayFromNumber, Activities,
-} from 'redux/types/survey';
+import { setStepActivityResponse } from '@redux/action';
+import { getStepActivity } from '@redux/selector';
+import { Courses, Steps, Activities } from '@redux/types/survey';
 import styles from './Activities2.styles';
 
 export default () => {
 	const dispatch = useDispatch();
-	const { currentDay } = useSelector(getUserProgress);
 	const missingResponse = useSelector(
-		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesOthersMissing),
+		getStepActivity(Courses.One, Steps.One, Activities.LovableQualitiesOthersMissing),
 	);
+
 	const doNotAgreeResponse = useSelector(
-		getStepSurvey(Courses.One, Steps.One, DayFromNumber[currentDay], Activities.LovableQualitiesOthersDoNotAgree),
+		getStepActivity(Courses.One, Steps.One, Activities.LovableQualitiesOthersDoNotAgree),
 	);
 
 	const setResponse = (text: string, activity: Activities) => {
-		dispatch(setStepSurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], activity, text));
+		dispatch(setStepActivityResponse(Courses.One, Steps.One, activity, text));
 	};
 
 	return (

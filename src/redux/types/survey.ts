@@ -10,6 +10,11 @@ export enum Surveys {
 	Neff = 'neff',
 	WhatWouldILikeToLearn = 'what_would_i_like_to_learn',
 	HowAreYouFeeling = 'how_are_you_feeling',
+	LovableQualitiesWriteDown = 'how_many_lovable_qualities_did_you_write_down_today',
+	LovableQualitiesShare = 'how_many_lovable_qualities_did_you_share_with_others',
+	LovableQualitiesRecite = 'how_many_lovable_qualities_can_you_recite_by_memory',
+	LovableQualitiesSmile = 'how_many_times_did_you_smile_thinking_about_your_lovable_qualities',
+	LovableQualitiesSilly = 'how_many_times_did_you_think_it_was_silly',
 }
 
 export enum Activities {
@@ -75,20 +80,27 @@ export type Course1 = {
 };
 
 export type Course1Step1 = {
+	[Activities.LovableQualitiesSelf]: string;
+	[Activities.LovableQualitiesOthersMissing]: string;
+	[Activities.LovableQualitiesOthersDoNotAgree]: string;
+} & {
 	[key in Days]: {
 		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
-		[Activities.LovableQualitiesSelf]: string;
-		[Activities.LovableQualitiesOthersMissing]: string;
-		[Activities.LovableQualitiesOthersDoNotAgree]: string;
+		[Surveys.LovableQualitiesWriteDown]: string,
+		[Surveys.LovableQualitiesRecite]: string,
+		[Surveys.LovableQualitiesShare]: string,
+		[Surveys.LovableQualitiesSmile]: string,
+		[Surveys.LovableQualitiesSilly]: string,
 	};
 };
 
 export type Course1Step2 = {
+	[Activities.SelfTalkPositivelySituations]: string;
+	[Activities.SelfTalkPositivelyReaction]: string;
+	[Activities.SelfTalkPositivelyRevision]: string;
+} & {
 	[key in Days]: {
 		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
-		[Activities.SelfTalkPositivelySituations]: string;
-		[Activities.SelfTalkPositivelyReaction]: string;
-		[Activities.SelfTalkPositivelyRevision]: string;
 	};
 };
 

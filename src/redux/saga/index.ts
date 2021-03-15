@@ -6,7 +6,6 @@ export {
 
 
 export {
-	pauseOnBackground,
 	resumeOnActive,
 	watchForSuccessfulLoad,
 	watchForPlayAudioFile,

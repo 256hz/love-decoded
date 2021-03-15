@@ -29,6 +29,7 @@ type AudioPlayerNavigatorStandard = {
 	audioFilename?: string;
 	backEnabled?: boolean;
 	backTarget?: OnboardingScreens | StepScreens;
+	customMiddleContent?: ReactChild;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: (arg?: any) => void;
@@ -44,6 +45,7 @@ type AudioPlayerNavigatorStandard = {
 type AudioPlayerNavigatorCustomButtons = {
 	// allowed
 	audioFilename?: string;
+	customMiddleContent?: ReactChild;
 	customButtons: ReactChild;
 	onAudioEnd?: (arg?: any) => void;
 	// disallowed
@@ -62,6 +64,7 @@ export default ({
 	backEnabled = true,
 	backTarget,
 	customButtons,
+	customMiddleContent,
 	hideBackButton,
 	hideNextButton,
 	onAudioEnd,
@@ -146,6 +149,8 @@ export default ({
 			}
 
 			<View style={styles.bottomContainer}>
+				{ customMiddleContent }
+
 				{ customButtons || (
 					<NavButtons
 						backEnabled={backEnabled}
