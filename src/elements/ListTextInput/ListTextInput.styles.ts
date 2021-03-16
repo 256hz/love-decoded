@@ -13,7 +13,7 @@ export default StyleSheet.create({
 		borderColor: colors.White,
 		backgroundColor: colors.White,
 		borderWidth: 1,
-		elevation: 2,
+		elevation: 4,
 		shadowColor: colors.Black,
 		shadowRadius: 3,
 		shadowOpacity: 0.25,

@@ -1,60 +1,19 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import {
-	View,
-	KeyboardAvoidingView,
-	Platform,
-	Text,
-} from 'react-native';
+import { View, Text } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
-import RNPickerSelect from 'react-native-picker-select';
 import { Spinner } from 'react-native-material-kit';
-import { OnboardingScreen } from '@elements';
+import RNPickerSelect from 'react-native-picker-select';
+import { OnboardingScreen, StackKeyboardAvoidingView } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
+import {
+	ageGroupChoices,
+	errors,
+	genderChoices,
+	MINUMUM_PASSWORD_LENGTH,
+} from './constants';
 import styles from './SignupForm.styles';
-
-const MINUMUM_PASSWORD_LENGTH = 6;
-
-const errors = {
-	name: 'Cannot be blank',
-	email: 'Please provide a valid email address',
-	password: `Enter at least ${MINUMUM_PASSWORD_LENGTH} characters`,
-	passwordMatch: 'Passwords must match',
-	gender: 'Select one',
-	ageGroup: 'Select one',
-};
-
-const ageGroupChoices = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ].map(digit => ({
-	label: `${digit}0-${digit}9`,
-	value: digit * 10,
-}));
-
-enum GenderValues {
-	Female = 'f',
-	Male = 'm',
-	Nonbinary = 'nb',
-	Other = 'other',
-}
-
-const genderChoices = [
-	{
-		label: 'Female',
-		value: GenderValues.Female,
-	},
-	{
-		label: 'Male',
-		value: GenderValues.Male,
-	},
-	{
-		label: 'Non-binary',
-		value: GenderValues.Nonbinary,
-	},
-	{
-		label: 'Other',
-		value: GenderValues.Other,
-	},
-];
 
 const ErrorText = ({ text }) => (
 	<View style={styles.errorContainer}>
@@ -64,6 +23,7 @@ const ErrorText = ({ text }) => (
 
 export default () => {
 	const { navigate } = useNavigation();
+	const [ keyboardVisible, setKeyboardVisible ] = useState(false);
 
 	const [ firstName, setFirstName ] = useState('');
 	const [ lastName, setLastName ] = useState('');
@@ -94,7 +54,7 @@ export default () => {
 	};
 
 	const isPasswordAllowed = useCallback((passwordToCheck: string) => {
-		return passwordToCheck.length >= 6
+		return passwordToCheck.length >= MINUMUM_PASSWORD_LENGTH
 			&& password.match(/[\w\d_. !@#$%^&*()-]+/g);
 	}, [ password ]);
 
@@ -119,7 +79,7 @@ export default () => {
 			tempErrors.customGender = gender === 'other' && !customGender;
 
 			setHasErrors(tempErrors);
-		}, 1000);
+		}, 750);
 	};
 
 	const handleSetGender = (value: string) => {
@@ -157,11 +117,14 @@ export default () => {
 	};
 
 	return (
-		<KeyboardAvoidingView
-			behavior={Platform.select({ ios: 'padding' })}
-			style={styles.kavContainer}
+		// <KeyboardAvoidingView
+		// 	behavior={Platform.select({ ios: 'padding' })}
+		// 	style={styles.kavContainer}
+		// >
+		<StackKeyboardAvoidingView
+			setKeyboardVisible={setKeyboardVisible}
+			style={keyboardVisible ? styles.keyboardPadding : undefined}
 		>
-
 			<OnboardingScreen
 				title="Sign Up"
 				titleContainerStyle={styles.titlePadding}
@@ -308,6 +271,7 @@ export default () => {
 					</View>
 				</View>
 			</OnboardingScreen>
-		</KeyboardAvoidingView>
+			{/* </KeyboardAvoidingView> */}
+		</StackKeyboardAvoidingView>
 	);
 };
