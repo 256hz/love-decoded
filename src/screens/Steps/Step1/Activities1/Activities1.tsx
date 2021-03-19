@@ -9,7 +9,7 @@ import { setStepActivityResponse } from '@redux/action';
 import RootState from '@redux/RootState';
 import { getStepActivity } from '@redux/selector';
 import { Activities, Courses, Steps } from '@redux/types/survey';
-import { StepScreen } from '@elements';
+import { StackKeyboardAvoidingView, StepScreen } from '@elements';
 import styles from './Activities1.styles';
 
 export default () => {
@@ -28,38 +28,40 @@ export default () => {
 	};
 
 	return (
-		<StepScreen
-			nextTarget={StepScreens.Step1Activities2}
+		<StackKeyboardAvoidingView>
+			<StepScreen
+				nextTarget={StepScreens.Step1Activities2}
 			// audioFilename="one_second_silence.mp3"
 			// scrollDisabled
-		>
-			<View style={styles.container}>
-				<View style={styles.bodyContainer}>
-					<View style={styles.textItemContainer}>
-						<Text style={styles.bodyText}>
-							{'Let\'s'} start by <Text style={styles.boldText}>creating a list of your loveable qualities</Text> which you can share.
-						</Text>
+			>
+				<View style={styles.container}>
+					<View style={styles.bodyContainer}>
+						<View style={styles.textItemContainer}>
+							<Text style={styles.bodyText}>
+								{'Let\'s'} start by <Text style={styles.boldText}>creating a list of your loveable qualities</Text> which you can share.
+							</Text>
+						</View>
+
+						<View style={[ styles.textItemContainer, styles.row ]}>
+							<Text style={styles.bodyText}>
+								Keep adding to your list and learning it.
+							</Text>
+
+							<TouchableOpacity onPress={onPressInfoBubble}>
+								<View style={styles.infoBubble}>
+									<Info />
+								</View>
+							</TouchableOpacity>
+						</View>
+
+						<ListTextInput
+							containerStyle={styles.textInputContainer}
+							text={savedResponse as string || SingleBullet}
+							setText={setResponse}
+						/>
 					</View>
-
-					<View style={[ styles.textItemContainer, styles.row ]}>
-						<Text style={styles.bodyText}>
-							Keep adding to your list and learning it.
-						</Text>
-
-						<TouchableOpacity onPress={onPressInfoBubble}>
-							<View style={styles.infoBubble}>
-								<Info />
-							</View>
-						</TouchableOpacity>
-					</View>
-
-					<ListTextInput
-						containerStyle={styles.textInputContainer}
-						text={savedResponse as string || SingleBullet}
-						setText={setResponse}
-					/>
 				</View>
-			</View>
-		</StepScreen>
+			</StepScreen>
+		</StackKeyboardAvoidingView>
 	);
 };
