@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import colors from '@elements/globalStyles/color';
 import text from '@elements/globalStyles/text';
 
@@ -11,6 +11,9 @@ export default StyleSheet.create({
 		paddingHorizontal: 16,
 		paddingVertical: 18,
 		justifyContent: 'space-between',
+	},
+	keyboardPadding: {
+		paddingBottom: Platform.select({ android: 300 }),
 	},
 	titlePadding: {
 		paddingTop: 42,

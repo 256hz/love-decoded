@@ -26,7 +26,7 @@ export default () => {
 				),
 			})}
 			tabBarOptions={{
-				keyboardHidesTabBar: true,
+				keyboardHidesTabBar: false,
 				showLabel: false,
 				style: styles.tabBar,
 			}}
