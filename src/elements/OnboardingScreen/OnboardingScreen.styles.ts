@@ -6,12 +6,12 @@ export default StyleSheet.create({
 	},
 	logoContainer: {
 		width: '100%',
-		marginTop: 84,
+		marginTop: 30,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	titleLogoMargin: {
-		marginTop: 21,
+		marginTop: 0,
 	},
 	screenContainer: {
 		flexGrow: 1,
@@ -20,7 +20,7 @@ export default StyleSheet.create({
 	titleContainer: {
 		width: '100%',
 		paddingHorizontal: 32,
-		paddingTop: 32,
+		paddingTop: 16,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},

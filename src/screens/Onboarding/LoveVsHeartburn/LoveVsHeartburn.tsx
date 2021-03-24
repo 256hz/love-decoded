@@ -9,6 +9,7 @@ export default () => (
 		audioFilename="onboarding_14_love_vs_heartburn.mp3"
 		drawShapes={[ 1, 7, 11 ]}
 		nextTarget={OnboardingScreens.Dependency}
+		showLogo
 	>
 		<View style={styles.container}>
 			<Text style={styles.text}>

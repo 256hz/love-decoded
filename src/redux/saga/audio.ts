@@ -12,7 +12,7 @@ import { eventChannel } from 'redux-saga';
 import {
 	appBackgrounded,
 	appInactivated,
-	playAudioFile,
+	loadAudioFile,
 	pauseAudio,
 	playAudio,
 	setAudioInfo,
@@ -25,6 +25,7 @@ import {
 import {
 	getAudioFilename,
 	getAudioInfo,
+	getCurrentRouteName,
 	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
@@ -32,12 +33,13 @@ import {
 } from '@redux/selector';
 import {
 	resetAudioPlayer,
-	setAudioPlayCompleted,
 	setAudioTotalPlayed,
+	setAudioPlayedToEndOnScreen,
 } from '@redux/action/audio';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 
-export function* watchForPlayAudioFile() {
-	yield takeEvery(playAudioFile, function* ({ payload: { audioFilename } }) {
+export function* watchForloadAudioFile() {
+	yield takeEvery(loadAudioFile, function* ({ payload: { audioFilename } }) {
 		yield put(resetAudioPlayer(true, 'on load'));
 		yield put(setAudioIsLoaded(false));
 
@@ -54,12 +56,13 @@ export function* watchForPlayAudioFile() {
 export function* watchForPlayAudio() {
 	yield takeEvery(playAudio, function* () {
 		const isLoaded = yield select(isAudioLoaded);
+		const route = yield select(getCurrentRouteName);
 
 		if (isLoaded) {
 			console.log('play');
 			SoundPlayer.play();
 			yield put(setAudioIsPlaying(true));
-			yield call(getInfoWhilePlaying);
+			yield call(getInfoWhilePlaying, route);
 		}
 	});
 }
@@ -86,7 +89,6 @@ export function* watchForSuccessfulLoad() {
 
 		console.log('loaded');
 		yield put(setAudioIsLoaded(true));
-		yield put(playAudio());
 	});
 }
 
@@ -107,7 +109,7 @@ function* getInfo() {
 	}
 }
 
-function* getInfoWhilePlaying() {
+function* getInfoWhilePlaying(route: OnboardingScreens | StepScreens) {
 	const isGettingInfo = yield select(isAudioGettingInfo);
 	if (isGettingInfo) {
 		return;
@@ -136,8 +138,12 @@ function* getInfoWhilePlaying() {
 			const timeLeft = duration - currentTime;
 			console.log('ending in:', timeLeft);
 			yield delay(timeLeft);
-			yield put(setAudioPlayCompleted(true));
+
+			// yield put(setAudioPlayCompleted(true));
+			yield put(setAudioPlayedToEndOnScreen(route));
+
 			console.log('completed');
+
 			yield put(resetAudioPlayer(false, 'onCompleted'));
 			break;
 		}

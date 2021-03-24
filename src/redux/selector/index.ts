@@ -2,6 +2,7 @@ export { getAlertTime } from './alerts';
 
 export {
 	getAppState,
+	getCurrentRouteName,
 	getLastActiveEpochSeconds,
 } from './appState';
 
@@ -14,6 +15,7 @@ export {
 	isAudioGettingInfo,
 	isAudioLoaded,
 	isAudioPlaying,
+	isAudioPlayedToEndOnScreen,
 } from './audio';
 
 export {

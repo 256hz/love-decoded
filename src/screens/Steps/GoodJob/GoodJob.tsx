@@ -82,6 +82,8 @@ export default () => {
 			<Text style={styles.headlineText}>
 				Keep going! You got this!
 			</Text>
+
+			{/* Add Next button */}
 		</Pressable>
 	);
 };

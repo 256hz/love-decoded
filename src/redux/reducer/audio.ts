@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-	playAudioFile,
+	loadAudioFile,
 	resetAudioPlayer,
 	setAudioInfo,
 	setAudioIsGettingInfo,
@@ -8,7 +8,9 @@ import {
 	setAudioIsPlaying,
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
+	setAudioPlayedToEndOnScreen,
 } from '@redux/action';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 
 export type AudioState = {
 	audioFilename: string;
@@ -20,6 +22,10 @@ export type AudioState = {
 	isPlaying: boolean;
 	playCompleted: boolean;
 	totalPlayed: number;
+} & {
+	audioEndedScreens?: {
+		[key in OnboardingScreens | StepScreens]?: boolean | undefined;
+	}
 };
 
 const INITIAL_STATE = {
@@ -36,16 +42,42 @@ const INITIAL_STATE = {
 
 export const audio = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setAudioIsLoaded, (state, { payload: { isLoaded } }) => ({ ...state, isLoaded }));
+
 	addCase(setAudioIsPlaying, (state, { payload: { isPlaying } }) => ({ ...state, isPlaying, isActive: true }));
+
 	addCase(setAudioIsGettingInfo, (state, { payload: { isGettingInfo } }) => ({ ...state, isGettingInfo }));
+
 	addCase(setAudioInfo, (state, { payload: { currentTime, duration } }) => ({ ...state, currentTime, duration }));
+
 	addCase(setAudioTotalPlayed, (state, { payload: { totalPlayed } }) => ({ ...state, totalPlayed }));
+
 	addCase(setAudioPlayCompleted, (state, { payload: { playCompleted } }) => ({ ...state, playCompleted }));
-	addCase(playAudioFile, (state, { payload: { audioFilename } }) => ({ ...state, audioFilename }));
+
+	addCase(loadAudioFile, (state, { payload: { audioFilename } }) => ({ ...state, audioFilename }));
+
 	addCase(resetAudioPlayer, (state, { payload: { clearPlayCompleted } }) => ({
 		...INITIAL_STATE,
 		isLoaded: state.isLoaded,
 		playCompleted: clearPlayCompleted ? false : state.playCompleted,
 		audioFilename: clearPlayCompleted ? '' : state.audioFilename,
+		audioEndedScreens: state.audioEndedScreens || {},
 	}));
+
+	addCase(setAudioPlayedToEndOnScreen, (state, { payload: { screen } }) => {
+		const newState = {
+			...state,
+			audioEndedScreens: {
+				...(state.audioEndedScreens || {}),
+				[screen]: true,
+			},
+		};
+		console.log({ newState });
+		return ({
+			...state,
+			audioEndedScreens: {
+				...(state.audioEndedScreens || {}),
+				[screen]: true,
+			},
+		});
+	});
 });

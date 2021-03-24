@@ -47,6 +47,8 @@ export default () => {
 
 				<CourseButton onPress={onPress} />
 			</View>
+
+			{/* Content Review */}
 		</StepScreen>
 	);
 };

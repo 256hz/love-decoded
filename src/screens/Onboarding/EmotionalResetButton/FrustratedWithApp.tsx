@@ -15,6 +15,7 @@ export default () => {
 			hideNextButton
 			onAudioEnd={() => setBackEnabled(true)}
 			nextTarget={OnboardingScreens.BriefOverviewOfButtons}
+			showLogo
 			title="Emotional RESET Button"
 			titleContainerStyle={styles.frustratedTitleContainerStyle}
 		>

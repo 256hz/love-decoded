@@ -64,21 +64,23 @@ const cards = [
 
 				<View style={{ width: '100%', height: 16 }} />
 
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(25-30 seconds) Morning Intention
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(2-3 minutes) Lunchtime Activity
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(20-30 seconds) Dinner Survey
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(15-20 seconds) Bedtime Reflection
-				</Text>
-				<Text style={[ styles.textBody, styles.textOrange ]}>
-					All of which is 4 - 5 minutes total in comparison to people exercising for an hour a day.
-				</Text>
+				<View style={styles.textAlignLeftContainer}>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(25-30 seconds) Morning Intention
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(2-3 minutes) Lunchtime Activity
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(20-30 seconds) Dinner Survey
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(15-20 seconds) Bedtime Reflection
+					</Text>
+					<Text style={[ styles.textBody, styles.textOrange ]}>
+						All of which is 4 - 5 minutes total in comparison to people exercising for an hour a day.
+					</Text>
+				</View>
 			</View>
 		),
 	},

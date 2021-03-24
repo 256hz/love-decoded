@@ -21,7 +21,7 @@ const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabl
 export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
-	const [ linksDisabled, setLinksDisabled ] = useState(true);
+	const [ linksDisabled, setLinksDisabled ] = useState(false);
 	const onPress = () => {
 		dispatch(resetAudioPlayer(true, 'erb-onNext'));
 		navigate(OnboardingScreens.FrustratedWithProgress);

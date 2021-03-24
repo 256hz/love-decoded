@@ -9,6 +9,7 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		audioFilename="onboarding_5_when_you_forget.mp3"
 		nextTarget={OnboardingScreens.TheScienceOfLove}
+		showLogo
 	>
 		<View style={styles.container}>
 			<Text style={styles.headline}>

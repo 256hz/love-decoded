@@ -12,7 +12,7 @@ export default StyleSheet.create({
 		justifyContent: 'space-around',
 	},
 	frustratedTitleContainerStyle: {
-		paddingTop: 32,
+		paddingTop: 96,
 	},
 	text: {
 		...text.body,

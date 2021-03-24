@@ -27,12 +27,15 @@ export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
-	const [ nextDisabled, setNextDisabled ] = useState(true);
+	const [ nextDisabled, setNextDisabled ] = useState(false);
+	// const [ nextDisabled, setNextDisabled ] = useState(true);
 
 	const onPress = () => {
 		navigate(OnboardingScreens.AcknowledgingYourPast);
 		dispatch(resetAudioPlayer(true, 'introduction-onNext'));
 	};
+
+	// Add text explaining audio will have to be finished to advance to next screen
 
 	return (
 		<OnboardingScreen
@@ -46,6 +49,7 @@ export default () => {
 			drawShapes={[ 14, 15, 16 ]}
 			onAudioEnd={() => setNextDisabled(false)}
 			scrollDisabled
+			showLogo
 			title="You are Born to be Loved"
 		>
 			<View style={styles.container}>

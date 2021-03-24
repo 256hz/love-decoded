@@ -23,7 +23,7 @@ const SurveyButton = ({ onPress, disabled }: SurveyButtonProps) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	const [ nextDisabled, setNextDisabled ] = useState(true);
+	const [ nextDisabled, setNextDisabled ] = useState(false);
 
 	return (
 		<OnboardingScreen

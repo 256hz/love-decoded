@@ -239,7 +239,7 @@ export default () => {
 
 					<View>
 						<View style={styles.termsContainer}>
-							<Text style={styles.termsText}>By tapping, you agree to our</Text>
+							<Text style={styles.termsText}>By submitting, you agree to our</Text>
 							<View style={styles.linksContainer}>
 								<TouchableOpacity onPress={() => console.log('terms')}>
 									<Text style={[ styles.termsText, styles.termsLink ]}>
