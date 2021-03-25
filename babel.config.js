@@ -21,10 +21,12 @@ module.exports = {
 					'.json',
 				],
 				alias: {
+					'@App': [ './App.tsx' ],
 					'@assets': [ './assets/' ],
 					'@screens': [ './src/screens/' ],
 					'@elements': [ './src/elements/' ],
 					'@redux': [ './src/redux/' ],
+					'@util': [ './src/util' ],
 				},
 			},
 		],

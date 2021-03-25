@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
+import { DEMO_MODE } from '@App';
 import styles from './NavigatingTheStructure.styles';
 
 const cards = [
@@ -103,7 +104,7 @@ const cards = [
 ];
 
 export default () => {
-	const [ nextEnabled, setNextEnabled ] = useState(false);
+	const [ nextEnabled, setNextEnabled ] = useState(DEMO_MODE);
 
 	return (
 		<OnboardingScreen

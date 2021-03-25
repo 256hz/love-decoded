@@ -1,11 +1,12 @@
-import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
+import { DEMO_MODE } from '@App';
 import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreen } from '@elements';
 import styles from './EmotionalResetButton.styles';
 
 export default () => {
-	const [ backEnabled, setBackEnabled ] = useState(false);
+	const [ backEnabled, setBackEnabled ] = useState(DEMO_MODE);
 
 	return (
 		<OnboardingScreen

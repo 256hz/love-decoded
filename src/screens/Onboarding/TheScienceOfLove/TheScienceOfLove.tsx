@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
+import { DEMO_MODE } from '@App';
 import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './TheScienceOfLove.styles';
@@ -32,7 +33,7 @@ const cards = [ {
 } ];
 
 export default () => {
-	const [ nextEnabled, setNextEnabled ] = useState(false);
+	const [ nextEnabled, setNextEnabled ] = useState(DEMO_MODE);
 
 	return (
 		<OnboardingScreen

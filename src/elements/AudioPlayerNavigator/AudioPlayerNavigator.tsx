@@ -20,6 +20,7 @@ import {
 	isAudioPlayedToEndOnScreen,
 	isAudioPlaying,
 } from '@redux/selector';
+import { DEMO_MODE } from '@App';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';
@@ -121,7 +122,10 @@ export default ({
 	]);
 
 	const isNextEnabled = (() => {
-		// /* disabled for demo
+		if (DEMO_MODE) {
+			return true;
+		}
+
 		if (nextEnabled === undefined && audioFilename === undefined) {
 			return true;
 		}
@@ -137,7 +141,6 @@ export default ({
 		if (nextEnabled !== undefined && audioFilename !== undefined) {
 			return nextEnabled && playedToEnd;
 		}
-		// */
 
 		return true;
 	})();

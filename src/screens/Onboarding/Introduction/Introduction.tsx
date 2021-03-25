@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { OnboardingScreen } from '@elements';
+import { DEMO_MODE } from '@App';
 import { OnboardingScreens } from 'route/enums';
-import { useNavigation } from '@react-navigation/native';
+import { OnboardingScreen } from '@elements';
 import { resetAudioPlayer } from '@redux/action';
-import { useDispatch } from 'react-redux';
 import styles from './Introduction.styles';
 
 type EnterButtonProps = {
@@ -27,8 +28,7 @@ export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
-	const [ nextDisabled, setNextDisabled ] = useState(false);
-	// const [ nextDisabled, setNextDisabled ] = useState(true);
+	const [ nextDisabled, setNextDisabled ] = useState(DEMO_MODE);
 
 	const onPress = () => {
 		navigate(OnboardingScreens.AcknowledgingYourPast);

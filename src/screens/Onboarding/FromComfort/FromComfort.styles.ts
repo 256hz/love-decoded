@@ -9,6 +9,7 @@ const { width } = Dimensions.get('screen');
 export default StyleSheet.create({
 	container: {
 		flex: 1,
+		// justifyContent: 'space-around',
 	},
 	bodyContainer: {
 		marginVertical: 16,
