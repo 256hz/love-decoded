@@ -90,6 +90,7 @@ export default () => {
 			drawShapes={[ 18, 19, 20 ]}
 			nextTarget={OnboardingScreens.SetYourAlertsThankYou}
 			nextEnabled={isNextEnabled}
+			scrollDisabled
 			title="Set Your Alerts"
 			titleContainerStyle={styles.titleContainer}
 			titleChild={

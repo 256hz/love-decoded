@@ -1,5 +1,6 @@
 export { AudioPlayerNavigator } from './AudioPlayerNavigator';
 export { CardCarousel } from './CardCarousel';
+export { CustomScrollView } from './CustomScrollView';
 export { DrawerDots } from './DrawerDots';
 export { Header } from './Header';
 export { ListTextInput } from './ListTextInput';

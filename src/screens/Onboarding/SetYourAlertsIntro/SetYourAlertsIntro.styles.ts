@@ -27,6 +27,7 @@ export default StyleSheet.create({
 	cards: {
 		flex: 1,
 		marginTop: 16,
+		justifyContent: 'center',
 	},
 	footerText: {
 		...text.body,

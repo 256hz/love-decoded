@@ -20,7 +20,7 @@ export const getNeffAverage = createSelector(survey,
 	).toFixed(2));
 
 export const averageTwoNeffPageScores = (page1: number, page2: number) => createSelector(survey,
-	({ onboarding }) => (onboarding[Surveys.Neff][page1] + onboarding[Surveys.Neff][page2]) / 2);
+	({ onboarding }) => ((onboarding[Surveys.Neff][page1] + onboarding[Surveys.Neff][page2]) / 2).toFixed(1));
 
 export const getAllSurveys = createSelector(survey, surveyState => surveyState);
 

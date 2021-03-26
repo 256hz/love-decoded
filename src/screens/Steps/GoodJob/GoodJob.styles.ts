@@ -8,6 +8,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		paddingHorizontal: 32,
+		paddingVertical: 16,
 		backgroundColor: colors.White,
 	},
 	checkCircleContainer: {
@@ -49,5 +50,19 @@ export default StyleSheet.create({
 		color: colors.Gray92,
 		marginBottom: 30,
 		textAlign: 'center',
+	},
+	nextButton: {
+		width: 192,
+		height: 46,
+		borderRadius: 10,
+		backgroundColor: colors.Orange,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	buttonText: {
+		...text.body,
+		fontSize: 18,
+		color: colors.White,
+		fontWeight: '700',
 	},
 });

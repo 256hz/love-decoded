@@ -7,10 +7,12 @@ export {
 	appActivated,
 	appBackgrounded,
 	appInactivated,
+	setCurrentRouteName,
+	setLastActiveEpochSeconds,
 } from './appState';
 
 export {
-	playAudioFile,
+	loadAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
@@ -21,6 +23,7 @@ export {
 	setAudioPlayCompleted,
 	setAudioTotalPlayed,
 	setCurrentAudioFilename,
+	setAudioPlayedToEndOnScreen,
 	stopGettingAudioInfo,
 	tryResumeAudio,
 } from './audio';

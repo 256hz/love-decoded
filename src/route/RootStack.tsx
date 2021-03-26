@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import SplashScreen from '@screens/Splash';
 import { navigationRef } from 'util/navigation';
-import { RootStacks } from './enums';
+import { useDispatch } from 'react-redux';
+import { setCurrentRouteName } from 'redux/action';
+import { OnboardingScreens, RootStacks, StepScreens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
 
@@ -18,8 +20,20 @@ export default () => {
 	const isLoggedIn = true; // replace with selector
 	const destination = isLoggedIn ? RootStacks.HomeTabs : RootStacks.OnboardingStack;
 
+	const dispatch = useDispatch();
+
+	const onStateChange = (state: NavigationState | undefined) => {
+		const { routes = [], index = 0 } = state || {};
+		const { state: routesState } = routes[index] || {};
+		const { routes: stateRoutes = [], index: stateIndex = 0 } = routesState || {};
+
+		if (routes !== undefined && routes.length > 0 && index !== undefined) {
+			dispatch(setCurrentRouteName(stateRoutes[stateIndex].name as OnboardingScreens | StepScreens));
+		}
+	};
+
 	return (
-		<NavigationContainer ref={navigationRef}>
+		<NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
 
 			<Stack.Navigator
 				initialRouteName={RootStacks.Splash}

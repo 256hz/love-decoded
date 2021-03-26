@@ -1,9 +1,10 @@
-import { useNavigation } from '@react-navigation/native';
-import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { DEMO_MODE } from '@App';
 import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreen } from '@elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './NeffSurveyIntro.styles';
 
 type SurveyButtonProps = {
@@ -23,7 +24,7 @@ const SurveyButton = ({ onPress, disabled }: SurveyButtonProps) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	const [ nextDisabled, setNextDisabled ] = useState(true);
+	const [ nextDisabled, setNextDisabled ] = useState(!DEMO_MODE);
 
 	return (
 		<OnboardingScreen

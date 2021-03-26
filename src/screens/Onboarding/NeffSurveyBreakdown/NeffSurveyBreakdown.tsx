@@ -9,7 +9,7 @@ import styles from './NeffSurveyBreakdown.styles';
 
 type NeffScoreLineProps = {
 	heading: string;
-	score: number;
+	score: string;
 };
 
 const NeffScoreLine = ({ heading, score }: NeffScoreLineProps) => (

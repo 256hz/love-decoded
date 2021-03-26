@@ -27,7 +27,7 @@ export default StyleSheet.create({
 		position: 'absolute',
 		width: 22,
 		height: 22,
-		left: -2,
+		left: -3,
 		justifyContent: 'center',
 	},
 	divider: {

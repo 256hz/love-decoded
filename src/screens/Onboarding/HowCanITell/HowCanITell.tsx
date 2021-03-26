@@ -11,6 +11,7 @@ export default () => (
 		nextTarget={OnboardingScreens.NeffSurveyIntro}
 		title={'How Can I Tell If this App\nIs Working for Me?'}
 		titleContainerStyle={styles.titleContainerStyle}
+		showLogo
 	>
 		<View style={styles.container}>
 			<Text style={styles.text}>

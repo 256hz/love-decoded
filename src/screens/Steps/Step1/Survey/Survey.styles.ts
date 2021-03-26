@@ -10,7 +10,8 @@ export default StyleSheet.create({
 		backgroundColor: colors.White,
 	},
 	promptContainer: {
-		marginTop: 47,
+	},
+	buttonsContainer: {
 	},
 	promptText: {
 		...text.body,
@@ -18,7 +19,7 @@ export default StyleSheet.create({
 	},
 	surveyButton: {
 		width: '100%',
-		height: 97,
+		height: 50,
 		marginBottom: 24,
 		justifyContent: 'center',
 		alignItems: 'center',

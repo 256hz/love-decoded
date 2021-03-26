@@ -7,6 +7,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { OnboardingScreen, StackKeyboardAvoidingView } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
+import { DEMO_MODE } from '@App';
 import {
 	ageGroupChoices,
 	errors,
@@ -58,12 +59,13 @@ export default () => {
 			&& password.match(/[\w\d_. !@#$%^&*()-]+/g);
 	}, [ password ]);
 
-	const isSubmitEnabled = isPasswordAllowed(password)
+	const isSubmitEnabled = DEMO_MODE
+		|| (isPasswordAllowed(password)
 		&& password === confirmPassword
 		&& firstName.length
 		&& lastName.length
 		&& isEmail(email)
-		&& Object.values(hasErrors).every(error => !error);
+		&& Object.values(hasErrors).every(error => !error));
 
 	const validateInputs = () => {
 		setTimeout(() => {
@@ -117,10 +119,6 @@ export default () => {
 	};
 
 	return (
-		// <KeyboardAvoidingView
-		// 	behavior={Platform.select({ ios: 'padding' })}
-		// 	style={styles.kavContainer}
-		// >
 		<StackKeyboardAvoidingView
 			setKeyboardVisible={setKeyboardVisible}
 			style={keyboardVisible ? styles.keyboardPadding : undefined}
@@ -239,7 +237,7 @@ export default () => {
 
 					<View>
 						<View style={styles.termsContainer}>
-							<Text style={styles.termsText}>By tapping, you agree to our</Text>
+							<Text style={styles.termsText}>By submitting, you agree to our</Text>
 							<View style={styles.linksContainer}>
 								<TouchableOpacity onPress={() => console.log('terms')}>
 									<Text style={[ styles.termsText, styles.termsLink ]}>
@@ -271,7 +269,6 @@ export default () => {
 					</View>
 				</View>
 			</OnboardingScreen>
-			{/* </KeyboardAvoidingView> */}
 		</StackKeyboardAvoidingView>
 	);
 };

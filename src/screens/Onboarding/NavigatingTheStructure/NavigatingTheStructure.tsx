@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
+import { DEMO_MODE } from '@App';
 import styles from './NavigatingTheStructure.styles';
 
 const cards = [
@@ -9,13 +10,13 @@ const cards = [
 		BodyElement: () => (
 			<View style={[ styles.cardContainer, styles.cardCenterBody ]}>
 				<Text style={styles.textBody}>
-					The course is divided into 3 stages –
+					The course is divided into 3 stages –{' '}
 					<Text style={[ styles.textBody, styles.highlight ]}>
 						Introductory, Intermediate, and Advanced.
 					</Text>
 				</Text>
 
-				<View style={{ width: '100%', height: 35 }} />
+				<View style={{ width: '100%', height: 20 }} />
 
 				<Text style={styles.textBody}>
 					There are 7 Steps in each stage. The Steps focus on various aspects of your relationship with Self, and continually move you toward loving yourself and others.
@@ -38,7 +39,7 @@ const cards = [
 					</Text>
 				</Text>
 
-				<View style={{ width: '100%', height: 16 }} />
+				<View style={{ width: '100%', height: 10 }} />
 
 				<Text style={[ styles.textBody, styles.textList ]}>
 					1. Morning Intention
@@ -64,21 +65,23 @@ const cards = [
 
 				<View style={{ width: '100%', height: 16 }} />
 
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(25-30 seconds) Morning Intention
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(2-3 minutes) Lunchtime Activity
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(20-30 seconds) Dinner Survey
-				</Text>
-				<Text style={[ styles.textBody, styles.textList ]}>
-					(15-20 seconds) Bedtime Reflection
-				</Text>
-				<Text style={[ styles.textBody, styles.textOrange ]}>
-					All of which is 4 - 5 minutes total in comparison to people exercising for an hour a day.
-				</Text>
+				<View style={styles.textAlignLeftContainer}>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(25-30 seconds) Morning Intention
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(2-3 minutes) Lunchtime Activity
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(20-30 seconds) Dinner Survey
+					</Text>
+					<Text style={[ styles.textBody, styles.textList ]}>
+						(15-20 seconds) Bedtime Reflection
+					</Text>
+					<Text style={[ styles.textBody, styles.textOrange ]}>
+						All of which is 4 - 5 minutes total in comparison to people exercising for an hour a day.
+					</Text>
+				</View>
 			</View>
 		),
 	},
@@ -101,7 +104,7 @@ const cards = [
 ];
 
 export default () => {
-	const [ nextEnabled, setNextEnabled ] = useState(false);
+	const [ nextEnabled, setNextEnabled ] = useState(DEMO_MODE);
 
 	return (
 		<OnboardingScreen
@@ -110,6 +113,7 @@ export default () => {
 			audioFilename="home_page_explanation_rebecca.mp3"
 			nextTarget={OnboardingScreens.BornToBeLoved}
 			nextEnabled={nextEnabled}
+			scrollDisabled
 		>
 			<View style={styles.container}>
 				<View style={styles.cards}>

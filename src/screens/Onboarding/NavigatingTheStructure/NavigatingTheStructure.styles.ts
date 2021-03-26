@@ -31,15 +31,12 @@ export default StyleSheet.create({
 	},
 	cards: {
 		flex: 1,
-		marginBottom: 64,
 		marginTop: 16,
 	},
 	cardContainer: {
-		flex: 1,
 	},
 	cardCenterBody: {
 		justifyContent: 'center',
-		alignItems: 'center',
 	},
 	textBody: {
 		...text.body,
@@ -53,5 +50,9 @@ export default StyleSheet.create({
 		...text.topText,
 		color: colors.GrayTransparent073,
 		marginTop: 8,
+	},
+	textAlignLeftContainer: {
+		width: '100%',
+		justifyContent: 'flex-start',
 	},
 });

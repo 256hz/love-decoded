@@ -33,11 +33,12 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 7, 25 ]}
 		nextTarget={OnboardingScreens.AddYourContacts}
+		scrollDisabled
 		title={'Brief Overview\nof the App Buttons'}
 	>
 		<View style={styles.container}>
 			<OverviewItem
-				text="Settings appear on the screens for all four buttons. This provides access to my community, facebook group, profile, and etc."
+				text="The settings three buttons appear on the top left of the screens for all four tabs on the bottom. This provides access to my community, facebook group, profile, and etc."
 				iconText="Settings"
 			>
 				<SettingsDot fill={colors.Orange} />

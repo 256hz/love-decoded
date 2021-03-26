@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'center',
 	},
 	dotContainer: {
 		marginHorizontal: 4,
@@ -17,5 +18,8 @@ export default StyleSheet.create({
 	inactiveDot: {
 		backgroundColor: colors.White,
 		opacity: 1,
+	},
+	paginationContainer: {
+
 	},
 });

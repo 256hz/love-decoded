@@ -72,18 +72,18 @@ export default ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			{ prompts?.[currentPrompt]?.prompt
-				? (
-					<View style={styles.promptContainer}>
+			<View style={styles.promptContainer}>
+				{ prompts?.[currentPrompt]?.prompt
+					? (
 						<Text style={styles.promptText}>
 							{prompts[currentPrompt].prompt}
 						</Text>
-					</View>
-				)
-				: null
-			}
+					)
+					: null
+				}
+			</View>
 
-			<View>
+			<View style={styles.buttonsContainer}>
 				<SurveyButton label="0-2" value="0-2" onPress={onPress} response={response as string} />
 				<SurveyButton label="3-5" value="3-5" onPress={onPress} response={response as string} />
 				<SurveyButton label="6+" value="6+" onPress={onPress} response={response as string} />

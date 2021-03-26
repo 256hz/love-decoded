@@ -25,8 +25,6 @@ export default class CardCarousel extends Component<Props, State> {
 		};
 	}
 
-
-
 	get pagination() {
 		const { entries, activeSlide } = this.state;
 		return (
@@ -72,7 +70,9 @@ export default class CardCarousel extends Component<Props, State> {
 					useScrollView
 					inactiveSlideOpacity={0.9}
 				/>
-				{ this.pagination }
+				<View style={styles.paginationContainer}>
+					{ this.pagination }
+				</View>
 			</View>
 		);
 	}
