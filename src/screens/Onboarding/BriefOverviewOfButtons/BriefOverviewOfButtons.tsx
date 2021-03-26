@@ -33,6 +33,7 @@ export default () => (
 	<OnboardingScreen
 		drawShapes={[ 7, 25 ]}
 		nextTarget={OnboardingScreens.AddYourContacts}
+		scrollDisabled
 		title={'Brief Overview\nof the App Buttons'}
 	>
 		<View style={styles.container}>

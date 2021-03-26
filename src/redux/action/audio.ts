@@ -26,7 +26,7 @@ export const tryResumeAudio = createAction('TRY_RESUME_AUDIO');
 export const pauseAudio = createAction('PAUSE_AUDIO');
 
 export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER',
-	(clearPlayCompleted?: boolean, source?: string) => ({ payload: { clearPlayCompleted, source } }));
+	(hardReset?: boolean, source?: string) => ({ payload: { hardReset, source } }));
 
 export const setCurrentAudioFilename = createAction('SET_CURRENT_AUDIO_FILENAME',
 	(audioFilename: string) => ({ payload: { audioFilename } }));

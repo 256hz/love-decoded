@@ -54,7 +54,7 @@ export default () => {
 							</TouchableOpacity>
 						</View>
 
-						<View style={styles.note}>
+						<View style={[ styles.textItemContainer, styles.row ]}>
 							<Text style={styles.textNote}>Hit Enter to close the keyboard.</Text>
 						</View>
 

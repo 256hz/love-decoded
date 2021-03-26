@@ -2,11 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { StepScreens } from 'route/enums';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress } from '@redux/selector';
+import CourseButton from './CourseButton';
+import ProgressBar from './ProgressBar';
 import styles from './Home.styles';
+import ContentReview from './ContentReview';
 
 
 export default () => {
@@ -19,7 +21,7 @@ export default () => {
 	const progressPercent = (currentActivity - 1) * 25;
 
 	return (
-		<StepScreen>
+		<StepScreen scrollDisabled>
 			<View style={styles.container}>
 
 				<View style={styles.titleContainer}>
@@ -46,32 +48,10 @@ export default () => {
 				<ProgressBar progressPercent={progressPercent} />
 
 				<CourseButton onPress={onPress} />
+
+				<ContentReview />
 			</View>
 
-			{/* Content Review */}
 		</StepScreen>
 	);
 };
-
-const ProgressBar = ({ progressPercent }: { progressPercent: number }) => (
-	<View style={styles.progressBarContainer}>
-		<View style={styles.emptyProgressBar} />
-		<View style={[ styles.progress, {
-			width: `${progressPercent || 2}%`,
-			borderTopRightRadius: progressPercent < 100 ? 0 : 6,
-			borderBottomRightRadius: progressPercent < 100 ? 0 : 6,
-		} ]} />
-	</View>
-);
-
-const CourseButton = ({ onPress }: { onPress: () => void }) => (
-	<View style={styles.buttonContainer}>
-		<TouchableOpacity onPress={onPress}>
-			<View style={styles.courseButton}>
-				<Text style={styles.buttonText}>
-					Go To Course
-				</Text>
-			</View>
-		</TouchableOpacity>
-	</View>
-);

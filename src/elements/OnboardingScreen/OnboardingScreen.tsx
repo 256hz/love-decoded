@@ -1,11 +1,13 @@
-import React, { ReactChild, useRef, useState } from 'react';
+import React, {
+	Dispatch, ReactChild, SetStateAction, useState,
+} from 'react';
 import { Text, View, ViewStyle } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
 import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
+import { CustomScrollView } from '@elements/CustomScrollView';
 import colors from 'elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
@@ -119,8 +121,7 @@ export default ({
 type ScrollWrapperProps = {
 	children: ReactChild,
 	scrollDisabled: boolean,
-	scrollIndicatorVisible: boolean;
-	setScrollIndicatorVisible: () => void;
+	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
 };
 
 const ScrollWrapper = ({
@@ -137,32 +138,8 @@ const ScrollWrapper = ({
 		)
 );
 
-const CustomScrollView = ({ children, setScrollIndicatorVisible }) => {
-	const scrollViewRef = useRef<ScrollView>(null);
-
-	const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => (
-		layoutMeasurement.height + contentOffset.y >= contentSize.height - 15
-	);
-
-	const setIndicatorVisibleIfMoreToScroll = ({ nativeEvent }) => {
-		setScrollIndicatorVisible(!isCloseToBottom(nativeEvent));
-	};
-
-	return (
-		<ScrollView
-			ref={scrollViewRef}
-			contentContainerStyle={styles.childrenContainer}
-			onLayout={() => { scrollViewRef.current?.scrollTo({ y: 1 }); scrollViewRef.current?.scrollTo({ y: 0 });}}
-			onScroll={setIndicatorVisibleIfMoreToScroll}
-			scrollEventThrottle={400}
-		>
-			{children}
-		</ScrollView>
-	);
-};
-
 const ScrollIndicator = () => (
 	<View style={styles.scrollIndicatorContainer}>
-		<DownArrow fill={colors.White} />
+		<DownArrow fill={colors.Gray92} />
 	</View>
 );

@@ -10,7 +10,8 @@ export default StyleSheet.create({
 		backgroundColor: colors.White,
 	},
 	promptContainer: {
-		marginTop: 47,
+	},
+	buttonsContainer: {
 	},
 	promptText: {
 		...text.body,

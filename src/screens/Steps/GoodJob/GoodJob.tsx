@@ -83,7 +83,11 @@ export default () => {
 				Keep going! You got this!
 			</Text>
 
-			{/* Add Next button */}
+			<View style={styles.nextButton}>
+				<Text style={styles.buttonText}>
+					Next
+				</Text>
+			</View>
 		</Pressable>
 	);
 };

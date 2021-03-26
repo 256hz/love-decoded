@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
+import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
@@ -29,5 +30,9 @@ export default StyleSheet.create({
 	},
 	infoBubble: {
 		padding: 15,
+	},
+	textNote: {
+		...text.body,
+		color: colors.Gray92,
 	},
 });

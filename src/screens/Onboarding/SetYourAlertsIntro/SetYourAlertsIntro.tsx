@@ -34,6 +34,7 @@ export default () => {
 			audioFilename="onboarding_18_set_your_alerts.mp3"
 			nextTarget={OnboardingScreens.SetYourAlerts}
 			nextEnabled={nextEnabled}
+			scrollDisabled
 		>
 			<View style={styles.container}>
 				<View style={styles.topTextContainer}>

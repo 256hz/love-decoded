@@ -10,13 +10,13 @@ const cards = [
 		BodyElement: () => (
 			<View style={[ styles.cardContainer, styles.cardCenterBody ]}>
 				<Text style={styles.textBody}>
-					The course is divided into 3 stages –
+					The course is divided into 3 stages –{' '}
 					<Text style={[ styles.textBody, styles.highlight ]}>
 						Introductory, Intermediate, and Advanced.
 					</Text>
 				</Text>
 
-				<View style={{ width: '100%', height: 35 }} />
+				<View style={{ width: '100%', height: 20 }} />
 
 				<Text style={styles.textBody}>
 					There are 7 Steps in each stage. The Steps focus on various aspects of your relationship with Self, and continually move you toward loving yourself and others.
@@ -39,7 +39,7 @@ const cards = [
 					</Text>
 				</Text>
 
-				<View style={{ width: '100%', height: 16 }} />
+				<View style={{ width: '100%', height: 10 }} />
 
 				<Text style={[ styles.textBody, styles.textList ]}>
 					1. Morning Intention
@@ -113,6 +113,7 @@ export default () => {
 			audioFilename="home_page_explanation_rebecca.mp3"
 			nextTarget={OnboardingScreens.BornToBeLoved}
 			nextEnabled={nextEnabled}
+			scrollDisabled
 		>
 			<View style={styles.container}>
 				<View style={styles.cards}>

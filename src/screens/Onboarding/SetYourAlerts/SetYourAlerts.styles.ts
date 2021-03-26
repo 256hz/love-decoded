@@ -14,7 +14,6 @@ export default StyleSheet.create({
 		paddingHorizontal: 83,
 		flex: 1,
 		justifyContent: 'center',
-		// alignItems: 'center',
 	},
 	timePickerContainer: {
 		width: '100%',

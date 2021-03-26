@@ -191,8 +191,8 @@ export function* resumeOnActive() {
 }
 
 export function* watchForResetAudio() {
-	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, clearPlayCompleted } }) {
-		console.log(clearPlayCompleted ? 'hard' : 'soft', 'reset from:', source || 'unknown');
+	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, hardReset } }) {
+		console.log(hardReset ? 'hard' : 'soft', 'reset from:', source || 'unknown');
 		yield put(pauseAudio());
 		yield call(seek, 0);
 	});

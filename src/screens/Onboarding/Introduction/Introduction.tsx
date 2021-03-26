@@ -28,7 +28,7 @@ export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
-	const [ nextDisabled, setNextDisabled ] = useState(DEMO_MODE);
+	const [ nextDisabled, setNextDisabled ] = useState(!DEMO_MODE);
 
 	const onPress = () => {
 		navigate(OnboardingScreens.AcknowledgingYourPast);

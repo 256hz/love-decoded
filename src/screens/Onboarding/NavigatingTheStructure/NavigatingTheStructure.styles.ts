@@ -31,14 +31,12 @@ export default StyleSheet.create({
 	},
 	cards: {
 		flex: 1,
-		marginVertical: 16,
+		marginTop: 16,
 	},
 	cardContainer: {
-		flex: 1,
 	},
 	cardCenterBody: {
 		justifyContent: 'center',
-		alignItems: 'center',
 	},
 	textBody: {
 		...text.body,

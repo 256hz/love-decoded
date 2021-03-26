@@ -22,7 +22,6 @@ export type AudioState = {
 	isPlaying: boolean;
 	playCompleted: boolean;
 	totalPlayed: number;
-} & {
 	audioEndedScreens?: {
 		[key in OnboardingScreens | StepScreens]?: boolean | undefined;
 	}
@@ -38,6 +37,7 @@ const INITIAL_STATE = {
 	isPlaying: false,
 	playCompleted: false,
 	totalPlayed: 0,
+	audioEndedScreens: {},
 };
 
 export const audio = createReducer(INITIAL_STATE, ({ addCase }) => {
@@ -55,12 +55,12 @@ export const audio = createReducer(INITIAL_STATE, ({ addCase }) => {
 
 	addCase(loadAudioFile, (state, { payload: { audioFilename } }) => ({ ...state, audioFilename }));
 
-	addCase(resetAudioPlayer, (state, { payload: { clearPlayCompleted } }) => ({
+	addCase(resetAudioPlayer, (state, { payload: { hardReset } }) => ({
 		...INITIAL_STATE,
 		isLoaded: state.isLoaded,
-		playCompleted: clearPlayCompleted ? false : state.playCompleted,
-		audioFilename: clearPlayCompleted ? '' : state.audioFilename,
-		audioEndedScreens: state.audioEndedScreens || {},
+		playCompleted: hardReset ? false : state.playCompleted,
+		audioFilename: hardReset ? '' : state.audioFilename,
+		audioEndedScreens: state.audioEndedScreens,
 	}));
 
 	addCase(setAudioPlayedToEndOnScreen, (state, { payload: { screen } }) => {

@@ -42,7 +42,7 @@ export default StyleSheet.create({
 		borderRadius: 20,
 		bottom: 20,
 		right: 20,
-		backgroundColor: colors.PinkTransparent,
+		backgroundColor: colors.WhiteTransparent,
 		zIndex: 2,
 		justifyContent: 'center',
 		alignItems: 'center',
