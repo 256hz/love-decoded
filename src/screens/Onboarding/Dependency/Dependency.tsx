@@ -34,9 +34,10 @@ export default () => {
 			titleContainerStyle={styles.titleContainer}
 			onPressNext={() => dispatch(setOnboardingSurveyResponse(Surveys.Dependency, selectedValue))}
 			nextEnabled={!!(selectedValue || surveyResponse)}
+			scrollDisabled
 		>
 			<View style={styles.container}>
-				<View>
+				<View style={styles.textContainer}>
 					<Text style={styles.body}>
 						Have you come to realize that being dependent on others for Love can be
 						<Text style={[ styles.body, styles.bold ]}>

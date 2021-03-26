@@ -1,8 +1,12 @@
-import React, { ReactChild } from 'react';
+import React, {
+	Dispatch, ReactChild, SetStateAction, useState,
+} from 'react';
 import { View, ViewStyle } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { StepScreens } from 'route/enums';
+import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
+import { CustomScrollView } from '@elements/CustomScrollView';
+import colors from '@elements/globalStyles/color';
 import styles from './StepScreen.styles';
 
 type Props = {
@@ -34,12 +38,21 @@ export default ({
 	nextEnabled,
 	nextTarget,
 }: Props) => {
+	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
+
 	return (
 		<View style={[ styles.container, containerStyle ]}>
+			<View style={styles.middleContainer}>
+				<ScrollWrapper
+					scrollDisabled={scrollDisabled}
+					setScrollIndicatorVisible={setScrollIndicatorVisible}
+				>
+					{children}
+				</ScrollWrapper>
 
-			<ScrollWrapper scrollDisabled={scrollDisabled}>
-				{children}
-			</ScrollWrapper>
+				{ scrollIndicatorVisible ? <ScrollIndicator /> : null}
+
+			</View>
 
 			{ nextTarget
 				? (
@@ -60,8 +73,28 @@ export default ({
 	);
 };
 
-const ScrollWrapper = ({ scrollDisabled, children }: { scrollDisabled: boolean, children: ReactChild }) => (
+type ScrollWrapperProps = {
+	children: ReactChild,
+	scrollDisabled: boolean,
+	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
+};
+
+const ScrollWrapper = ({
+	children,
+	scrollDisabled,
+	setScrollIndicatorVisible,
+}: ScrollWrapperProps) => (
 	scrollDisabled
 		? <View style={styles.childrenContainer}>{children}</View>
-		: <ScrollView contentContainerStyle={styles.childrenContainer}>{children}</ScrollView>
+		: (
+			<CustomScrollView setScrollIndicatorVisible={setScrollIndicatorVisible}>
+				{children}
+			</CustomScrollView>
+		)
+);
+
+const ScrollIndicator = () => (
+	<View style={styles.scrollIndicatorContainer}>
+		<DownArrow fill={colors.Gray62} />
+	</View>
 );

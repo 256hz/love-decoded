@@ -1,14 +1,16 @@
-import colors from 'elements/globalStyles/color';
 import { StyleSheet } from 'react-native';
+import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
 		flex: 1,
+		justifyContent: 'center',
+	},
+	cardContainer: {
 		borderRadius: 6,
 		justifyContent: 'space-between',
 		backgroundColor: colors.White,
 		padding: 21,
-		paddingTop: 34,
 	},
 	body: {
 		fontFamily: 'Rubik',
@@ -18,7 +20,6 @@ export default StyleSheet.create({
 		letterSpacing: -0.24,
 	},
 	centerBody: {
-		flex: 1,
 		justifyContent: 'center',
 	},
 	highlight: {

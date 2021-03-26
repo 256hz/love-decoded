@@ -4,15 +4,15 @@ import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	container: {
-		flexGrow: 1,
+		flex: 1,
 		paddingHorizontal: 39,
-		justifyContent: 'space-around',
 	},
 	titleContainer: {
 		paddingBottom: 32,
 	},
 	textContainer: {
 		marginBottom: 16,
+		flex: 1,
 	},
 	body: {
 		...text.body,
@@ -42,8 +42,8 @@ export default StyleSheet.create({
 	},
 	radioButtonsContainer: {
 		width: '100%',
-		// marginVertical: 16,
+		marginVertical: 16,
 		alignItems: 'center',
-		justifyContent: 'center',
+		flex: 1,
 	},
 });

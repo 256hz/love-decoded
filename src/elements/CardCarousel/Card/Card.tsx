@@ -32,34 +32,36 @@ export default ({ item }: { item: CardEntry }) => {
 
 	return (
 		<View style={styles.container}>
-			{ title
-				? (
-					<Text style={[ styles.body, styles.title, styles.highlight ]}>{title}</Text>
-				)
-				: null
-			}
-
-			{ BodyElement
-				? <BodyElement />
-				: (
-					<View style={centerBody && styles.centerBody}>
-						<Text style={[ styles.body, bodyStyle ]}>{body}</Text>
-					</View>
-				)
-			}
-
-			<View style={styles.cardBottom}>
-				{ bottomElement }
-				{ link
+			<View style={styles.cardContainer}>
+				{ title
 					? (
-						<TouchableOpacity onPress={() => openWebLink(link)}>
-							<View style={styles.button}>
-								<Text style={styles.buttonText}>click to view</Text>
-							</View>
-						</TouchableOpacity>
+						<Text style={[ styles.body, styles.title, styles.highlight ]}>{title}</Text>
 					)
 					: null
 				}
+
+				{ BodyElement
+					? <BodyElement />
+					: (
+						<View style={centerBody && styles.centerBody}>
+							<Text style={[ styles.body, bodyStyle ]}>{body}</Text>
+						</View>
+					)
+				}
+
+				<View style={styles.cardBottom}>
+					{ bottomElement }
+					{ link
+						? (
+							<TouchableOpacity onPress={() => openWebLink(link)}>
+								<View style={styles.button}>
+									<Text style={styles.buttonText}>click to view</Text>
+								</View>
+							</TouchableOpacity>
+						)
+						: null
+					}
+				</View>
 			</View>
 		</View>
 	);

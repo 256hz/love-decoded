@@ -82,6 +82,12 @@ export default () => {
 			<Text style={styles.headlineText}>
 				Keep going! You got this!
 			</Text>
+
+			<View style={styles.nextButton}>
+				<Text style={styles.buttonText}>
+					Next
+				</Text>
+			</View>
 		</Pressable>
 	);
 };

@@ -3,7 +3,7 @@ import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	titleContainerStyle: {
-		paddingTop: 34,
+		paddingTop: 116,
 	},
 	container: {
 		flex: 1,

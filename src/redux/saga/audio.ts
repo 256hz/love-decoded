@@ -10,9 +10,7 @@ import {
 } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import {
-	appBackgrounded,
-	appInactivated,
-	playAudioFile,
+	loadAudioFile,
 	pauseAudio,
 	playAudio,
 	setAudioInfo,
@@ -25,6 +23,7 @@ import {
 import {
 	getAudioFilename,
 	getAudioInfo,
+	getCurrentRouteName,
 	isAudioActive,
 	isAudioGettingInfo,
 	isAudioLoaded,
@@ -32,12 +31,14 @@ import {
 } from '@redux/selector';
 import {
 	resetAudioPlayer,
-	setAudioPlayCompleted,
 	setAudioTotalPlayed,
+	setAudioPlayedToEndOnScreen,
+	setCurrentAudioFilename,
 } from '@redux/action/audio';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 
-export function* watchForPlayAudioFile() {
-	yield takeEvery(playAudioFile, function* ({ payload: { audioFilename } }) {
+export function* watchForloadAudioFile() {
+	yield takeEvery(loadAudioFile, function* ({ payload: { audioFilename } }) {
 		yield put(resetAudioPlayer(true, 'on load'));
 		yield put(setAudioIsLoaded(false));
 
@@ -45,6 +46,7 @@ export function* watchForPlayAudioFile() {
 			console.log('loading:', audioFilename);
 			const [ filename, extension ] = audioFilename.split('.');
 			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
+			yield put(setCurrentAudioFilename(audioFilename));
 		} catch (error) {
 			console.error(error);
 		}
@@ -53,13 +55,16 @@ export function* watchForPlayAudioFile() {
 
 export function* watchForPlayAudio() {
 	yield takeEvery(playAudio, function* () {
+		yield call(getInfo);
+
 		const isLoaded = yield select(isAudioLoaded);
+		const route = yield select(getCurrentRouteName);
 
 		if (isLoaded) {
 			console.log('play');
 			SoundPlayer.play();
 			yield put(setAudioIsPlaying(true));
-			yield call(getInfoWhilePlaying);
+			yield call(getInfoWhilePlaying, route);
 		}
 	});
 }
@@ -86,7 +91,7 @@ export function* watchForSuccessfulLoad() {
 
 		console.log('loaded');
 		yield put(setAudioIsLoaded(true));
-		yield put(playAudio());
+		yield call(getInfo);
 	});
 }
 
@@ -107,7 +112,7 @@ function* getInfo() {
 	}
 }
 
-function* getInfoWhilePlaying() {
+function* getInfoWhilePlaying(route: OnboardingScreens | StepScreens) {
 	const isGettingInfo = yield select(isAudioGettingInfo);
 	if (isGettingInfo) {
 		return;
@@ -136,13 +141,16 @@ function* getInfoWhilePlaying() {
 			const timeLeft = duration - currentTime;
 			console.log('ending in:', timeLeft);
 			yield delay(timeLeft);
-			yield put(setAudioPlayCompleted(true));
+
+			yield put(setAudioPlayedToEndOnScreen(route));
+
 			console.log('completed');
+
 			yield put(resetAudioPlayer(false, 'onCompleted'));
 			break;
 		}
 
-		const [ stop, waited ] = yield race([ take(stopGettingAudioInfo), delay(1000) ]);
+		const [ stop ] = yield race([ take(stopGettingAudioInfo), delay(900) ]);
 		if (stop) {
 			yield call(getInfo);
 			break;
@@ -185,8 +193,8 @@ export function* resumeOnActive() {
 }
 
 export function* watchForResetAudio() {
-	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, clearPlayCompleted } }) {
-		console.log(clearPlayCompleted ? 'hard' : 'soft', 'reset from:', source || 'unknown');
+	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, hardReset } }) {
+		console.log(hardReset ? 'hard' : 'soft', 'reset from:', source || 'unknown');
 		yield put(pauseAudio());
 		yield call(seek, 0);
 	});

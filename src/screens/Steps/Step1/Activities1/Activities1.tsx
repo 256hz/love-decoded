@@ -54,6 +54,10 @@ export default () => {
 							</TouchableOpacity>
 						</View>
 
+						<View style={[ styles.textItemContainer, styles.row ]}>
+							<Text style={styles.textNote}>Hit Enter to close the keyboard.</Text>
+						</View>
+
 						<ListTextInput
 							containerStyle={styles.textInputContainer}
 							text={savedResponse as string || SingleBullet}

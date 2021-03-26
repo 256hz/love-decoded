@@ -1,6 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
+import { OnboardingScreens, StepScreens } from 'route/enums';
 
-export const playAudioFile = createAction('PLAY_AUDIO_FILE',
+export const loadAudioFile = createAction('LOAD_AUDIO_FILE',
 	(audioFilename: string) => ({ payload: { audioFilename } }));
 
 export const setAudioIsLoaded = createAction('SET_AUDIO_IS_LOADED',
@@ -25,7 +26,7 @@ export const tryResumeAudio = createAction('TRY_RESUME_AUDIO');
 export const pauseAudio = createAction('PAUSE_AUDIO');
 
 export const resetAudioPlayer = createAction('RESET_AUDIO_PLAYER',
-	(clearPlayCompleted?: boolean, source?: string) => ({ payload: { clearPlayCompleted, source } }));
+	(hardReset?: boolean, source?: string) => ({ payload: { hardReset, source } }));
 
 export const setCurrentAudioFilename = createAction('SET_CURRENT_AUDIO_FILENAME',
 	(audioFilename: string) => ({ payload: { audioFilename } }));
@@ -34,3 +35,6 @@ export const setAudioPlayCompleted = createAction('SET_AUDIO_PLAY_COMPLETED',
 	(playCompleted: boolean) => ({ payload: { playCompleted } }));
 
 export const stopGettingAudioInfo = createAction('STOP_GETTING_AUDIO_INFO');
+
+export const setAudioPlayedToEndOnScreen = createAction('SET_SCREEN_VISITED',
+	(screen: OnboardingScreens | StepScreens) => ({ payload: { screen } }));

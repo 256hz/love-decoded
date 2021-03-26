@@ -1,10 +1,14 @@
-import React, { ReactChild } from 'react';
+import React, {
+	Dispatch, ReactChild, SetStateAction, useState,
+} from 'react';
 import { Text, View, ViewStyle } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
+import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
+import { CustomScrollView } from '@elements/CustomScrollView';
+import colors from 'elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 
@@ -21,7 +25,7 @@ type Props = {
 	titleContainerStyle?: ViewStyle;
 } & AudioPlayerNavigatorProps;
 
-const OnboardingScreen = ({
+export default ({
 	audioFilename,
 	backTarget,
 	children = <></>,
@@ -39,77 +43,105 @@ const OnboardingScreen = ({
 	title,
 	titleChild = <></>,
 	titleContainerStyle,
-}: Props) => (
-	<View style={styles.container}>
-		{/* Background image/shapes */}
-		<BackgroundFade drawShapes={drawShapes}>
-			<SafeAreaView style={styles.screenContainer}>
-				<View style={styles.container}>
-					{ showLogo ? (
-						<View style={styles.logoContainer}>
-							<Logo />
+}: Props) => {
+	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
+
+	return (
+		<View style={styles.container}>
+			{/* Background image/shapes */}
+			<BackgroundFade drawShapes={drawShapes}>
+				<SafeAreaView style={styles.screenContainer}>
+					<View style={styles.container}>
+						{ showLogo ? (
+							<View style={styles.logoContainer}>
+								<Logo />
+							</View>
+						)
+							: null
+						}
+
+						{/* Title */}
+						<View style={[
+							styles.titleContainer,
+							showLogo && styles.titleLogoMargin,
+							titleContainerStyle,
+						]}>
+							<Text style={styles.titleText}>
+								{title}
+							</Text>
+							{ titleChild }
 						</View>
-					)
+
+						{/* screen contents */}
+						<ScrollWrapper
+							scrollDisabled={scrollDisabled}
+							setScrollIndicatorVisible={setScrollIndicatorVisible}
+						>
+							{children}
+						</ScrollWrapper>
+
+						{ scrollIndicatorVisible ? <ScrollIndicator /> : null}
+					</View>
+
+
+					{ customBottomSection }
+
+					{ nextTarget
+						? (
+							<AudioPlayerNavigator
+								audioFilename={audioFilename}
+								backTarget={backTarget}
+								hideBackButton={hideBackButton}
+								hideNextButton={hideNextButton}
+								onAudioEnd={onAudioEnd}
+								onPressNext={onPressNext}
+								nextEnabled={nextEnabled}
+								nextTarget={nextTarget}
+							/>
+						)
 						: null
 					}
 
-					{/* Title */}
-					<View style={[
-						styles.titleContainer,
-						showLogo && styles.titleLogoMargin,
-						titleContainerStyle,
-					]}>
-						<Text style={styles.titleText}>
-							{title}
-						</Text>
-						{ titleChild }
-					</View>
+					{ audioFilename && customButtons
+						? (
+							<AudioPlayerNavigator
+								audioFilename={audioFilename}
+								customButtons={customButtons}
+								onAudioEnd={onAudioEnd}
+							/>
+						)
+						: null
+					}
+				</SafeAreaView>
+			</BackgroundFade>
+		</View>
+	);
+};
 
-					{/* screen contents */}
-					<ScrollWrapper scrollDisabled={scrollDisabled}>
-						{children}
-					</ScrollWrapper>
-				</View>
+type ScrollWrapperProps = {
+	children: ReactChild,
+	scrollDisabled: boolean,
+	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
+};
 
-
-				{ customBottomSection }
-
-				{ nextTarget
-					? (
-						<AudioPlayerNavigator
-							audioFilename={audioFilename}
-							backTarget={backTarget}
-							hideBackButton={hideBackButton}
-							hideNextButton={hideNextButton}
-							onAudioEnd={onAudioEnd}
-							onPressNext={onPressNext}
-							nextEnabled={nextEnabled}
-							nextTarget={nextTarget}
-						/>
-					)
-					: null
-				}
-
-				{ audioFilename && customButtons
-					? (
-						<AudioPlayerNavigator
-							audioFilename={audioFilename}
-							customButtons={customButtons}
-							onAudioEnd={onAudioEnd}
-						/>
-					)
-					: null
-				}
-			</SafeAreaView>
-		</BackgroundFade>
-	</View>
-
-);
-
-const ScrollWrapper = ({ scrollDisabled, children }: { scrollDisabled: boolean, children: ReactChild }) => (
+const ScrollWrapper = ({
+	children,
+	scrollDisabled,
+	setScrollIndicatorVisible,
+}: ScrollWrapperProps) => (
 	scrollDisabled
 		? <View style={styles.childrenContainer}>{children}</View>
-		: <ScrollView contentContainerStyle={styles.childrenContainer}>{children}</ScrollView>
+		: (
+			<CustomScrollView setScrollIndicatorVisible={setScrollIndicatorVisible}>
+				{children}
+			</CustomScrollView>
+		)
 );
 
-export default OnboardingScreen;
+const ScrollIndicator = () => (
+	<View style={styles.scrollIndicatorContainer}>
+		<View style={styles.scrollIndicator}>
+			<DownArrow fill={colors.Gray92} />
+		</View>
+	</View>
+);

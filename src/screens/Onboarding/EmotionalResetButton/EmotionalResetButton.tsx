@@ -2,6 +2,7 @@ import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DEMO_MODE } from '@App';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
@@ -21,7 +22,7 @@ const NextButtonWithText = ({ onPress, disabled }: { onPress: () => void, disabl
 export default () => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
-	const [ linksDisabled, setLinksDisabled ] = useState(true);
+	const [ linksDisabled, setLinksDisabled ] = useState(!DEMO_MODE);
 	const onPress = () => {
 		dispatch(resetAudioPlayer(true, 'erb-onNext'));
 		navigate(OnboardingScreens.FrustratedWithProgress);

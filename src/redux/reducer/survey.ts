@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 import {
-	setNeffSurveyResponse, setDaySurveyResponse, setOnboardingSurveyResponse, setStepActivityResponse,
+	setNeffSurveyResponse, setDaySurveyResponse, setOnboardingSurveyResponse, setStepActivityResponse, logOut,
 } from '@redux/action';
 import {
 	Activities,
@@ -10,9 +10,9 @@ import {
 	DayValues,
 	Surveys,
 	SurveyState,
-} from '@redux/types/survey';
+} from 'redux/types/survey';
 
-// initial values
+// set initial values
 const course1Step1State = {
 	[Activities.LovableQualitiesSelf]: '',
 	[Activities.LovableQualitiesOthersMissing]: '',
@@ -59,12 +59,15 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 	}));
 
 	addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
-		const currentResponses = [ ...state[Surveys.Neff] ];
-		currentResponses[pageIndex] = response;
+		const newResponses = [ ...state[Courses.Onboarding][Surveys.Neff] ];
+		newResponses[pageIndex] = response;
 
 		return {
 			...state,
-			[Surveys.Neff]: currentResponses,
+			[Courses.Onboarding]: {
+				...state[Courses.Onboarding],
+				[Surveys.Neff]: newResponses,
+			},
 		};
 	});
 
@@ -92,4 +95,6 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 			},
 		},
 	}));
+
+	addCase(logOut, state => INITIAL_STATE);
 });

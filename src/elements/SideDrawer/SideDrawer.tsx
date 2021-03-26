@@ -21,8 +21,7 @@ import Logo from '@assets/svg/logo-sm.svg';
 
 import { useDispatch } from 'react-redux';
 import { logOut } from '@redux/action';
-import { resetRoot } from 'util/navigation';
-import { OnboardingScreens, RootStacks } from 'route/enums';
+import { RootStacks } from 'route/enums';
 import CloseDots from './CloseDots';
 import UserHeader from './UserHeader';
 import DrawerLink from './DrawerLink';
@@ -85,6 +84,7 @@ export default (props) => {
 					/>
 
 					<Divider />
+
 					<DrawerLink
 						icon={<SettingsIcon />}
 						label="Settings"

@@ -3,21 +3,24 @@ import React, {
 	useEffect,
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useIsFocused } from '@react-navigation/native';
+import { useIsFocused, useRoute } from '@react-navigation/native';
 import { View } from 'react-native';
 import { OnboardingScreens, StepScreens } from 'route/enums';
 import {
-	playAudioFile,
+	loadAudioFile,
 	pauseAudio,
 	playAudio,
 	resetAudioPlayer,
+	setAudioPlayedToEndOnScreen,
 } from '@redux/action';
 import {
 	getAudioInfo,
 	getAudioPlayCompleted,
 	isAudioLoaded,
+	isAudioPlayedToEndOnScreen,
 	isAudioPlaying,
 } from '@redux/selector';
+import { DEMO_MODE } from '@App';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';
@@ -74,12 +77,16 @@ export default ({
 	nextTarget,
 }: AudioPlayerNavigatorProps) => {
 	const dispatch = useDispatch();
+	const isFocused = useIsFocused();
+	const { name } = useRoute();
+	const route = name as OnboardingScreens | StepScreens;
 
 	const { currentTime, duration } = useSelector(getAudioInfo);
 	const isLoaded = useSelector(isAudioLoaded);
 	const isPlaying = useSelector(isAudioPlaying);
-	const playedToEnd = useSelector(getAudioPlayCompleted);
-	const isFocused = useIsFocused();
+	const playedToEnd = useSelector(isAudioPlayedToEndOnScreen(route));
+
+	// Text under button while disabled: "You must listen to the audio to press Next"
 
 	const togglePause = () => {
 		dispatch(isPlaying ? pauseAudio() : playAudio());
@@ -95,25 +102,30 @@ export default ({
 			return;
 		}
 
-		if (!playedToEnd && currentTime === 0) {
-			dispatch(playAudioFile(audioFilename));
+		if (!isPlaying && currentTime === 0) {
+			dispatch(loadAudioFile(audioFilename));
 			return;
 		}
 
-		if (playedToEnd) {
-			console.log('onAudioEnd');
-			onAudioEnd?.();
+		if (playedToEnd && !isPlaying) {
+			onAudioEnd?.() && console.log('onAudioEnd');
 		}
 	}, [
 		audioFilename,
 		currentTime,
 		dispatch,
 		isFocused,
+		isPlaying,
 		onAudioEnd,
 		playedToEnd,
+		route,
 	]);
 
 	const isNextEnabled = (() => {
+		if (DEMO_MODE) {
+			return true;
+		}
+
 		if (nextEnabled === undefined && audioFilename === undefined) {
 			return true;
 		}

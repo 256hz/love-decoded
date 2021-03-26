@@ -8,7 +8,7 @@ export {
 export {
 	resumeOnActive,
 	watchForSuccessfulLoad,
-	watchForPlayAudioFile,
+	watchForloadAudioFile,
 	watchForPlayAudio,
 	watchForPauseAudio,
 	watchForResetAudio,

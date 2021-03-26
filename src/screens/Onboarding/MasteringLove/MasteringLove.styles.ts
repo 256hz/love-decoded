@@ -12,7 +12,7 @@ export default StyleSheet.create({
 	},
 	bodyText: {
 		...text.body,
-		fontSize: 17,
+		fontSize: 15,
 		textAlign: 'center',
 	},
 	headline: {

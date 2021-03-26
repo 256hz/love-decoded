@@ -13,11 +13,13 @@
     "noImplicitAny": false,
     "paths": {
       "*": ["src/*"],
+			"@App": ["./App.tsx"],
       "@assets/*": ["assets/*"],
       "@screens/*": ["src/screens/*"],
       "@elements": ["src/elements/index"],
       "@elements/*": ["src/elements/*"],
       "@redux/*": ["src/redux/*"],
+      "@util/*": ["src/util/*"],
 		},
 		"skipLibCheck": true,
     "strict": true,

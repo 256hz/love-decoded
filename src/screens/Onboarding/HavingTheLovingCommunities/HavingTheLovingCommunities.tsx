@@ -9,6 +9,8 @@ export default () => (
 		drawShapes={[ 1, 7, 11 ]}
 		audioFilename="onboarding_4_unconditional_community.mp3"
 		nextTarget={OnboardingScreens.WhenYouForget}
+		scrollDisabled
+		showLogo
 	>
 		<View style={styles.container}>
 			<Text style={styles.headline}>
