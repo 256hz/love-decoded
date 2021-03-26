@@ -22,7 +22,4 @@ export const getAudioInfo = createSelector(audio,
 	({ currentTime, duration }) => ({ currentTime, duration }));
 
 export const isAudioPlayedToEndOnScreen = (screen: OnboardingScreens | StepScreens) => createSelector(audio,
-	({ audioEndedScreens }) => {
-		console.log({ audioEndedScreens });
-		return !!audioEndedScreens?.[screen];
-	});
+	({ audioEndedScreens }) => !!audioEndedScreens?.[screen]);

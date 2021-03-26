@@ -84,6 +84,7 @@ export default (props) => {
 					/>
 
 					<Divider />
+
 					<DrawerLink
 						icon={<SettingsIcon />}
 						label="Settings"

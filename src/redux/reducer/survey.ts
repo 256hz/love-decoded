@@ -61,7 +61,6 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setNeffSurveyResponse, (state, { payload: { pageIndex, response } }) => {
 		const newResponses = [ ...state[Courses.Onboarding][Surveys.Neff] ];
 		newResponses[pageIndex] = response;
-		console.log(newResponses);
 
 		return {
 			...state,

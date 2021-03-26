@@ -31,7 +31,7 @@ export default ({ destination }) => {
 		const nextTimeout = setTimeout(() => {
 			dispatch(resetAudioPlayer(true, 'splash'));
 			resetRoot(destination);
-		}, 1000);
+		}, 500);
 
 		return () => clearTimeout(nextTimeout);
 	}, [ dispatch, destination, navigate ]);

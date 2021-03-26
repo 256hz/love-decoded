@@ -51,9 +51,13 @@ export default ({ navigation }) => {
 
 
 	const onPress = (value: string) => {
-		dispatch(
-			setDaySurveyResponse(Courses.One, Steps.One, DayFromNumber[currentDay], prompts[currentPrompt].key, value),
-		);
+		dispatch(setDaySurveyResponse(
+			Courses.One,
+			Steps.One,
+			DayFromNumber[currentDay],
+			prompts[currentPrompt].key,
+			value,
+		));
 
 		timeoutRef.current = setTimeout(() => {
 			currentPrompt < prompts.length - 1

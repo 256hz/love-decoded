@@ -140,6 +140,8 @@ const ScrollWrapper = ({
 
 const ScrollIndicator = () => (
 	<View style={styles.scrollIndicatorContainer}>
-		<DownArrow fill={colors.Gray92} />
+		<View style={styles.scrollIndicator}>
+			<DownArrow fill={colors.Gray92} />
+		</View>
 	</View>
 );

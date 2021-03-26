@@ -1,24 +1,28 @@
 import colors from 'elements/globalStyles/color';
 import text from 'elements/globalStyles/text';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		padding: 23,
+		paddingVertical: 23,
 		justifyContent: 'space-between',
 		backgroundColor: colors.White,
 	},
 	promptContainer: {
+		width: '100%',
+		paddingHorizontal: 23,
 	},
 	buttonsContainer: {
+		width: '100%',
 	},
 	promptText: {
 		...text.body,
 		fontSize: 16,
 	},
 	surveyButton: {
-		width: '100%',
+		marginHorizontal: 23,
+		width: Dimensions.get('screen').width - 46,
 		height: 50,
 		marginBottom: 24,
 		justifyContent: 'center',
@@ -41,6 +45,7 @@ export default StyleSheet.create({
 		...text.body,
 		...text.bold,
 		fontSize: 24,
+		color: colors.Black,
 	},
 	buttonTextSelected: {
 		color: colors.White,
