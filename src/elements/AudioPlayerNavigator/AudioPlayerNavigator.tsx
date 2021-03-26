@@ -102,7 +102,7 @@ export default ({
 			return;
 		}
 
-		if (!playedToEnd && !isPlaying && currentTime === 0) {
+		if (!isPlaying && currentTime === 0) {
 			dispatch(loadAudioFile(audioFilename));
 			return;
 		}

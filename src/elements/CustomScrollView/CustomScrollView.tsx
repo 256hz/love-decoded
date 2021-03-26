@@ -24,8 +24,8 @@ export default ({ children, setScrollIndicatorVisible }: Props) => {
 	};
 
 	const triggerOnScroll = () => {
-		scrollViewRef.current?.scrollTo({ y: 1 });
-		scrollViewRef.current?.scrollTo({ y: 0 });
+		scrollViewRef.current?.scrollTo({ y: 1, animated: false });
+		scrollViewRef.current?.scrollTo({ y: 0, animated: false });
 	};
 
 	return (

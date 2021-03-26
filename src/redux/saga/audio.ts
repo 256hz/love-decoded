@@ -10,8 +10,6 @@ import {
 } from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import {
-	appBackgrounded,
-	appInactivated,
 	loadAudioFile,
 	pauseAudio,
 	playAudio,
@@ -35,6 +33,7 @@ import {
 	resetAudioPlayer,
 	setAudioTotalPlayed,
 	setAudioPlayedToEndOnScreen,
+	setCurrentAudioFilename,
 } from '@redux/action/audio';
 import { OnboardingScreens, StepScreens } from 'route/enums';
 
@@ -47,6 +46,7 @@ export function* watchForloadAudioFile() {
 			console.log('loading:', audioFilename);
 			const [ filename, extension ] = audioFilename.split('.');
 			yield call([ SoundPlayer, 'loadSoundFile' ], filename, extension);
+			yield put(setCurrentAudioFilename(audioFilename));
 		} catch (error) {
 			console.error(error);
 		}
@@ -55,6 +55,8 @@ export function* watchForloadAudioFile() {
 
 export function* watchForPlayAudio() {
 	yield takeEvery(playAudio, function* () {
+		yield call(getInfo);
+
 		const isLoaded = yield select(isAudioLoaded);
 		const route = yield select(getCurrentRouteName);
 
@@ -89,6 +91,7 @@ export function* watchForSuccessfulLoad() {
 
 		console.log('loaded');
 		yield put(setAudioIsLoaded(true));
+		yield call(getInfo);
 	});
 }
 
@@ -139,7 +142,6 @@ function* getInfoWhilePlaying(route: OnboardingScreens | StepScreens) {
 			console.log('ending in:', timeLeft);
 			yield delay(timeLeft);
 
-			// yield put(setAudioPlayCompleted(true));
 			yield put(setAudioPlayedToEndOnScreen(route));
 
 			console.log('completed');
@@ -148,7 +150,7 @@ function* getInfoWhilePlaying(route: OnboardingScreens | StepScreens) {
 			break;
 		}
 
-		const [ stop, waited ] = yield race([ take(stopGettingAudioInfo), delay(1000) ]);
+		const [ stop ] = yield race([ take(stopGettingAudioInfo), delay(900) ]);
 		if (stop) {
 			yield call(getInfo);
 			break;

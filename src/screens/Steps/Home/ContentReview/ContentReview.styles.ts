@@ -30,11 +30,10 @@ export default StyleSheet.create({
 		alignItems: 'center',
 	},
 	subtitleContainer: {
-		// marginLeft: 22,
 	},
 	subtitle: {
 		...text.body,
-		color: colors.GrayE9,
+		color: colors.GrayC4,
 		fontSize: 14,
 		lineHeight: 14,
 	},

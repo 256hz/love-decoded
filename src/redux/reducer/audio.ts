@@ -63,21 +63,12 @@ export const audio = createReducer(INITIAL_STATE, ({ addCase }) => {
 		audioEndedScreens: state.audioEndedScreens,
 	}));
 
-	addCase(setAudioPlayedToEndOnScreen, (state, { payload: { screen } }) => {
-		const newState = {
-			...state,
-			audioEndedScreens: {
-				...(state.audioEndedScreens || {}),
-				[screen]: true,
-			},
-		};
-		console.log({ newState });
-		return ({
-			...state,
-			audioEndedScreens: {
-				...(state.audioEndedScreens || {}),
-				[screen]: true,
-			},
-		});
-	});
+	addCase(setAudioPlayedToEndOnScreen, (state, { payload: { screen } }) => ({
+		...state,
+		audioEndedScreens: {
+			...state.audioEndedScreens,
+			[screen]: true,
+		},
+	}));
+
 });

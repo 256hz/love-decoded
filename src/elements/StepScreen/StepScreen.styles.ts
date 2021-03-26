@@ -1,5 +1,5 @@
 import colors from 'elements/globalStyles/color';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
@@ -20,7 +20,7 @@ export default StyleSheet.create({
 		borderRadius: 20,
 		bottom: 20,
 		right: 20,
-		backgroundColor: colors.PinkVeryLightTransparent,
+		backgroundColor: Platform.select({ ios: colors.WhiteTransparent, android: colors.GrayF3 }),
 		zIndex: 2,
 		justifyContent: 'center',
 		alignItems: 'center',
