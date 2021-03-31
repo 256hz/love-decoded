@@ -39,7 +39,6 @@ import { OnboardingScreens, StepScreens } from 'route/enums';
 
 export function* watchForloadAudioFile() {
 	yield takeEvery(loadAudioFile, function* ({ payload: { audioFilename } }) {
-		yield put(resetAudioPlayer(true, 'on load'));
 		yield put(setAudioIsLoaded(false));
 
 		try {
@@ -55,9 +54,14 @@ export function* watchForloadAudioFile() {
 
 export function* watchForPlayAudio() {
 	yield takeEvery(playAudio, function* () {
+		const isLoaded = yield select(isAudioLoaded);
+		if (!isLoaded) {
+			console.log('tried to play before audio finished loading');
+			return;
+		}
+
 		yield call(getInfo);
 
-		const isLoaded = yield select(isAudioLoaded);
 		const route = yield select(getCurrentRouteName);
 
 		if (isLoaded) {
@@ -195,7 +199,10 @@ export function* resumeOnActive() {
 export function* watchForResetAudio() {
 	yield takeEvery(resetAudioPlayer, function* ({ payload: { source, hardReset } }) {
 		console.log(hardReset ? 'hard' : 'soft', 'reset from:', source || 'unknown');
-		yield put(pauseAudio());
-		yield call(seek, 0);
+
+		if (!hardReset) {
+			yield put(pauseAudio());
+			yield call(seek, 0);
+		}
 	});
 }

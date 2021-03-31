@@ -21,7 +21,7 @@ export default ({ destination }) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		// load an empty sound here so the Android media player initializes
+		// load an empty sound to initialize the Android media player
 		try {
 			SoundPlayer.loadSoundFile('one_second_silence', 'mp3');
 		} catch (error) {
@@ -31,7 +31,7 @@ export default ({ destination }) => {
 		const nextTimeout = setTimeout(() => {
 			dispatch(resetAudioPlayer(true, 'splash'));
 			resetRoot(destination);
-		}, 500);
+		}, 2000);
 
 		return () => clearTimeout(nextTimeout);
 	}, [ dispatch, destination, navigate ]);

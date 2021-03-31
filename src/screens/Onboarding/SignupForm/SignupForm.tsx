@@ -115,7 +115,7 @@ export default () => {
 		setWaitingForBackend(true);
 		setTimeout(() => {
 			navigate(OnboardingScreens.ThankYouForSigningUp);
-		}, 2500);
+		}, 1500);
 	};
 
 	return (

@@ -93,12 +93,7 @@ export default ({
 	};
 
 	useEffect(() => {
-		if (!isFocused) {
-			return;
-		}
-
-		if (!audioFilename) {
-			dispatch(resetAudioPlayer(true, 'no audio filename'));
+		if (!isFocused || !audioFilename) {
 			return;
 		}
 
