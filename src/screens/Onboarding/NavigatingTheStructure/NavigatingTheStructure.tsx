@@ -110,7 +110,6 @@ export default () => {
 		<OnboardingScreen
 			drawShapes={[ 1, 7, 11 ]}
 			title={'Navigating the\nStructure of this App'}
-			audioFilename="home_page_explanation_rebecca.mp3"
 			nextTarget={OnboardingScreens.BornToBeLoved}
 			nextEnabled={nextEnabled}
 			scrollDisabled
