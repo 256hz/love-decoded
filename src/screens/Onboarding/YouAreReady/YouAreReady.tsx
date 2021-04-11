@@ -31,6 +31,7 @@ export default () => (
 			<Text style={styles.headlineText}>
 				{'You Are Ready\nFor Step 1'}
 			</Text>
+
 			<EnterButton onPress={() => resetRoot(RootStacks.HomeTabs)} />
 		</View>
 	</OnboardingScreen>

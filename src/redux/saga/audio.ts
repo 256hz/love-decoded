@@ -21,7 +21,6 @@ import {
 	appActivated,
 } from '@redux/action';
 import {
-	getAudioFilename,
 	getAudioInfo,
 	getCurrentRouteName,
 	isAudioActive,
@@ -35,7 +34,7 @@ import {
 	setAudioPlayedToEndOnScreen,
 	setCurrentAudioFilename,
 } from '@redux/action/audio';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 
 export function* watchForloadAudioFile() {
 	yield takeEvery(loadAudioFile, function* ({ payload: { audioFilename } }) {
@@ -116,7 +115,7 @@ function* getInfo() {
 	}
 }
 
-function* getInfoWhilePlaying(route: OnboardingScreens | StepScreens) {
+function* getInfoWhilePlaying(route: Screens) {
 	const isGettingInfo = yield select(isAudioGettingInfo);
 	if (isGettingInfo) {
 		return;

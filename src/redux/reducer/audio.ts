@@ -10,7 +10,7 @@ import {
 	setAudioTotalPlayed,
 	setAudioPlayedToEndOnScreen,
 } from '@redux/action';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 
 export type AudioState = {
 	audioFilename: string;
@@ -23,7 +23,7 @@ export type AudioState = {
 	playCompleted: boolean;
 	totalPlayed: number;
 	audioEndedScreens?: {
-		[key in OnboardingScreens | StepScreens]?: boolean | undefined;
+		[key in Screens]?: boolean | undefined;
 	}
 };
 

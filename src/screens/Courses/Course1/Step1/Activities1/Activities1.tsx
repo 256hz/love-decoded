@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import Info from '@assets/svg/info.svg';
-import { StepScreens } from 'route/enums';
+import { Course1Step1Screens } from 'route/enums';
 import { setStepActivityResponse } from '@redux/action';
 import RootState from '@redux/RootState';
 import { getStepActivity } from '@redux/selector';
@@ -30,7 +30,7 @@ export default () => {
 	return (
 		<StackKeyboardAvoidingView>
 			<StepScreen
-				nextTarget={StepScreens.Step1Activities2}
+				nextTarget={Course1Step1Screens.Activities2}
 			// audioFilename="one_second_silence.mp3"
 			// scrollDisabled
 			>

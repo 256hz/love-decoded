@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress } from '@redux/selector';
 import CourseButton from './CourseButton';
@@ -13,7 +13,7 @@ import ContentReview from './ContentReview';
 
 export default () => {
 	const { navigate } = useNavigation();
-	const onPress = () => navigate(StepScreens.DayOverview);
+	const onPress = () => navigate(CourseScreens.DayOverview);
 
 	const { currentActivity, currentDay, currentStep } = useSelector(getUserProgress);
 	const firstName = useSelector(getUserFirstName);

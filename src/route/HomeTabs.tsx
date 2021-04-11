@@ -5,7 +5,7 @@ import { TabIcon } from '@elements/TabIcon';
 import Journal from '@screens/Steps/Journal';
 import Faq from '@screens/Steps/Faq';
 import EmotionalReset from '@screens/Steps/EmotionalReset';
-import StepStack from './StepStack';
+import CourseStack from './Steps/CourseStack';
 import styles from './HomeTabs.styles';
 
 type TabParamList = {
@@ -21,9 +21,7 @@ export default () => {
 			initialRouteName={TabNames.HomeScreen}
 			lazy={false}
 			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused }) => (
-					<TabIcon tabName={route.name as TabNames} selected={focused} />
-				),
+				tabBarIcon: ({ focused }) => <TabIcon tabName={route.name as TabNames} selected={focused} />,
 			})}
 			tabBarOptions={{
 				keyboardHidesTabBar: false,
@@ -33,16 +31,19 @@ export default () => {
 		>
 			<Tab.Screen
 				name={TabNames.HomeScreen}
-				component={StepStack}
+				component={CourseStack}
 			/>
+
 			<Tab.Screen
 				name={TabNames.JournalScreen}
 				component={Journal}
 			/>
+
 			<Tab.Screen
 				name={TabNames.FAQScreen}
 				component={Faq}
 			/>
+
 			<Tab.Screen
 				name={TabNames.ResetScreen}
 				component={EmotionalReset}

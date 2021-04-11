@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
-import { StepScreens } from 'route/enums';
+import { CourseScreens, Course1Step1Screens } from 'route/enums';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { DayFromNumber, Days } from '@redux/types/survey';
@@ -23,13 +23,13 @@ export default () => {
 	const { navigate } = useNavigation();
 	const { currentDay } = useSelector(getUserProgress);
 
-	const onPress = () => navigate(StepScreens.Step1Visualization);
+	const onPress = () => navigate(Course1Step1Screens.Visualization);
 
 	return (
 		<StepScreen
 			audioFilename={audio[DayFromNumber[currentDay]]}
-			backTarget={StepScreens.Home}
-			nextTarget={StepScreens.GoodJob}
+			backTarget={CourseScreens.Home}
+			nextTarget={CourseScreens.GoodJob}
 		>
 			<View style={styles.container}>
 				<View style={styles.contentContainer}>

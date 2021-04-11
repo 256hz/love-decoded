@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import Logo from '@assets/svg/logo.svg';
 import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
 import { getUserProgress } from '@redux/selector';
@@ -29,7 +29,7 @@ export default ({ navigation }) => {
 		: `Start Step ${currentStep}`;
 
 	const onPress = () => {
-		navigate(StepScreens.Home);
+		navigate(CourseScreens.Home);
 		// navigation.setOptions({ tabBarVisible: true });
 	};
 

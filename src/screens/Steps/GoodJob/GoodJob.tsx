@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, Pressable } from 'react-native';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import Check from '@assets/svg/checkmark.svg';
 import { Activity } from '@redux/types/user';
 import { getUserProgress } from '@redux/selector';
@@ -45,7 +45,7 @@ export default () => {
 
 	const onPressScreen = () => {
 		dispatch(advanceUserActivity());
-		navigate(completedFullDay ? StepScreens.Congratulations : StepScreens.Home);
+		navigate(completedFullDay ? CourseScreens.Congratulations : CourseScreens.Home);
 	};
 
 	return (

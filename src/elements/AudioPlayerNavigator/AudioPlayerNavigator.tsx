@@ -5,17 +5,14 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused, useRoute } from '@react-navigation/native';
 import { View } from 'react-native';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { OnboardingScreens, Screens, Course1Step1Screens } from 'route/enums';
 import {
 	loadAudioFile,
 	pauseAudio,
 	playAudio,
-	resetAudioPlayer,
-	setAudioPlayedToEndOnScreen,
 } from '@redux/action';
 import {
 	getAudioInfo,
-	getAudioPlayCompleted,
 	isAudioLoaded,
 	isAudioPlayedToEndOnScreen,
 	isAudioPlaying,
@@ -31,14 +28,14 @@ type AudioPlayerNavigatorStandard = {
 	// allowed
 	audioFilename?: string;
 	backEnabled?: boolean;
-	backTarget?: OnboardingScreens | StepScreens;
+	backTarget?: Screens;
 	customMiddleContent?: ReactChild;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	onAudioEnd?: (arg?: any) => void;
 	onPressBack?: (arg?: any) => void;
 	onPressNext?: (arg?: any) => void;
-	nextTarget: OnboardingScreens | StepScreens;
+	nextTarget: Screens;
 	nextEnabled?: boolean;
 	// disallowed
 	customButtons?: undefined;
@@ -79,7 +76,7 @@ export default ({
 	const dispatch = useDispatch();
 	const isFocused = useIsFocused();
 	const { name } = useRoute();
-	const route = name as OnboardingScreens | StepScreens;
+	const route = name as Screens;
 
 	const { currentTime, duration } = useSelector(getAudioInfo);
 	const isLoaded = useSelector(isAudioLoaded);

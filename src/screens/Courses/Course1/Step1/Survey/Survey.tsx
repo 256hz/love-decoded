@@ -10,7 +10,7 @@ import {
 import { TitleWithProgressHeader } from '@elements/Header/HeaderOptions';
 import RootState from '@redux/RootState';
 import { useNavigation } from '@react-navigation/native';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import NavButtons from 'elements/AudioPlayerNavigator/NavButtons';
 import styles from './Survey.styles';
 
@@ -62,7 +62,7 @@ export default ({ navigation }) => {
 		timeoutRef.current = setTimeout(() => {
 			currentPrompt < prompts.length - 1
 				? setCurrentPrompt(currentPrompt + 1)
-				: navigate(StepScreens.GoodJob);
+				: navigate(CourseScreens.GoodJob);
 		}, 500);
 	};
 

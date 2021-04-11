@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import State from '@redux/RootState';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 
 const audio = (state: State) => (state || {}).audio || {};
 
@@ -21,5 +21,5 @@ export const getAudioFilename = createSelector(audio, ({ audioFilename }) => aud
 export const getAudioInfo = createSelector(audio,
 	({ currentTime, duration }) => ({ currentTime, duration }));
 
-export const isAudioPlayedToEndOnScreen = (screen: OnboardingScreens | StepScreens) => createSelector(audio,
+export const isAudioPlayedToEndOnScreen = (screen: Screens) => createSelector(audio,
 	({ audioEndedScreens }) => !!audioEndedScreens?.[screen]);

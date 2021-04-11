@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { StackKeyboardAvoidingView, StepScreen } from '@elements';
 import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
-import { StepScreens } from 'route/enums';
+import { Course1Step1Screens } from 'route/enums';
 import { useDispatch, useSelector } from 'react-redux';
 import { setStepActivityResponse } from 'redux/action';
 import { getStepActivity } from 'redux/selector';
@@ -26,7 +26,7 @@ export default () => {
 	return (
 		<StackKeyboardAvoidingView>
 			<StepScreen
-				nextTarget={StepScreens.Step1Activities3}
+				nextTarget={Course1Step1Screens.Activities3}
 			// scrollDisabled
 			>
 				<View style={styles.container}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import { Slider, StepScreen } from '@elements';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { setDaySurveyResponse } from '@redux/action';
@@ -38,7 +38,7 @@ export default () => {
 	return (
 		<StepScreen
 			audioFilename={audio[DayFromNumber[currentDay]]}
-			nextTarget={StepScreens.GoodJob}
+			nextTarget={CourseScreens.GoodJob}
 		>
 			<View>
 				<View style={styles.bodyContainer}>

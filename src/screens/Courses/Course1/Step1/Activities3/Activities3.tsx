@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { StepScreen } from '@elements';
-import { StepScreens } from 'route/enums';
+import { CourseScreens } from 'route/enums';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './Activities3.styles';
 
@@ -13,7 +13,7 @@ export default () => {
 	return (
 		<StepScreen
 			// audioFilename="one_second_silence.mp3"
-			nextTarget={StepScreens.GoodJob}
+			nextTarget={CourseScreens.GoodJob}
 			// scrollDisabled
 		>
 			<View style={styles.container}>
