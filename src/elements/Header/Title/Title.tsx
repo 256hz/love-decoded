@@ -3,10 +3,10 @@ import { View, Text } from 'react-native';
 import styles, { PROGRESS_WIDTH } from './Title.styles';
 
 type Props = {
-	title: string;
-	subtitle?: string;
-	totalProgressDots?: number;
 	activeProgressDot?: number;
+	subtitle?: string;
+	title: string;
+	totalProgressDots?: number;
 };
 
 const getDotsArray = dots => Array.from(Array(dots).keys());
@@ -23,7 +23,7 @@ export default ({ title, subtitle, activeProgressDot, totalProgressDots }: Props
 								<Fragment key={i}>
 									<ProgressDot
 										active={i === activeProgressDot}
-										style={{ left: i * (PROGRESS_WIDTH / totalProgressDots + 8) }}
+										style={{ left: i * (PROGRESS_WIDTH / totalProgressDots + 16) }}
 									/>
 								</Fragment>
 							))}

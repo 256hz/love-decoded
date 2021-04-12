@@ -4,34 +4,45 @@ import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { CourseScreens } from 'route/enums';
 import Logo from '@assets/svg/logo.svg';
+import { CourseScreens, StepStacks } from 'route/enums';
+import { Courses, Steps } from '@redux/types/survey';
+import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
 import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
-import { getUserProgress } from '@redux/selector';
 import styles from './Congratulations.styles';
 
-export default ({ navigation }) => {
+export const nextStack = {
+	[Courses.One]: {
+		[Steps.One]: StepStacks.Course1Step1,
+		[Steps.Two]: StepStacks.Course1Step2,
+	},
+};
+
+
+export default () => {
 	const { navigate } = useNavigation();
-	const { currentStep, currentDay } = useSelector(getUserProgress);
 
-	const isSameStep = currentDay !== 1;
+	const { currentCourse, currentStep } = useSelector(getUserProgress);
+	const { currentStepNumber, currentDayNumber } = useSelector(getUserProgressNumbers);
 
-	const completedDayText = isSameStep ? `${currentDay - 1}` : '';
-
-	const completedStepText = isSameStep ? `${currentStep}` : '';
+	// At this screen, the user's progress has already been advanced.
+	const isSameStep = currentDayNumber !== 1;
 
 	const congratulationsText = isSameStep
-		? `Congratulations! You\'ve\nCompleted Step ${completedStepText}, Day ${completedDayText}.`
-		: `Congratulations!\nYou are now ready for Step ${currentStep}.`;
+		? `Congratulations! You\'ve\nCompleted Step ${currentStepNumber}, Day ${currentDayNumber - 1}.`
+		: `Congratulations!\nYou are now ready for Step ${currentStepNumber}.`;
 
 	const buttonText = isSameStep
-		? `Start Day ${currentDay}`
-		: `Start Step ${currentStep}`;
+		? `Start Day ${currentDayNumber}`
+		: `Start Step ${currentStepNumber}`;
 
-	const onPress = () => {
-		navigate(CourseScreens.Home);
+	console.log(currentCourse, currentStep);
+	console.log(nextStack[currentCourse][currentStep]);
+
+	const onPress = isSameStep
+		? () => navigate(CourseScreens.Home)
+		: () => navigate(nextStack[currentCourse][currentStep]);
 		// navigation.setOptions({ tabBarVisible: true });
-	};
 
 	// useEffect(() => {
 	// 	navigation.setOptions({ tabBarVisible: false });

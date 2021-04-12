@@ -4,18 +4,17 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { CourseScreens } from 'route/enums';
 import { StepScreen } from '@elements';
-import { getUserFirstName, getUserProgress } from '@redux/selector';
+import { getUserFirstName, getUserProgressNumbers } from '@redux/selector';
 import CourseButton from './CourseButton';
 import ProgressBar from './ProgressBar';
 import styles from './Home.styles';
 import ContentReview from './ContentReview';
 
-
 export default () => {
 	const { navigate } = useNavigation();
 	const onPress = () => navigate(CourseScreens.DayOverview);
 
-	const { currentActivity, currentDay, currentStep } = useSelector(getUserProgress);
+	const { currentActivityNumber: currentActivity, currentDayNumber: currentDay, currentStepNumber: currentStep } = useSelector(getUserProgressNumbers);
 	const firstName = useSelector(getUserFirstName);
 	// currentActivity is 1-indexed
 	const progressPercent = (currentActivity - 1) * 25;

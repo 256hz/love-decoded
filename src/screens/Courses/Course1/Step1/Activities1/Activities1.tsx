@@ -2,26 +2,26 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import ListTextInput, { SingleBullet } from '@elements/ListTextInput/ListTextInput';
 import Info from '@assets/svg/info.svg';
-import { Course1Step1Screens } from 'route/enums';
+import { Course1Step1Screens } from 'route/Steps/Course1Screens';
+
 import { setStepActivityResponse } from '@redux/action';
-import RootState from '@redux/RootState';
 import { getStepActivity } from '@redux/selector';
 import { Activities, Courses, Steps } from '@redux/types/survey';
-import { StackKeyboardAvoidingView, StepScreen } from '@elements';
+import { ListTextInput, StackKeyboardAvoidingView, StepScreen } from '@elements';
+
 import styles from './Activities1.styles';
 
 export default () => {
 	const dispatch = useDispatch();
 
-	const savedResponse = useSelector<RootState>(
-		getStepActivity(Courses.One, Steps.One, Activities.LovableQualitiesSelf),
+	const savedResponse = useSelector(
+		getStepActivity(Courses.One, Steps.One, Activities.Course1Step1Activity1),
 	);
 
-	const setResponse = (text: string) => {
-		dispatch(setStepActivityResponse(Courses.One, Steps.One, Activities.LovableQualitiesSelf, text));
-	};
+	const setResponse = (text: string) => dispatch(
+		setStepActivityResponse(Courses.One, Steps.One, Activities.Course1Step1Activity1, text),
+	);
 
 	const onPressInfoBubble = () => {
 		console.log('info');
@@ -31,8 +31,8 @@ export default () => {
 		<StackKeyboardAvoidingView>
 			<StepScreen
 				nextTarget={Course1Step1Screens.Activities2}
-			// audioFilename="one_second_silence.mp3"
-			// scrollDisabled
+				// audioFilename="one_second_silence.mp3"
+				// scrollDisabled
 			>
 				<View style={styles.container}>
 					<View style={styles.bodyContainer}>
@@ -60,7 +60,7 @@ export default () => {
 
 						<ListTextInput
 							containerStyle={styles.textInputContainer}
-							text={savedResponse as string || SingleBullet}
+							text={savedResponse}
 							setText={setResponse}
 						/>
 					</View>

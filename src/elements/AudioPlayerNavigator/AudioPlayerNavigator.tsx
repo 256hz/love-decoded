@@ -5,7 +5,7 @@ import React, {
 import { useDispatch, useSelector } from 'react-redux';
 import { useIsFocused, useRoute } from '@react-navigation/native';
 import { View } from 'react-native';
-import { OnboardingScreens, Screens, Course1Step1Screens } from 'route/enums';
+import { Screens } from 'route/enums';
 import {
 	loadAudioFile,
 	pauseAudio,
@@ -17,7 +17,7 @@ import {
 	isAudioPlayedToEndOnScreen,
 	isAudioPlaying,
 } from '@redux/selector';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import AudioPlayerBar from './AudioPlayerBar';
 import NavButtons from './NavButtons';
 import styles from './AudioPlayerNavigator.styles';

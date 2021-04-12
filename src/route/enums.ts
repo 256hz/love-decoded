@@ -1,3 +1,5 @@
+import { Course1Step1Screens, Course1Step2Screens } from './Steps/Course1Screens';
+
 export enum RootStacks {
 	Splash = 'Splash',
 	HomeTabs = 'HomeTabs',
@@ -58,16 +60,6 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
-export enum Course1Step1Screens {
-	Intention = 'Intention',
-	Activities1 = 'Activities1',
-	Activities2 = 'Activities2',
-	Activities3 = 'Activities3',
-	Survey = 'Survey',
-	Reflection = 'Reflection',
-	Visualization = 'Visualization',
-}
-
 export enum CourseScreens {
 	Home = 'Home',
 	DayOverview = 'DayOverview',
@@ -75,7 +67,8 @@ export enum CourseScreens {
 	Congratulations = 'Congratulations',
 }
 
-export type Course1Screens = Course1Step1Screens;
+export type Course1Screens = Course1Step1Screens |
+Course1Step2Screens;
 
 export type Screens = OnboardingScreens | CourseScreens | Course1Screens;
 

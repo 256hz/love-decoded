@@ -8,7 +8,11 @@ import {
 	UserProperty,
 } from '@redux/types/user';
 import {
-	setUserProperty, logOut, advanceUserActivity, logIn,
+	advanceUserActivity as advanceUserProgress,
+	logOut,
+	logIn,
+	setUserProperty,
+	setUserProgress,
 } from '@redux/action';
 
 export type UserState = {
@@ -54,18 +58,26 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 
 	addCase(logOut, state => INITIAL_STATE);
 
-	addCase(advanceUserActivity, state => {
+	addCase(setUserProgress, (state, { payload: { course, step, day, activity } }) => ({
+		...state,
+		[UserProperty.CurrentCourse]: course,
+		[UserProperty.CurrentStep]: step,
+		[UserProperty.CurrentDay]: day,
+		[UserProperty.CurrentActivity]: activity,
+	}));
+
+	addCase(advanceUserProgress, state => {
 		// called at the end of each activity, day, step, and course
 
 		const {
-			[UserProperty.CurrentActivity]: currentActivity,
-			[UserProperty.CurrentDay]: currentDay,
-			[UserProperty.CurrentStep]: currentStep,
 			[UserProperty.CurrentCourse]: currentCourse,
-			[UserProperty.MaxActivity]: maxActivity,
-			[UserProperty.MaxDay]: maxDay,
-			[UserProperty.MaxStep]: maxStep,
+			[UserProperty.CurrentStep]: currentStep,
+			[UserProperty.CurrentDay]: currentDay,
+			[UserProperty.CurrentActivity]: currentActivity,
 			[UserProperty.MaxCourse]: maxCourse,
+			[UserProperty.MaxStep]: maxStep,
+			[UserProperty.MaxDay]: maxDay,
+			[UserProperty.MaxActivity]: maxActivity,
 		} = state;
 
 		const advanceDay = currentActivity === 4;
@@ -79,14 +91,14 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 
 		return ({
 			...state,
-			[UserProperty.CurrentActivity]: nextActivity,
-			[UserProperty.CurrentDay]: nextDay,
-			[UserProperty.CurrentStep]: nextStep,
 			[UserProperty.CurrentCourse]: nextCourse,
-			[UserProperty.MaxActivity]: nextActivity > maxActivity ? nextActivity : maxActivity,
-			[UserProperty.MaxDay]: nextDay > maxDay ? nextDay : maxDay,
-			[UserProperty.MaxStep]: nextStep > maxStep ? nextStep : maxStep,
+			[UserProperty.CurrentStep]: nextStep,
+			[UserProperty.CurrentDay]: nextDay,
+			[UserProperty.CurrentActivity]: nextActivity,
 			[UserProperty.MaxCourse]: nextCourse > maxCourse ? nextCourse : maxCourse,
+			[UserProperty.MaxStep]: nextStep > maxStep ? nextStep : maxStep,
+			[UserProperty.MaxDay]: nextDay > maxDay ? nextDay : maxDay,
+			[UserProperty.MaxActivity]: nextActivity > maxActivity ? nextActivity : maxActivity,
 		});
 	});
 });

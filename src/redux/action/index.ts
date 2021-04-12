@@ -49,4 +49,5 @@ export {
 	setUserProperty,
 	logIn,
 	logOut,
+	setUserProgress,
 } from './user';

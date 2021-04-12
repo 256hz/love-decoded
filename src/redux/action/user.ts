@@ -1,5 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
-import { UserProperty } from '@redux/types/user';
+import {
+	Activity, Course, Day, Step, UserProperty,
+} from '@redux/types/user';
 
 export const setUserProperty = createAction('SET_USER_PROPERTY',
 	(property: UserProperty, value: string | number) => ({ payload: { property, value } }));
@@ -9,5 +11,8 @@ export const logIn = createAction('LOG_IN',
 
 export const logOut = createAction('LOG_OUT');
 
-export const advanceUserActivity = createAction('ADVANCE_USER_ACTIVITY');
+export const advanceUserActivity = createAction('ADVANCE_USER_PROGRESS');
+
+export const setUserProgress = createAction('SET_USER_PROGRESS',
+	(course: Course, step: Step, day: Day, activity: Activity) => ({ payload: { course, step, day, activity } }));
 

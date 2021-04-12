@@ -10,8 +10,6 @@ import getStore from 'redux/getStore';
 import Modals from '@elements/Modals';
 import colors from 'elements/globalStyles/color';
 
-export const DEMO_MODE = true;
-
 export const { store, persistor } = getStore();
 
 const App = () => {

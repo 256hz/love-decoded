@@ -11,6 +11,7 @@ export const SingleBullet = '  \u2022 ';
 
 type Props = {
 	containerStyle?: ViewStyle;
+	multiline?: boolean;
 	setText: (arg: string) => void;
 	style?: ViewStyle;
 	text: string;
@@ -18,6 +19,7 @@ type Props = {
 
 export default ({
 	text,
+	multiline = true,
 	setText,
 	style,
 	containerStyle,
@@ -39,12 +41,12 @@ export default ({
 	return (
 		<View style={[ styles.container, containerStyle ]}>
 			<TextInput
-				multiline
+				multiline={multiline}
 				onChangeText={onChangeText}
 				onBlur={Keyboard.dismiss}
 				style={[ styles.textInput, style ]}
 				textAlignVertical="top"
-				value={text}
+				value={text || SingleBullet}
 			/>
 		</View>
 	);

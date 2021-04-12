@@ -17,7 +17,7 @@ export const resetRoot = (routeName) => {
 	});
 };
 
-export const getStepStackFromUserProgress = (currentCourse, currentStep) => {
+export const getStepStackFromUserProgress = (currentCourse: Courses, currentStep: Steps) => {
 	switch (currentCourse) {
 		case Courses.One:
 			switch (currentStep) {

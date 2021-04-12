@@ -1,6 +1,6 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
 import { Dimensions, StyleSheet } from 'react-native';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	container: {
@@ -49,5 +49,8 @@ export default StyleSheet.create({
 	},
 	buttonTextSelected: {
 		color: colors.White,
+	},
+	navContainer: {
+		marginHorizontal: 23,
 	},
 });

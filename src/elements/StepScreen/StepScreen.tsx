@@ -1,5 +1,8 @@
 import React, {
-	Dispatch, ReactChild, SetStateAction, useState,
+	Dispatch,
+	ReactChild,
+	SetStateAction,
+	useState,
 } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { Screens } from 'route/enums';

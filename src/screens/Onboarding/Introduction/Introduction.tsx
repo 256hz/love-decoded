@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Image, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { resetAudioPlayer } from '@redux/action';

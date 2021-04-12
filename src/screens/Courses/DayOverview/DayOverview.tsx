@@ -2,10 +2,14 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Course1Step1Screens } from 'route/enums';
-import { getUserProgress } from '@redux/selector';
-import { Activity } from '@redux/types/user';
+import { Course1Step1Screens, Course1Step2Screens } from 'route/Steps/Course1Screens';
+
+import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
+import { Activity, Course, Step } from '@redux/types/user';
+import { DailyActivity, titles } from '@util/titles';
 import { StepScreen } from '@elements';
+
+
 import { ActivityStatus } from './ActivityCard/ActivityCard';
 import ActivityCard from './ActivityCard';
 import styles from './DayOverview.styles';
@@ -22,10 +26,36 @@ const getStatus = (currentActivity: Activity, thisActivity: Activity) => {
 	}
 };
 
+const getDestinations = (currentCourseNumber: Course, currentStepNumber: Step) => {
+	switch (currentCourseNumber) {
+		case 1: {
+			switch (currentStepNumber) {
+				case 1: return Course1Step1Screens;
+				case 2: return Course1Step2Screens;
+				default: return Course1Step1Screens;
+			}
+		}
+		default: return Course1Step1Screens;
+	}
+};
+
 export default () => {
 	const { navigate } = useNavigation();
-	const { currentStep, currentDay, currentActivity } = useSelector(getUserProgress);
-	const title = 'Discovering Your Lovable Qualities';
+	const {
+		currentCourse,
+		currentStep,
+		currentActivity,
+	} = useSelector(getUserProgress);
+
+	const {
+		currentCourseNumber,
+		currentStepNumber,
+		currentDayNumber,
+	} = useSelector(getUserProgressNumbers);
+
+	const title = titles[currentCourse][currentStep];
+
+	const CourseStepScreens = getDestinations(currentCourseNumber, currentStepNumber);
 
 	return (
 		<StepScreen>
@@ -36,35 +66,35 @@ export default () => {
 					</Text>
 
 					<Text style={styles.progressText}>
-						Step {currentStep}, Day {currentDay}
+						Step {currentStepNumber}, Day {currentDayNumber}
 					</Text>
 				</View>
 
 				<ActivityCard
-					title="Intention"
+					title={DailyActivity.Intention}
 					subtitle="Morning"
-					onPress={() => navigate(Course1Step1Screens.Intention)}
+					onPress={() => navigate(CourseStepScreens.Intention)}
 					status={getStatus(currentActivity, Activity.Morning)}
 				/>
 
 				<ActivityCard
-					title="Activities"
+					title={DailyActivity.Activities}
 					subtitle="Afternoon"
-					onPress={() => navigate(Course1Step1Screens.Activities1)}
+					onPress={() => navigate(CourseStepScreens.Activities1)}
 					status={getStatus(currentActivity, Activity.Afternoon)}
 				/>
 
 				<ActivityCard
-					title="Survey"
+					title={DailyActivity.Survey}
 					subtitle="Evening"
-					onPress={() => navigate(Course1Step1Screens.Survey)}
+					onPress={() => navigate(CourseStepScreens.Survey)}
 					status={getStatus(currentActivity, Activity.Evening)}
 				/>
 
 				<ActivityCard
-					title="Reflection"
+					title={DailyActivity.Reflection}
 					subtitle="Bedtime"
-					onPress={() => navigate(Course1Step1Screens.Reflection)}
+					onPress={() => navigate(CourseStepScreens.Reflection)}
 					status={getStatus(currentActivity, Activity.Bedtime)}
 				/>
 			</View>

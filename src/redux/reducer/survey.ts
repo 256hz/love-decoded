@@ -1,42 +1,15 @@
 import { createReducer } from '@reduxjs/toolkit';
+import { Courses, Surveys, SurveyState } from '@redux/types/survey';
 import {
-	setNeffSurveyResponse, setDaySurveyResponse, setOnboardingSurveyResponse, setStepActivityResponse, logOut,
+	setNeffSurveyResponse,
+	setDaySurveyResponse,
+	setOnboardingSurveyResponse,
+	setStepActivityResponse,
+	logOut,
 } from '@redux/action';
-import {
-	Activities,
-	Course1Step1,
-	Course1Step2,
-	Courses,
-	DayValues,
-	Surveys,
-	SurveyState,
-} from 'redux/types/survey';
+import { course1Step1State, course1Step2State } from './initialSurveyStates';
 
 // set initial values
-const course1Step1State = {
-	[Activities.LovableQualitiesSelf]: '',
-	[Activities.LovableQualitiesOthersMissing]: '',
-	[Activities.LovableQualitiesOthersDoNotAgree]: '',
-};
-const course1Step2State = {
-	[Activities.SelfTalkPositivelySituations]: '',
-	[Activities.SelfTalkPositivelyReaction]: '',
-	[Activities.SelfTalkPositivelyRevision]: '',
-};
-
-DayValues.forEach(day => {
-	course1Step1State[day] = {
-		[Surveys.HowAreYouFeeling]: 1,
-		[Surveys.LovableQualitiesWriteDown]: '',
-		[Surveys.LovableQualitiesRecite]: '',
-		[Surveys.LovableQualitiesShare]: '',
-		[Surveys.LovableQualitiesSmile]: '',
-		[Surveys.LovableQualitiesSilly]: '',
-	};
-	course1Step2State[day] = {
-		[Surveys.HowAreYouFeeling]: 1,
-	};
-});
 
 const INITIAL_STATE: SurveyState = {
 	onboarding: {
@@ -44,8 +17,8 @@ const INITIAL_STATE: SurveyState = {
 		[Surveys.Neff]: new Array(13).fill(0),
 	},
 	course1: {
-		step1: course1Step1State as Course1Step1,
-		step2: course1Step2State as Course1Step2,
+		step1: course1Step1State,
+		step2: course1Step2State,
 	},
 };
 

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { getUserProgress } from 'redux/selector';
 import { getStepStackFromUserProgress } from 'util/navigation';
 import Course1Step1Stack from './Course1Step1Stack';
+import Course1Step2Stack from './Course1Step2Stack';
 
 
 const CourseStack = createStackNavigator();
@@ -21,6 +22,8 @@ export default () => {
 			initialRouteName={initialRouteName}
 		>
 			<CourseStack.Screen name={StepStacks.Course1Step1} component={Course1Step1Stack} />
+
+			<CourseStack.Screen name={StepStacks.Course1Step2} component={Course1Step2Stack} />
 		</CourseStack.Navigator>
 	);
 };

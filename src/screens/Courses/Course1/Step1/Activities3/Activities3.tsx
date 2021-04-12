@@ -12,7 +12,6 @@ export default () => {
 
 	return (
 		<StepScreen
-			// audioFilename="one_second_silence.mp3"
 			nextTarget={CourseScreens.GoodJob}
 			// scrollDisabled
 		>
@@ -31,10 +30,12 @@ export default () => {
 								<Image source={require('@assets/png/sms.png')} />
 								<Text style={styles.bodyText}>sms</Text>
 							</View>
+
 							<View style={styles.shareItem}>
 								<Image source={require('@assets/png/email.png')} />
 								<Text style={styles.bodyText}>email</Text>
 							</View>
+
 							<View style={styles.shareItem}>
 								<Image source={require('@assets/png/notes.png')} />
 								<Text style={styles.bodyText}>notes</Text>
