@@ -28,26 +28,8 @@ export default () => {
 			<View style={styles.container}>
 				<View style={styles.contentContainer}>
 					<Text style={styles.questionText}>
-						What did it feel like to write and share your loveable and caring qualities with others?
+						When you don’t love yourself like you deserve – too often you’ll behave unlovingly toward yourself... without even realizing it.
 					</Text>
-				</View>
-
-				<View style={styles.contentContainer}>
-					<Text style={styles.headline}>
-						Optional
-					</Text>
-
-					<Text style={styles.body}>
-						{'If you would like to do guided\nmeditation/visualization'}
-					</Text>
-
-					<TouchableOpacity onPress={onPress}>
-						<View style={styles.button}>
-							<Text style={styles.questionText}>
-								click here
-							</Text>
-						</View>
-					</TouchableOpacity>
 				</View>
 			</View>
 		</StepScreen>

@@ -45,3 +45,11 @@ export enum DailyActivity {
 	Reflection = 'Reflection',
 	NightlyReflection = 'Nightly Reflection',
 }
+
+export const ActivityFromNumber: DailyActivity[] = [
+	DailyActivity.Intention, // empty
+	DailyActivity.Intention,
+	DailyActivity.Activities,
+	DailyActivity.Survey,
+	DailyActivity.Reflection,
+];

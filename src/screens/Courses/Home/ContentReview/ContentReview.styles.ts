@@ -50,10 +50,33 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 3,
 	},
+	disabled: {
+		backgroundColor: colors.GrayButton,
+	},
 	buttonText: {
 		...text.body,
 		...text.bold,
 		fontSize: 17,
 		color: colors.White,
+	},
+	placeholderText: {
+		...text.body,
+		fontSize: 17,
+		lineHeight: 20,
+		color: colors.GrayBC,
+	},
+	text: {
+		...text.body,
+		fontSize: 17,
+		lineHeight: 20,
+		color: colors.Gray33,
+	},
+	pickerContainer: {
+		flex: 1,
+		justifyContent: 'center',
+	},
+	chevronContainer: {
+		position: 'absolute',
+		right: 12,
 	},
 });

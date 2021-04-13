@@ -5,19 +5,10 @@ import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
-import { CourseScreens, StepStacks } from 'route/enums';
-import { Courses, Steps } from '@redux/types/survey';
+import { CourseScreens, stepEntryPoints } from 'route/enums';
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
 import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
 import styles from './Congratulations.styles';
-
-export const nextStack = {
-	[Courses.One]: {
-		[Steps.One]: StepStacks.Course1Step1,
-		[Steps.Two]: StepStacks.Course1Step2,
-	},
-};
-
 
 export default () => {
 	const { navigate } = useNavigation();
@@ -36,17 +27,9 @@ export default () => {
 		? `Start Day ${currentDayNumber}`
 		: `Start Step ${currentStepNumber}`;
 
-	console.log(currentCourse, currentStep);
-	console.log(nextStack[currentCourse][currentStep]);
-
-	const onPress = isSameStep
-		? () => navigate(CourseScreens.Home)
-		: () => navigate(nextStack[currentCourse][currentStep]);
-		// navigation.setOptions({ tabBarVisible: true });
-
-	// useEffect(() => {
-	// 	navigation.setOptions({ tabBarVisible: false });
-	// }, [ navigation ]);
+	const onPress = () => navigate(isSameStep
+		? CourseScreens.Home
+		: stepEntryPoints[currentCourse]![currentStep]!);
 
 	return (
 		<View style={styles.container}>

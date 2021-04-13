@@ -1,3 +1,4 @@
+import { Courses, Steps } from '@redux/types/survey';
 import { Course1Step1Screens, Course1Step2Screens } from './Steps/Course1Screens';
 
 export enum RootStacks {
@@ -95,3 +96,16 @@ export enum StepStacks {
 	Course3Step6 = 'Course3Step6',
 	Course3Step7 = 'Course1Step7',
 }
+
+type StepEntryPoints = {
+	[course in Courses]?: {
+		[step in Steps]?: StepStacks;
+	}
+};
+
+export const stepEntryPoints: StepEntryPoints = {
+	[Courses.One]: {
+		[Steps.One]: StepStacks.Course1Step1,
+		[Steps.Two]: StepStacks.Course1Step2,
+	},
+};

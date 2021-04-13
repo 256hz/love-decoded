@@ -1,13 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StepStacks } from 'route/enums';
-
 import { useSelector } from 'react-redux';
 import { getUserProgress } from 'redux/selector';
-import { getStepStackFromUserProgress } from 'util/navigation';
+import { getStepStackFromUserProgress } from '@util/navigation';
 import Course1Step1Stack from './Course1Step1Stack';
 import Course1Step2Stack from './Course1Step2Stack';
-
 
 const CourseStack = createStackNavigator();
 
