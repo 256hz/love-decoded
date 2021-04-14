@@ -75,6 +75,10 @@ export default StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 	},
+	noChevron: {
+		width: 0,
+		height: 0,
+	},
 	chevronContainer: {
 		position: 'absolute',
 		right: 12,

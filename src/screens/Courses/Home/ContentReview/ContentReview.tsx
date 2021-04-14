@@ -15,6 +15,7 @@ import {
 	Step,
 } from '@redux/types/user';
 import { CourseFromNumber, StepFromNumber } from 'redux/types/survey';
+import colors from 'elements/globalStyles/color';
 import styles from './ContentReview.styles';
 
 export default () => {
@@ -29,7 +30,7 @@ export default () => {
 
 	const [ destination, setDestination ] = useState<string>(`${course}${step}`);
 
-	const placeholder = { label: 'Choose a Step', key: 'step', inputLabel: 'step' };
+	const placeholder = { label: 'Choose a Step', key: 'placeholder', color: colors.GrayAF };
 
 	// values and keys must match.  The format is: `${courseNumber}${stepNumber}`
 	const dropdownChoices = [
@@ -38,7 +39,10 @@ export default () => {
 	];
 
 	const onValueChange = value => {
-		console.log('onValueChange');
+		if (!value) {
+			return;
+		}
+
 		setDestination(value);
 		picker.current?.togglePicker(true);
 	};
@@ -79,12 +83,14 @@ export default () => {
 
 			<View style={styles.chooserContainer}>
 				<RNPickerSelect
-					ref={picker}
-					placeholder={placeholder}
+					Icon={() => <View />}
 					items={dropdownChoices}
 					itemKey={destination}
 					onValueChange={onValueChange}
+					placeholder={placeholder}
+					ref={picker}
 					style={{
+						chevronContainer: styles.noChevron,
 						placeholder: styles.placeholderText,
 						inputIOS: styles.text,
 						inputAndroid: styles.text,

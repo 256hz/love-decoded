@@ -31,7 +31,7 @@ export default ({
 		}
 
 		const lastCharacter = newText[newText.length - 1];
-		const isAddingBullet = newText.length > text.length;
+		const isAddingBullet = (newText?.length || 0) > (text?.length || 0);
 
 		lastCharacter === '\n' && isAddingBullet
 			? setText(`${newText}${SingleBullet}`)
