@@ -5,7 +5,8 @@ import colors from 'elements/globalStyles/color';
 export const TITLE_HEADER_HEIGHT = 150 - (StatusBar.currentHeight || 0);
 export const PROGRESS_HEIGHT = 57;
 export const PROGRESS_WIDTH = 224;
-export const TITLE_WITH_PROGRESS_HEIGHT = TITLE_HEADER_HEIGHT - 16 + PROGRESS_HEIGHT;
+export const PROGRESS_DOT_WIDTH = 16;
+export const TITLE_WITH_PROGRESS_HEIGHT = TITLE_HEADER_HEIGHT - PROGRESS_DOT_WIDTH + PROGRESS_HEIGHT;
 
 export default StyleSheet.create({
 	titleHeader: {
@@ -51,9 +52,9 @@ export default StyleSheet.create({
 		position: 'absolute',
 	},
 	progressDot: {
-		width: 16,
-		height: 16,
-		borderRadius: 8,
+		width: PROGRESS_DOT_WIDTH,
+		height: PROGRESS_DOT_WIDTH,
+		borderRadius: PROGRESS_DOT_WIDTH / 2,
 		borderWidth: 2,
 		borderColor: colors.Orange,
 		backgroundColor: colors.White,

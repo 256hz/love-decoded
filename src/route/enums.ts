@@ -1,3 +1,6 @@
+import { Courses, Steps } from '@redux/types/survey';
+import { Course1Step1Screens, Course1Step2Screens } from './Steps/Course1Screens';
+
 export enum RootStacks {
 	Splash = 'Splash',
 	HomeTabs = 'HomeTabs',
@@ -58,16 +61,51 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
-export enum StepScreens {
+export enum CourseScreens {
 	Home = 'Home',
 	DayOverview = 'DayOverview',
 	GoodJob = 'GoodJob',
-	Step1Intention = 'Step1Intention',
-	Step1Activities1 = 'Step1Activities1',
-	Step1Activities2 = 'Step1Activities2',
-	Step1Activities3 = 'Step1Activities3',
-	Step1Survey = 'Step1Survey',
-	Step1Reflection = 'Step1Reflection',
-	Step1Visualization = 'Step1Visualization',
 	Congratulations = 'Congratulations',
 }
+
+export type Course1Screens = Course1Step1Screens |
+Course1Step2Screens;
+
+export type Screens = OnboardingScreens | CourseScreens | Course1Screens;
+
+export enum StepStacks {
+	Course1Step1 = 'Course1Step1',
+	Course1Step2 = 'Course1Step2',
+	Course1Step3 = 'Course1Step3',
+	Course1Step4 = 'Course1Step4',
+	Course1Step5 = 'Course1Step5',
+	Course1Step6 = 'Course1Step6',
+	Course1Step7 = 'Course1Step7',
+	Course2Step1 = 'Course2Step1',
+	Course2Step2 = 'Course2Step2',
+	Course2Step3 = 'Course2Step3',
+	Course2Step4 = 'Course2Step4',
+	Course2Step5 = 'Course2Step5',
+	Course2Step6 = 'Course2Step6',
+	Course2Step7 = 'Course2Step7',
+	Course3Step1 = 'Course3Step1',
+	Course3Step2 = 'Course3Step2',
+	Course3Step3 = 'Course3Step3',
+	Course3Step4 = 'Course3Step4',
+	Course3Step5 = 'Course3Step5',
+	Course3Step6 = 'Course3Step6',
+	Course3Step7 = 'Course1Step7',
+}
+
+type StepEntryPoints = {
+	[course in Courses]?: {
+		[step in Steps]?: StepStacks;
+	}
+};
+
+export const stepEntryPoints: StepEntryPoints = {
+	[Courses.One]: {
+		[Steps.One]: StepStacks.Course1Step1,
+		[Steps.Two]: StepStacks.Course1Step2,
+	},
+};

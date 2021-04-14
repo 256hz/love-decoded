@@ -6,12 +6,12 @@ import {
 	setCurrentRouteName,
 	setLastActiveEpochSeconds,
 } from '@redux/action';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 
 export type AppStateState = {
 	lastActiveEpochSeconds: number;
 	status?: AppStateStatus;
-	currentRoute?: OnboardingScreens | StepScreens;
+	currentRoute?: Screens;
 };
 
 const INITIAL_STATE: AppStateState = {

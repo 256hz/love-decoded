@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
 import styles from './TheScienceOfLove.styles';

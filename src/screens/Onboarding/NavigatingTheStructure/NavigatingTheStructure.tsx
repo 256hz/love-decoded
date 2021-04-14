@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
 import { CardCarousel, OnboardingScreen } from '@elements';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import styles from './NavigatingTheStructure.styles';
 
 const cards = [

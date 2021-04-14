@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit';
-import { OnboardingScreens, StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 
 export const loadAudioFile = createAction('LOAD_AUDIO_FILE',
 	(audioFilename: string) => ({ payload: { audioFilename } }));
@@ -37,4 +37,4 @@ export const setAudioPlayCompleted = createAction('SET_AUDIO_PLAY_COMPLETED',
 export const stopGettingAudioInfo = createAction('STOP_GETTING_AUDIO_INFO');
 
 export const setAudioPlayedToEndOnScreen = createAction('SET_SCREEN_VISITED',
-	(screen: OnboardingScreens | StepScreens) => ({ payload: { screen } }));
+	(screen: Screens) => ({ payload: { screen } }));

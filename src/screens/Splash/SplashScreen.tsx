@@ -16,7 +16,7 @@ type Props = {
 	destination: RootStacks;
 };
 
-export default ({ destination }) => {
+export default ({ destination }: Props) => {
 	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 

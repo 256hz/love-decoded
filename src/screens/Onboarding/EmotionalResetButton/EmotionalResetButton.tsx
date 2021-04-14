@@ -2,7 +2,7 @@ import { OnboardingScreen } from '@elements';
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import { OnboardingScreens } from 'route/enums';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';

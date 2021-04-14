@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { TouchableOpacity } from 'react-native-gesture-handler';
