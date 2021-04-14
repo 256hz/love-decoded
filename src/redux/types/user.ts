@@ -14,6 +14,10 @@ export enum UserProperty {
 	CurrentStep = 'current_step',
 	CurrentDay = 'current_day',
 	CurrentActivity = 'current_activity',
+	MaxCourse = 'max_course',
+	MaxStep = 'max_step',
+	MaxDay = 'max_day',
+	MaxActivity = 'max_activity',
 }
 
 export type AgeGroup = 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100;

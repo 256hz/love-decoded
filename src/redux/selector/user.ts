@@ -1,19 +1,26 @@
 import { createSelector } from '@reduxjs/toolkit';
 import State from '@redux/RootState';
-import {
-	Activity, Course, Day, Step, UserProperty,
-} from '@redux/types/user';
+import { CourseFromNumber, StepFromNumber, DayFromNumber } from 'redux/types/survey';
+import { UserProperty } from '@redux/types/user';
 
 const user = (state: State) => state.user;
 
 export const getUserId = createSelector(user, userState => userState[UserProperty.Id]);
 
-export const getUserProgress = createSelector(user, userState => ({
-	currentCourse: userState.current_course as Course,
-	currentStep: userState.current_step as Step,
-	currentDay: userState.current_day as Day,
-	currentActivity: userState.current_activity as Activity,
+export const getUserProgressNumbers = createSelector(user, userState => ({
+	currentCourseNumber: userState[UserProperty.CurrentCourse],
+	currentStepNumber: userState[UserProperty.CurrentStep],
+	currentDayNumber: userState[UserProperty.CurrentDay],
+	currentActivityNumber: userState[UserProperty.CurrentActivity],
 }));
+
+export const getUserProgress = createSelector(user, userState => ({
+	currentCourse: CourseFromNumber[userState[UserProperty.CurrentCourse]],
+	currentStep: StepFromNumber[userState[UserProperty.CurrentStep]],
+	currentDay: DayFromNumber[userState[UserProperty.CurrentDay]],
+	currentActivity: userState[UserProperty.CurrentActivity],
+}));
+
 
 export const getUserFirstName = createSelector(user, ({ first_name }) => first_name);
 

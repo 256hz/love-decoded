@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { View, Text } from 'react-native';
-import styles, { PROGRESS_WIDTH } from './Title.styles';
+import styles, { PROGRESS_DOT_WIDTH, PROGRESS_WIDTH } from './Title.styles';
 
 type Props = {
-	title: string;
-	subtitle?: string;
-	totalProgressDots?: number;
 	activeProgressDot?: number;
+	subtitle?: string;
+	title: string;
+	totalProgressDots?: number;
 };
 
 const getDotsArray = dots => Array.from(Array(dots).keys());
@@ -19,14 +19,18 @@ export default ({ title, subtitle, activeProgressDot, totalProgressDots }: Props
 					<View style={styles.progressBar}>
 						<View style={styles.progressContainer}>
 							<View style={styles.progressLine} />
-							{ getDotsArray(totalProgressDots).map(i => (
-								<Fragment key={i}>
-									<ProgressDot
-										active={i === activeProgressDot}
-										style={{ left: i * (PROGRESS_WIDTH / totalProgressDots + 8) }}
-									/>
-								</Fragment>
-							))}
+							{ getDotsArray(totalProgressDots).map(i => {
+								const dotLeftMargin = i * ((PROGRESS_WIDTH - PROGRESS_DOT_WIDTH) / (totalProgressDots - 1));
+
+								return (
+									<Fragment key={i}>
+										<ProgressDot
+											active={i === activeProgressDot}
+											style={{ left: dotLeftMargin }}
+										/>
+									</Fragment>
+								);
+							})}
 						</View>
 					</View>
 				)

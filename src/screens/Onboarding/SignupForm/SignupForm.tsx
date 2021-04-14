@@ -7,7 +7,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { OnboardingScreen, StackKeyboardAvoidingView } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
-import { DEMO_MODE } from '@App';
+import { DEMO_MODE } from '@util/demoMode';
 import {
 	ageGroupChoices,
 	errors,

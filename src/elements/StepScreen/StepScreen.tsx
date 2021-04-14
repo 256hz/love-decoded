@@ -1,8 +1,11 @@
 import React, {
-	Dispatch, ReactChild, SetStateAction, useState,
+	Dispatch,
+	ReactChild,
+	SetStateAction,
+	useState,
 } from 'react';
 import { View, ViewStyle } from 'react-native';
-import { StepScreens } from 'route/enums';
+import { Screens } from 'route/enums';
 import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { CustomScrollView } from '@elements/CustomScrollView';
@@ -11,7 +14,7 @@ import styles from './StepScreen.styles';
 
 type Props = {
 	audioFilename?: string;
-	backTarget?: StepScreens;
+	backTarget?: Screens;
 	children: ReactChild;
 	containerStyle?: ViewStyle;
 	customMiddleContent?: ReactChild;
@@ -20,7 +23,7 @@ type Props = {
 	onAudioEnd?: () => void;
 	onPressNext?: () => void;
 	nextEnabled?: boolean;
-	nextTarget?: StepScreens;
+	nextTarget?: Screens;
 	scrollDisabled?: boolean;
 };
 
