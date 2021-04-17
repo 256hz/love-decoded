@@ -13,8 +13,13 @@ import {
 	errors,
 	genderChoices,
 	MINUMUM_PASSWORD_LENGTH,
+	timezoneChoices,
 } from './constants';
 import styles from './SignupForm.styles';
+import {
+	BASE_API_URL,
+	apiClient
+} from 'api/apiConfig'
 
 const ErrorText = ({ text }) => (
 	<View style={styles.errorContainer}>
@@ -35,6 +40,7 @@ export default () => {
 	const [ showGenderTextInput, setShowGenderTextInput ] = useState(false);
 	const [ customGender, setCustomGender ] = useState('');
 	const [ ageGroup, setAgeGroup ] = useState('');
+	const [ timeZone, setTimeZone ] = useState('');
 	const [ waitingForBackend, setWaitingForBackend ] = useState(false);
 
 	const [ hasErrors, setHasErrors ] = useState({
@@ -46,6 +52,7 @@ export default () => {
 		gender: false,
 		ageGroup: false,
 		customGender: false,
+		timeZone: false,
 	});
 
 	const isEmail = (address: string) => {
@@ -79,7 +86,7 @@ export default () => {
 			tempErrors.gender = !gender;
 			tempErrors.ageGroup = !ageGroup;
 			tempErrors.customGender = gender === 'other' && !customGender;
-
+			tempErrors.timeZone = !timeZone;
 			setHasErrors(tempErrors);
 		}, 750);
 	};
@@ -102,6 +109,12 @@ export default () => {
 		validateInputs();
 	};
 
+	const handleSetTimeZone = (value: string) => {
+		setTimeZone(value);
+		validateInputs();
+	};
+
+
 	const onSubmit = () => {
 		console.log('submit:', {
 			firstName,
@@ -112,6 +125,27 @@ export default () => {
 			gender: customGender || gender,
 			ageGroup,
 		});
+		
+		apiClient.post(
+			'/user/create/',
+			{
+				first_name: firstName,
+				last_name: lastName,
+				email: email,
+				password: password,
+				gender: customGender || gender,
+				age_group_start: ageGroup,
+				time_zone: timeZone
+			}
+		)
+		.then((response) => {
+			console.log(response);
+			apiClient.defaults.headers.common['Authorization-Header'] = 'Bearer ' + response.data.access_token;
+
+		}, (error) => {
+			console.log(error);
+		});
+
 		setWaitingForBackend(true);
 		setTimeout(() => {
 			navigate(OnboardingScreens.ThankYouForSigningUp);
@@ -151,6 +185,20 @@ export default () => {
 							/>
 							{ hasErrors.lastName && <ErrorText text={errors.name} /> }
 						</View>
+						<View style={[ styles.textInput, styles.text ]}>
+							<RNPickerSelect
+								placeholder={{ label:'select timezone.', key: 'timezone', inputLabel: 'timezone' }}
+								items={timezoneChoices}
+								value={timeZone}
+								onValueChange={handleSetTimeZone}
+								style={{
+									placeholder: styles.placeholderText,
+									inputIOS: { ...styles.placeholderText, ...styles.text },
+									inputAndroid: { ...styles.placeholderText, ...styles.text },
+								}}
+							/>
+						</View>
+
 
 						<View style={styles.emailContainer}>
 							<TextInput
@@ -216,6 +264,8 @@ export default () => {
 								</View>
 								{ hasErrors.ageGroup && <ErrorText text={errors.ageGroup} />}
 							</View>
+
+							
 						</View>
 
 						{ showGenderTextInput
@@ -235,6 +285,7 @@ export default () => {
 						}
 					</View>
 
+					
 					<View>
 						<View style={styles.termsContainer}>
 							<Text style={styles.termsText}>By submitting, you agree to our</Text>
