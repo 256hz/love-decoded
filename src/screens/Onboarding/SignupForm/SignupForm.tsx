@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text } from 'react-native';
@@ -128,8 +129,8 @@ export default () => {
 			{
 				first_name: firstName,
 				last_name: lastName,
-				email,
-				password,
+				email: email,
+				password: password,
 				gender: customGender || gender,
 				age_group_start: ageGroup,
 				time_zone: timeZone,
