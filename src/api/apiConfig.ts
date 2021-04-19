@@ -1,11 +1,11 @@
-import axios from 'axios'
+import axios from 'axios';
 
-export const BASE_API_URL= 'https://2ad1fc44c115.ngrok.io';
+export const BASE_API_URL = 'https://2c9a56e5dadf.ngrok.io';
 export const apiClient = axios.create({
-    baseURL: BASE_API_URL,
-    headers: {
-        'accept': 'application/json',
-        'accept-language': 'en_US',
-        'content-type': 'application/json'
-    },
+	baseURL: BASE_API_URL,
+	headers: {
+		'accept': 'application/json',
+		'accept-language': 'en_US',
+		'content-type': 'application/json',
+	},
 });

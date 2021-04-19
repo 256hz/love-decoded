@@ -8,6 +8,7 @@ import { OnboardingScreen, StackKeyboardAvoidingView } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
 import { DEMO_MODE } from '@util/demoMode';
+import { apiClient } from 'api/apiConfig';
 import {
 	ageGroupChoices,
 	errors,
@@ -16,10 +17,7 @@ import {
 	timezoneChoices,
 } from './constants';
 import styles from './SignupForm.styles';
-import {
-	BASE_API_URL,
-	apiClient
-} from 'api/apiConfig'
+
 
 const ErrorText = ({ text }) => (
 	<View style={styles.errorContainer}>
@@ -125,26 +123,25 @@ export default () => {
 			gender: customGender || gender,
 			ageGroup,
 		});
-		
 		apiClient.post(
 			'/user/create/',
 			{
 				first_name: firstName,
 				last_name: lastName,
-				email: email,
-				password: password,
+				email,
+				password,
 				gender: customGender || gender,
 				age_group_start: ageGroup,
-				time_zone: timeZone
-			}
+				time_zone: timeZone,
+			},
 		)
-		.then((response) => {
-			console.log(response);
-			apiClient.defaults.headers.common['Authorization-Header'] = 'Bearer ' + response.data.access_token;
-
-		}, (error) => {
-			console.log(error);
-		});
+			.then((response) => {
+				console.log(response);
+				apiClient.defaults.headers.common.Authorization = `Bearer ${  response.data.access_token}`;
+			},
+			(error) => {
+				console.log(error);
+			});
 
 		setWaitingForBackend(true);
 		setTimeout(() => {
@@ -264,10 +261,7 @@ export default () => {
 								</View>
 								{ hasErrors.ageGroup && <ErrorText text={errors.ageGroup} />}
 							</View>
-
-							
 						</View>
-
 						{ showGenderTextInput
 							? (
 								<>
@@ -284,8 +278,6 @@ export default () => {
 							: null
 						}
 					</View>
-
-					
 					<View>
 						<View style={styles.termsContainer}>
 							<Text style={styles.termsText}>By submitting, you agree to our</Text>
@@ -312,6 +304,7 @@ export default () => {
 								(!isSubmitEnabled || waitingForBackend) && styles.disabled,
 							]}>
 								{ waitingForBackend
+									// eslint-disable-next-line react-native/no-inline-styles
 									? <Spinner style={{ height: 28, width: 28 }} strokeColor={colors.White} />
 									: <Text style={styles.buttonText}>Submit</Text>
 								}
