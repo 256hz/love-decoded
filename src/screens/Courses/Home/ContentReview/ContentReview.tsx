@@ -16,7 +16,7 @@ import {
 } from '@redux/types/user';
 import { CourseFromNumber, StepFromNumber } from 'redux/types/survey';
 import colors from 'elements/globalStyles/color';
-import { titles } from 'util/titles';
+import { titles } from '@util/titles';
 import styles from './ContentReview.styles';
 
 export default () => {
@@ -48,22 +48,19 @@ export default () => {
 
 	const getDestinationFromString = courseStepString => {
 		const [ courseNumber, stepNumber, dayNumber, activityNumber ] = courseStepString;
-		return [
-			parseInt(courseNumber) as CourseNumber,
-			parseInt(stepNumber) as StepNumber,
-			parseInt(dayNumber) as DayNumber,
-			parseInt(activityNumber) as Activity,
-		];
+
+		return {
+			courseNumber: parseInt(courseNumber) as CourseNumber,
+			stepNumber: parseInt(stepNumber) as StepNumber,
+			dayNumber: parseInt(dayNumber) as DayNumber,
+			activityNumber: parseInt(activityNumber) as Activity,
+		};
 	};
 
 	const onPressGo = () => {
-		const [ courseNumber, stepNumber, dayNumber ] = getDestinationFromString(destination);
-		dispatch(setUserProgress(
-			courseNumber as CourseNumber,
-			stepNumber as StepNumber,
-			dayNumber as DayNumber,
-			1 as Activity,
-		));
+		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
+
+		dispatch(setUserProgress(courseNumber, stepNumber, dayNumber, activityNumber));
 
 		const courseDestination = CourseFromNumber[courseNumber];
 		const stepDestination = StepFromNumber[stepNumber];
@@ -72,7 +69,7 @@ export default () => {
 	};
 
 	const goDisabled = (() => {
-		const [ courseNumber, stepNumber ] = getDestinationFromString(destination);
+		const { courseNumber, stepNumber } = getDestinationFromString(destination);
 		return courseNumber === course && stepNumber === step;
 	})();
 
@@ -132,14 +129,14 @@ const getDropDownChoices = (maxUserProgress) => {
 	// values and keys must match.  Format as currentMaxString.
 	return [
 		{ label: 'Step 1, Day 1', value: '111', key: '111' },
-		(maxDayNumber >= 2 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
-		(maxDayNumber >= 3 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
-		(maxDayNumber >= 4 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
-		(maxDayNumber >= 5 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
-		(maxDayNumber >= 6 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
-		(maxDayNumber >= 7 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
-		(maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
-		(maxStepNumber >= 3 || maxCourseNumber >= 2) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
-		(maxCourseNumber >= 2 || maxStepNumber >= 2 || maxDayNumber >= 2) && { label: `Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
+		(maxDayNumber > 1 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
+		(maxDayNumber > 2 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
+		(maxDayNumber > 3 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
+		(maxDayNumber > 4 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
+		(maxDayNumber > 5 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
+		(maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
+		(maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
+		(maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
+		(maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

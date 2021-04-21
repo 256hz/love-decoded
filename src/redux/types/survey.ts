@@ -28,6 +28,11 @@ export enum EndOfDaySurveys {
 	Course1Step3Survey1 = 'course1_step3_survey1',
 	Course1Step3Survey2 = 'course1_step3_survey2',
 	Course1Step3Survey3 = 'course1_step3_survey3',
+	// Course 1, Step 4
+	Course1Step4Survey1 = 'course1_step4_survey1',
+	Course1Step4Survey2 = 'course1_step4_survey2',
+	Course1Step4Survey3 = 'course1_step4_survey3',
+	Course1Step4Survey4 = 'course1_step4_survey4',
 }
 
 export enum Activities {
@@ -46,6 +51,10 @@ export enum Activities {
 	// Course 1, Step 3
 	Course1Step3Activity1 = 'course1_step3_activity1',
 	Course1Step3Activity2 = 'course1_step3_activity2',
+	// Course 1, Step 4
+	Course1Step4Activity1 = 'course1_step4_activity1',
+	Course1Step4Activity2 = 'course1_step4_activity2',
+	Course1Step4Activity3 = 'course1_step4_activity3',
 }
 
 export enum Courses {

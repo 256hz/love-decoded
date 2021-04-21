@@ -3,6 +3,7 @@ import {
 	Course1Step1Screens,
 	Course1Step2Screens,
 	Course1Step3Screens,
+	Course1Step4Screens,
 } from './Steps/Course1Screens';
 
 export enum RootStacks {
@@ -65,7 +66,7 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
-export enum CourseScreens {
+export enum CourseCommonScreens {
 	Home = 'Home',
 	DayOverview = 'DayOverview',
 	GoodJob = 'GoodJob',
@@ -74,9 +75,10 @@ export enum CourseScreens {
 
 export type Course1Screens = Course1Step1Screens
 | Course1Step2Screens
-| Course1Step3Screens;
+| Course1Step3Screens
+| Course1Step4Screens;
 
-export type Screens = OnboardingScreens | CourseScreens | Course1Screens;
+export type Screens = OnboardingScreens | CourseCommonScreens | Course1Screens;
 
 export enum StepStacks {
 	Course1Step1 = 'Course1Step1',

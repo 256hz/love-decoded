@@ -5,11 +5,11 @@ import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
-import { CourseScreens, stepEntryPoints } from 'route/enums';
+import { CourseCommonScreens, stepEntryPoints } from 'route/enums';
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
 import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
 import { DayNumber, StepNumber } from 'redux/types/user';
-import { titles } from 'util/titles';
+import { titles } from '@util/titles';
 import { Courses, Steps } from 'redux/types/survey';
 import styles from './Congratulations.styles';
 
@@ -31,7 +31,7 @@ export default () => {
 		: `Start Step ${currentStepNumber}`;
 
 	const onPress = () => navigate(isSameStep
-		? CourseScreens.Home
+		? CourseCommonScreens.Home
 		: stepEntryPoints[currentCourse]![currentStep]!);
 
 	return (

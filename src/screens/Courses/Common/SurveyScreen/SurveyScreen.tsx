@@ -3,14 +3,14 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { CourseScreens } from 'route/enums';
+import { CourseCommonScreens } from 'route/enums';
+import { DailyActivity } from '@util/titles';
 import RootState from '@redux/RootState';
 import { setDaySurveyResponse } from '@redux/action';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { EndOfDaySurveys } from '@redux/types/survey';
 import { TitleWithProgressHeader } from '@elements/Header/HeaderOptions';
 import NavButtons from '@elements/AudioPlayerNavigator/NavButtons';
-import { DailyActivity } from 'util/titles';
 import styles from './SurveyScreen.styles';
 
 export type SurveyPrompt = {
@@ -26,7 +26,7 @@ type Props = {
 
 export default ({ navigation, prompts, title }: Props) => {
 	const dispatch = useDispatch();
-	const { navigate } = useNavigation();
+	const { navigate, isFocused } = useNavigation();
 
 	const timeoutRef = useRef(-1);
 	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
@@ -48,11 +48,17 @@ export default ({ navigation, prompts, title }: Props) => {
 		timeoutRef.current = setTimeout(() => {
 			currentPrompt < prompts.length - 1
 				? setCurrentPrompt(currentPrompt + 1)
-				: navigate(CourseScreens.GoodJob);
+				: navigate(CourseCommonScreens.GoodJob);
 		}, 500);
 	};
 
 	useEffect(() => {
+		if (!isFocused()) {
+			clearTimeout(timeoutRef.current);
+			return;
+		}
+
+		// Advance the progres header dot
 		navigation.setOptions(
 			TitleWithProgressHeader(currentPrompt, prompts.length, title, DailyActivity.Survey),
 		);
@@ -60,9 +66,10 @@ export default ({ navigation, prompts, title }: Props) => {
 		return () => clearTimeout(timeoutRef.current);
 	}, [
 		currentPrompt,
-		setCurrentPrompt,
+		isFocused,
 		navigation,
 		prompts.length,
+		setCurrentPrompt,
 		title,
 	]);
 

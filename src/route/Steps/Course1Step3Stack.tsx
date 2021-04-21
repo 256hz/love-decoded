@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { CourseScreens } from 'route/enums';
+import { CourseCommonScreens } from 'route/enums';
 import {
 	EmptyHeader,
 	BackHeader,
@@ -11,16 +11,16 @@ import {
 } from '@elements/Header/HeaderOptions';
 
 import HomeScreen from '@screens/Courses/Home';
-import DayOverviewScreen from '@screens/Courses/DayOverview';
-import GoodJobScreen from '@screens/Courses/GoodJob';
+import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
+import GoodJobScreen from 'screens/Courses/Common/GoodJob';
 import IntentionScreen from 'screens/Courses/Course1/Step3/Intention';
 import Step3Activities1Screen from '@screens/Courses/Course1/Step3/Activities1';
 import Step3Activities2Screen from '@screens/Courses/Course1/Step3/Activities2';
 import Step3Activities3Screen from '@screens/Courses/Course1/Step3/Activities3';
 import Step3SurveyScreen from '@screens/Courses/Course1/Step3/Survey';
 import Step3ReflectionScreen from '@screens/Courses/Course1/Step3/Reflection';
-import CongratulationsScreen from '@screens/Courses/Congratulations';
-import { DailyActivity, titles } from 'util/titles';
+import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
+import { DailyActivity, titles } from '@util/titles';
 import { course1step3prompts } from 'screens/Courses/Course1/Step3/Survey/Survey';
 import { Course1Step3Screens } from './Course1Screens';
 
@@ -30,17 +30,17 @@ export default ({ navigation }) => (
 	<StepStack.Navigator
 		mode="card"
 		headerMode="float"
-		initialRouteName={CourseScreens.Home}
+		initialRouteName={CourseCommonScreens.Home}
 		screenOptions={{ headerStyle }}
 	>
 		<StepStack.Screen
-			name={CourseScreens.Home}
+			name={CourseCommonScreens.Home}
 			component={HomeScreen}
 			options={{ ...DrawerHeader(navigation), gestureEnabled: false }}
 		/>
 
 		<StepStack.Screen
-			name={CourseScreens.DayOverview}
+			name={CourseCommonScreens.DayOverview}
 			component={DayOverviewScreen}
 			options={BackHeader(navigation)}
 		/>
@@ -52,7 +52,7 @@ export default ({ navigation }) => (
 		/>
 
 		<StepStack.Screen
-			name={CourseScreens.GoodJob}
+			name={CourseCommonScreens.GoodJob}
 			component={GoodJobScreen}
 			options={EmptyHeader()}
 		/>
@@ -88,7 +88,7 @@ export default ({ navigation }) => (
 		/>
 
 		<StepStack.Screen
-			name={CourseScreens.Congratulations}
+			name={CourseCommonScreens.Congratulations}
 			component={CongratulationsScreen}
 			options={EmptyHeader()}
 		/>

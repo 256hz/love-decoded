@@ -4,7 +4,7 @@ import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
 import Journal from '@screens/Courses/Journal';
 import Faq from '@screens/Courses/Faq';
-import EmotionalReset from '@screens/Courses/EmotionalReset';
+import EmotionalReset from 'screens/Courses/Common/EmotionalReset';
 import CourseStack from './Steps/CourseStack';
 import styles from './HomeTabs.styles';
 

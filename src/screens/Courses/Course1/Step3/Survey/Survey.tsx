@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { EndOfDaySurveys } from '@redux/types/survey';
-import SurveyScreen, { SurveyPrompt } from '@screens/Courses/SurveyScreen/SurveyScreen';
-import { titles } from 'util/titles';
+import SurveyScreen, { SurveyPrompt } from 'screens/Courses/Common/SurveyScreen/SurveyScreen';
+import { titles } from '@util/titles';
 
 export const course1step3prompts: SurveyPrompt[] = [
 	{

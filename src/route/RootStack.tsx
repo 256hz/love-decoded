@@ -3,7 +3,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import SplashScreen from '@screens/Splash';
-import { navigationRef } from 'util/navigation';
+import { navigationRef } from '@util/navigation';
 import { useDispatch } from 'react-redux';
 import { setCurrentRouteName } from 'redux/action';
 import { RootStacks, Screens } from './enums';

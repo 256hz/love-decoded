@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
-import { CourseScreens } from 'route/enums';
+import { CourseCommonScreens } from 'route/enums';
 import { Course1Step1Screens } from 'route/Steps/Course1Screens';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -22,8 +22,8 @@ export default () => {
 	return (
 		<StepScreen
 			audioFilename={getAudioFilename(currentDay)}
-			backTarget={CourseScreens.Home}
-			nextTarget={CourseScreens.GoodJob}
+			backTarget={CourseCommonScreens.Home}
+			nextTarget={CourseCommonScreens.GoodJob}
 		>
 			<View style={styles.container}>
 				<View style={styles.contentContainer}>

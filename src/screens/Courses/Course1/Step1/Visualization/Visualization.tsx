@@ -1,7 +1,7 @@
 import { AudioPlayerNavigator } from 'elements';
 import React from 'react';
 import { View, Text } from 'react-native';
-import { CourseScreens } from 'route/enums';
+import { CourseCommonScreens } from 'route/enums';
 import styles from './Visualization.styles';
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
 			</View>
 			<AudioPlayerNavigator
 				audioFilename="one_second_silence.mp3"
-				nextTarget={CourseScreens.GoodJob}
+				nextTarget={CourseCommonScreens.GoodJob}
 			/>
 		</View>
 	);

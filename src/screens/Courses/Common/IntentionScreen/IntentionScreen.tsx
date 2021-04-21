@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { CourseScreens } from 'route/enums';
+import { CourseCommonScreens } from 'route/enums';
 import { Slider, StepScreen } from '@elements';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { setDaySurveyResponse } from '@redux/action';
@@ -13,6 +13,10 @@ import {
 } from '@redux/types/survey';
 import styles from './IntentionScreen.styles';
 
+// This screen gets the audio filename from the current progress.  If the screen won't load, make sure the audio file exists.
+// If the audio file exists, reset the RN cache and rebuild.
+// Example filename: step1_day6_intentions.mp3
+// Folders: /assets/audio (iOS), /android/app/src/main/res/raw (Android)
 const getAudioFilename = (currentStep: Steps, currentDay: Days) => (
 	`${currentStep}_${currentDay}_intentions.mp3`
 );
@@ -34,7 +38,7 @@ export default ({ prompts }: Props) => {
 	return (
 		<StepScreen
 			audioFilename={getAudioFilename(currentStep, currentDay)}
-			nextTarget={CourseScreens.GoodJob}
+			nextTarget={CourseCommonScreens.GoodJob}
 		>
 			<View>
 				<View style={styles.bodyContainer}>

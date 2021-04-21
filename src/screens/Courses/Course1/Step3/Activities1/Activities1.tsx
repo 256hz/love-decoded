@@ -13,7 +13,7 @@ import styles from './Activities1.styles';
 export default () => {
 	const dispatch = useDispatch();
 	const positiveResponse = useSelector(
-		getStepActivity(Courses.One, Steps.Two, Activities.Course1Step3Activity1),
+		getStepActivity(Courses.One, Steps.Three, Activities.Course1Step3Activity1),
 	);
 
 	const setResponse = (text: string, activity: Activities) => dispatch(
