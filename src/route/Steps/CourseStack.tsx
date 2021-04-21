@@ -6,6 +6,7 @@ import { getUserProgress } from 'redux/selector';
 import { getStepStackFromUserProgress } from '@util/navigation';
 import Course1Step1Stack from './Course1Step1Stack';
 import Course1Step2Stack from './Course1Step2Stack';
+import Course1Step3Stack from './Course1Step3Stack';
 
 const CourseStack = createStackNavigator();
 
@@ -17,11 +18,13 @@ export default () => {
 		<CourseStack.Navigator
 			mode="card"
 			headerMode="none"
-			initialRouteName={initialRouteName}
+			initialRouteName={StepStacks.Course1Step3}
 		>
 			<CourseStack.Screen name={StepStacks.Course1Step1} component={Course1Step1Stack} />
 
 			<CourseStack.Screen name={StepStacks.Course1Step2} component={Course1Step2Stack} />
+
+			<CourseStack.Screen name={StepStacks.Course1Step3} component={Course1Step3Stack} />
 		</CourseStack.Navigator>
 	);
 };

@@ -2,9 +2,9 @@ import { createReducer } from '@reduxjs/toolkit';
 import {
 	Activity,
 	AgeGroup,
-	Course,
-	Day,
-	Step,
+	CourseNumber,
+	DayNumber,
+	StepNumber,
 	UserProperty,
 } from '@redux/types/user';
 import {
@@ -23,13 +23,13 @@ export type UserState = {
 	[UserProperty.PasswordHash]?: string,
 	[UserProperty.Gender]?: string,
 	[UserProperty.AgeGroupStart]?: AgeGroup,
-	[UserProperty.CurrentCourse]: Course,
-	[UserProperty.CurrentStep]: Step,
-	[UserProperty.CurrentDay]: Day,
+	[UserProperty.CurrentCourse]: CourseNumber,
+	[UserProperty.CurrentStep]: StepNumber,
+	[UserProperty.CurrentDay]: DayNumber,
 	[UserProperty.CurrentActivity]: Activity,
-	[UserProperty.MaxCourse]: Course,
-	[UserProperty.MaxStep]: Step,
-	[UserProperty.MaxDay]: Day,
+	[UserProperty.MaxCourse]: CourseNumber,
+	[UserProperty.MaxStep]: StepNumber,
+	[UserProperty.MaxDay]: DayNumber,
 	[UserProperty.MaxActivity]: Activity,
 };
 
@@ -84,10 +84,11 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 		const advanceStep = advanceDay && currentDay === 7;
 		const advanceCourse = advanceStep && currentStep === 7;
 
-		const nextActivity =  advanceDay ? 1 : currentActivity + 1 as Activity;
-		const nextDay =   advanceDay && advanceStep ? 1 : advanceDay ? currentDay + 1 as Day : currentDay;
-		const nextStep =  advanceStep && advanceCourse ? 1 : advanceStep ? currentStep + 1 as Step : currentStep;
-		const nextCourse =   advanceCourse ? (currentCourse || 1 + 1) as Course : currentCourse;
+		// rolls activities, days, etc. back to 1 as days, steps, etc. are increased
+		const nextActivity = advanceDay ? 1 : currentActivity + 1 as Activity;
+		const nextDay = advanceDay && advanceStep ? 1 : advanceDay ? currentDay + 1 as DayNumber : currentDay;
+		const nextStep = advanceStep && advanceCourse ? 1 : advanceStep ? currentStep + 1 as StepNumber : currentStep;
+		const nextCourse = advanceCourse ? (currentCourse || 1 + 1) as CourseNumber : currentCourse;
 
 		return ({
 			...state,
@@ -95,6 +96,7 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 			[UserProperty.CurrentStep]: nextStep,
 			[UserProperty.CurrentDay]: nextDay,
 			[UserProperty.CurrentActivity]: nextActivity,
+			// also increase the max if new progress is made (i.e. the user is not reviewing content)
 			[UserProperty.MaxCourse]: nextCourse > maxCourse ? nextCourse : maxCourse,
 			[UserProperty.MaxStep]: nextStep > maxStep ? nextStep : maxStep,
 			[UserProperty.MaxDay]: nextDay > maxDay ? nextDay : maxDay,

@@ -3,19 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import RNPickerSelect from 'react-native-picker-select';
+import RNPickerSelect, { Item } from 'react-native-picker-select';
 import DownArrow2 from '@assets/svg/down-arrow-2.svg';
 import { stepEntryPoints } from 'route/enums';
-import { getUserProgressNumbers } from '@redux/selector';
+import { getUserMaxProgressNumbers, getUserProgressNumbers } from '@redux/selector';
 import { setUserProgress } from '@redux/action';
 import {
 	Activity,
-	Course,
-	Day,
-	Step,
+	CourseNumber,
+	DayNumber,
+	StepNumber,
 } from '@redux/types/user';
 import { CourseFromNumber, StepFromNumber } from 'redux/types/survey';
 import colors from 'elements/globalStyles/color';
+import { titles } from 'util/titles';
 import styles from './ContentReview.styles';
 
 export default () => {
@@ -28,15 +29,13 @@ export default () => {
 		currentStepNumber: step,
 	} = useSelector(getUserProgressNumbers);
 
+	const maxUserProgressNumbers = useSelector(getUserMaxProgressNumbers);
+
 	const [ destination, setDestination ] = useState<string>(`${course}${step}`);
 
 	const placeholder = { label: 'Choose a Step', key: 'placeholder', color: colors.GrayAF };
 
-	// values and keys must match.  The format is: `${courseNumber}${stepNumber}`
-	const dropdownChoices = [
-		{ label: 'Course 1 - Step 1', value: '11', key: '11' },
-		{ label: 'Course 1 - Step 2', value: '12', key: '12' },
-	];
+	const dropdownChoices = getDropDownChoices(maxUserProgressNumbers);
 
 	const onValueChange = value => {
 		if (!value) {
@@ -48,16 +47,21 @@ export default () => {
 	};
 
 	const getDestinationFromString = courseStepString => {
-		const [ courseNumber, stepNumber ] = courseStepString;
-		return [ parseInt(courseNumber), parseInt(stepNumber) ];
+		const [ courseNumber, stepNumber, dayNumber, activityNumber ] = courseStepString;
+		return [
+			parseInt(courseNumber) as CourseNumber,
+			parseInt(stepNumber) as StepNumber,
+			parseInt(dayNumber) as DayNumber,
+			parseInt(activityNumber) as Activity,
+		];
 	};
 
 	const onPressGo = () => {
-		const [ courseNumber, stepNumber ] = getDestinationFromString(destination);
+		const [ courseNumber, stepNumber, dayNumber ] = getDestinationFromString(destination);
 		dispatch(setUserProgress(
-			courseNumber as Course,
-			stepNumber as Step,
-			1 as Day,
+			courseNumber as CourseNumber,
+			stepNumber as StepNumber,
+			dayNumber as DayNumber,
 			1 as Activity,
 		));
 
@@ -113,4 +117,29 @@ export default () => {
 			</View>
 		</View>
 	);
+};
+
+const getDropDownChoices = (maxUserProgress) => {
+	const {
+		maxCourseNumber,
+		maxStepNumber,
+		maxDayNumber,
+		maxActivityNumber,
+	} = maxUserProgress;
+
+	const currentMaxString = `${maxCourseNumber}${maxStepNumber}${maxDayNumber}${maxActivityNumber}`;
+
+	// values and keys must match.  Format as currentMaxString.
+	return [
+		{ label: 'Step 1, Day 1', value: '111', key: '111' },
+		(maxDayNumber >= 2 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
+		(maxDayNumber >= 3 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
+		(maxDayNumber >= 4 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
+		(maxDayNumber >= 5 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
+		(maxDayNumber >= 6 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
+		(maxDayNumber >= 7 || maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
+		(maxStepNumber >= 2 || maxCourseNumber >= 2) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
+		(maxStepNumber >= 3 || maxCourseNumber >= 2) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
+		(maxCourseNumber >= 2 || maxStepNumber >= 2 || maxDayNumber >= 2) && { label: `Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
+	].filter(x => !!x) as Item[];
 };

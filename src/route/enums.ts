@@ -1,5 +1,9 @@
 import { Courses, Steps } from '@redux/types/survey';
-import { Course1Step1Screens, Course1Step2Screens } from './Steps/Course1Screens';
+import {
+	Course1Step1Screens,
+	Course1Step2Screens,
+	Course1Step3Screens,
+} from './Steps/Course1Screens';
 
 export enum RootStacks {
 	Splash = 'Splash',
@@ -68,8 +72,9 @@ export enum CourseScreens {
 	Congratulations = 'Congratulations',
 }
 
-export type Course1Screens = Course1Step1Screens |
-Course1Step2Screens;
+export type Course1Screens = Course1Step1Screens
+| Course1Step2Screens
+| Course1Step3Screens;
 
 export type Screens = OnboardingScreens | CourseScreens | Course1Screens;
 
@@ -107,5 +112,6 @@ export const stepEntryPoints: StepEntryPoints = {
 	[Courses.One]: {
 		[Steps.One]: StepStacks.Course1Step1,
 		[Steps.Two]: StepStacks.Course1Step2,
+		[Steps.Three]: StepStacks.Course1Step3,
 	},
 };

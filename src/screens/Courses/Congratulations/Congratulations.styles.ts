@@ -7,6 +7,13 @@ export default StyleSheet.create({
 		flex: 1,
 		backgroundColor: colors.OrangeExtraLight,
 	},
+	waitContainer: {
+		flex: 1,
+		justifyContent: 'space-between',
+	},
+	waitText: {
+		...text.body,
+	},
 	contentContainer: {
 		...StyleSheet.absoluteFillObject,
 		justifyContent: 'space-between',

@@ -1,5 +1,3 @@
-import { CourseScreens } from 'route/enums';
-
 export enum Course1Step1Screens {
 	Home = 'Course1Step1Home',
 	Intention = 'Course1Step1Intention',
@@ -22,4 +20,15 @@ export enum Course1Step2Screens {
 	Survey = 'Course1Step2Survey',
 	Reflection = 'Course1Step2Reflection',
 	Visualization = 'Course1Step2Visualization',
+}
+
+export enum Course1Step3Screens {
+	Home = 'Course1Step3Home',
+	Intention = 'Course1Step3Intention',
+	Activities1 = 'Course1Step3Activities1',
+	Activities2 = 'Course1Step3Activities2',
+	Activities3 = 'Course1Step3Activities3',
+	Survey = 'Course1Step3Survey',
+	Reflection = 'Course1Step3Reflection',
+	Visualization = 'Course1Step3Visualization',
 }

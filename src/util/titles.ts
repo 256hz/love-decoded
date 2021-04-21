@@ -12,7 +12,7 @@ export const titles: Titles = {
 	[Courses.One]: {
 		[Steps.One]: 'Discovering Your Lovable Qualities',
 		[Steps.Two]: 'Learning to Self-Talk Positively',
-		[Steps.Three]: '',
+		[Steps.Three]: 'Transforming My Unloving Behaviors',
 		[Steps.Four]: '',
 		[Steps.Five]: '',
 		[Steps.Six]: '',

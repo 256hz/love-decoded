@@ -9,7 +9,7 @@ import { ActivityFromNumber } from '@util/titles';
 import { getUserProgressNumbers } from '@redux/selector';
 import { setUserProgress } from '@redux/action';
 import {
-	Activity, Course, Day, Step,
+	Activity, CourseNumber, DayNumber, StepNumber,
 } from '@redux/types/user';
 import styles from './ContentReview.styles';
 
@@ -62,9 +62,9 @@ export default () => {
 			hasSetContent.current = true;
 
 			dispatch(setUserProgress(
-				selections[0] as Course,
-				selections[1] as Step,
-				selections[2] as Day,
+				selections[0] as CourseNumber,
+				selections[1] as StepNumber,
+				selections[2] as DayNumber,
 				selections[3] as Activity,
 			));
 
