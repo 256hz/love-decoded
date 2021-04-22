@@ -4,8 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import RNPickerSelect, { Item } from 'react-native-picker-select';
-import DownArrow2 from '@assets/svg/down-arrow-2.svg';
 import { stepEntryPoints } from 'route/enums';
+import DownArrow2 from '@assets/svg/down-arrow-2.svg';
+import { titles } from '@util/titles';
+import { DEMO_MODE } from '@util/demoMode';
+import { CourseFromNumber, StepFromNumber } from '@redux/types/survey';
 import { getUserMaxProgressNumbers, getUserProgressNumbers } from '@redux/selector';
 import { setUserProgress } from '@redux/action';
 import {
@@ -14,9 +17,7 @@ import {
 	DayNumber,
 	StepNumber,
 } from '@redux/types/user';
-import { CourseFromNumber, StepFromNumber } from 'redux/types/survey';
 import colors from 'elements/globalStyles/color';
-import { titles } from '@util/titles';
 import styles from './ContentReview.styles';
 
 export default () => {
@@ -129,14 +130,14 @@ const getDropDownChoices = (maxUserProgress) => {
 	// values and keys must match.  Format as currentMaxString.
 	return [
 		{ label: 'Step 1, Day 1', value: '111', key: '111' },
-		(maxDayNumber > 1 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
-		(maxDayNumber > 2 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
-		(maxDayNumber > 3 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
-		(maxDayNumber > 4 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
-		(maxDayNumber > 5 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
-		(maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
-		(maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
-		(maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
-		(maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
+		(DEMO_MODE || maxDayNumber > 1 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
+		(DEMO_MODE || maxDayNumber > 2 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
+		(DEMO_MODE || maxDayNumber > 3 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
+		(DEMO_MODE || maxDayNumber > 4 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
+		(DEMO_MODE || maxDayNumber > 5 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
+		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
+		(DEMO_MODE || maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
+		(DEMO_MODE || maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
+		(DEMO_MODE || maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

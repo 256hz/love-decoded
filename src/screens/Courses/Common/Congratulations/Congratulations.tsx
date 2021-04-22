@@ -28,7 +28,7 @@ export default () => {
 
 	const buttonText = isSameStep
 		? `Start Day ${currentDayNumber}`
-		: `Start Step ${currentStepNumber}`;
+		: 'Back to Home';
 
 	const onPress = () => navigate(isSameStep
 		? CourseCommonScreens.Home

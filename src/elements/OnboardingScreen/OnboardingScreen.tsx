@@ -1,13 +1,12 @@
-import React, {
-	Dispatch, ReactChild, SetStateAction, useState,
-} from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import React, { ReactChild } from 'react';
+import {
+	Platform, Text, View, ViewStyle,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
-import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
-import { CustomScrollView } from '@elements/CustomScrollView';
+import { CustomScrollView } from 'elements/CustomScrollView';
 import colors from 'elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
@@ -44,7 +43,6 @@ export default ({
 	titleChild = <></>,
 	titleContainerStyle,
 }: Props) => {
-	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
 
 	return (
 		<View style={styles.container}>
@@ -52,11 +50,10 @@ export default ({
 			<BackgroundFade drawShapes={drawShapes}>
 				<SafeAreaView style={styles.screenContainer}>
 					<View style={styles.container}>
-						{ showLogo ? (
-							<View style={styles.logoContainer}>
+						{ showLogo
+							? <View style={styles.logoContainer}>
 								<Logo />
 							</View>
-						)
 							: null
 						}
 
@@ -73,14 +70,14 @@ export default ({
 						</View>
 
 						{/* screen contents */}
-						<ScrollWrapper
+						<CustomScrollView
+							indicatorArrowColor={colors.Gray92}
+							indicatorBackgroundColor={Platform.select({ android: colors.GrayF3, ios: colors.WhiteTransparent })}
 							scrollDisabled={scrollDisabled}
-							setScrollIndicatorVisible={setScrollIndicatorVisible}
 						>
 							{children}
-						</ScrollWrapper>
+						</CustomScrollView>
 
-						{ scrollIndicatorVisible ? <ScrollIndicator /> : null}
 					</View>
 
 
@@ -117,31 +114,3 @@ export default ({
 		</View>
 	);
 };
-
-type ScrollWrapperProps = {
-	children: ReactChild,
-	scrollDisabled: boolean,
-	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
-};
-
-const ScrollWrapper = ({
-	children,
-	scrollDisabled,
-	setScrollIndicatorVisible,
-}: ScrollWrapperProps) => (
-	scrollDisabled
-		? <View style={styles.childrenContainer}>{children}</View>
-		: (
-			<CustomScrollView setScrollIndicatorVisible={setScrollIndicatorVisible}>
-				{children}
-			</CustomScrollView>
-		)
-);
-
-const ScrollIndicator = () => (
-	<View style={styles.scrollIndicatorContainer}>
-		<View style={styles.scrollIndicator}>
-			<DownArrow fill={colors.Gray92} />
-		</View>
-	</View>
-);

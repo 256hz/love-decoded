@@ -1,10 +1,14 @@
 import React, {
-	useCallback, useEffect, useRef, useState,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
 } from 'react';
+import { useIsFocused } from '@react-navigation/native';
 import { View } from 'react-native';
-import PlayButton from '@assets/svg/play-button.svg';
 import { Spinner } from 'react-native-material-kit';
-import colors from 'elements/globalStyles/color';
+import PlayButton from '@assets/svg/play-button.svg';
+import colors from '@elements/globalStyles/color';
 import styles from './AudioPlayerBar.styles';
 
 interface Props {
@@ -16,24 +20,40 @@ const HIDE_FOR_MS = 500;
 const SHOW_FOR_MS = 600;
 
 export default ({ isLoaded, isPlaying }: Props) => {
-	const [ hidePlay, setHidePlay ] = useState(false);
+	const isFocused = useIsFocused();
 
+	const hideButtonTimeout = useRef(-1);
+	const showButtonTimeout = useRef(-1);
 	const isBlinking = useRef(false);
 
+	const [ hidePlay, setHidePlay ] = useState(false);
+
 	const hide = useCallback(() => {
+		if (!isFocused) {
+			clearTimeout(hideButtonTimeout.current);
+			return;
+		}
+
 		if (isPlaying) {
 			isBlinking.current = false;
 			setHidePlay(false);
+			clearTimeout(hideButtonTimeout.current);
 			return;
 		}
 
 		setHidePlay(true);
-		let hideButtonTimeout;
-		const showButtonTimeout = setTimeout(() => {
+
+		showButtonTimeout.current = setTimeout(() => {
+			if (!isFocused) {
+				clearTimeout(showButtonTimeout.current);
+				clearTimeout(hideButtonTimeout.current);
+				return;
+			}
+
 			setHidePlay(false);
 
 			!isPlaying && isBlinking.current && (
-				hideButtonTimeout = setTimeout(() => {
+				hideButtonTimeout.current = setTimeout(() => {
 					hide();
 				}, SHOW_FOR_MS)
 			);
@@ -41,12 +61,17 @@ export default ({ isLoaded, isPlaying }: Props) => {
 		}, HIDE_FOR_MS);
 
 		return (() => {
-			clearTimeout(showButtonTimeout);
-			clearTimeout(hideButtonTimeout);
+			clearTimeout(showButtonTimeout.current);
+			clearTimeout(hideButtonTimeout.current);
 		});
-	}, [ isPlaying ]);
+	}, [ isPlaying, isFocused ]);
 
 	useEffect(() => {
+		if (!isFocused) {
+			clearTimeout(showButtonTimeout.current);
+			clearTimeout(hideButtonTimeout.current);
+		}
+
 		if (!isPlaying && !isBlinking.current) {
 			isBlinking.current = true;
 			hide();
@@ -56,8 +81,10 @@ export default ({ isLoaded, isPlaying }: Props) => {
 		if (isPlaying && isBlinking.current) {
 			setHidePlay(false);
 			isBlinking.current = false;
+			clearTimeout(showButtonTimeout.current);
+			clearTimeout(hideButtonTimeout.current);
 		}
-	}, [ isPlaying, hide ]);
+	}, [ isPlaying, hide, isFocused ]);
 
 	if (!isLoaded) {
 		return (

@@ -1,26 +1,35 @@
 import React, {
-	Dispatch,
 	ReactChild,
-	SetStateAction,
 	useRef,
+	useState,
 } from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
+import { View } from 'react-native';
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import DownArrow from '@assets/svg/down-arrow.svg';
+import colors from '@elements/globalStyles/color';
 import styles from './CustomScrollView.styles';
 
 type Props = {
 	children: ReactChild,
-	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
+	indicatorArrowColor?: string;
+	indicatorBackgroundColor?: string;
 };
 
-export default ({ children, setScrollIndicatorVisible }: Props) => {
+const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundColor }: Props) => {
+	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
+
 	const scrollViewRef = useRef<ScrollView>(null);
 
-	const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => (
-		layoutMeasurement.height + contentOffset.y >= contentSize.height - 15
+	const hasNotReachedBottom = ({ layoutMeasurement, contentOffset, contentSize }) => (
+		layoutMeasurement.height + contentOffset.y < contentSize.height - 15
 	);
 
 	const setIndicatorVisibleIfMoreToScroll = ({ nativeEvent }) => {
-		setScrollIndicatorVisible(!isCloseToBottom(nativeEvent));
+		setScrollIndicatorVisible(hasNotReachedBottom(nativeEvent));
+	};
+
+	const scrollToBottom = () => {
+		scrollViewRef.current?.scrollToEnd({ animated: true });
 	};
 
 	const triggerOnScroll = () => {
@@ -29,15 +38,64 @@ export default ({ children, setScrollIndicatorVisible }: Props) => {
 	};
 
 	return (
-		<ScrollView
-			ref={scrollViewRef}
-			contentContainerStyle={styles.childrenContainer}
-			onLayout={triggerOnScroll}
-			onScroll={setIndicatorVisibleIfMoreToScroll}
-			scrollEventThrottle={400}
-		>
-			{children}
-		</ScrollView>
+		<View style={styles.childrenContainer}>
+			<ScrollView
+				ref={scrollViewRef}
+				contentContainerStyle={styles.childrenContainer}
+				onLayout={triggerOnScroll}
+				onScroll={setIndicatorVisibleIfMoreToScroll}
+				scrollEventThrottle={400}
+			>
+				{children}
+			</ScrollView>
+
+			{ scrollIndicatorVisible
+				? <ScrollIndicator
+					arrowColor={indicatorArrowColor}
+					backgroundColor={indicatorBackgroundColor}
+					scrollToBottom={scrollToBottom}
+				/>
+				: null}
+		</View>
 	);
 };
+
+type ScrollWrapperProps = {
+	children: ReactChild,
+	indicatorArrowColor?: string;
+	indicatorBackgroundColor?: string;
+	scrollDisabled: boolean,
+};
+
+export default ({
+	children,
+	indicatorArrowColor,
+	indicatorBackgroundColor,
+	scrollDisabled,
+}: ScrollWrapperProps) => (
+	scrollDisabled
+		? <View style={styles.childrenContainer}>{children}</View>
+		: <CustomScrollView
+			indicatorArrowColor={indicatorArrowColor}
+			indicatorBackgroundColor={indicatorBackgroundColor}
+		>
+			{children}
+		</CustomScrollView>
+);
+
+type ScrollIndicatorProps = {
+	arrowColor?: string;
+	backgroundColor?: string;
+	scrollToBottom: () => void;
+};
+
+const ScrollIndicator = ({ arrowColor, backgroundColor, scrollToBottom }: ScrollIndicatorProps) => (
+	<TouchableOpacity onPress={scrollToBottom}>
+		<View style={styles.scrollIndicatorContainer}>
+			<View style={[ styles.scrollIndicator, backgroundColor ? { backgroundColor } : null ]}>
+				<DownArrow fill={arrowColor || colors.Gray92} />
+			</View>
+		</View>
+	</TouchableOpacity>
+);
 

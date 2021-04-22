@@ -10,11 +10,11 @@ import styles from './Reflection.styles';
 export default () => {
 	const { currentDay } = useSelector(getUserProgress);
 
-	const getAudioFilename = (day: Days) => `step3_${day}_reflections.mp3`;
+	const audioFilename = `step3_${currentDay}_reflections.mp3`;
 
 	return (
 		<StepScreen
-			audioFilename={getAudioFilename(currentDay)}
+			audioFilename={audioFilename}
 			backTarget={CourseCommonScreens.Home}
 			nextTarget={CourseCommonScreens.GoodJob}
 		>

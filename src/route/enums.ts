@@ -115,5 +115,6 @@ export const stepEntryPoints: StepEntryPoints = {
 		[Steps.One]: StepStacks.Course1Step1,
 		[Steps.Two]: StepStacks.Course1Step2,
 		[Steps.Three]: StepStacks.Course1Step3,
+		[Steps.Four]: StepStacks.Course1Step4,
 	},
 };

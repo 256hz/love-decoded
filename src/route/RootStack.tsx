@@ -17,7 +17,7 @@ type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default () => {
-	const isLoggedIn = false; // replace with selector
+	const isLoggedIn = true; // replace with selector
 	const destination = isLoggedIn ? RootStacks.HomeTabs : RootStacks.OnboardingStack;
 
 	const dispatch = useDispatch();

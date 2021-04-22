@@ -1,12 +1,6 @@
-import React, {
-	Dispatch,
-	ReactChild,
-	SetStateAction,
-	useState,
-} from 'react';
-import { View, ViewStyle } from 'react-native';
+import React, { ReactChild } from 'react';
+import { Platform, View, ViewStyle } from 'react-native';
 import { Screens } from 'route/enums';
-import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { CustomScrollView } from '@elements/CustomScrollView';
 import colors from '@elements/globalStyles/color';
@@ -41,20 +35,16 @@ export default ({
 	nextEnabled,
 	nextTarget,
 }: Props) => {
-	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
-
 	return (
 		<View style={[ styles.container, containerStyle ]}>
 			<View style={styles.middleContainer}>
-				<ScrollWrapper
+				<CustomScrollView
+					indicatorArrowColor={colors.Gray62}
+					indicatorBackgroundColor={Platform.select({ ios: colors.WhiteTransparent, android: colors.GrayF3 })}
 					scrollDisabled={scrollDisabled}
-					setScrollIndicatorVisible={setScrollIndicatorVisible}
 				>
 					{children}
-				</ScrollWrapper>
-
-				{ scrollIndicatorVisible ? <ScrollIndicator /> : null}
-
+				</CustomScrollView>
 			</View>
 
 			{ nextTarget
@@ -75,29 +65,3 @@ export default ({
 		</View>
 	);
 };
-
-type ScrollWrapperProps = {
-	children: ReactChild,
-	scrollDisabled: boolean,
-	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
-};
-
-const ScrollWrapper = ({
-	children,
-	scrollDisabled,
-	setScrollIndicatorVisible,
-}: ScrollWrapperProps) => (
-	scrollDisabled
-		? <View style={styles.childrenContainer}>{children}</View>
-		: (
-			<CustomScrollView setScrollIndicatorVisible={setScrollIndicatorVisible}>
-				{children}
-			</CustomScrollView>
-		)
-);
-
-const ScrollIndicator = () => (
-	<View style={styles.scrollIndicatorContainer}>
-		<DownArrow fill={colors.Gray62} />
-	</View>
-);

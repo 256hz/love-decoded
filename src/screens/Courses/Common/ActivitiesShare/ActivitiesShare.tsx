@@ -20,9 +20,12 @@ export default ({ audioFilename, linesToShare, prompts }: Props) => {
 		>
 			<View style={styles.container}>
 				<View style={styles.bodyContainer}>
-					<View style={styles.textItemContainer}>
-						{ prompts?.map(prompt => <Prompt prompt={prompt} />) }
-					</View>
+					{ prompts?.map(prompt => (
+						<View style={styles.textItemContainer} key={prompt}>
+							<Prompt prompt={prompt} />
+						</View>
+					))}
+
 
 					<View style={styles.textItemContainer}>
 						<Text style={[ styles.bodyText, styles.boldText ]}>
@@ -33,7 +36,7 @@ export default ({ audioFilename, linesToShare, prompts }: Props) => {
 					<ShareWidget linesToShare={linesToShare} />
 
 					<View>
-						<Text style={[ styles.bodyText, styles.boldText ]}>
+						<Text style={[ styles.bodyText, styles.boldText, { marginTop: 16 } ]}>
 							Spend at least 1 week on this exercise.
 						</Text>
 					</View>

@@ -135,6 +135,7 @@ export type Course1State = {
 	[Steps.One]: Course1Step1;
 	[Steps.Two]: Course1Step2;
 	[Steps.Three]: Course1Step3;
+	[Steps.Four]: Course1Step4;
 };
 
 export type Course1Step1 = {
@@ -177,8 +178,22 @@ export type Course1Step3 = {
 	[key in Days]: {
 		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
 		[EndOfDaySurveys.Course1Step3Survey1]: string,
-		[EndOfDaySurveys.Course1Step3Survey3]: string,
 		[EndOfDaySurveys.Course1Step3Survey2]: string,
+		[EndOfDaySurveys.Course1Step3Survey3]: string,
+	};
+};
+
+export type Course1Step4 = {
+	[Activities.Course1Step4Activity1]: string;
+	[Activities.Course1Step4Activity2]: string;
+	[Activities.Course1Step4Activity3]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course1Step4Survey1]: string,
+		[EndOfDaySurveys.Course1Step4Survey2]: string,
+		[EndOfDaySurveys.Course1Step4Survey3]: string,
+		[EndOfDaySurveys.Course1Step4Survey4]: string,
 	};
 };
 

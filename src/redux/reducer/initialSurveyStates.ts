@@ -6,7 +6,9 @@ import {
 } from 'redux/types/survey';
 
 /*
+	------------------------------------------
 	COURSE 1
+	------------------------------------------
 */
 
 // Step 1
@@ -67,4 +69,23 @@ export const course1Step3State = {
 	...course1Step3DayState,
 	[Activities.Course1Step3Activity1]: '',
 	[Activities.Course1Step3Activity2]: '',
+};
+
+// Step 4
+const course1Step4DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course1Step4Survey1]: '',
+		[EndOfDaySurveys.Course1Step4Survey2]: '',
+		[EndOfDaySurveys.Course1Step4Survey3]: '',
+		[EndOfDaySurveys.Course1Step4Survey4]: '',
+	};
+	return acc;
+}, {});
+
+export const course1Step4State = {
+	...course1Step4DayState,
+	[Activities.Course1Step4Activity1]: '',
+	[Activities.Course1Step4Activity2]: '',
+	[Activities.Course1Step4Activity3]: '',
 };

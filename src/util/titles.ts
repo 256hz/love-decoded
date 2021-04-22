@@ -13,7 +13,7 @@ export const titles: Titles = {
 		[Steps.One]: 'Discovering Your Lovable Qualities',
 		[Steps.Two]: 'Learning to Self-Talk Positively',
 		[Steps.Three]: 'Transforming My Unloving Behaviors',
-		[Steps.Four]: '',
+		[Steps.Four]: 'Creating Effective Personal Visions',
 		[Steps.Five]: '',
 		[Steps.Six]: '',
 		[Steps.Seven]: '',

@@ -9,7 +9,7 @@ export default StyleSheet.create({
 	},
 	waitContainer: {
 		flex: 1,
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 	},
 	waitText: {
 		...text.body,
@@ -35,7 +35,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		alignSelf: 'center',
-		marginTop: 24,
+		marginVertical: 24,
 		shadowRadius: 4,
 		shadowOpacity: 0.25,
 		shadowColor: colors.Gray33,

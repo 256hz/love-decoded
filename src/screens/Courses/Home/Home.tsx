@@ -20,7 +20,7 @@ export default () => {
 	const progressPercent = (currentActivity - 1) * 25;
 
 	return (
-		<StepScreen scrollDisabled>
+		<StepScreen>
 			<View style={styles.container}>
 
 				<View style={styles.titleContainer}>

@@ -5,10 +5,10 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'space-around',
 	},
 	contentContainer: {
-		justifyContent: 'space-around',
+		flex: 1,
+		justifyContent: 'center',
 		alignItems: 'center',
 		paddingHorizontal: 32,
 	},
@@ -39,5 +39,7 @@ export default StyleSheet.create({
 	underline: {
 		width: '90%',
 		height: 2,
+		backgroundColor: colors.Orange,
+		marginVertical: 23,
 	},
 });
