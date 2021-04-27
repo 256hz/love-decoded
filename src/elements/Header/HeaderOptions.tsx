@@ -15,7 +15,7 @@ export const CloseHeader = (navigation: any, title: string, closeTarget?: Screen
 	headerLeft: () => <></>,
 	headerTitle: () => <Header type={HeaderType.SimpleTitle} headerProps={{ title }} />,
 	headerRight: () => <Header type={HeaderType.Close} navigation={navigation} closeTarget={closeTarget} />,
-	headerStyle: [ headerStyle, { height: 150, backgroundColor: 'orange' } ],
+	headerStyle: [ headerStyle, styles.closeHeader ],
 });
 
 export const DrawerHeader = navigation => ({
