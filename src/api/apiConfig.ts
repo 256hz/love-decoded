@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_API_URL = 'https://2c82ea919027.ngrok.io/';
+export const BASE_API_URL = 'https://love-decoded-be.ngrok.io';
 export const apiClient = axios.create({
 	baseURL: BASE_API_URL,
 	headers: {
