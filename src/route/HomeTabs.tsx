@@ -2,9 +2,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
-import Journal from '@screens/Courses/Journal';
-import Faq from '@screens/Courses/Faq';
-import EmotionalReset from 'screens/Courses/Common/EmotionalReset';
+import Journal from 'screens/Courses/Tabs/Journal';
+import Faq from 'screens/Courses/Tabs/Faq';
+import EmotionalReset from 'screens/Courses/Tabs/EmotionalReset';
 import CourseStack from './Steps/CourseStack';
 import styles from './HomeTabs.styles';
 

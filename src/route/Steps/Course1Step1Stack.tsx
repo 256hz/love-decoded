@@ -9,15 +9,17 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
+	CloseHeader,
 } from '@elements/Header/HeaderOptions';
 
-import HomeScreen from '@screens/Courses/Home';
+import HomeScreen from 'screens/Courses/Tabs/Home';
 import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
 import GoodJobScreen from 'screens/Courses/Common/GoodJob';
 import IntentionScreen from 'screens/Courses/Course1/Step1/Intention';
 import Step1Activities1Screen from 'screens/Courses/Course1/Step1/Activities1';
 import Step1Activities2Screen from '@screens/Courses/Course1/Step1/Activities2';
 import Step1Activities3Screen from '@screens/Courses/Course1/Step1/Activities3';
+import Step1ResourcesScreen from '@screens/Courses/Course1/Step1/Resources';
 import Step1SurveyScreen from '@screens/Courses/Course1/Step1/Survey';
 import Step1ReflectionScreen from '@screens/Courses/Course1/Step1/Reflection';
 import Step1VisualizationScreen from 'screens/Courses/Course1/Step1/Visualization';
@@ -61,6 +63,12 @@ export default ({ navigation }) => (
 			name={Course1Step1Screens.Activities1}
 			component={Step1Activities1Screen}
 			options={TitleHeader('List of Lovable Qualities', DailyActivity.Activities)}
+		/>
+
+		<StepStack.Screen
+			name={Course1Step1Screens.Resources}
+			component={Step1ResourcesScreen}
+			options={CloseHeader(navigation, 'Resources')}
 		/>
 
 		<StepStack.Screen

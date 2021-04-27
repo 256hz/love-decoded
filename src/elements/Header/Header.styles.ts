@@ -7,16 +7,20 @@ export default StyleSheet.create({
 		height: 100,
 	},
 	removeBottomBorder: {
-		shadowColor: 'transparent',
-		shadowRadius: 0,
-		shadowOpacity: 0,
-		borderBottomWidth: 0,
 		borderBottomColor: 'transparent',
+		borderBottomWidth: 0,
 		elevation: 0,
+		shadowColor: 'transparent',
+		shadowOpacity: 0,
+		shadowRadius: 0,
 	},
 	emptyContainer: {
 		position: 'absolute',
 		width: 0,
 		height: 0,
+	},
+	closeHeader: {
+		height: 125,
+		backgroundColor: colors.GrayF3,
 	},
 });

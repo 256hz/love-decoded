@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -26,7 +26,8 @@ type Props = {
 
 export default ({ navigation, prompts, title }: Props) => {
 	const dispatch = useDispatch();
-	const { navigate, isFocused } = useNavigation();
+	const isFocused = useIsFocused();
+	const { navigate } = useNavigation();
 
 	const timeoutRef = useRef(-1);
 	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
@@ -53,7 +54,7 @@ export default ({ navigation, prompts, title }: Props) => {
 	};
 
 	useEffect(() => {
-		if (!isFocused()) {
+		if (!isFocused) {
 			clearTimeout(timeoutRef.current);
 			return;
 		}

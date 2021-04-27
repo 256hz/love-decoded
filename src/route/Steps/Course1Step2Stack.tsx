@@ -10,7 +10,7 @@ import {
 	TitleWithProgressHeader,
 } from '@elements/Header/HeaderOptions';
 
-import HomeScreen from '@screens/Courses/Home';
+import HomeScreen from 'screens/Courses/Tabs/Home';
 import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
 import GoodJobScreen from 'screens/Courses/Common/GoodJob';
 import IntentionScreen from 'screens/Courses/Course1/Step2/Intention';

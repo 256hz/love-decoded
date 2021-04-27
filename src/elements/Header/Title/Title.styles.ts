@@ -13,6 +13,10 @@ export default StyleSheet.create({
 		height: TITLE_HEADER_HEIGHT,
 		backgroundColor: colors.GrayFB,
 	},
+	titleWithProgressHeader: {
+		height: TITLE_WITH_PROGRESS_HEIGHT,
+		backgroundColor: colors.GrayFB,
+	},
 	headerContainer: {
 		flex: 1,
 		width: Dimensions.get('screen').width,

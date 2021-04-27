@@ -1,18 +1,18 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/core';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Info from '@assets/svg/info.svg';
 import { Course1Step1Screens } from 'route/Steps/Course1Screens';
-
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Activities, Courses, Steps } from '@redux/types/survey';
 import { ListTextInput, StackKeyboardAvoidingView, StepScreen } from '@elements';
-
 import styles from './Activities1.styles';
 
 export default () => {
+	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
 	const savedResponse = useSelector(
@@ -24,7 +24,7 @@ export default () => {
 	);
 
 	const onPressInfoBubble = () => {
-		console.log('info');
+		navigate(Course1Step1Screens.Resources);
 	};
 
 	return (

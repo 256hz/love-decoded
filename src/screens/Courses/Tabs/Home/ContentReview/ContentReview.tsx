@@ -28,6 +28,7 @@ export default () => {
 	const {
 		currentCourseNumber: course,
 		currentStepNumber: step,
+		currentDayNumber: day,
 	} = useSelector(getUserProgressNumbers);
 
 	const maxUserProgressNumbers = useSelector(getUserMaxProgressNumbers);
@@ -61,6 +62,11 @@ export default () => {
 	const onPressGo = () => {
 		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
 
+		if (!courseNumber || !stepNumber || !dayNumber || !activityNumber) {
+			console.warn('tried to navigate to empty destination:', destination);
+			return;
+		}
+
 		dispatch(setUserProgress(courseNumber, stepNumber, dayNumber, activityNumber));
 
 		const courseDestination = CourseFromNumber[courseNumber];
@@ -70,8 +76,11 @@ export default () => {
 	};
 
 	const goDisabled = (() => {
-		const { courseNumber, stepNumber } = getDestinationFromString(destination);
-		return courseNumber === course && stepNumber === step;
+		const { courseNumber, stepNumber, dayNumber } = getDestinationFromString(destination);
+
+		return courseNumber === course
+			&& stepNumber === step
+			&& dayNumber === day;
 	})();
 
 	return (
@@ -129,7 +138,7 @@ const getDropDownChoices = (maxUserProgress) => {
 
 	// values and keys must match.  Format as currentMaxString.
 	return [
-		{ label: 'Step 1, Day 1', value: '111', key: '111' },
+		{ label: 'Step 1, Day 1', value: '1111', key: '1111' },
 		(DEMO_MODE || maxDayNumber > 1 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
 		(DEMO_MODE || maxDayNumber > 2 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
 		(DEMO_MODE || maxDayNumber > 3 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },

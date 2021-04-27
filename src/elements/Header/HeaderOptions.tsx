@@ -1,13 +1,21 @@
 import React from 'react';
+import { Screens } from 'route/enums';
 import Header, { HeaderType } from './Header';
 import styles from './Header.styles';
-import titleStyles, { TITLE_WITH_PROGRESS_HEIGHT } from './Title/Title.styles';
+import titleStyles from './Title/Title.styles';
 
 export const headerStyle = [ styles.defaultHeader, styles.removeBottomBorder ];
 
 export const BackHeader = navigation => ({
 	headerLeft: () => <Header type={HeaderType.Back} navigation={navigation} />,
 	headerTitle: () => <></>,
+});
+
+export const CloseHeader = (navigation: any, title: string, closeTarget?: Screens) => ({
+	headerLeft: () => <></>,
+	headerTitle: () => <Header type={HeaderType.SimpleTitle} headerProps={{ title }} />,
+	headerRight: () => <Header type={HeaderType.Close} navigation={navigation} closeTarget={closeTarget} />,
+	headerStyle: [ headerStyle, { height: 150, backgroundColor: 'orange' } ],
 });
 
 export const DrawerHeader = navigation => ({
@@ -40,11 +48,7 @@ export const TitleWithProgressHeader = (
 			headerProps={{ title, subtitle, activeProgressDot, totalProgressDots }}
 		/>
 	),
-	headerStyle: [
-		titleStyles.titleHeader,
-		styles.removeBottomBorder,
-		{ height: TITLE_WITH_PROGRESS_HEIGHT },
-	],
+	headerStyle: [ titleStyles.titleWithProgressHeader, styles.removeBottomBorder ],
 	headerTitle: () => <></>,
 	headerTitleContainerStyle: styles.emptyContainer,
 });

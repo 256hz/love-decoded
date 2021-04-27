@@ -19,7 +19,7 @@ export default () => {
 		<CourseStack.Navigator
 			mode="card"
 			headerMode="none"
-			initialRouteName={StepStacks.Course1Step3}
+			initialRouteName={initialRouteName}
 		>
 			<CourseStack.Screen name={StepStacks.Course1Step1} component={Course1Step1Stack} />
 
