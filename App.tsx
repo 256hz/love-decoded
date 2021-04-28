@@ -17,11 +17,8 @@ import colors from 'elements/globalStyles/color';
 
 const NotificationHub = require('react-native-azurenotificationhub/index.ios');
 
-const connectionString = 'Endpoint=sb://love-decoded-ns-dev.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=lmdb+hII+jq08yaoH8baMvaMo2n/sUXY047P8dgt5sQ=';       // The Notification Hub connection string
-const hubName = 'love-decoded-notification-hub-dev';                // The Notification Hub name
-const tags = [ '' ];               // The set of tags to subscribe to.  See notes after code sample
-const template = '';              // Notification hub templates:
-const templateName = '';           // The template's name
+const connectionString = 'Endpoint=sb://love-decoded-ns-dev.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=xoIo6GmDcm4R/g98owY5/5m8KPvzOyerrKM4vOgPH08=';       // The Notification Hub connection string
+const hubName = 'love-decoded-notification-hub-dev';
 
 let remoteNotificationsDeviceToken = '';  // The device token registered with APNS
 export const { store, persistor } = getStore();
@@ -76,25 +73,13 @@ export default class App extends Component {
 	};
 
 	register = () => {
-		NotificationHub.register(remoteNotificationsDeviceToken, { connectionString, hubName, tags })
-			.then(console.log)
-			.catch(console.warn);
-	};
-
-	registerTemplate = () => {
-		NotificationHub.registerTemplate(remoteNotificationsDeviceToken, { connectionString, hubName, tags, templateName, template })
+		NotificationHub.register(remoteNotificationsDeviceToken, { connectionString, hubName })
 			.then(console.log)
 			.catch(console.warn);
 	};
 
 	unregister = () => {
 		NotificationHub.unregister()
-			.then(console.log)
-			.catch(console.warn);
-	};
-
-	unregisterTemplate = () => {
-		NotificationHub.unregisterTemplate(templateName)
 			.then(console.log)
 			.catch(console.warn);
 	};
