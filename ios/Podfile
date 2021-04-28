@@ -7,7 +7,7 @@ target 'LoveDecoded' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
-	
+	pod 'AzureNotificationHubs-iOS'
 
   target 'LoveDecodedTests' do
     inherit! :complete

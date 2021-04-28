@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
-
+#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+#import <UserNotifications/UserNotifications.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -26,11 +27,31 @@ static void InitializeFlipper(UIApplication *application) {
   [client start];
 }
 #endif
+// Extend the AppDelegate to listen for messages using MSNotificationHubDelegate and User Notification Center
+@interface AppDelegate () <MSNotificationHubDelegate, UNUserNotificationCenterDelegate> 
 
-@implementation AppDelegate
+@property(nonatomic) API_AVAILABLE(ios(10.0)) void (^notificationPresentationCompletionHandler)(UNNotificationPresentationOptions options);
+@property(nonatomic) void (^notificationResponseCompletionHandler)(void);
+
+@end
+
+@implementation AppDelegate 
+
+@synthesize notificationPresentationCompletionHandler;
+@synthesize notificationResponseCompletionHandler;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"DevSettings" ofType:@"plist"];
+  NSDictionary *configValues = [NSDictionary dictionaryWithContentsOfFile:path];
+
+  NSString *connectionString = [configValues objectForKey:@"CONNECTION_STRING"];
+  NSString *hubName = [configValues objectForKey:@"HUB_NAME"];
+
+  
+  NSLog(@"Please setup CONNECTION_STRING and HUB_NAME in DevSettings.plist and restart application");
+
+  exit(-1);
   [AppCenterReactNative register];
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
@@ -50,9 +71,20 @@ static void InitializeFlipper(UIApplication *application) {
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  if([connectionString length] != 0 && [hubName length] != 0) {
+      [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+      [MSNotificationHub setDelegate:self];
+    // Create with alert, badge and sound
+    MSNotificationHubOptions *hubOptions = [[MSNotificationHubOptions alloc] initWithAuthorizationOptions:(UNAuthorizationOptions)(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)];
+
+    // Start SDK
+    [MSNotificationHub startWithConnectionString:connectionString hubName:hubName options:hubOptions];
+
+      return YES;
+  }
+
   return YES;
 }
-
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
 #if DEBUG
@@ -60,6 +92,12 @@ static void InitializeFlipper(UIApplication *application) {
 #else
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
+}
+
+- (void)notificationHub:(MSNotificationHub *)notificationHub didReceivePushNotification:(MSNotificationHubMessage *)message {
+    // Send message using NSNotificationCenter with the message
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message forKey:@"message"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MessageReceived" object:nil userInfo:userInfo];
 }
 
 @end

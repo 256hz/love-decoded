@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>HUB_NAME</key>
+	<string>love-decoded-notification-hub-dev</string>
+	<key>CONNECTION_STRING</key>
+	<string>Endpoint=sb://love-decoded-ns-dev.servicebus.windows.net/;SharedAccessKeyName=DefaultFullSharedAccessSignature;SharedAccessKey=lmdb+hII+jq08yaoH8baMvaMo2n/sUXY047P8dgt5sQ=</string>
+</dict>
+</plist>

@@ -146,6 +146,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F0EF5D0BF10464B8810F9B46 /* Pods-LoveDecoded.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded/Pods-LoveDecoded.debug.xcconfig"; sourceTree = "<group>"; };
 		F321BC1F2637507100959C9A /* LoveDecoded.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = LoveDecoded.entitlements; path = LoveDecoded/LoveDecoded.entitlements; sourceTree = "<group>"; };
+		F34DA6662638F29700FBA3FA /* SetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +222,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				F34DA6662638F29700FBA3FA /* SetupViewController.h */,
 			);
 			name = LoveDecoded;
 			sourceTree = "<group>";
