@@ -26,6 +26,7 @@
     "axios": "^0.21.1",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-azurenotificationhub": "^0.9.5-Patched.1",
     "react-native-contacts": "6.0.4",
     "react-native-gesture-handler": "1.8.0",
     "react-native-haptic-feedback": "1.11.0",
