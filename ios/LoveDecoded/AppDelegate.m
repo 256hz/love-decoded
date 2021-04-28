@@ -48,10 +48,6 @@ static void InitializeFlipper(UIApplication *application) {
   NSString *connectionString = [configValues objectForKey:@"CONNECTION_STRING"];
   NSString *hubName = [configValues objectForKey:@"HUB_NAME"];
 
-  
-  NSLog(@"Please setup CONNECTION_STRING and HUB_NAME in DevSettings.plist and restart application");
-
-  exit(-1);
   [AppCenterReactNative register];
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
