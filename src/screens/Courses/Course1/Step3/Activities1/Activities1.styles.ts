@@ -23,4 +23,15 @@ export default StyleSheet.create({
 	textInput: {
 		marginBottom: 16,
 	},
+	row: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	textInputContainer: {
+		marginBottom: 32,
+	},
+	infoBubble: {
+		// padding: 15,
+	},
 });

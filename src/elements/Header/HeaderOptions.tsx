@@ -11,7 +11,7 @@ export const BackHeader = navigation => ({
 	headerTitle: () => <></>,
 });
 
-export const CloseHeader = (navigation: any, title: string, closeTarget?: Screens) => ({
+export const CloseHeader = (navigation: any, title: string = 'Resources', closeTarget?: Screens) => ({
 	headerLeft: () => <></>,
 	headerTitle: () => <Header type={HeaderType.SimpleTitle} headerProps={{ title }} />,
 	headerRight: () => <Header type={HeaderType.Close} navigation={navigation} closeTarget={closeTarget} />,

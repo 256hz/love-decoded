@@ -8,6 +8,7 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
+	CloseHeader,
 } from '@elements/Header/HeaderOptions';
 
 import HomeScreen from 'screens/Courses/Tabs/Home';
@@ -17,6 +18,7 @@ import IntentionScreen from 'screens/Courses/Course1/Step3/Intention';
 import Step3Activities1Screen from '@screens/Courses/Course1/Step3/Activities1';
 import Step3Activities2Screen from '@screens/Courses/Course1/Step3/Activities2';
 import Step3Activities3Screen from '@screens/Courses/Course1/Step3/Activities3';
+import Step3ResourcesScreen from '@screens/Courses/Course1/Step3/Resources';
 import Step3SurveyScreen from '@screens/Courses/Course1/Step3/Survey';
 import Step3ReflectionScreen from '@screens/Courses/Course1/Step3/Reflection';
 import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
@@ -73,6 +75,12 @@ export default ({ navigation }) => (
 			name={Course1Step3Screens.Activities3}
 			component={Step3Activities3Screen}
 			options={TitleHeader(titles.course1.step3, DailyActivity.Activities)}
+		/>
+
+		<StepStack.Screen
+			name={Course1Step3Screens.Resources}
+			component={Step3ResourcesScreen}
+			options={CloseHeader(navigation)}
 		/>
 
 		<StepStack.Screen
