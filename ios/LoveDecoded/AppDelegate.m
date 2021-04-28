@@ -70,11 +70,11 @@ static void InitializeFlipper(UIApplication *application) {
   if([connectionString length] != 0 && [hubName length] != 0) {
       [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
       [MSNotificationHub setDelegate:self];
-    // Create with alert, badge and sound
-    MSNotificationHubOptions *hubOptions = [[MSNotificationHubOptions alloc] initWithAuthorizationOptions:(UNAuthorizationOptions)(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)];
+      // Create with alert, badge and sound
+      MSNotificationHubOptions *hubOptions = [[MSNotificationHubOptions alloc] initWithAuthorizationOptions:(UNAuthorizationOptions)(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)];
 
-    // Start SDK
-    [MSNotificationHub startWithConnectionString:connectionString hubName:hubName options:hubOptions];
+      // Start SDK
+      [MSNotificationHub startWithConnectionString:connectionString hubName:hubName options:hubOptions];
 
       return YES;
   }

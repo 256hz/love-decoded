@@ -1,9 +1,8 @@
 #import "SetupViewController.h"
 
-
  static NSString *const kNHMessageReceived = @"MessageReceived";
 
- @interface SetupViewController () <MSNotificationHubDelegate> 
+ @interface SetupViewController () 
 
  @end
 
