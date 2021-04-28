@@ -1,5 +1,4 @@
 #import "AppDelegate.h"
-#import <RNAzureNotificationHub/RCTAzureNotificationHubManager.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -33,8 +32,6 @@ static void InitializeFlipper(UIApplication *application) {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Registering for local notifications
-  [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
   [AppCenterReactNative register];
   [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true];
   [AppCenterReactNativeCrashes registerWithAutomaticProcessing];
@@ -65,36 +62,5 @@ static void InitializeFlipper(UIApplication *application) {
   return [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
 }
-
-// Invoked when the app successfully registers with Apple Push Notification service (APNs).
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    [RCTAzureNotificationHubManager didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
-}
-
-// Invoked when APNs cannot successfully complete the registration process.
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
-{
-    [RCTAzureNotificationHubManager didFailToRegisterForRemoteNotificationsWithError:error];
-}
-
-// Invoked when a remote notification arrives and there is data to be fetched.
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
-{
-    [RCTAzureNotificationHubManager didReceiveRemoteNotification:userInfo
-                                          fetchCompletionHandler:completionHandler];
-}
-
-// Invoked when a notification arrives while the app was running in the foreground.
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-       willPresentNotification:(UNNotification *)notification
-         withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
-{
-    [RCTAzureNotificationHubManager userNotificationCenter:center
-                                   willPresentNotification:notification
-                                     withCompletionHandler:completionHandler];
-}
-
 
 @end
