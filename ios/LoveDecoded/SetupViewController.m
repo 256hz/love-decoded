@@ -1,4 +1,6 @@
 #import "SetupViewController.h"
+#import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+#import <UserNotifications/UserNotifications.h>
 
 
  static NSString *const kNHMessageReceived = @"MessageReceived";
