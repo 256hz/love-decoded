@@ -168,8 +168,8 @@ export default class App extends Component {
 	};
 
 	render() {
-		this.requestPermissions;
-		this.register;
+		this.requestPermissions();
+		this.register();
 		return (
 			<Provider store={store}>
 				<PersistGate loading={null} persistor={persistor()}>
