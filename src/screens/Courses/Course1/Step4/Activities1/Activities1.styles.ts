@@ -17,6 +17,8 @@ export default StyleSheet.create({
 		...text.bold,
 	},
 	textItemContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
 		marginBottom: 24,
 		marginTop: 8,
 	},

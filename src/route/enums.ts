@@ -71,6 +71,7 @@ export enum CourseCommonScreens {
 	DayOverview = 'DayOverview',
 	GoodJob = 'GoodJob',
 	Congratulations = 'Congratulations',
+	None = '',
 }
 
 export type Course1Screens = Course1Step1Screens

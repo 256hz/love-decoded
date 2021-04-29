@@ -74,13 +74,14 @@ export default StyleSheet.create({
 	pickerContainer: {
 		flex: 1,
 		justifyContent: 'center',
+		paddingRight: 12,
 	},
 	noChevron: {
 		width: 0,
 		height: 0,
 	},
 	chevronContainer: {
-		position: 'absolute',
-		right: 12,
+		// position: 'absolute',
+		right: -6,
 	},
 });

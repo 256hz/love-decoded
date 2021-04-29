@@ -1,8 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Course1Step2Screens } from 'route/Steps/Course1Screens';
-
+import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -11,7 +12,12 @@ import ListTextInput from '@elements/ListTextInput/ListTextInput';
 import styles from './Activities3.styles';
 
 export default () => {
+	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
+
+	const onPressInfoBubble = () => {
+		navigate(Course1Step2Screens.Resources1);
+	};
 
 	const reaction1Response = useSelector(
 		getStepActivity(Courses.One, Steps.Two, Activities.Course1Step2Activity3a),
@@ -39,10 +45,16 @@ export default () => {
 				<View style={styles.container}>
 
 					<View style={styles.bodyContainer}>
-						<View style={styles.textItemContainer}>
-							<Text style={styles.bodyText}>
-								List 3 reactions you messed up recently and got upset with yourself.
-							</Text>
+						<View style={styles.row}>
+							<View style={styles.textContainer}>
+								<Text style={styles.bodyText}>
+									Now use a couple of words to describe your reaction toward yourself for each situation - Example: “I was angry with myself because...”
+								</Text>
+							</View>
+
+							<TouchableOpacity onPress={onPressInfoBubble}>
+								<Info />
+							</TouchableOpacity>
 						</View>
 
 						<ListTextInput

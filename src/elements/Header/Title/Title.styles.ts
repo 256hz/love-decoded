@@ -2,7 +2,7 @@ import { Dimensions, StatusBar, StyleSheet } from 'react-native';
 import text from 'elements/globalStyles/text';
 import colors from 'elements/globalStyles/color';
 
-export const TITLE_HEADER_HEIGHT = 150 - (StatusBar.currentHeight || 0);
+export const TITLE_HEADER_HEIGHT = 125 - (StatusBar.currentHeight || 0);
 export const PROGRESS_HEIGHT = 57;
 export const PROGRESS_WIDTH = 224;
 export const PROGRESS_DOT_WIDTH = 16;

@@ -12,6 +12,7 @@ import {
 */
 
 // Step 1
+// daily
 const course1Step1DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -23,7 +24,7 @@ const course1Step1DayState = DayValues.reduce((acc, curr) => {
 	};
 	return acc;
 }, {});
-
+// per step
 export const course1Step1State = {
 	...course1Step1DayState,
 	[Activities.Course1Step1Activity1]: '',
@@ -32,6 +33,7 @@ export const course1Step1State = {
 };
 
 // Step 2
+// daily
 const course1Step2DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -42,7 +44,7 @@ const course1Step2DayState = DayValues.reduce((acc, curr) => {
 	};
 	return acc;
 }, {});
-
+// per step
 export const course1Step2State = {
 	...course1Step2DayState,
 	[Activities.Course1Step2Activity2a]: '',
@@ -55,6 +57,7 @@ export const course1Step2State = {
 };
 
 // Step 3
+// daily
 const course1Step3DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -64,7 +67,7 @@ const course1Step3DayState = DayValues.reduce((acc, curr) => {
 	};
 	return acc;
 }, {});
-
+// per step
 export const course1Step3State = {
 	...course1Step3DayState,
 	[Activities.Course1Step3Activity1]: '',
@@ -72,6 +75,7 @@ export const course1Step3State = {
 };
 
 // Step 4
+// daily
 const course1Step4DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -82,10 +86,11 @@ const course1Step4DayState = DayValues.reduce((acc, curr) => {
 	};
 	return acc;
 }, {});
-
+// per step
 export const course1Step4State = {
 	...course1Step4DayState,
 	[Activities.Course1Step4Activity1]: '',
 	[Activities.Course1Step4Activity2]: '',
 	[Activities.Course1Step4Activity3]: '',
+	[Activities.Course1Step4Resources3]: '',
 };

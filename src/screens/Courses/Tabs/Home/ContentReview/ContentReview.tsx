@@ -107,7 +107,9 @@ export default () => {
 						inputAndroid: styles.text,
 						viewContainer: styles.pickerContainer,
 					}}
+					// textInputProps={{ numberOfLines: 1 }}
 				/>
+
 				<View style={styles.chevronContainer}>
 					<DownArrow2 />
 				</View>
@@ -147,6 +149,7 @@ const getDropDownChoices = (maxUserProgress) => {
 		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
 		(DEMO_MODE || maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
 		(DEMO_MODE || maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
+		(DEMO_MODE || maxStepNumber > 3 || maxCourseNumber > 1) && { label: `Step 4: ${titles.course1.step4}`, value: '1411', key: '1411' },
 		(DEMO_MODE || maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

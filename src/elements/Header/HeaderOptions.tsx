@@ -1,5 +1,4 @@
 import React from 'react';
-import { Screens } from 'route/enums';
 import Header, { HeaderType } from './Header';
 import styles from './Header.styles';
 import titleStyles from './Title/Title.styles';
@@ -11,10 +10,10 @@ export const BackHeader = navigation => ({
 	headerTitle: () => <></>,
 });
 
-export const CloseHeader = (navigation: any, title: string = 'Resources', closeTarget?: Screens) => ({
+export const CloseHeader = (navigation: any, title: string = 'Resources', onClose?: () => void) => ({
 	headerLeft: () => <></>,
 	headerTitle: () => <Header type={HeaderType.SimpleTitle} headerProps={{ title }} />,
-	headerRight: () => <Header type={HeaderType.Close} navigation={navigation} closeTarget={closeTarget} />,
+	headerRight: () => <Header type={HeaderType.Close} navigation={navigation} onClose={onClose} />,
 	headerStyle: [ headerStyle, styles.closeHeader ],
 });
 

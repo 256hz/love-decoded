@@ -8,6 +8,7 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
+	CloseHeader,
 } from '@elements/Header/HeaderOptions';
 
 import HomeScreen from 'screens/Courses/Tabs/Home';
@@ -15,10 +16,13 @@ import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
 import GoodJobScreen from 'screens/Courses/Common/GoodJob';
 import IntentionScreen from 'screens/Courses/Course1/Step2/Intention';
 import Step2Activities1Screen from '@screens/Courses/Course1/Step2/Activities1';
+import Step2Activities1BScreen from '@screens/Courses/Course1/Step2/Activities1B';
 import Step2Activities2Screen from '@screens/Courses/Course1/Step2/Activities2';
 import Step2Activities3Screen from '@screens/Courses/Course1/Step2/Activities3';
 import Step2Activities4Screen from '@screens/Courses/Course1/Step2/Activities4';
 import Step2Activities5Screen from '@screens/Courses/Course1/Step2/Activities5';
+import Step2Resources1Screen from '@screens/Courses/Course1/Step2/Resources1';
+import Step2Resources2Screen from '@screens/Courses/Course1/Step2/Resources2';
 import Step2SurveyScreen from '@screens/Courses/Course1/Step2/Survey';
 import Step2ReflectionScreen from '@screens/Courses/Course1/Step2/Reflection';
 import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
@@ -66,6 +70,12 @@ export default ({ navigation }) => (
 		/>
 
 		<StepStack.Screen
+			name={Course1Step2Screens.Activities1B}
+			component={Step2Activities1BScreen}
+			options={TitleHeader(titles.course1.step2, DailyActivity.Activities)}
+		/>
+
+		<StepStack.Screen
 			name={Course1Step2Screens.Activities2}
 			component={Step2Activities2Screen}
 			options={TitleHeader(titles.course1.step2, DailyActivity.Activities)}
@@ -87,6 +97,18 @@ export default ({ navigation }) => (
 			name={Course1Step2Screens.Activities5}
 			component={Step2Activities5Screen}
 			options={TitleHeader(titles.course1.step2, DailyActivity.Activities)}
+		/>
+
+		<StepStack.Screen
+			name={Course1Step2Screens.Resources1}
+			component={Step2Resources1Screen}
+			options={CloseHeader(navigation)}
+		/>
+
+		<StepStack.Screen
+			name={Course1Step2Screens.Resources2}
+			component={Step2Resources2Screen}
+			options={CloseHeader(navigation)}
 		/>
 
 		<StepStack.Screen

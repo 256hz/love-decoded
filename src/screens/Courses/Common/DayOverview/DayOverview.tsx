@@ -6,6 +6,7 @@ import {
 	Course1Step1Screens,
 	Course1Step2Screens,
 	Course1Step3Screens,
+	Course1Step4Screens,
 } from 'route/Steps/Course1Screens';
 
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
@@ -36,6 +37,7 @@ const getDestinations = (currentCourseNumber: CourseNumber, currentStepNumber: S
 				case 1: return Course1Step1Screens;
 				case 2: return Course1Step2Screens;
 				case 3: return Course1Step3Screens;
+				case 4: return Course1Step4Screens;
 				default: return Course1Step1Screens;
 			}
 		}

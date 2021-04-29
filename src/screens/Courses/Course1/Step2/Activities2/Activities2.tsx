@@ -1,8 +1,9 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Course1Step2Screens } from 'route/Steps/Course1Screens';
-
+import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -11,7 +12,12 @@ import ListTextInput from '@elements/ListTextInput/ListTextInput';
 import styles from './Activities2.styles';
 
 export default () => {
+	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
+
+	const onPressInfoBubble = () => {
+		navigate(Course1Step2Screens.Resources1);
+	};
 
 	const situation1Response = useSelector(
 		getStepActivity(Courses.One, Steps.Two, Activities.Course1Step2Activity2a),
@@ -39,10 +45,18 @@ export default () => {
 				<View style={styles.container}>
 
 					<View style={styles.bodyContainer}>
-						<View style={styles.textItemContainer}>
-							<Text style={styles.bodyText}>
-								List 3 situations you messed up recently and got upset with yourself.
-							</Text>
+						<View style={styles.row}>
+							<View style={styles.textContainer}>
+								<Text style={styles.bodyText}>
+									List 3 situations you messed up recently and got upset with yourself.
+								</Text>
+							</View>
+
+							<TouchableOpacity onPress={onPressInfoBubble}>
+								<View>
+									<Info />
+								</View>
+							</TouchableOpacity>
 						</View>
 
 						<ListTextInput

@@ -12,11 +12,13 @@ export enum Course1Step1Screens {
 export enum Course1Step2Screens {
 	Intention = 'course1_step2_intention',
 	Activities1 = 'course1_step2_activities1',
+	Activities1B = 'course1_step2_activities1b',
 	Activities2 = 'course1_step2_activities2',
 	Activities3 = 'course1_step2_activities3',
 	Activities4 = 'course1_step2_activities4',
 	Activities5 = 'course1_step2_activities5',
-	Resources = 'course1_step2_resources',
+	Resources1 = 'course1_step2_resources1',
+	Resources2 = 'course1_step2_resources2',
 	Survey = 'course1_step2_survey',
 	Reflection = 'course1_step2_reflection',
 }
@@ -39,6 +41,7 @@ export enum Course1Step4Screens {
 	Activities4 = 'course1_step4_activities4',
 	Resources1 = 'course1_step4_resources1',
 	Resources2 = 'course1_step4_resources2',
+	Resources3 = 'course1_step4_resources3',
 	Survey = 'course1_step4_survey',
 	Reflection = 'course1_step4_reflection',
 	Visualization = 'course1_step4_Visualization',

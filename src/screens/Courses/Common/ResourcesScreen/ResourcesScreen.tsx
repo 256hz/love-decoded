@@ -8,8 +8,10 @@ import styles from './ResourcesScreen.styles';
 
 type Props = {
 	hideBackButton?: boolean;
+	hideNextButton?: boolean;
 	children: ReactChild;
 	closeTarget?: Screens;
+	onClose?: () => void;
 	navigation: any;
 	nextTarget?: Screens;
 	nextTitle?: string;
@@ -20,14 +22,16 @@ export default ({
 	children,
 	closeTarget,
 	hideBackButton,
+	hideNextButton,
+	onClose,
 	navigation,
 	nextTarget,
 	nextTitle,
 	scrollDisabled = false,
 }: Props) => {
 	useEffect(() => {
-		navigation.setOptions(CloseHeader(navigation, 'Resources', closeTarget));
-	}, [ navigation, closeTarget ]);
+		navigation.setOptions(CloseHeader(navigation, 'Resources', onClose));
+	}, [ navigation, closeTarget, onClose ]);
 
 	return (
 		<View style={styles.container}>
@@ -37,8 +41,13 @@ export default ({
 				{ children }
 			</CustomScrollView>
 
-			{ nextTarget
-				? <NavButtons nextTarget={nextTarget} nextTitle={nextTitle} hideBackButton={hideBackButton }/>
+			{ nextTarget != undefined
+				? <NavButtons
+					hideBackButton={hideBackButton}
+					hideNextButton={hideNextButton}
+					nextTarget={nextTarget}
+					nextTitle={nextTitle}
+				/>
 				: null
 			}
 		</View>

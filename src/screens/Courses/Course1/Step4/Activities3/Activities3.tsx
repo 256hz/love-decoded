@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { Course1Step3Screens } from 'route/Steps/Course1Screens';
-
+import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -13,11 +13,11 @@ import styles from './Activities3.styles';
 export default () => {
 	const dispatch = useDispatch();
 	const positiveResponse = useSelector(
-		getStepActivity(Courses.One, Steps.Two, Activities.Course1Step3Activity2),
+		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3),
 	);
 
-	const setResponse = (text: string, activity: Activities) => dispatch(
-		setStepActivityResponse(Courses.One, Steps.Three, activity, text),
+	const setResponse = (text: string) => dispatch(
+		setStepActivityResponse(Courses.One, Steps.Four, Activities.Course1Step4Activity3, text),
 	);
 
 	return (
@@ -38,7 +38,7 @@ export default () => {
 						<ListTextInput
 							containerStyle={styles.textInput}
 							text={positiveResponse}
-							setText={text => setResponse(text, Activities.Course1Step3Activity2)}
+							setText={setResponse}
 						/>
 					</View>
 				</View>
