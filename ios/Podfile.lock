@@ -269,14 +269,13 @@ PODS:
     - React-Core (= 0.63.3)
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
-  - RNAzureNotificationHub (0.9.5-Patched.1):
-    - React
-    - WindowsAzureMessaging
   - RNCAsyncStorage (1.12.1):
     - React-Core
   - RNCMaskedView (0.1.10):
     - React
   - RNCPicker (1.9.10):
+    - React-Core
+  - RNCPushNotificationIOS (1.8.0):
     - React-Core
   - RNGestureHandler (1.8.0):
     - React
@@ -292,7 +291,6 @@ PODS:
     - React
   - RNSVG (12.1.0):
     - React
-  - WindowsAzureMessaging (1.0.2)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -329,10 +327,10 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
-  - RNAzureNotificationHub (from `../node_modules/react-native-azurenotificationhub`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
+  - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -347,7 +345,6 @@ SPEC REPOS:
     - AppCenter
     - AppCenterReactNativeShared
     - boost-for-react-native
-    - WindowsAzureMessaging
 
 EXTERNAL SOURCES:
   appcenter-analytics:
@@ -412,14 +409,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
-  RNAzureNotificationHub:
-    :path: "../node_modules/react-native-azurenotificationhub"
   RNCAsyncStorage:
     :path: "../node_modules/@react-native-community/async-storage"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
+  RNCPushNotificationIOS:
+    :path: "../node_modules/@react-native-community/push-notification-ios"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReactNativeHapticFeedback:
@@ -472,10 +469,10 @@ SPEC CHECKSUMS:
   React-RCTText: 65a6de06a7389098ce24340d1d3556015c38f746
   React-RCTVibration: 8e9fb25724a0805107fc1acc9075e26f814df454
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
-  RNAzureNotificationHub: 2156d2840d249ba08cdc943bea4dd2b3d03ee12f
   RNCAsyncStorage: cb9a623793918c6699586281f0b51cbc38f046f9
   RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
   RNCPicker: 77183d9b1cd80ae55505322f8ad09ba0036e29ba
+  RNCPushNotificationIOS: 5b1cf9ad2aaa107ecb92d5d2d7005ba521b2b97a
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNReactNativeHapticFeedback: 653a8c126a0f5e88ce15ffe280b3ff37e1fbb285
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
@@ -483,7 +480,6 @@ SPEC CHECKSUMS:
   RNShare: 8af5349f05fc042d230674dd650d19789187ff9c
   RNSoundPlayer: fd4dbbff120c76f22718c4d831a13c40fc5e9efd
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
-  WindowsAzureMessaging: 3ec1c2ca507508e9595c34f6cf977e0c447fdd87
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
 
 PODFILE CHECKSUM: 6440973a22006a4bde2b4f58ba6865ca0331f4db

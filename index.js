@@ -3,8 +3,8 @@
  */
 
 import { AppRegistry } from 'react-native';
-import PushNotification from 'react-native-push-notification';
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import PushNotification from 'react-native-push-notification';
 import App from './App';
 // eslint-disable-next-line import/extensions
 import { name as appName } from './app.json';
