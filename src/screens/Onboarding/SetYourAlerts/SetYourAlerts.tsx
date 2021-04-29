@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
@@ -7,6 +8,7 @@ import { OnboardingScreen } from '@elements';
 import { AlertTime } from '@redux/types/alerts';
 import { setAlertTime } from '@redux/action';
 import { getAlertTime } from '@redux/selector';
+import { apiClient } from 'api/apiConfig';
 import styles from './SetYourAlerts.styles';
 
 type TimePickerProps = {
@@ -25,7 +27,22 @@ const TimePicker = ({
 	const dispatch = useDispatch();
 
 	const onSelectMinutes = (minutes: number) => {
+		console.log(minutes);
+		console.log(alertTime);
 		dispatch(setAlertTime(alertTime, minutes));
+		apiClient.post(
+			'/users/set_alert/',
+			{
+				alert_time: alertTime,
+				minutes: minutes,
+			},
+		)
+			.then((response) => {
+				console.log(response);
+			},
+			(error) => {
+				console.log(error);
+			});
 	};
 
 	return (

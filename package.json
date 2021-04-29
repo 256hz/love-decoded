@@ -28,6 +28,7 @@
     "react": "16.13.1",
     "react-native": "0.63.3",
     "react-native-contacts": "6.0.4",
+    "react-native-device-info": "^8.1.2",
     "react-native-gesture-handler": "1.8.0",
     "react-native-haptic-feedback": "1.11.0",
     "react-native-material-kit": "0.6.0-beta.1",

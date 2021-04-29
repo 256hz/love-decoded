@@ -138,7 +138,7 @@ export default () => {
 		)
 			.then((response) => {
 				console.log(response);
-				apiClient.defaults.headers.common.Authorization = `Bearer ${  response.data.access_token}`;
+				apiClient.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
 			},
 			(error) => {
 				console.log(error);

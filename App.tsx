@@ -1,5 +1,4 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
 // must be before React Native import
 import 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
@@ -8,7 +7,6 @@ import {
 	Platform,
 	StatusBar,
 } from 'react-native';
-
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootStack from 'route/RootStack';
 import getStore from 'redux/getStore';
@@ -17,24 +15,26 @@ import colors from 'elements/globalStyles/color';
 
 export const { store, persistor } = getStore();
 
-if (Platform.OS === 'android') {
-	StatusBar.setBackgroundColor(colors.GrayTransparent028);
-	StatusBar.setTranslucent(true);
-}
-export default class App extends Component {
 
-	render() {
+const App = () => {
 
-		return (
-			<Provider store={store}>
-				<PersistGate loading={null} persistor={persistor()}>
-					<SafeAreaProvider>
-						<StatusBar barStyle="dark-content" />
-						<RootStack />
-						<Modals />
-					</SafeAreaProvider>
-				</PersistGate>
-			</Provider>
-		);
+	if (Platform.OS === 'android') {
+		StatusBar.setBackgroundColor(colors.GrayTransparent028);
+		StatusBar.setTranslucent(true);
 	}
-}
+	return (
+		<Provider store={store}>
+			<PersistGate loading={null} persistor={persistor()}>
+				<SafeAreaProvider>
+					<StatusBar barStyle="dark-content" />
+					<RootStack />
+					<Modals />
+				</SafeAreaProvider>
+			</PersistGate>
+		</Provider>
+	);
+};
+
+export default App;
+
+
