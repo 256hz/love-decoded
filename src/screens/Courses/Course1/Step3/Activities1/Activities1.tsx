@@ -1,9 +1,7 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { Course1Step3Screens } from 'route/Steps/Course1Screens';
-import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -12,7 +10,6 @@ import ListTextInput from '@elements/ListTextInput/ListTextInput';
 import styles from './Activities1.styles';
 
 export default () => {
-	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 	const positiveResponse = useSelector(
 		getStepActivity(Courses.One, Steps.Three, Activities.Course1Step3Activity1),
@@ -21,10 +18,6 @@ export default () => {
 	const setResponse = (text: string, activity: Activities) => dispatch(
 		setStepActivityResponse(Courses.One, Steps.Three, activity, text),
 	);
-
-	const onPressInfoBubble = () => {
-		navigate(Course1Step3Screens.Resources);
-	};
 
 	return (
 		<StackKeyboardAvoidingView>
@@ -35,16 +28,10 @@ export default () => {
 			>
 				<View style={styles.container}>
 					<View style={styles.bodyContainer}>
-						<View style={[ styles.textItemContainer, styles.row ]}>
+						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
 								Write 2-3 unlovable behaviors you’d like to transform.
 							</Text>
-
-							<TouchableOpacity onPress={onPressInfoBubble}>
-								<View style={styles.infoBubble}>
-									<Info />
-								</View>
-							</TouchableOpacity>
 						</View>
 
 						<ListTextInput

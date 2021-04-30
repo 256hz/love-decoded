@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
@@ -33,9 +33,15 @@ export default () => {
 
 	const maxUserProgressNumbers = useSelector(getUserMaxProgressNumbers);
 
-	const [ destination, setDestination ] = useState<string>(`${course}${step}`);
+	const [ destination, setDestination ] = useState<string>();
+	const [ goDisabled, setGoDisabled ] = useState(true);
 
-	const placeholder = { label: 'Choose a Step', key: 'placeholder', color: colors.GrayAF };
+	const placeholder = {
+		label: 'Choose a Step',
+		key: 'placeholder',
+		color: colors.GrayAF,
+		value: undefined,
+	};
 
 	const dropdownChoices = getDropDownChoices(maxUserProgressNumbers);
 
@@ -75,13 +81,18 @@ export default () => {
 		navigate(stepEntryPoints[courseDestination]![stepDestination]!);
 	};
 
-	const goDisabled = (() => {
+	useEffect(() => {
+		if (!destination) {
+			setGoDisabled(true);
+			return;
+		}
+
 		const { courseNumber, stepNumber, dayNumber } = getDestinationFromString(destination);
 
-		return courseNumber === course
+		setGoDisabled(courseNumber === course
 			&& stepNumber === step
-			&& dayNumber === day;
-	})();
+			&& dayNumber === day);
+	}, [ course, day, step, destination, setGoDisabled ]);
 
 	return (
 		<View style={styles.container}>
@@ -102,12 +113,11 @@ export default () => {
 					ref={picker}
 					style={{
 						chevronContainer: styles.noChevron,
-						placeholder: styles.placeholderText,
 						inputIOS: styles.text,
 						inputAndroid: styles.text,
+						placeholder: styles.placeholderText,
 						viewContainer: styles.pickerContainer,
 					}}
-					// textInputProps={{ numberOfLines: 1 }}
 				/>
 
 				<View style={styles.chevronContainer}>

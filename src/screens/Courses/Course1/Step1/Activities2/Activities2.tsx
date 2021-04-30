@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Course1Step1Screens } from 'route/Steps/Course1Screens';
-
-
 import { useDispatch, useSelector } from 'react-redux';
 import { setStepActivityResponse } from 'redux/action';
 import { getStepActivity } from 'redux/selector';
@@ -12,6 +10,7 @@ import styles from './Activities2.styles';
 
 export default () => {
 	const dispatch = useDispatch();
+
 	const missingResponse = useSelector(
 		getStepActivity(Courses.One, Steps.One, Activities.Course1Step1Activity2a),
 	);

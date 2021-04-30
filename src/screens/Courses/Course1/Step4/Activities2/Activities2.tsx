@@ -1,9 +1,7 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { Course1Step4Screens } from 'route/Steps/Course1Screens';
-import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -12,12 +10,7 @@ import ListTextInput from '@elements/ListTextInput/ListTextInput';
 import styles from './Activities2.styles';
 
 export default () => {
-	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
-
-	const onPressInfoBubble = () => {
-		navigate(Course1Step4Screens.Resources1);
-	};
 
 	const positiveResponse = useSelector(
 		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity2),
@@ -40,10 +33,6 @@ export default () => {
 							<Text style={styles.bodyText}>
 								Select one unlovable behavior you’d like to transform and combine it with 2-3 of your lovable behaviors, ending the sentences with “…I like myself.”
 							</Text>
-
-							<TouchableOpacity onPress={onPressInfoBubble}>
-								<Info />
-							</TouchableOpacity>
 						</View>
 
 						<ListTextInput

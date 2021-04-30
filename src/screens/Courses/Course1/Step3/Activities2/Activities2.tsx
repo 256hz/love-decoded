@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { Course1Step3Screens } from 'route/Steps/Course1Screens';
-
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -12,6 +11,7 @@ import styles from './Activities2.styles';
 
 export default () => {
 	const dispatch = useDispatch();
+
 	const positiveResponse = useSelector(
 		getStepActivity(Courses.One, Steps.Three, Activities.Course1Step3Activity2),
 	);

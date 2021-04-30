@@ -9,7 +9,7 @@ import RootState from '@redux/RootState';
 import { setDaySurveyResponse } from '@redux/action';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { EndOfDaySurveys } from '@redux/types/survey';
-import { TitleWithProgressHeader } from '@elements/Header/HeaderOptions';
+import { TitleWithProgressHeader } from 'elements/Header/Headers';
 import NavButtons from '@elements/AudioPlayerNavigator/NavButtons';
 import styles from './SurveyScreen.styles';
 

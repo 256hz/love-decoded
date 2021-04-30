@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackArrow2 from '@assets/svg/back-arrow-2.svg';
-import styles from './BackButton.styles';
+import styles from './BackButtonHeader.styles';
 
 export default ({ navigation }) => {
 	return (

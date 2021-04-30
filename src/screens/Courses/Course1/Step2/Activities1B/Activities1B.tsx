@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { Course1Step2Screens } from 'route/Steps/Course1Screens';
-
 import { StackKeyboardAvoidingView, StepScreen } from '@elements';
 import styles from './Activities1B.styles';
 

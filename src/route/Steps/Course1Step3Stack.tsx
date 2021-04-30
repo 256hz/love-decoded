@@ -2,14 +2,14 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { CourseCommonScreens } from 'route/enums';
 import {
-	EmptyHeader,
 	BackHeader,
+	CloseHeader,
 	DrawerHeader,
+	EmptyHeader,
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
-	CloseHeader,
-} from '@elements/Header/HeaderOptions';
+} from '@elements/Header/Headers';
 
 import HomeScreen from 'screens/Courses/Tabs/Home';
 import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
@@ -28,78 +28,87 @@ import { Course1Step3Screens } from './Course1Screens';
 
 const StepStack = createStackNavigator();
 
-export default ({ navigation }) => (
-	<StepStack.Navigator
-		mode="card"
-		headerMode="float"
-		initialRouteName={CourseCommonScreens.Home}
-		screenOptions={{ headerStyle }}
-	>
-		<StepStack.Screen
-			name={CourseCommonScreens.Home}
-			component={HomeScreen}
-			options={{ ...DrawerHeader(navigation), gestureEnabled: false }}
-		/>
+export default ({ navigation }) => {
+	const ActivitiesHeader = () => TitleHeader(
+		DailyActivity.Activities,
+		titles.course1.step3,
+		navigation,
+		Course1Step3Screens.Resources,
+	);
 
-		<StepStack.Screen
-			name={CourseCommonScreens.DayOverview}
-			component={DayOverviewScreen}
-			options={BackHeader(navigation)}
-		/>
+	return (
+		<StepStack.Navigator
+			mode="card"
+			headerMode="float"
+			initialRouteName={CourseCommonScreens.Home}
+			screenOptions={{ headerStyle }}
+		>
+			<StepStack.Screen
+				name={CourseCommonScreens.Home}
+				component={HomeScreen}
+				options={{ ...DrawerHeader(navigation), gestureEnabled: false }}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Intention}
-			component={IntentionScreen}
-			options={TitleHeader(titles.course1.step3, DailyActivity.Intention)}
-		/>
+			<StepStack.Screen
+				name={CourseCommonScreens.DayOverview}
+				component={DayOverviewScreen}
+				options={BackHeader(navigation)}
+			/>
 
-		<StepStack.Screen
-			name={CourseCommonScreens.GoodJob}
-			component={GoodJobScreen}
-			options={EmptyHeader()}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Intention}
+				component={IntentionScreen}
+				options={TitleHeader(titles.course1.step3, DailyActivity.Intention)}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Activities1}
-			component={Step3Activities1Screen}
-			options={TitleHeader(titles.course1.step3, DailyActivity.Activities)}
-		/>
+			<StepStack.Screen
+				name={CourseCommonScreens.GoodJob}
+				component={GoodJobScreen}
+				options={EmptyHeader()}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Activities2}
-			component={Step3Activities2Screen}
-			options={TitleHeader(titles.course1.step3, DailyActivity.Activities)}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Activities1}
+				component={Step3Activities1Screen}
+				options={ActivitiesHeader()}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Activities3}
-			component={Step3Activities3Screen}
-			options={TitleHeader(titles.course1.step3, DailyActivity.Activities)}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Activities2}
+				component={Step3Activities2Screen}
+				options={ActivitiesHeader()}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Resources}
-			component={Step3ResourcesScreen}
-			options={CloseHeader(navigation)}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Activities3}
+				component={Step3Activities3Screen}
+				options={TitleHeader(DailyActivity.Activities, titles.course1.step3)}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Survey}
-			component={Step3SurveyScreen}
-			options={TitleWithProgressHeader(0, course1step3prompts.length, titles.course1.step3, DailyActivity.Survey)}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Resources}
+				component={Step3ResourcesScreen}
+				options={CloseHeader(navigation)}
+			/>
 
-		<StepStack.Screen
-			name={Course1Step3Screens.Reflection}
-			component={Step3ReflectionScreen}
-			options={TitleHeader(titles.course1.step3, DailyActivity.NightlyReflection)}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Survey}
+				component={Step3SurveyScreen}
+				options={TitleWithProgressHeader(0, course1step3prompts.length, titles.course1.step3, DailyActivity.Survey)}
+			/>
 
-		<StepStack.Screen
-			name={CourseCommonScreens.Congratulations}
-			component={CongratulationsScreen}
-			options={EmptyHeader()}
-		/>
+			<StepStack.Screen
+				name={Course1Step3Screens.Reflection}
+				component={Step3ReflectionScreen}
+				options={TitleHeader(titles.course1.step3, DailyActivity.NightlyReflection)}
+			/>
 
-	</StepStack.Navigator>
-);
+			<StepStack.Screen
+				name={CourseCommonScreens.Congratulations}
+				component={CongratulationsScreen}
+				options={EmptyHeader()}
+			/>
+
+		</StepStack.Navigator>
+	);
+};

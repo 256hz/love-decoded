@@ -1,9 +1,7 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { Course1Step2Screens } from 'route/Steps/Course1Screens';
-import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -12,12 +10,7 @@ import ListTextInput from '@elements/ListTextInput/ListTextInput';
 import styles from './Activities4.styles';
 
 export default () => {
-	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
-
-	const onPressInfoBubble = () => {
-		navigate(Course1Step2Screens.Resources1);
-	};
 
 	const positiveResponse = useSelector(
 		getStepActivity(Courses.One, Steps.Two, Activities.Course1Step2Activity4),
@@ -36,17 +29,12 @@ export default () => {
 			>
 				<View style={styles.container}>
 					<View style={styles.bodyContainer}>
-						<View style={styles.row}>
-							<View style={styles.textContainer}>
-								<Text style={styles.bodyText}>
-									Use the examples from the previous screen or take a situation and write a couple of short sentences that would have been more positive when talking to yourself.
-								</Text>
-							</View>
-
-							<TouchableOpacity onPress={onPressInfoBubble}>
-								<Info />
-							</TouchableOpacity>
+						<View style={styles.textContainer}>
+							<Text style={styles.bodyText}>
+								Use the examples from the previous screen or take a situation and write a couple of short sentences that would have been more positive when talking to yourself.
+							</Text>
 						</View>
+
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText} />
 						</View>

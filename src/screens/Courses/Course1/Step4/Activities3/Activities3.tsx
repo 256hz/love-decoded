@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { Course1Step3Screens } from 'route/Steps/Course1Screens';
-import Info from '@assets/svg/info.svg';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -12,6 +11,7 @@ import styles from './Activities3.styles';
 
 export default () => {
 	const dispatch = useDispatch();
+
 	const positiveResponse = useSelector(
 		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3),
 	);
@@ -31,7 +31,13 @@ export default () => {
 					<View style={styles.bodyContainer}>
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
-								Select one unlovable behavior you’d like to transform and combine it with 2-3 of your lovable behaviors, ending the sentences with “…I like myself.”
+								Clear vision is what you ideally want for every aspect of life, whether it is your relationship with yourself, other relationships, work, health, etc.
+							</Text>
+						</View>
+
+						<View style={styles.textItemContainer}>
+							<Text style={styles.bodyText}>
+								What is your unlovable behavior or the negative aspects of a situation you’d like to change?  Be very specific. Your vision will be the exact opposite.
 							</Text>
 						</View>
 

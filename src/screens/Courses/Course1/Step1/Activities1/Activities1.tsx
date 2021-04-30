@@ -1,9 +1,6 @@
 import React from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import Info from '@assets/svg/info.svg';
 import { Course1Step1Screens } from 'route/Steps/Course1Screens';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
@@ -12,7 +9,6 @@ import { ListTextInput, StackKeyboardAvoidingView, StepScreen } from '@elements'
 import styles from './Activities1.styles';
 
 export default () => {
-	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
 
 	const savedResponse = useSelector(
@@ -22,10 +18,6 @@ export default () => {
 	const setResponse = (text: string) => dispatch(
 		setStepActivityResponse(Courses.One, Steps.One, Activities.Course1Step1Activity1, text),
 	);
-
-	const onPressInfoBubble = () => {
-		navigate(Course1Step1Screens.Resources);
-	};
 
 	return (
 		<StackKeyboardAvoidingView>
@@ -46,16 +38,12 @@ export default () => {
 							<Text style={styles.bodyText}>
 								Keep adding to your list and learning it.
 							</Text>
-
-							<TouchableOpacity onPress={onPressInfoBubble}>
-								<View style={styles.infoBubble}>
-									<Info />
-								</View>
-							</TouchableOpacity>
 						</View>
 
 						<View style={[ styles.textItemContainer, styles.row ]}>
-							<Text style={styles.textNote}>Hit Enter to close the keyboard.</Text>
+							<Text style={styles.textNote}>
+								Hit Enter to close the keyboard.
+							</Text>
 						</View>
 
 						<ListTextInput
