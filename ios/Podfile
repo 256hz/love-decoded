@@ -7,12 +7,13 @@ target 'LoveDecoded' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
-	
 
   target 'LoveDecodedTests' do
     inherit! :complete
     # Pods for testing
   end
+
+	pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   # Enables Flipper.
   #

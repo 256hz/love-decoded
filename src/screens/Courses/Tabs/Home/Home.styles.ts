@@ -2,6 +2,8 @@ import colors from 'elements/globalStyles/color';
 import text from 'elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
+const PROGRESS_BAR_HEIGHT = 26;
+
 export default StyleSheet.create({
 	container: {
 		flex: 1,
@@ -44,16 +46,23 @@ export default StyleSheet.create({
 	},
 	emptyProgressBar: {
 		width: '100%',
-		height: 26,
+		height: PROGRESS_BAR_HEIGHT,
 		borderRadius: 6,
 		backgroundColor: colors.GrayF3,
 	},
-	progress: {
+	filledProgressContainer: {
 		position: 'absolute',
-		left: 0,
-		height: 26,
+		flexDirection: 'row',
+	},
+	progress: {
+		height: PROGRESS_BAR_HEIGHT,
 		borderRadius: 6,
 		backgroundColor: colors.Orange,
+		left: 0,
+	},
+	progressGradient: {
+		height: PROGRESS_BAR_HEIGHT,
+		width: 100,
 	},
 	buttonContainer: {
 		width: '100%',

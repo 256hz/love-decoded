@@ -20,6 +20,7 @@ const colors = {
 	OrangeLight: '#F6CEB2',
 	OrangeExtraLight: '#FEEBDC',
 	OrangeTransparent: 'rgba(241, 117, 27, 0.4)',
+	OrangeFullTransparent: '#F1751B00',
 	Pink: '#F41882',
 	PinkTransparent: '#F41882AA',
 	PinkVeryLightTransparent: 'rgba(255, 235, 245, 0.83)',
