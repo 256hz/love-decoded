@@ -21,6 +21,8 @@ export default StyleSheet.create({
 		marginTop: 8,
 	},
 	textInput: {
+		flex: 1,
+		minHeight: 150,
 		marginBottom: 16,
 	},
 });

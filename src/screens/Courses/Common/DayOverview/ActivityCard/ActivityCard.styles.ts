@@ -1,14 +1,28 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
+import { PADDING } from '../DayOverview.styles';
+
+const CARD_HEIGHT = 103;
 
 export default StyleSheet.create({
+	areaContainer: {
+		flex: 1,
+		flexDirection: 'row',
+	},
+	activeLeftBorder: {
+		left: PADDING * -1,
+		height: CARD_HEIGHT,
+		width: 0,
+		borderRightWidth: 2,
+		borderRightColor: colors.Pink,
+	},
 	container: {
+		width: Dimensions.get('window').width - 48 - PADDING,
+		height: CARD_HEIGHT,
 		backgroundColor: colors.White,
-		marginLeft: 16,
-		marginRight: 16,
+		marginHorizontal: 16,
 		marginBottom: 24,
-		height: 103,
 		padding: 16,
 		justifyContent: 'space-between',
 		shadowRadius: 4,
@@ -23,7 +37,7 @@ export default StyleSheet.create({
 	},
 	completeContainer: {},
 	activeContainer: {
-		marginLeft: 32,
+		marginLeft: 28,
 		marginRight: 0,
 	},
 	futureContainer: {

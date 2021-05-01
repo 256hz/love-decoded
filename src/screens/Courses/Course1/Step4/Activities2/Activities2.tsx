@@ -12,8 +12,12 @@ import styles from './Activities2.styles';
 export default () => {
 	const dispatch = useDispatch();
 
-	const positiveResponse = useSelector(
-		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity2),
+	const selfNow = useSelector(
+		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity2a),
+	);
+
+	const visionForSelf = useSelector(
+		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity2b),
 	);
 
 	const setResponse = (text: string, activity: Activities) => dispatch(
@@ -31,15 +35,28 @@ export default () => {
 					<View style={styles.bodyContainer}>
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
-								Select one unlovable behavior you’d like to transform and combine it with 2-3 of your lovable behaviors, ending the sentences with “…I like myself.”
+								Write down exactly what your ideal Self or ideal situation would be – again, be very specific. This is the Vision you will be using – visions are our GPS, our road maps.
 							</Text>
 						</View>
 
 						<ListTextInput
 							containerStyle={styles.textInput}
-							text={positiveResponse}
-							setText={text => setResponse(text, Activities.Course1Step4Activity2)}
+							text={selfNow}
+							setText={text => setResponse(text, Activities.Course1Step4Activity2a)}
 						/>
+
+						<View style={styles.textItemContainer}>
+							<Text style={styles.bodyText}>
+								Start by applying vision to yourself. Write one characteristic you’d like to change to make you feel better about yourself.
+							</Text>
+						</View>
+
+						<ListTextInput
+							containerStyle={styles.textInput}
+							text={visionForSelf}
+							setText={text => setResponse(text, Activities.Course1Step4Activity2b)}
+						/>
+
 					</View>
 				</View>
 			</StepScreen>

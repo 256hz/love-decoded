@@ -4,7 +4,7 @@ import { Course1Step4Screens } from 'route/Steps/Course1Screens';
 import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import styles from './Resources1.styles';
 
-const listItems = [
+const statements = [
 	'1. I would like to become aware of my own and others’ unloving, conditional behaviors as well as loving, unconditional behaviors.',
 	'2. I would like to learn to love unconditionally.',
 	'3. I want to know how to accept others’ loving energy even when I am angry.',
@@ -28,7 +28,7 @@ export default ({ navigation }) => {
 					</Text>
 				</View>
 
-				{ listItems.map(item => (
+				{ statements.map(item => (
 					<View style={styles.listTextItem} key={item}>
 						<Text style={styles.itemText}>
 							{item}

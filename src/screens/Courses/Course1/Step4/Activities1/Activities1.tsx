@@ -12,7 +12,7 @@ import styles from './Activities1.styles';
 export default () => {
 	const dispatch = useDispatch();
 
-	const positiveResponse = useSelector(
+	const response = useSelector(
 		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity1),
 	);
 
@@ -31,13 +31,19 @@ export default () => {
 					<View style={styles.bodyContainer}>
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
-								Write 2-3 unlovable behaviors you’d like to transform.
+								Clear vision is what you ideally want for every aspect of life, whether it is your relationship with yourself, other relationships, work, health, etc.
+							</Text>
+						</View>
+
+						<View style={styles.textItemContainer}>
+							<Text style={styles.bodyText}>
+								What is your unlovable behavior or the negative aspects of a situation you’d like to change?  Be very specific. Your vision will be the exact opposite.
 							</Text>
 						</View>
 
 						<ListTextInput
 							containerStyle={styles.textInput}
-							text={positiveResponse}
+							text={response}
 							setText={setResponse}
 						/>
 					</View>

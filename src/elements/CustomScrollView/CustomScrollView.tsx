@@ -3,19 +3,44 @@ import React, {
 	useRef,
 	useState,
 } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import DownArrow from '@assets/svg/down-arrow.svg';
 import colors from '@elements/globalStyles/color';
 import styles from './CustomScrollView.styles';
 
-type Props = {
+type ScrollWrapperProps = {
+	children: ReactChild,
+	indicatorArrowColor?: string;
+	indicatorBackgroundColor?: string;
+	scrollDisabled: boolean,
+};
+
+export default ({
+	children,
+	indicatorArrowColor,
+	indicatorBackgroundColor,
+	scrollDisabled,
+}: ScrollWrapperProps) => (
+	scrollDisabled
+		? <View style={styles.childrenContainer}>
+			{children}
+		</View>
+		: <CustomScrollView
+			indicatorArrowColor={indicatorArrowColor}
+			indicatorBackgroundColor={indicatorBackgroundColor}
+		>
+			{children}
+		</CustomScrollView>
+);
+
+type CustomScrollViewProps = {
 	children: ReactChild,
 	indicatorArrowColor?: string;
 	indicatorBackgroundColor?: string;
 };
 
-const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundColor }: Props) => {
+const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundColor }: CustomScrollViewProps) => {
 	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
 
 	const scrollViewRef = useRef<ScrollView>(null);
@@ -60,29 +85,6 @@ const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundCo
 	);
 };
 
-type ScrollWrapperProps = {
-	children: ReactChild,
-	indicatorArrowColor?: string;
-	indicatorBackgroundColor?: string;
-	scrollDisabled: boolean,
-};
-
-export default ({
-	children,
-	indicatorArrowColor,
-	indicatorBackgroundColor,
-	scrollDisabled,
-}: ScrollWrapperProps) => (
-	scrollDisabled
-		? <View style={styles.childrenContainer}>{children}</View>
-		: <CustomScrollView
-			indicatorArrowColor={indicatorArrowColor}
-			indicatorBackgroundColor={indicatorBackgroundColor}
-		>
-			{children}
-		</CustomScrollView>
-);
-
 type ScrollIndicatorProps = {
 	arrowColor?: string;
 	backgroundColor?: string;
@@ -91,7 +93,7 @@ type ScrollIndicatorProps = {
 
 const ScrollIndicator = ({
 	arrowColor = colors.Gray92,
-	backgroundColor,
+	backgroundColor = Platform.select({ ios: colors.WhiteTransparent, android: colors.GrayF3 }),
 	scrollToBottom,
 }: ScrollIndicatorProps) => (
 	<View style={styles.scrollIndicatorContainer}>

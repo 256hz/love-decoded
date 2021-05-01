@@ -20,33 +20,36 @@ type Props = {
 
 export default ({ onPress, title, subtitle, status }: Props) => {
 	return (
-		<TouchableOpacity onPress={onPress} disabled={status !== ActivityStatus.Active}>
-			<View style={[ styles.container, styles[`${status}Container`] ]}>
-				<View style={styles.topContainer}>
-					<View style={styles.topInnerContainer}>
-						<View style={[ styles.topSquare, styles[`${status}TopSquare`] ]} />
+		<View style={styles.areaContainer}>
+			{ status === ActivityStatus.Active && <View style={styles.activeLeftBorder} /> }
+			<TouchableOpacity onPress={onPress} disabled={status !== ActivityStatus.Active}>
+				<View style={[ styles.container, styles[`${status}Container`] ]}>
+					<View style={styles.topContainer}>
+						<View style={styles.topInnerContainer}>
+							<View style={[ styles.topSquare, styles[`${status}TopSquare`] ]} />
 
-						<View>
-							<Text style={[ styles.cardTitleText, styles[`${status}CardTitleText`] ]}>
-								{title}
-							</Text>
-
-							<View style={styles.subtitleContainer}>
-								<Clock />
-
-								<Text style={styles.subtitleText}>
-									{subtitle}
+							<View>
+								<Text style={[ styles.cardTitleText, styles[`${status}CardTitleText`] ]}>
+									{title}
 								</Text>
+
+								<View style={styles.subtitleContainer}>
+									<Clock />
+
+									<Text style={styles.subtitleText}>
+										{subtitle}
+									</Text>
+								</View>
 							</View>
 						</View>
+
+						<View style={[ styles.circle, styles[`${status}Circle`] ]} />
 					</View>
 
-					<View style={[ styles.circle, styles[`${status}Circle`] ]} />
+					<View style={[ styles.progressBar, styles[`${status}ProgressBar`] ]} />
 				</View>
-
-				<View style={[ styles.progressBar, styles[`${status}ProgressBar`] ]} />
-			</View>
-		</TouchableOpacity>
+			</TouchableOpacity>
+		</View>
 	);
 };
 

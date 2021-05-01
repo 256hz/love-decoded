@@ -40,7 +40,6 @@ export default ({
 			<View style={styles.middleContainer}>
 				<CustomScrollView
 					indicatorArrowColor={colors.Gray62}
-					indicatorBackgroundColor={Platform.select({ ios: colors.WhiteTransparent, android: colors.GrayF3 })}
 					scrollDisabled={scrollDisabled}
 				>
 					{children}

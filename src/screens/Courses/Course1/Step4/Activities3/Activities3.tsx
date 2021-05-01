@@ -12,12 +12,16 @@ import styles from './Activities3.styles';
 export default () => {
 	const dispatch = useDispatch();
 
-	const positiveResponse = useSelector(
-		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3),
+	const situationNow = useSelector(
+		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3a),
 	);
 
-	const setResponse = (text: string) => dispatch(
-		setStepActivityResponse(Courses.One, Steps.Four, Activities.Course1Step4Activity3, text),
+	const visionForSituation = useSelector(
+		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3b),
+	);
+
+	const setResponse = (text: string, activity: Activities) => dispatch(
+		setStepActivityResponse(Courses.One, Steps.Four, activity, text),
 	);
 
 	return (
@@ -31,9 +35,15 @@ export default () => {
 					<View style={styles.bodyContainer}>
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
-								Clear vision is what you ideally want for every aspect of life, whether it is your relationship with yourself, other relationships, work, health, etc.
+								Write down exactly what your ideal Self or ideal situation would be – again, be very specific. This is the Vision you will be using – visions are our GPS, our road maps
 							</Text>
 						</View>
+
+						<ListTextInput
+							containerStyle={styles.textInput}
+							text={situationNow}
+							setText={text => setResponse(text, Activities.Course1Step4Activity3a)}
+						/>
 
 						<View style={styles.textItemContainer}>
 							<Text style={styles.bodyText}>
@@ -43,9 +53,10 @@ export default () => {
 
 						<ListTextInput
 							containerStyle={styles.textInput}
-							text={positiveResponse}
-							setText={setResponse}
+							text={visionForSituation}
+							setText={text => setResponse(text, Activities.Course1Step4Activity3b)}
 						/>
+
 					</View>
 				</View>
 			</StepScreen>

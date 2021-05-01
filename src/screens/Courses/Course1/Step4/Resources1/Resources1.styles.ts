@@ -3,10 +3,11 @@ import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	container: {
+		// maxHeight: '100%',
 		flex: 1,
+		padding: 23,
 	},
 	subtitleContainer: {
-		paddingHorizontal: 24,
 	},
 	subtitleText: {
 		...text.body,
@@ -17,7 +18,7 @@ export default StyleSheet.create({
 	listTextItem: {
 		...text.body,
 		textAlign: 'center',
-		marginVertical: 12,
+		marginVertical: 9,
 	},
 	itemText: {
 		...text.body,

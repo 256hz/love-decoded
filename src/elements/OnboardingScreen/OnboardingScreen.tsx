@@ -72,7 +72,6 @@ export default ({
 						{/* screen contents */}
 						<CustomScrollView
 							indicatorArrowColor={colors.Gray92}
-							indicatorBackgroundColor={Platform.select({ android: colors.GrayF3, ios: colors.WhiteTransparent })}
 							scrollDisabled={scrollDisabled}
 						>
 							{children}

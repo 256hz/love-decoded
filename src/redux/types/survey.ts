@@ -53,8 +53,10 @@ export enum Activities {
 	Course1Step3Activity2 = 'course1_step3_activity2',
 	// Course 1, Step 4
 	Course1Step4Activity1 = 'course1_step4_activity1',
-	Course1Step4Activity2 = 'course1_step4_activity2',
-	Course1Step4Activity3 = 'course1_step4_activity3',
+	Course1Step4Activity2a = 'course1_step4_activity2a',
+	Course1Step4Activity2b = 'course1_step4_activity2b',
+	Course1Step4Activity3a = 'course1_step4_activity3a',
+	Course1Step4Activity3b = 'course1_step4_activity3b',
 	Course1Step4Resources3 = 'course1_step4_resources3',
 }
 
