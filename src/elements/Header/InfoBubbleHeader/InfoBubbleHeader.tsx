@@ -1,12 +1,17 @@
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Info from '@assets/svg/info.svg';
 import styles from './InfoBubbleHeader.styles';
 
 export default ({ navigation, infoBubbleTarget }) => {
+	const onPress = () => {
+		navigation.navigate(infoBubbleTarget);
+	};
+
 	return infoBubbleTarget !== undefined
 		? (
-			<TouchableOpacity onPress={() => navigation.navigate(infoBubbleTarget)}>
+			<TouchableOpacity onPress={onPress}>
 				<View style={styles.container}>
 					<Info />
 				</View>

@@ -8,12 +8,10 @@ import {
 	Course1Step3Screens,
 	Course1Step4Screens,
 } from 'route/Steps/Course1Screens';
-
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
 import { Activity, CourseNumber, StepNumber } from '@redux/types/user';
 import { DailyActivity, titles } from '@util/titles';
 import { StepScreen } from '@elements';
-
 import { ActivityStatus } from './ActivityCard/ActivityCard';
 import ActivityCard from './ActivityCard';
 import styles from './DayOverview.styles';
@@ -30,7 +28,7 @@ const getStatus = (currentActivity: Activity, thisActivity: Activity) => {
 	}
 };
 
-const getDestinations = (currentCourseNumber: CourseNumber, currentStepNumber: StepNumber) => {
+const getNavigationStack = (currentCourseNumber: CourseNumber, currentStepNumber: StepNumber) => {
 	switch (currentCourseNumber) {
 		case 1: {
 			switch (currentStepNumber) {
@@ -61,7 +59,7 @@ export default () => {
 
 	const title = titles[currentCourse][currentStep];
 
-	const CourseStepScreens = getDestinations(currentCourseNumber, currentStepNumber);
+	const CourseStepScreens = getNavigationStack(currentCourseNumber, currentStepNumber);
 
 	return (
 		<StepScreen>

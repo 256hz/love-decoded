@@ -3,7 +3,7 @@ import React, {
 	useRef,
 	useState,
 } from 'react';
-import { View, TouchableOpacity, Platform } from 'react-native';
+import { View, Pressable, Platform } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import DownArrow from '@assets/svg/down-arrow.svg';
 import colors from '@elements/globalStyles/color';
@@ -59,7 +59,7 @@ const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundCo
 
 	const triggerOnScroll = () => {
 		scrollViewRef.current?.scrollTo({ y: 1, animated: false });
-		scrollViewRef.current?.scrollTo({ y: 0, animated: false });
+		// scrollViewRef.current?.scrollTo({ y: 0, animated: false });
 	};
 
 	return (
@@ -97,11 +97,11 @@ const ScrollIndicator = ({
 	scrollToBottom,
 }: ScrollIndicatorProps) => (
 	<View style={styles.scrollIndicatorContainer}>
-		<TouchableOpacity onPress={scrollToBottom}>
+		<Pressable onPressIn={scrollToBottom} hitSlop={23}>
 			<View style={[ styles.scrollIndicator, { backgroundColor } ]}>
 				<DownArrow fill={arrowColor} />
 			</View>
-		</TouchableOpacity>
+		</Pressable>
 	</View>
 );
 

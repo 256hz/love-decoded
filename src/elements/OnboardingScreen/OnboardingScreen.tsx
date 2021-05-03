@@ -16,6 +16,7 @@ type Props = {
 	customBottomSection?: ReactChild,
 	drawShapes?: number[];
 	hideBackButton?: boolean;
+	hideBackgroundImage?: boolean;
 	hideNextButton?: boolean;
 	scrollDisabled?: boolean;
 	showLogo?: boolean;
@@ -32,6 +33,7 @@ export default ({
 	customButtons,
 	drawShapes,
 	hideBackButton,
+	hideBackgroundImage,
 	hideNextButton,
 	onAudioEnd,
 	onPressNext,
@@ -47,7 +49,7 @@ export default ({
 	return (
 		<View style={styles.container}>
 			{/* Background image/shapes */}
-			<BackgroundFade drawShapes={drawShapes}>
+			<BackgroundFade drawShapes={drawShapes} hideBackgroundImage={hideBackgroundImage}>
 				<SafeAreaView style={styles.screenContainer}>
 					<View style={styles.container}>
 						{ showLogo

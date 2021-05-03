@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	tabBar: {
-		height: 100,
+		height: 75,
 		paddingVertical: 6,
 		paddingRight: 16,
 		borderColor: colors.GrayButton,

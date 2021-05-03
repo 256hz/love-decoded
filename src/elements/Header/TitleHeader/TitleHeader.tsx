@@ -10,7 +10,6 @@ type Props = {
 };
 
 export default ({ title, subtitle, activeProgressDot, totalProgressDots }: Props) => {
-	console.log({ subtitle });
 	return (
 		<View style={styles.headerContainer}>
 			<ProgressDots activeProgressDot={activeProgressDot} totalProgressDots={totalProgressDots} />

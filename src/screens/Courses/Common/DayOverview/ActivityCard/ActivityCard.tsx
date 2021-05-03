@@ -22,6 +22,7 @@ export default ({ onPress, title, subtitle, status }: Props) => {
 	return (
 		<View style={styles.areaContainer}>
 			{ status === ActivityStatus.Active && <View style={styles.activeLeftBorder} /> }
+
 			<TouchableOpacity onPress={onPress} disabled={status !== ActivityStatus.Active}>
 				<View style={[ styles.container, styles[`${status}Container`] ]}>
 					<View style={styles.topContainer}>

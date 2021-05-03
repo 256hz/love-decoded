@@ -8,7 +8,7 @@ import {
 	UserProperty,
 } from '@redux/types/user';
 import {
-	advanceUserActivity as advanceUserProgress,
+	advanceUserProgress,
 	logOut,
 	logIn,
 	setUserProperty,

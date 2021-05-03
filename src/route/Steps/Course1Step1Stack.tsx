@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { CourseCommonScreens } from 'route/enums';
+import { CourseCommonScreens, RootStacks } from 'route/enums';
 import { DailyActivity, titles } from '@util/titles';
 import {
 	BackHeader,
@@ -106,12 +106,6 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step1Screens.Visualization}
 				component={Step1VisualizationScreen}
-				options={EmptyHeader()}
-			/>
-
-			<StepStack.Screen
-				name={CourseCommonScreens.Congratulations}
-				component={CongratulationsScreen}
 				options={EmptyHeader()}
 			/>
 

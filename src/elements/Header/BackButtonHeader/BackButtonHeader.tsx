@@ -6,7 +6,7 @@ import styles from './BackButtonHeader.styles';
 
 export default ({ navigation }) => {
 	return (
-		<TouchableOpacity onPress={navigation?.goBack}>
+		<TouchableOpacity onPress={navigation.goBack}>
 			<View style={styles.container}>
 				<BackArrow2 />
 			</View>

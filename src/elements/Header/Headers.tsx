@@ -37,7 +37,6 @@ export const TitleHeader = (title: string, subtitle?: string, navigation?: any, 
 	headerTitle: () => <></>,
 	headerRight: () => <InfoBubble navigation={navigation} infoBubbleTarget={infoBubbleTarget} />,
 	headerTitleContainerStyle: styles.emptyContainer,
-	headerRightContainerStyle: styles.emptyContainer,
 	headerStyle: [ titleStyles.titleHeader, styles.removeBottomBorder ],
 });
 

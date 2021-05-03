@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
 	container: {
 		height: '100%',
-		alignItems: 'flex-end',
+		justifyContent: 'flex-start',
 		padding: 23,
 	},
 });

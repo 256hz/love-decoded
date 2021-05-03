@@ -6,19 +6,32 @@ import styles from './BackgroundFade.styles';
 interface Props {
 	children: ReactChild;
 	drawShapes?: number[];
+	hideBackgroundImage?: boolean;
 }
 
-export default ({ children = <></>, drawShapes = [] }: Props) => (
-	<>
-		<ImageBackground
-			source={require('@assets/png/onboarding-background.png')}
-			style={styles.background}
-			resizeMode="cover"
-		>
-			<BackgroundShape drawShapes={drawShapes} />
-			<View style={styles.children}>
-				{children}
+export default ({ children = <></>, drawShapes = [], hideBackgroundImage }: Props) =>
+	hideBackgroundImage
+		? (
+			<View style={styles.backgroundColorOnly}>
+				<BackgroundShape drawShapes={drawShapes} />
+
+				<View style={styles.children}>
+					{children}
+				</View>
 			</View>
-		</ImageBackground>
-	</>
-);
+		)
+		: (
+			<>
+				<ImageBackground
+					source={require('@assets/png/onboarding-background.png')}
+					style={styles.background}
+					resizeMode="cover"
+				>
+					<BackgroundShape drawShapes={drawShapes} />
+
+					<View style={styles.children}>
+						{children}
+					</View>
+				</ImageBackground>
+			</>
+		);

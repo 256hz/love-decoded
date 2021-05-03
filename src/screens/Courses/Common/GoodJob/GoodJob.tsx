@@ -6,7 +6,7 @@ import { CourseCommonScreens } from 'route/enums';
 import Check from '@assets/svg/checkmark.svg';
 import { Activity } from '@redux/types/user';
 import { getUserProgress } from '@redux/selector';
-import { advanceUserActivity } from '@redux/action';
+import { advanceUserProgress } from '@redux/action';
 import styles from './GoodJob.styles';
 
 const completedActivity = {
@@ -44,7 +44,7 @@ export default () => {
 		: `Your ${nextActivityText} Alert will signal the next interaction.`;
 
 	const onPressScreen = () => {
-		dispatch(advanceUserActivity());
+		dispatch(advanceUserProgress());
 		navigate(completedFullDay ? CourseCommonScreens.Congratulations : CourseCommonScreens.Home);
 	};
 

@@ -3,14 +3,13 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Logo from '@assets/svg/logo.svg';
 import { CourseCommonScreens, stepEntryPoints } from 'route/enums';
-import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
-import { BackgroundShape } from '@elements/OnboardingScreen/BackgroundShape';
-import { DayNumber, StepNumber } from 'redux/types/user';
+import Logo from '@assets/svg/logo.svg';
 import { titles } from '@util/titles';
-import { Courses, Steps } from 'redux/types/survey';
+import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
+import { DayNumber, StepNumber } from '@redux/types/user';
+import { Courses, Steps } from '@redux/types/survey';
+import { OnboardingScreen } from '@elements';
 import styles from './Congratulations.styles';
 
 export default () => {
@@ -19,12 +18,19 @@ export default () => {
 	const { currentCourse, currentStep } = useSelector(getUserProgress);
 	const { currentStepNumber, currentDayNumber } = useSelector(getUserProgressNumbers);
 
-	// At this screen, the user's progress has already been advanced.
+	// At this screen, the user's progress has already been advanced, so if currentDayNumber is 1, they are on a new step.
 	const isSameStep = currentDayNumber !== 1;
 
 	const ScreenContent = () => isSameStep
-		? <SimpleCongratulations currentStepNumber={currentStepNumber} currentDayNumber={currentDayNumber} />
-		: <WaitOneWeek currentCourse={currentCourse} newStep={currentStep} newStepNumber={currentStepNumber} />;
+		? <DayCongratulations
+			currentStepNumber={currentStepNumber}
+			currentDayNumber={currentDayNumber}
+		/>
+		: <StepCongratulations
+			currentCourse={currentCourse}
+			newStep={currentStep}
+			newStepNumber={currentStepNumber}
+		/>;
 
 	const buttonText = isSameStep
 		? `Start Day ${currentDayNumber}`
@@ -35,35 +41,52 @@ export default () => {
 		: stepEntryPoints[currentCourse]![currentStep]!);
 
 	return (
-		<View style={styles.container}>
-			<BackgroundShape drawShapes={[ 26, 27 ]} />
-			<SafeAreaView style={styles.contentContainer}>
+		<OnboardingScreen
+			customButtons={<></>}
+			drawShapes={[ 26, 27 ]}
+			hideBackgroundImage
+		>
+			<View style={styles.contentContainer}>
 				<Logo />
 
-				<View>
-					<ScreenContent />
+				{ isSameStep
+					? (
+						<>
+							<View>
+								<ScreenContent />
+								<NextButton buttonText={buttonText} onPress={onPress} />
+							</View>
 
-					<TouchableOpacity onPress={onPress}>
-						<View style={styles.buttonContainer}>
-							<Text style={styles.buttonText}>
-								{buttonText}
-							</Text>
-						</View>
-					</TouchableOpacity>
-				</View>
-
-				<View />
-			</SafeAreaView>
-		</View>
+							<View />
+						</>
+					)
+					: (
+						<>
+							<ScreenContent />
+							<NextButton buttonText={buttonText} onPress={onPress} />
+						</>
+					)}
+			</View>
+		</OnboardingScreen>
 	);
 };
+
+const NextButton = ({ buttonText, onPress }) => (
+	<TouchableOpacity onPress={onPress}>
+		<View style={styles.buttonContainer}>
+			<Text style={styles.buttonText}>
+				{buttonText}
+			</Text>
+		</View>
+	</TouchableOpacity>
+);
 
 type SimpleCongratulationsProps = {
 	currentStepNumber: StepNumber;
 	currentDayNumber: DayNumber;
 };
 
-const SimpleCongratulations = ({ currentStepNumber, currentDayNumber }: SimpleCongratulationsProps) => (
+const DayCongratulations = ({ currentStepNumber, currentDayNumber }: SimpleCongratulationsProps) => (
 	<Text style={styles.congratulationsText}>
 		{`Congratulations! You\'ve\nCompleted Step ${currentStepNumber}, Day ${currentDayNumber - 1}.`}
 	</Text>
@@ -75,7 +98,7 @@ type WaitOneWeekProps = {
 	newStepNumber: StepNumber;
 };
 
-const WaitOneWeek = ({ currentCourse, newStep, newStepNumber }: WaitOneWeekProps) => (
+const StepCongratulations = ({ currentCourse, newStep, newStepNumber }: WaitOneWeekProps) => (
 	<View style={styles.waitContainer}>
 		<Text style={styles.waitText}>
 			Behavioral science requires that we give you at least one week to review this week’s content, add to your list, share your list and journey with others.

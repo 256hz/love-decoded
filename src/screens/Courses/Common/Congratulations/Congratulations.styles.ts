@@ -4,21 +4,24 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	container: {
+		// ...StyleSheet.absoluteFillObject,
 		flex: 1,
 		backgroundColor: colors.OrangeExtraLight,
 	},
 	waitContainer: {
 		flex: 1,
 		justifyContent: 'space-around',
+		// paddingVertical: 23,
 	},
 	waitText: {
 		...text.body,
 	},
 	contentContainer: {
-		...StyleSheet.absoluteFillObject,
+		// ...StyleSheet.absoluteFillObject,
+		flex: 1,
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		padding: 41,
+		// padding: 23,
 	},
 	congratulationsText: {
 		...text.body,
@@ -34,8 +37,8 @@ export default StyleSheet.create({
 		borderRadius: 6,
 		justifyContent: 'center',
 		alignItems: 'center',
-		alignSelf: 'center',
-		marginVertical: 24,
+		// alignSelf: 'center',
+		marginVertical: 23,
 		shadowRadius: 4,
 		shadowOpacity: 0.25,
 		shadowColor: colors.Gray33,

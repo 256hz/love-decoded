@@ -29,6 +29,7 @@ export default () => {
 		currentCourseNumber: course,
 		currentStepNumber: step,
 		currentDayNumber: day,
+		currentActivityNumber: activity,
 	} = useSelector(getUserProgressNumbers);
 
 	const maxUserProgressNumbers = useSelector(getUserMaxProgressNumbers);
@@ -87,11 +88,12 @@ export default () => {
 			return;
 		}
 
-		const { courseNumber, stepNumber, dayNumber } = getDestinationFromString(destination);
+		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
 
 		setGoDisabled(courseNumber === course
 			&& stepNumber === step
-			&& dayNumber === day);
+			&& dayNumber === day
+			&& activityNumber === activity);
 	}, [ course, day, step, destination, setGoDisabled ]);
 
 	return (
