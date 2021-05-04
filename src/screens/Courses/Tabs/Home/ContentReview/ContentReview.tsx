@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import RNPickerSelect, { Item } from 'react-native-picker-select';
 import { stepEntryPoints } from 'route/enums';
@@ -88,13 +88,18 @@ export default () => {
 			return;
 		}
 
-		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
+		const {
+			courseNumber,
+			stepNumber,
+			dayNumber,
+			activityNumber,
+		} = getDestinationFromString(destination);
 
 		setGoDisabled(courseNumber === course
 			&& stepNumber === step
 			&& dayNumber === day
 			&& activityNumber === activity);
-	}, [ course, day, step, destination, setGoDisabled ]);
+	}, [ activity, course, day, step, destination, setGoDisabled ]);
 
 	return (
 		<View style={styles.container}>
@@ -122,9 +127,9 @@ export default () => {
 					}}
 				/>
 
-				<View style={styles.chevronContainer}>
+				<Pressable style={styles.chevronContainer} onPress={() => picker.current?.togglePicker(true)}>
 					<DownArrow2 />
-				</View>
+				</Pressable>
 			</View>
 
 			<View style={styles.buttonRowContainer}>
@@ -158,7 +163,7 @@ const getDropDownChoices = (maxUserProgress) => {
 		(DEMO_MODE || maxDayNumber > 3 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
 		(DEMO_MODE || maxDayNumber > 4 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
 		(DEMO_MODE || maxDayNumber > 5 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
-		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1171', key: '1171' },
+		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 7', value: '1111', key: '1111' },
 		(DEMO_MODE || maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
 		(DEMO_MODE || maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
 		(DEMO_MODE || maxStepNumber > 3 || maxCourseNumber > 1) && { label: `Step 4: ${titles.course1.step4}`, value: '1411', key: '1411' },

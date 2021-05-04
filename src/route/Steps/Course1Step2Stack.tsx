@@ -25,7 +25,6 @@ import Step2Resources1Screen from '@screens/Courses/Course1/Step2/Resources1';
 import Step2Resources2Screen from '@screens/Courses/Course1/Step2/Resources2';
 import Step2SurveyScreen from '@screens/Courses/Course1/Step2/Survey';
 import Step2ReflectionScreen from '@screens/Courses/Course1/Step2/Reflection';
-import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
 import { DailyActivity, titles } from '@util/titles';
 import { course1step2prompts } from 'screens/Courses/Course1/Step2/Survey/Survey';
 import { Course1Step2Screens } from './Course1Screens';
@@ -129,12 +128,6 @@ export default ({ navigation }) => {
 				name={Course1Step2Screens.Reflection}
 				component={Step2ReflectionScreen}
 				options={TitleHeader(titles.course1.step2, DailyActivity.NightlyReflection)}
-			/>
-
-			<StepStack.Screen
-				name={CourseCommonScreens.Congratulations}
-				component={CongratulationsScreen}
-				options={EmptyHeader()}
 			/>
 
 		</StepStack.Navigator>

@@ -28,9 +28,6 @@ export default StyleSheet.create({
 	textInputContainer: {
 		marginBottom: 32,
 	},
-	infoBubble: {
-		padding: 15,
-	},
 	textNote: {
 		...text.body,
 		color: colors.Gray92,

@@ -31,7 +31,4 @@ export default StyleSheet.create({
 	textInputContainer: {
 		marginBottom: 32,
 	},
-	infoBubble: {
-		// padding: 15,
-	},
 });

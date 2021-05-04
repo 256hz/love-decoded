@@ -9,7 +9,7 @@ export default StyleSheet.create({
 	bodyContainer: {
 		flex: 1,
 		padding: 22,
-		justifyContent: 'space-between',
+		justifyContent: 'space-around',
 	},
 	bodyText: {
 		...text.body,

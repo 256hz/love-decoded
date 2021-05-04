@@ -1166,7 +1166,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Global Human Development, Inc. (498H4N5JZK)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 498H4N5JZK;
+				DEVELOPMENT_TEAM = 42PY4V8M24;
 				INFOPLIST_FILE = LoveDecoded/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1179,7 +1179,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.GlobalHumanDevelopment.LoveDecoded;
 				PRODUCT_NAME = LoveDecoded;
-				PROVISIONING_PROFILE_SPECIFIER = azureadhoc;
+				PROVISIONING_PROFILE_SPECIFIER = "Love Decoded";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

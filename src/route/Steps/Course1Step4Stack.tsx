@@ -25,7 +25,6 @@ import Step4Resources2Screen from '@screens/Courses/Course1/Step4/Resources2';
 import Step4Resources3Screen from '@screens/Courses/Course1/Step4/Resources3';
 import Step4SurveyScreen from '@screens/Courses/Course1/Step4/Survey';
 import Step4ReflectionScreen from '@screens/Courses/Course1/Step4/Reflection';
-import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
 import { course1step4prompts } from 'screens/Courses/Course1/Step4/Survey/Survey';
 import { Course1Step4Screens } from './Course1Screens';
 
@@ -122,12 +121,6 @@ export default ({ navigation }) => {
 				name={Course1Step4Screens.Reflection}
 				component={Step4ReflectionScreen}
 				options={TitleHeader(titles.course1.step4, DailyActivity.NightlyReflection)}
-			/>
-
-			<StepStack.Screen
-				name={CourseCommonScreens.Congratulations}
-				component={CongratulationsScreen}
-				options={EmptyHeader()}
 			/>
 
 		</StepStack.Navigator>

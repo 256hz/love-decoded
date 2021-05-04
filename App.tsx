@@ -25,8 +25,9 @@ const App = () => {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor()}>
+				<StatusBar barStyle="dark-content" />
+
 				<SafeAreaProvider>
-					<StatusBar barStyle="dark-content" />
 					<RootStack />
 					<Modals />
 				</SafeAreaProvider>

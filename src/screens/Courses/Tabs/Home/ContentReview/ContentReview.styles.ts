@@ -81,7 +81,6 @@ export default StyleSheet.create({
 		height: 0,
 	},
 	chevronContainer: {
-		// position: 'absolute',
 		right: -6,
 	},
 });

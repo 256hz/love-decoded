@@ -13,7 +13,6 @@ target 'LoveDecoded' do
     # Pods for testing
   end
 
-	pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
 
   # Enables Flipper.
   #

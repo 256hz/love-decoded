@@ -22,15 +22,31 @@ export default () => {
 	const isSameStep = currentDayNumber !== 1;
 
 	const ScreenContent = () => isSameStep
-		? <DayCongratulations
-			currentStepNumber={currentStepNumber}
-			currentDayNumber={currentDayNumber}
-		/>
-		: <StepCongratulations
-			currentCourse={currentCourse}
-			newStep={currentStep}
-			newStepNumber={currentStepNumber}
-		/>;
+		? (
+			<>
+				<View>
+					<DayCongratulations
+						currentStepNumber={currentStepNumber}
+						currentDayNumber={currentDayNumber}
+					/>
+
+					<NextButton buttonText={buttonText} onPress={onPress} />
+				</View>
+
+				<View />
+			</>
+		)
+		: (
+			<>
+				<StepCongratulations
+					currentCourse={currentCourse}
+					newStep={currentStep}
+					newStepNumber={currentStepNumber}
+				/>
+
+				<NextButton buttonText={buttonText} onPress={onPress} />
+			</>
+		);
 
 	const buttonText = isSameStep
 		? `Start Day ${currentDayNumber}`
@@ -49,23 +65,7 @@ export default () => {
 			<View style={styles.contentContainer}>
 				<Logo />
 
-				{ isSameStep
-					? (
-						<>
-							<View>
-								<ScreenContent />
-								<NextButton buttonText={buttonText} onPress={onPress} />
-							</View>
-
-							<View />
-						</>
-					)
-					: (
-						<>
-							<ScreenContent />
-							<NextButton buttonText={buttonText} onPress={onPress} />
-						</>
-					)}
+				<ScreenContent />
 			</View>
 		</OnboardingScreen>
 	);
@@ -81,24 +81,24 @@ const NextButton = ({ buttonText, onPress }) => (
 	</TouchableOpacity>
 );
 
-type SimpleCongratulationsProps = {
+type DayCongratulationsProps = {
 	currentStepNumber: StepNumber;
 	currentDayNumber: DayNumber;
 };
 
-const DayCongratulations = ({ currentStepNumber, currentDayNumber }: SimpleCongratulationsProps) => (
+const DayCongratulations = ({ currentStepNumber, currentDayNumber }: DayCongratulationsProps) => (
 	<Text style={styles.congratulationsText}>
 		{`Congratulations! You\'ve\nCompleted Step ${currentStepNumber}, Day ${currentDayNumber - 1}.`}
 	</Text>
 );
 
-type WaitOneWeekProps = {
+type StepCongratulationsProps = {
 	currentCourse: Courses;
 	newStep: Steps;
 	newStepNumber: StepNumber;
 };
 
-const StepCongratulations = ({ currentCourse, newStep, newStepNumber }: WaitOneWeekProps) => (
+const StepCongratulations = ({ currentCourse, newStep, newStepNumber }: StepCongratulationsProps) => (
 	<View style={styles.waitContainer}>
 		<Text style={styles.waitText}>
 			Behavioral science requires that we give you at least one week to review this week’s content, add to your list, share your list and journey with others.

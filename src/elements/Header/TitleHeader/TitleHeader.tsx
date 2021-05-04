@@ -12,7 +12,10 @@ type Props = {
 export default ({ title, subtitle, activeProgressDot, totalProgressDots }: Props) => {
 	return (
 		<View style={styles.headerContainer}>
-			<ProgressDots activeProgressDot={activeProgressDot} totalProgressDots={totalProgressDots} />
+			{ activeProgressDot != undefined && totalProgressDots
+				? <ProgressDots activeProgressDot={activeProgressDot} totalProgressDots={totalProgressDots} />
+				: null
+			}
 
 			<View style={[ styles.titleContainer, !!totalProgressDots && { paddingTop: 7 } ]}>
 				<Text style={styles.titleText}>
@@ -34,29 +37,26 @@ export default ({ title, subtitle, activeProgressDot, totalProgressDots }: Props
 
 const getDotsArray = (dots: number) => Array.from(Array(dots).keys());
 
-const ProgressDots = ({ activeProgressDot, totalProgressDots }) =>
-	activeProgressDot != undefined && totalProgressDots
-		? (
-			<View style={styles.progressBar}>
-				<View style={styles.progressContainer}>
-					<View style={styles.progressLine} />
+const ProgressDots = ({ activeProgressDot, totalProgressDots }) => (
+	<View style={styles.progressBar}>
+		<View style={styles.progressContainer}>
+			<View style={styles.progressLine} />
 
-					{ getDotsArray(totalProgressDots).map(i => {
-						const dotLeftMargin = i * ((PROGRESS_WIDTH - PROGRESS_DOT_WIDTH) / (totalProgressDots - 1));
+			{ getDotsArray(totalProgressDots).map(i => {
+				const dotLeftMargin = i * ((PROGRESS_WIDTH - PROGRESS_DOT_WIDTH) / (totalProgressDots - 1));
 
-						return (
-							<Fragment key={i}>
-								<ProgressDot
-									active={i === activeProgressDot}
-									style={{ left: dotLeftMargin }}
-								/>
-							</Fragment>
-						);
-					})}
-				</View>
-			</View>
-		)
-		: null;
+				return (
+					<Fragment key={i}>
+						<ProgressDot
+							active={i === activeProgressDot}
+							style={{ left: dotLeftMargin }}
+						/>
+					</Fragment>
+				);
+			})}
+		</View>
+	</View>
+);
 
 const ProgressDot = ({ active, style }) => (
 	<View style={[ styles.progressDotContainer, style ]}>

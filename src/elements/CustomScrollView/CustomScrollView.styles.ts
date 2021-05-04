@@ -28,6 +28,5 @@ export default StyleSheet.create({
 		},
 		shadowRadius: 4,
 		elevation: 4,
-		// zIndex: 10,
 	},
 });
