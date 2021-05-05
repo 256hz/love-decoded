@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
-import { CourseCommonScreens } from 'route/enums';
+import { stepDayOverviewScreen } from 'route/enums';
 import { StepScreen } from '@elements';
-import { getUserFirstName, getUserProgressNumbers } from '@redux/selector';
+import { getUserFirstName, getUserProgress, getUserProgressNumbers } from '@redux/selector';
 import CourseButton from './CourseButton';
 import ProgressBar from './ProgressBar';
 import styles from './Home.styles';
@@ -12,12 +12,20 @@ import ContentReview from './ContentReview';
 
 export default () => {
 	const { navigate } = useNavigation();
-	const onPress = () => navigate(CourseCommonScreens.DayOverview);
 
-	const { currentActivityNumber: currentActivity, currentDayNumber: currentDay, currentStepNumber: currentStep } = useSelector(getUserProgressNumbers);
+	const { currentCourse, currentStep } = useSelector(getUserProgress);
+
+	const {
+		currentActivityNumber: activity,
+		currentDayNumber: day,
+		currentStepNumber: step,
+	} = useSelector(getUserProgressNumbers);
+
 	const firstName = useSelector(getUserFirstName);
 	// currentActivity is 1-indexed
-	const progressPercent = (currentActivity - 1) * 25;
+	const progressPercent = (activity - 1) * 25;
+
+	const onPress = () => navigate(stepDayOverviewScreen[currentCourse][currentStep]);
 
 	return (
 		<StepScreen>
@@ -37,7 +45,7 @@ export default () => {
 
 				<View style={styles.progressTextContainer}>
 					<Text style={styles.progressText}>
-						Step {currentStep} - Day {currentDay}
+						Step {step} - Day {day}
 					</Text>
 					<Text style={styles.showMore}>
 						show more

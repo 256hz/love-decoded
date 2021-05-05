@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, Pressable } from 'react-native';
-import { CourseCommonScreens } from 'route/enums';
+import { RootStacks, stepHomeScreen } from 'route/enums';
 import Check from '@assets/svg/checkmark.svg';
 import { Activity } from '@redux/types/user';
 import { getUserProgress } from '@redux/selector';
@@ -26,26 +26,28 @@ const nextActivity = {
 export default () => {
 	const dispatch = useDispatch();
 	const { navigate } = useNavigation();
-	const { currentActivity } = useSelector(getUserProgress);
+	const { currentCourse, currentStep, currentActivity } = useSelector(getUserProgress);
 
 	const currentActivityText = completedActivity[currentActivity];
 	const nextActivityText = nextActivity[currentActivity];
 
-	const completedFullDay = currentActivity === Activity.Bedtime;
+	const startNextDay = currentActivity === Activity.Bedtime;
 
-	const topText = completedFullDay ? 'Complete!' : 'Good Job';
+	const topText = startNextDay ? 'Complete!' : 'Good Job';
 
-	const headlineText = completedFullDay
+	const headlineText = startNextDay
 		? 'Congrats on\nCompleting This Day!'
 		: `You thought about Loving Yourself during ${currentActivityText}!`;
 
-	const bodyText = completedFullDay
+	const bodyText = startNextDay
 		? 'Tomorrow is waiting for you\nto Love yourself some more!'
 		: `Your ${nextActivityText} Alert will signal the next interaction.`;
 
 	const onPressScreen = () => {
 		dispatch(advanceUserProgress());
-		navigate(completedFullDay ? CourseCommonScreens.Congratulations : CourseCommonScreens.Home);
+		navigate(startNextDay
+			? RootStacks.Congratulations
+			: stepHomeScreen[currentCourse][currentStep]);
 	};
 
 	return (

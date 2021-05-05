@@ -1,5 +1,5 @@
 import colors from 'elements/globalStyles/color';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
 	multiSelectContainer: {
@@ -26,5 +26,8 @@ export default StyleSheet.create({
 	},
 	selected: {
 		backgroundColor: colors.OrangeTransparent,
+	},
+	keyboardPadding: {
+		paddingBottom: Platform.select({ android: 300 }),
 	},
 });

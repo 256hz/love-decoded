@@ -24,6 +24,7 @@ export const CloseHeader = (navigation: any, title: string = 'Resources', onClos
 });
 
 export const DrawerHeader = navigation => ({
+	gestureEnabled: false,
 	headerLeft: () => <DrawerButton navigation={navigation} />,
 	headerTitle: () => <></>,
 });

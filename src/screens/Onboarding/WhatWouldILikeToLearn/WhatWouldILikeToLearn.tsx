@@ -67,33 +67,29 @@ export default () => {
 	const kavBehavior = Platform.select({ ios: 'padding', android: undefined }) as KAVBehavior;
 
 	return (
-		<KeyboardAvoidingView behavior={kavBehavior} style={styles.kavContainer}>
-			<OnboardingScreen
-				audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
-				drawShapes={[ 1, 7, 11 ]}
-				nextTarget={OnboardingScreens.HavingTheLovingCommunities}
-				onPressNext={submitResponse}
-				title="What Would I Like To Learn from this Self-Love, Relationship Course?"
-				titleChild={
-					<View style={styles.subtitleContainer}>
-						<Text style={styles.topText}>
-							(scroll and select all that apply)
-						</Text>
-					</View>
-				}
-			>
-				<View style={styles.container}>
-					<MultiSelectSurvey
-						customSelection={customSelection}
-						options={options}
-						selections={selections}
-						setCustomSelection={setCustomSelection}
-						selectionContainerStyle={styles.selectionContainer}
-						selectionTextStyle={styles.selectionText}
-						toggleSelected={toggleSelected}
-					/>
+		<OnboardingScreen
+			audioFilename="onboarding_3_what_would_i_like_to_learn.mp3"
+			drawShapes={[ 1, 7, 11 ]}
+			nextTarget={OnboardingScreens.HavingTheLovingCommunities}
+			onPressNext={submitResponse}
+			title="What Would I Like To Learn from this Self-Love, Relationship Course?"
+			titleChild={
+				<View style={styles.subtitleContainer}>
+					<Text style={styles.topText}>
+						(scroll and select all that apply)
+					</Text>
 				</View>
-			</OnboardingScreen>
-		</KeyboardAvoidingView>
+			}
+		>
+			<View style={styles.container}>
+				<MultiSelectSurvey
+					customSelection={customSelection}
+					options={options}
+					selections={selections}
+					setCustomSelection={setCustomSelection}
+					toggleSelected={toggleSelected}
+				/>
+			</View>
+		</OnboardingScreen>
 	);
 };

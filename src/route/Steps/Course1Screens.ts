@@ -1,4 +1,7 @@
 export enum Course1Step1Screens {
+	Home = 'course1_step1_home',
+	DayOverview = 'course1_step1_day_overview',
+	GoodJob = 'course1_step1_good_job',
 	Intention = 'course1_step1_intention',
 	Activities1 = 'course1_step1_activities1',
 	Activities2 = 'course1_step1_activities2',
@@ -10,6 +13,9 @@ export enum Course1Step1Screens {
 }
 
 export enum Course1Step2Screens {
+	Home = 'course1_step2_home',
+	DayOverview = 'course1_step2_day_overview',
+	GoodJob = 'course1_step2_good_job',
 	Intention = 'course1_step2_intention',
 	Activities1 = 'course1_step2_activities1',
 	Activities1B = 'course1_step2_activities1b',
@@ -24,6 +30,9 @@ export enum Course1Step2Screens {
 }
 
 export enum Course1Step3Screens {
+	Home = 'course1_step3_home',
+	DayOverview = 'course1_step3_day_overview',
+	GoodJob = 'course1_step3_good_job',
 	Intention = 'course1_step3_intention',
 	Activities1 = 'course1_step3_activities1',
 	Activities2 = 'course1_step3_activities2',
@@ -34,6 +43,9 @@ export enum Course1Step3Screens {
 }
 
 export enum Course1Step4Screens {
+	Home = 'course1_step4_home',
+	DayOverview = 'course1_step4_day_overview',
+	GoodJob = 'course1_step4_good_job',
 	Intention = 'course1_step4_intention',
 	Activities1 = 'course1_step4_activities1',
 	Activities2 = 'course1_step4_activities2',

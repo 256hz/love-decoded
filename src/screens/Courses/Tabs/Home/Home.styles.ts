@@ -62,7 +62,7 @@ export default StyleSheet.create({
 	},
 	progressGradient: {
 		height: PROGRESS_BAR_HEIGHT,
-		width: 100,
+		width: 50,
 	},
 	buttonContainer: {
 		width: '100%',

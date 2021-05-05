@@ -2,21 +2,21 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
-import { CourseCommonScreens } from 'route/enums';
+import { stepGoodJobScreen, stepHomeScreen } from 'route/enums';
 import { Days } from '@redux/types/survey';
 import { getUserProgress } from '@redux/selector';
 import styles from './Reflection.styles';
 
 export default () => {
-	const { currentDay } = useSelector(getUserProgress);
+	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
 
 	const getAudioFilename = (day: Days) => `step3_${day}_reflections.mp3`;
 
 	return (
 		<StepScreen
 			audioFilename={getAudioFilename(currentDay)}
-			backTarget={CourseCommonScreens.Home}
-			nextTarget={CourseCommonScreens.GoodJob}
+			backTarget={stepHomeScreen[currentCourse][currentStep]}
+			nextTarget={stepGoodJobScreen[currentCourse][currentStep]}
 		>
 			<View style={styles.container}>
 				<View style={styles.contentContainer}>

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setStepActivityResponse } from 'redux/action';
 import { getStepActivity } from 'redux/selector';
 import { Courses, Steps, Activities } from 'redux/types/survey';
-import { StackKeyboardAvoidingView, StepScreen, ListTextInput } from '@elements';
+import { StepScreen, ListTextInput } from '@elements';
 import styles from './Activities2.styles';
 
 export default () => {
@@ -24,40 +24,37 @@ export default () => {
 	);
 
 	return (
-		<StackKeyboardAvoidingView>
-			<StepScreen
-				nextTarget={Course1Step1Screens.Activities3}
-				// scrollDisabled
-			>
-				<View style={styles.container}>
+		<StepScreen
+			nextTarget={Course1Step1Screens.Activities3}
+		>
+			<View style={styles.container}>
 
-					<View style={styles.bodyContainer}>
-						<View style={styles.textItemContainer}>
-							<Text style={styles.bodyText}>
-								List 3 situations you messed up recently and got upset with yourself.
-							</Text>
-						</View>
-
-						<ListTextInput
-							containerStyle={styles.textInput}
-							text={missingResponse}
-							setText={text => setResponse(text, Activities.Course1Step1Activity2a)}
-						/>
-
-						<View style={styles.textItemContainer}>
-							<Text style={styles.bodyText}>
-								Which loveable qualities on your list do others not agree with?
-							</Text>
-						</View>
-
-						<ListTextInput
-							containerStyle={styles.textInput}
-							text={doNotAgreeResponse}
-							setText={text => setResponse(text, Activities.Course1Step1Activity2b)}
-						/>
+				<View style={styles.bodyContainer}>
+					<View style={styles.textItemContainer}>
+						<Text style={styles.bodyText}>
+							List 3 situations you messed up recently and got upset with yourself.
+						</Text>
 					</View>
+
+					<ListTextInput
+						containerStyle={styles.textInput}
+						text={missingResponse}
+						setText={text => setResponse(text, Activities.Course1Step1Activity2a)}
+					/>
+
+					<View style={styles.textItemContainer}>
+						<Text style={styles.bodyText}>
+							Which loveable qualities on your list do others not agree with?
+						</Text>
+					</View>
+
+					<ListTextInput
+						containerStyle={styles.textInput}
+						text={doNotAgreeResponse}
+						setText={text => setResponse(text, Activities.Course1Step1Activity2b)}
+					/>
 				</View>
-			</StepScreen>
-		</StackKeyboardAvoidingView>
+			</View>
+		</StepScreen>
 	);
 };

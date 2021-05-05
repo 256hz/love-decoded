@@ -5,7 +5,7 @@ import { Course1Step1Screens } from 'route/Steps/Course1Screens';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Activities, Courses, Steps } from '@redux/types/survey';
-import { ListTextInput, StackKeyboardAvoidingView, StepScreen } from '@elements';
+import { ListTextInput, StepScreen } from '@elements';
 import styles from './Activities1.styles';
 
 export default () => {
@@ -20,40 +20,37 @@ export default () => {
 	);
 
 	return (
-		<StackKeyboardAvoidingView>
-			<StepScreen
-				nextTarget={Course1Step1Screens.Activities2}
-				// audioFilename="one_second_silence.mp3"
-				// scrollDisabled
-			>
-				<View style={styles.container}>
-					<View style={styles.bodyContainer}>
-						<View style={styles.textItemContainer}>
-							<Text style={styles.bodyText}>
-								{'Let\'s'} start by <Text style={styles.boldText}>creating a list of your loveable qualities</Text> which you can share.
-							</Text>
-						</View>
-
-						<View style={[ styles.textItemContainer, styles.row ]}>
-							<Text style={styles.bodyText}>
-								Keep adding to your list and learning it.
-							</Text>
-						</View>
-
-						<View style={[ styles.textItemContainer, styles.row ]}>
-							<Text style={styles.textNote}>
-								Hit Enter to close the keyboard.
-							</Text>
-						</View>
-
-						<ListTextInput
-							containerStyle={styles.textInputContainer}
-							text={savedResponse}
-							setText={setResponse}
-						/>
+		<StepScreen
+			nextTarget={Course1Step1Screens.Activities2}
+			// audioFilename="one_second_silence.mp3"
+		>
+			<View style={styles.container}>
+				<View style={styles.bodyContainer}>
+					<View style={styles.textItemContainer}>
+						<Text style={styles.bodyText}>
+							{'Let\'s'} start by <Text style={styles.boldText}>creating a list of your loveable qualities</Text> which you can share.
+						</Text>
 					</View>
+
+					<View style={[ styles.textItemContainer, styles.row ]}>
+						<Text style={styles.bodyText}>
+							Keep adding to your list and learning it.
+						</Text>
+					</View>
+
+					<View style={[ styles.textItemContainer, styles.row ]}>
+						<Text style={styles.textNote}>
+							Tap outside the text box to close the keyboard.
+						</Text>
+					</View>
+
+					<ListTextInput
+						containerStyle={styles.textInputContainer}
+						text={savedResponse}
+						setText={setResponse}
+					/>
 				</View>
-			</StepScreen>
-		</StackKeyboardAvoidingView>
+			</View>
+		</StepScreen>
 	);
 };

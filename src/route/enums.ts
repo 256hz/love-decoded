@@ -68,10 +68,6 @@ export enum TabNames {
 }
 
 export enum CourseCommonScreens {
-	Home = 'Home',
-	DayOverview = 'DayOverview',
-	GoodJob = 'GoodJob',
-	Congratulations = 'Congratulations',
 	None = '',
 }
 
@@ -118,5 +114,32 @@ export const stepEntryPoints: StepEntryPoints = {
 		[Steps.Two]: StepStacks.Course1Step2,
 		[Steps.Three]: StepStacks.Course1Step3,
 		[Steps.Four]: StepStacks.Course1Step4,
+	},
+};
+
+export const stepHomeScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.Home,
+		[Steps.Two]: Course1Step2Screens.Home,
+		[Steps.Three]: Course1Step3Screens.Home,
+		[Steps.Four]: Course1Step4Screens.Home,
+	},
+};
+
+export const stepDayOverviewScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.DayOverview,
+		[Steps.Two]: Course1Step2Screens.DayOverview,
+		[Steps.Three]: Course1Step3Screens.DayOverview,
+		[Steps.Four]: Course1Step4Screens.DayOverview,
+	},
+};
+
+export const stepGoodJobScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.GoodJob,
+		[Steps.Two]: Course1Step2Screens.GoodJob,
+		[Steps.Three]: Course1Step3Screens.GoodJob,
+		[Steps.Four]: Course1Step4Screens.GoodJob,
 	},
 };

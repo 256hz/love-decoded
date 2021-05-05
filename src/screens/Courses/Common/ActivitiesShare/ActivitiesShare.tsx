@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
-import { CourseCommonScreens } from 'route/enums';
+import { stepGoodJobScreen } from 'route/enums';
+import { useSelector } from 'react-redux';
+import { getUserProgress } from 'redux/selector';
 import styles from './ActivitiesShare.styles';
 import ShareWidget from './ShareWidget';
 
@@ -12,11 +14,12 @@ type Props = {
 };
 
 export default ({ audioFilename, linesToShare, prompts }: Props) => {
+	const { currentCourse, currentStep } = useSelector(getUserProgress);
+
 	return (
 		<StepScreen
 			audioFilename={audioFilename}
-			nextTarget={CourseCommonScreens.GoodJob}
-			// scrollDisabled
+			nextTarget={stepGoodJobScreen[currentCourse][currentStep]}
 		>
 			<View style={styles.container}>
 				<View style={styles.bodyContainer}>

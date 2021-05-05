@@ -1,9 +1,12 @@
 import React, { ReactChild } from 'react';
-import { Platform, View, ViewStyle } from 'react-native';
+import {
+	KeyboardAvoidingView, Platform, View, ViewStyle,
+} from 'react-native';
 import { Screens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { CustomScrollView } from '@elements/CustomScrollView';
 import colors from '@elements/globalStyles/color';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './StepScreen.styles';
 
 type Props = {
@@ -36,15 +39,18 @@ export default ({
 	nextTarget,
 }: Props) => {
 	return (
-		<View style={[ styles.container, containerStyle ]}>
-			<View style={styles.middleContainer}>
+		<SafeAreaView style={[ styles.container, containerStyle ]}>
+			<OptionalKeyboardAvoidingView
+				useAvoiding={Platform.OS === 'ios'}
+				style={styles.middleContainer}
+			>
 				<CustomScrollView
 					indicatorArrowColor={colors.Gray62}
 					scrollDisabled={scrollDisabled}
 				>
 					{children}
 				</CustomScrollView>
-			</View>
+			</OptionalKeyboardAvoidingView>
 
 			{ nextTarget
 				? (
@@ -61,6 +67,26 @@ export default ({
 					/>
 				) : null
 			}
-		</View>
+		</SafeAreaView>
 	);
 };
+
+type OptionalKeyboardAvoidingViewProps = {
+	useAvoiding: boolean,
+	children: ReactChild,
+	style?: ViewStyle
+};
+
+const OptionalKeyboardAvoidingView = ({ useAvoiding, children, style }: OptionalKeyboardAvoidingViewProps) =>
+	useAvoiding
+		? (
+			<KeyboardAvoidingView
+				behavior={Platform.select({ ios: 'padding' })}
+				enabled
+				keyboardVerticalOffset={Platform.select({ ios: 100 })}
+				style={style}
+			>
+				{children}
+			</KeyboardAvoidingView>
+		)
+		: <View style={style}>{children}</View>;

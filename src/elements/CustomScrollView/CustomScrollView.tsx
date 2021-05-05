@@ -13,7 +13,7 @@ type ScrollWrapperProps = {
 	children: ReactChild,
 	indicatorArrowColor?: string;
 	indicatorBackgroundColor?: string;
-	scrollDisabled: boolean,
+	scrollDisabled?: boolean,
 };
 
 export default ({
@@ -59,28 +59,29 @@ const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundCo
 
 	const triggerOnScroll = () => {
 		scrollViewRef.current?.scrollTo({ y: 1, animated: false });
-		// scrollViewRef.current?.scrollTo({ y: 0, animated: false });
 	};
 
 	return (
-		<View style={styles.childrenContainer}>
-			<ScrollView
-				ref={scrollViewRef}
-				contentContainerStyle={styles.childrenContainer}
-				onLayout={triggerOnScroll}
-				onScroll={setIndicatorVisibleIfMoreToScroll}
-				scrollEventThrottle={400}
-			>
-				{children}
-			</ScrollView>
+		<View style={styles.container}>
+			<View style={styles.childrenContainer}>
+				<ScrollView
+					ref={scrollViewRef}
+					contentContainerStyle={styles.childrenContainer}
+					onLayout={triggerOnScroll}
+					onScroll={setIndicatorVisibleIfMoreToScroll}
+					scrollEventThrottle={400}
+				>
+					{children}
+				</ScrollView>
 
-			{ scrollIndicatorVisible
-				? <ScrollIndicator
-					arrowColor={indicatorArrowColor}
-					backgroundColor={indicatorBackgroundColor}
-					scrollToBottom={scrollToBottom}
-				/>
-				: null}
+				{ scrollIndicatorVisible
+					? <ScrollIndicator
+						arrowColor={indicatorArrowColor}
+						backgroundColor={indicatorBackgroundColor}
+						scrollToBottom={scrollToBottom}
+					/>
+					: null}
+			</View>
 		</View>
 	);
 };

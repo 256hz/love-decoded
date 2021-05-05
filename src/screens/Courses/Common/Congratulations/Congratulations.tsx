@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { CourseCommonScreens, stepEntryPoints } from 'route/enums';
+import { stepEntryPoints, stepHomeScreen } from 'route/enums';
 import Logo from '@assets/svg/logo.svg';
 import { titles } from '@util/titles';
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
@@ -18,7 +18,7 @@ export default () => {
 	const { currentCourse, currentStep } = useSelector(getUserProgress);
 	const { currentStepNumber, currentDayNumber } = useSelector(getUserProgressNumbers);
 
-	// At this screen, the user's progress has already been advanced, so if currentDayNumber is 1, they are on a new step.
+	// At this screen, the user's progress has just been advanced, so if currentDayNumber is 1, they are on a new step.
 	const isSameStep = currentDayNumber !== 1;
 
 	const ScreenContent = () => isSameStep
@@ -52,9 +52,12 @@ export default () => {
 		? `Start Day ${currentDayNumber}`
 		: 'Back to Home';
 
-	const onPress = () => navigate(isSameStep
-		? CourseCommonScreens.Home
-		: stepEntryPoints[currentCourse]![currentStep]!);
+	const onPress = () => {
+		navigate(isSameStep
+			? stepHomeScreen[currentCourse][currentStep]
+			: stepEntryPoints[currentCourse]![currentStep]!,
+		);
+	};
 
 	return (
 		<OnboardingScreen

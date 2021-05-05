@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Screens } from 'route/enums';
 import { CustomScrollView } from '@elements';
 import NavButtons from '@elements/AudioPlayerNavigator/NavButtons';
-import { CloseHeader } from 'elements/Header/Headers';
+import { CloseHeader } from '@elements/Headers/Headers';
 import styles from './ResourcesScreen.styles';
 
 type Props = {

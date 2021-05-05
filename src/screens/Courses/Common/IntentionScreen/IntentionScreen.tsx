@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, View } from 'react-native';
-import { CourseCommonScreens } from 'route/enums';
+import { stepGoodJobScreen } from 'route/enums';
 import { Slider, StepScreen } from '@elements';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { setDaySurveyResponse } from '@redux/action';
@@ -38,7 +38,7 @@ export default ({ prompts }: Props) => {
 	return (
 		<StepScreen
 			audioFilename={getAudioFilename(currentStep, currentDay)}
-			nextTarget={CourseCommonScreens.GoodJob}
+			nextTarget={stepGoodJobScreen[currentCourse][currentStep]}
 		>
 			<View>
 				<View style={styles.bodyContainer}>

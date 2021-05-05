@@ -1,5 +1,6 @@
-import React, { ReactChild } from 'react';
+import React, { ReactChild, useEffect, useRef } from 'react';
 import {
+	KeyboardAvoidingView,
 	Platform, Text, View, ViewStyle,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -51,36 +52,43 @@ export default ({
 			{/* Background image/shapes */}
 			<BackgroundFade drawShapes={drawShapes} hideBackgroundImage={hideBackgroundImage}>
 				<SafeAreaView style={styles.screenContainer}>
-					<View style={styles.container}>
-						{ showLogo
-							? <View style={styles.logoContainer}>
-								<Logo />
+					<OptionalKeyboardAvoidingView
+						useAvoiding={Platform.OS === 'ios'}
+						style={styles.container}
+					>
+						<>
+							{ showLogo
+								? (
+									<View style={styles.logoContainer}>
+										<Logo />
+									</View>
+								)
+								: null
+							}
+
+							{/* Title */}
+							<View style={[
+								styles.titleContainer,
+								showLogo && styles.titleLogoMargin,
+								titleContainerStyle,
+							]}>
+								<Text style={styles.titleText}>
+									{title}
+								</Text>
+
+								{ titleChild }
 							</View>
-							: null
-						}
 
-						{/* Title */}
-						<View style={[
-							styles.titleContainer,
-							showLogo && styles.titleLogoMargin,
-							titleContainerStyle,
-						]}>
-							<Text style={styles.titleText}>
-								{title}
-							</Text>
-							{ titleChild }
-						</View>
+							{/* screen contents */}
 
-						{/* screen contents */}
-						<CustomScrollView
-							indicatorArrowColor={colors.Gray92}
-							scrollDisabled={scrollDisabled}
-						>
-							{children}
-						</CustomScrollView>
-
-					</View>
-
+							<CustomScrollView
+								indicatorArrowColor={colors.Gray92}
+								scrollDisabled={scrollDisabled}
+							>
+								{children}
+							</CustomScrollView>
+						</>
+					</OptionalKeyboardAvoidingView>
 
 					{ customBottomSection }
 
@@ -112,6 +120,26 @@ export default ({
 					}
 				</SafeAreaView>
 			</BackgroundFade>
+
 		</View>
 	);
 };
+
+type OptionalKeyboardAvoidingViewProps = {
+	useAvoiding: boolean,
+	children: ReactChild,
+	style?: ViewStyle
+};
+
+const OptionalKeyboardAvoidingView = ({ useAvoiding, children, style }: OptionalKeyboardAvoidingViewProps) =>
+	useAvoiding
+		? (
+			<KeyboardAvoidingView
+				behavior={Platform.select({ ios: 'padding' })}
+				enabled
+				style={style}
+			>
+				{children}
+			</KeyboardAvoidingView>
+		)
+		: <View style={style}>{children}</View>;

@@ -3,13 +3,13 @@ import { useIsFocused, useNavigation } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { CourseCommonScreens } from 'route/enums';
+import { stepGoodJobScreen } from 'route/enums';
 import { DailyActivity } from '@util/titles';
 import RootState from '@redux/RootState';
 import { setDaySurveyResponse } from '@redux/action';
 import { getDaySurvey, getUserProgress } from '@redux/selector';
 import { EndOfDaySurveys } from '@redux/types/survey';
-import { TitleWithProgressHeader } from 'elements/Header/Headers';
+import { TitleWithProgressHeader } from 'elements/Headers/Headers';
 import NavButtons from '@elements/AudioPlayerNavigator/NavButtons';
 import styles from './SurveyScreen.styles';
 
@@ -49,7 +49,7 @@ export default ({ navigation, prompts, title }: Props) => {
 		timeoutRef.current = setTimeout(() => {
 			currentPrompt < prompts.length - 1
 				? setCurrentPrompt(currentPrompt + 1)
-				: navigate(CourseCommonScreens.GoodJob);
+				: navigate(stepGoodJobScreen[currentCourse][currentStep]);
 		}, 500);
 	};
 
@@ -59,7 +59,7 @@ export default ({ navigation, prompts, title }: Props) => {
 			return;
 		}
 
-		// Advance the progres header dot
+		// Advance the progress header dot
 		navigation.setOptions(
 			TitleWithProgressHeader(currentPrompt, prompts.length, title, DailyActivity.Survey),
 		);

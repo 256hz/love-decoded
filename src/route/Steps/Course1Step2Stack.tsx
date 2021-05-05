@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { CourseCommonScreens } from 'route/enums';
 import {
 	BackHeader,
 	CloseHeader,
@@ -9,7 +8,7 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
-} from '@elements/Header/Headers';
+} from 'elements/Headers/Headers';
 
 import HomeScreen from 'screens/Courses/Tabs/Home';
 import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
@@ -43,17 +42,17 @@ export default ({ navigation }) => {
 		<StepStack.Navigator
 			mode="card"
 			headerMode="float"
-			initialRouteName={CourseCommonScreens.Home}
+			initialRouteName={Course1Step2Screens.Home}
 			screenOptions={{ headerStyle }}
 		>
 			<StepStack.Screen
-				name={CourseCommonScreens.Home}
+				name={Course1Step2Screens.Home}
 				component={HomeScreen}
-				options={{ ...DrawerHeader(navigation), gestureEnabled: false }}
+				options={DrawerHeader(navigation)}
 			/>
 
 			<StepStack.Screen
-				name={CourseCommonScreens.DayOverview}
+				name={Course1Step2Screens.DayOverview}
 				component={DayOverviewScreen}
 				options={BackHeader(navigation)}
 			/>
@@ -65,7 +64,7 @@ export default ({ navigation }) => {
 			/>
 
 			<StepStack.Screen
-				name={CourseCommonScreens.GoodJob}
+				name={Course1Step2Screens.GoodJob}
 				component={GoodJobScreen}
 				options={EmptyHeader()}
 			/>
