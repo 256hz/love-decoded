@@ -14,7 +14,7 @@ import Logo from '@assets/svg/logo.svg';
 import { DEMO_MODE } from '@util/demoMode';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
-import { CustomScrollView } from 'elements/CustomScrollView';
+import { CustomScrollView } from '@elements/CustomScrollView';
 import colors from '@elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';

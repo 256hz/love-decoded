@@ -1,6 +1,6 @@
 import { Dimensions, StatusBar, StyleSheet } from 'react-native';
-import text from 'elements/globalStyles/text';
-import colors from 'elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
 
 export const TITLE_HEADER_HEIGHT = 125;
 export const PROGRESS_HEIGHT = 57;

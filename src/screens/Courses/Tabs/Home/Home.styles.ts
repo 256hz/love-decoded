@@ -1,5 +1,5 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 const PROGRESS_BAR_HEIGHT = 26;

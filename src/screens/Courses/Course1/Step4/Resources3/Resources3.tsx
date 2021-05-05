@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { Course1Step4Screens } from 'route/Steps/Course1Screens';
 import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListTextInput } from 'elements';
+import { ListTextInput } from '@elements';
 import { getStepActivity } from 'redux/selector';
 import { Activities, Courses, Steps } from 'redux/types/survey';
 import { setStepActivityResponse } from 'redux/action';

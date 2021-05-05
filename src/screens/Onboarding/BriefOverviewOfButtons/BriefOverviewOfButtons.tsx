@@ -8,7 +8,7 @@ import Journal2 from '@assets/svg/journal-2.svg';
 import SettingsDot from '@assets/svg/settings-dot.svg';
 import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import styles from './BriefOverviewOfButtons.styles';
 
 const OverviewItem = ({ children, iconText, text }) => (

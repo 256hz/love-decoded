@@ -1,5 +1,5 @@
 import React from 'react';
-import IntentionScreen from 'screens/Courses/Common/IntentionScreen';
+import IntentionScreen from '@screens/Courses/Common/IntentionScreen';
 
 const prompts = [
 	'Self-talk refers to that “little voice in your head” – that goes on 24/7.',

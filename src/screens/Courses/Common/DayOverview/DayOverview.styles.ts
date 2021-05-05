@@ -1,5 +1,5 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export const PADDING = 16;

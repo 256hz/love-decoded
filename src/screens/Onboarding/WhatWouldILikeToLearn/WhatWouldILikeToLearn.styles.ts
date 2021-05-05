@@ -1,4 +1,4 @@
-import text from 'elements/globalStyles/text';
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({

@@ -1,5 +1,5 @@
 import React from 'react';
-import IntentionScreen from 'screens/Courses/Common/IntentionScreen';
+import IntentionScreen from '@screens/Courses/Common/IntentionScreen';
 
 const prompts = [
 	'1.  Which qualities do you value most in other people?',

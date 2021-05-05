@@ -1,5 +1,5 @@
 import React from 'react';
-import IntentionScreen from 'screens/Courses/Common/IntentionScreen';
+import IntentionScreen from '@screens/Courses/Common/IntentionScreen';
 
 const prompts = [
 	'Which unlovable behaviors toward yourself hurt or upset you the most?',

@@ -8,12 +8,12 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
-} from 'elements/Headers/Headers';
+} from '@elements/Headers/Headers';
 
-import HomeScreen from 'screens/Courses/Tabs/Home';
-import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
-import GoodJobScreen from 'screens/Courses/Common/GoodJob';
-import IntentionScreen from 'screens/Courses/Course1/Step2/Intention';
+import HomeScreen from '@screens/Courses/Tabs/Home';
+import DayOverviewScreen from '@screens/Courses/Common/DayOverview';
+import GoodJobScreen from '@screens/Courses/Common/GoodJob';
+import IntentionScreen from '@screens/Courses/Course1/Step2/Intention';
 import Step2Activities1Screen from '@screens/Courses/Course1/Step2/Activities1';
 import Step2Activities1BScreen from '@screens/Courses/Course1/Step2/Activities1B';
 import Step2Activities2Screen from '@screens/Courses/Course1/Step2/Activities2';
@@ -25,7 +25,7 @@ import Step2Resources2Screen from '@screens/Courses/Course1/Step2/Resources2';
 import Step2SurveyScreen from '@screens/Courses/Course1/Step2/Survey';
 import Step2ReflectionScreen from '@screens/Courses/Course1/Step2/Reflection';
 import { DailyActivity, titles } from '@util/titles';
-import { course1step2prompts } from 'screens/Courses/Course1/Step2/Survey/Survey';
+import { course1step2prompts } from '@screens/Courses/Course1/Step2/Survey/Survey';
 import { Course1Step2Screens } from './Course1Screens';
 
 const StepStack = createStackNavigator();

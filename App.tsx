@@ -11,7 +11,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootStack from 'route/RootStack';
 import getStore from 'redux/getStore';
 import Modals from '@elements/Modals';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 
 export const { store, persistor } = getStore();
 

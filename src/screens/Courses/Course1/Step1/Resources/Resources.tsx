@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import ResourcesScreen from 'screens/Courses/Common/ResourcesScreen';
+import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import styles from './Resources.styles';
 

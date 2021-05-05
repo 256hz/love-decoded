@@ -1,5 +1,5 @@
-import colors from 'elements/globalStyles/color';
-import text from 'elements/globalStyles/text';
+import colors from '@elements/globalStyles/color';
+import text from '@elements/globalStyles/text';
 import { Dimensions, StyleSheet } from 'react-native';
 
 export default StyleSheet.create({

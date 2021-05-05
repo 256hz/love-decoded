@@ -1,5 +1,5 @@
 import React from 'react';
-import IntentionScreen from 'screens/Courses/Common/IntentionScreen';
+import IntentionScreen from '@screens/Courses/Common/IntentionScreen';
 
 const prompts = [
 	'Creating a personal vision doesn’t come naturally to us. It requires clarity about what you want in the relationship with yourSelf and others. It necessitates writing things down, just like a business plan that guides you step by step.',

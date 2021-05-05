@@ -6,7 +6,7 @@ import SplashScreen from '@screens/Splash';
 import { navigationRef } from '@util/navigation';
 import { useDispatch } from 'react-redux';
 import { setCurrentRouteName } from 'redux/action';
-import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
+import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
