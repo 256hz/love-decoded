@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
-import ResourcesScreen from 'screens/Courses/Common/ResourcesScreen';
+import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { openWebLink } from 'util/linking';
+import { openWebLink } from '@util/linking';
 import { Course1Step2Screens } from 'route/Steps/Course1Screens';
 import styles from './Resources1.styles';
 

@@ -1,14 +1,21 @@
-import React, { ReactChild, useEffect, useRef } from 'react';
+import React, { ReactChild } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {
 	KeyboardAvoidingView,
-	Platform, Text, View, ViewStyle,
+	Platform,
+	Pressable,
+	Text,
+	View,
+	ViewStyle,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { RootStacks } from 'route/enums';
 import Logo from '@assets/svg/logo.svg';
+import { DEMO_MODE } from '@util/demoMode';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
-import { CustomScrollView } from 'elements/CustomScrollView';
-import colors from 'elements/globalStyles/color';
+import { CustomScrollView } from '@elements/CustomScrollView';
+import colors from '@elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
 
@@ -46,6 +53,11 @@ export default ({
 	titleChild = <></>,
 	titleContainerStyle,
 }: Props) => {
+	const { navigate } = useNavigation();
+
+	const onPressLogo = () => {
+		DEMO_MODE && navigate(RootStacks.HomeTabs);
+	};
 
 	return (
 		<View style={styles.container}>
@@ -60,7 +72,9 @@ export default ({
 							{ showLogo
 								? (
 									<View style={styles.logoContainer}>
-										<Logo />
+										<Pressable onLongPress={onPressLogo}>
+											<Logo />
+										</Pressable>
 									</View>
 								)
 								: null

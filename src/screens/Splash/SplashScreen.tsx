@@ -7,7 +7,7 @@ import Logo from '@assets/svg/logo.svg';
 import SoundPlayer from 'react-native-sound-player';
 import { RootStacks } from 'route/enums';
 import { BackgroundFade } from '@elements/OnboardingScreen/BackgroundFade';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import { resetAudioPlayer } from '@redux/action';
 import { resetRoot } from '@util/navigation';
 import styles from './SplashScreen.styles';

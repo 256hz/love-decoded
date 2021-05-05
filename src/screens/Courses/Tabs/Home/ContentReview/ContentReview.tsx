@@ -17,7 +17,7 @@ import {
 	DayNumber,
 	StepNumber,
 } from '@redux/types/user';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import styles from './ContentReview.styles';
 
 export default () => {

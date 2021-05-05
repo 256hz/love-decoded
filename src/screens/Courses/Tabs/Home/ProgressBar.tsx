@@ -1,4 +1,4 @@
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import React from 'react';
 import { View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';

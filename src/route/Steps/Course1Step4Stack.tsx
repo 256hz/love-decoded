@@ -9,22 +9,22 @@ import {
 	headerStyle,
 	TitleHeader,
 	TitleWithProgressHeader,
-} from 'elements/Headers/Headers';
+} from '@elements/Headers/Headers';
 
-import HomeScreen from 'screens/Courses/Tabs/Home';
-import DayOverviewScreen from 'screens/Courses/Common/DayOverview';
-import GoodJobScreen from 'screens/Courses/Common/GoodJob';
-import IntentionScreen from 'screens/Courses/Course1/Step4/Intention';
+import HomeScreen from '@screens/Courses/Tabs/Home';
+import DayOverviewScreen from '@screens/Courses/Common/DayOverview';
+import GoodJobScreen from '@screens/Courses/Common/GoodJob';
+import IntentionScreen from '@screens/Courses/Course1/Step4/Intention';
 import Step4Activities1Screen from '@screens/Courses/Course1/Step4/Activities1';
 import Step4Activities2Screen from '@screens/Courses/Course1/Step4/Activities2';
-import Step4Activities3Screen from 'screens/Courses/Course1/Step4/Activities4';
+import Step4Activities3Screen from '@screens/Courses/Course1/Step4/Activities4';
 import Step4Activities4Screen from '@screens/Courses/Course1/Step4/Activities4';
 import Step4Resources1Screen from '@screens/Courses/Course1/Step4/Resources1';
 import Step4Resources2Screen from '@screens/Courses/Course1/Step4/Resources2';
 import Step4Resources3Screen from '@screens/Courses/Course1/Step4/Resources3';
 import Step4SurveyScreen from '@screens/Courses/Course1/Step4/Survey';
 import Step4ReflectionScreen from '@screens/Courses/Course1/Step4/Reflection';
-import { course1step4prompts } from 'screens/Courses/Course1/Step4/Survey/Survey';
+import { course1step4prompts } from '@screens/Courses/Course1/Step4/Survey/Survey';
 import { Course1Step4Screens } from './Course1Screens';
 
 const StepStack = createStackNavigator();

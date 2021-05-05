@@ -6,7 +6,7 @@ import SplashScreen from '@screens/Splash';
 import { navigationRef } from '@util/navigation';
 import { useDispatch } from 'react-redux';
 import { setCurrentRouteName } from 'redux/action';
-import CongratulationsScreen from 'screens/Courses/Common/Congratulations';
+import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
@@ -18,7 +18,7 @@ type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default () => {
-	const isLoggedIn = true; // replace with selector
+	const isLoggedIn = false; // replace with selector
 	const destination = isLoggedIn ? RootStacks.HomeTabs : RootStacks.OnboardingStack;
 
 	const dispatch = useDispatch();
