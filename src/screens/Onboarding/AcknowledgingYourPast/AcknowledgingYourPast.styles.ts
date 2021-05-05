@@ -1,3 +1,4 @@
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -14,14 +15,12 @@ export default StyleSheet.create({
 		marginVertical: 16,
 	},
 	topText: {
-		fontFamily: 'Rubik',
-		fontWeight: '400',
-		fontSize: 15,
+		...text.body,
 		marginHorizontal: 5,
 		textAlign: 'center',
 	},
 	subtitleContainer: {
-		marginTop: 30,
+		marginVertical: 15,
 		alignItems: 'center',
 	},
 });

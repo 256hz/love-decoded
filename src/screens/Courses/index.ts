@@ -1,3 +1,3 @@
-import Home from './Home';
+import Home from './Tabs/Home';
 
 export default Home;

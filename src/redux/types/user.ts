@@ -29,8 +29,8 @@ export enum Activity {
 	Bedtime = 4,
 }
 
-export type Day = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type DayNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export type Step = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type StepNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
-export type Course = 1 | 2 | 3;
+export type CourseNumber = 1 | 2 | 3;

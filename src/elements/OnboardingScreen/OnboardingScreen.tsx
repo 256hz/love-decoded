@@ -1,13 +1,13 @@
-import React, {
-	Dispatch, ReactChild, SetStateAction, useState,
-} from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import React, { ReactChild, useEffect, useRef } from 'react';
+import {
+	KeyboardAvoidingView,
+	Platform, Text, View, ViewStyle,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '@assets/svg/logo.svg';
-import DownArrow from '@assets/svg/down-arrow.svg';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { AudioPlayerNavigatorProps } from '@elements/AudioPlayerNavigator/AudioPlayerNavigator';
-import { CustomScrollView } from '@elements/CustomScrollView';
+import { CustomScrollView } from 'elements/CustomScrollView';
 import colors from 'elements/globalStyles/color';
 import { BackgroundFade } from './BackgroundFade';
 import styles from './OnboardingScreen.styles';
@@ -17,6 +17,7 @@ type Props = {
 	customBottomSection?: ReactChild,
 	drawShapes?: number[];
 	hideBackButton?: boolean;
+	hideBackgroundImage?: boolean;
 	hideNextButton?: boolean;
 	scrollDisabled?: boolean;
 	showLogo?: boolean;
@@ -33,6 +34,7 @@ export default ({
 	customButtons,
 	drawShapes,
 	hideBackButton,
+	hideBackgroundImage,
 	hideNextButton,
 	onAudioEnd,
 	onPressNext,
@@ -44,45 +46,49 @@ export default ({
 	titleChild = <></>,
 	titleContainerStyle,
 }: Props) => {
-	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
 
 	return (
 		<View style={styles.container}>
 			{/* Background image/shapes */}
-			<BackgroundFade drawShapes={drawShapes}>
+			<BackgroundFade drawShapes={drawShapes} hideBackgroundImage={hideBackgroundImage}>
 				<SafeAreaView style={styles.screenContainer}>
-					<View style={styles.container}>
-						{ showLogo ? (
-							<View style={styles.logoContainer}>
-								<Logo />
+					<OptionalKeyboardAvoidingView
+						useAvoiding={Platform.OS === 'ios'}
+						style={styles.container}
+					>
+						<>
+							{ showLogo
+								? (
+									<View style={styles.logoContainer}>
+										<Logo />
+									</View>
+								)
+								: null
+							}
+
+							{/* Title */}
+							<View style={[
+								styles.titleContainer,
+								showLogo && styles.titleLogoMargin,
+								titleContainerStyle,
+							]}>
+								<Text style={styles.titleText}>
+									{title}
+								</Text>
+
+								{ titleChild }
 							</View>
-						)
-							: null
-						}
 
-						{/* Title */}
-						<View style={[
-							styles.titleContainer,
-							showLogo && styles.titleLogoMargin,
-							titleContainerStyle,
-						]}>
-							<Text style={styles.titleText}>
-								{title}
-							</Text>
-							{ titleChild }
-						</View>
+							{/* screen contents */}
 
-						{/* screen contents */}
-						<ScrollWrapper
-							scrollDisabled={scrollDisabled}
-							setScrollIndicatorVisible={setScrollIndicatorVisible}
-						>
-							{children}
-						</ScrollWrapper>
-
-						{ scrollIndicatorVisible ? <ScrollIndicator /> : null}
-					</View>
-
+							<CustomScrollView
+								indicatorArrowColor={colors.Gray92}
+								scrollDisabled={scrollDisabled}
+							>
+								{children}
+							</CustomScrollView>
+						</>
+					</OptionalKeyboardAvoidingView>
 
 					{ customBottomSection }
 
@@ -114,34 +120,26 @@ export default ({
 					}
 				</SafeAreaView>
 			</BackgroundFade>
+
 		</View>
 	);
 };
 
-type ScrollWrapperProps = {
+type OptionalKeyboardAvoidingViewProps = {
+	useAvoiding: boolean,
 	children: ReactChild,
-	scrollDisabled: boolean,
-	setScrollIndicatorVisible: Dispatch<SetStateAction<boolean>>;
+	style?: ViewStyle
 };
 
-const ScrollWrapper = ({
-	children,
-	scrollDisabled,
-	setScrollIndicatorVisible,
-}: ScrollWrapperProps) => (
-	scrollDisabled
-		? <View style={styles.childrenContainer}>{children}</View>
-		: (
-			<CustomScrollView setScrollIndicatorVisible={setScrollIndicatorVisible}>
+const OptionalKeyboardAvoidingView = ({ useAvoiding, children, style }: OptionalKeyboardAvoidingViewProps) =>
+	useAvoiding
+		? (
+			<KeyboardAvoidingView
+				behavior={Platform.select({ ios: 'padding' })}
+				enabled
+				style={style}
+			>
 				{children}
-			</CustomScrollView>
+			</KeyboardAvoidingView>
 		)
-);
-
-const ScrollIndicator = () => (
-	<View style={styles.scrollIndicatorContainer}>
-		<View style={styles.scrollIndicator}>
-			<DownArrow fill={colors.Gray92} />
-		</View>
-	</View>
-);
+		: <View style={style}>{children}</View>;

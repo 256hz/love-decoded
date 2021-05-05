@@ -6,7 +6,7 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
-import { openWebLink } from 'util/linking';
+import { openWebLink } from '@util/linking';
 import styles from './Card.styles';
 
 export type CardEntry = {

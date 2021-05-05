@@ -41,6 +41,8 @@ export {
 	getUserEmail,
 	getUserFirstName,
 	getUserId,
+	getUserMaxProgress,
+	getUserMaxProgressNumbers,
 	getUserProgress,
 	getUserProgressNumbers,
 } from './user';

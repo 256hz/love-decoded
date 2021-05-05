@@ -21,6 +21,19 @@ export const getUserProgress = createSelector(user, userState => ({
 	currentActivity: userState[UserProperty.CurrentActivity],
 }));
 
+export const getUserMaxProgressNumbers = createSelector(user, userState => ({
+	maxCourseNumber: userState[UserProperty.MaxCourse],
+	maxStepNumber: userState[UserProperty.MaxStep],
+	maxDayNumber: userState[UserProperty.MaxDay],
+	maxActivityNumber: userState[UserProperty.MaxActivity],
+}));
+
+export const getUserMaxProgress = createSelector(user, userState => ({
+	maxCourse: CourseFromNumber[userState[UserProperty.MaxCourse]],
+	maxStep: StepFromNumber[userState[UserProperty.MaxStep]],
+	maxDay: DayFromNumber[userState[UserProperty.MaxDay]],
+	maxActivity: userState[UserProperty.MaxActivity],
+}));
 
 export const getUserFirstName = createSelector(user, ({ first_name }) => first_name);
 

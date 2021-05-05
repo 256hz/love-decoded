@@ -12,8 +12,8 @@ export const titles: Titles = {
 	[Courses.One]: {
 		[Steps.One]: 'Discovering Your Lovable Qualities',
 		[Steps.Two]: 'Learning to Self-Talk Positively',
-		[Steps.Three]: '',
-		[Steps.Four]: '',
+		[Steps.Three]: 'Transforming My Unloving Behaviors',
+		[Steps.Four]: 'Creating Effective Personal Visions',
 		[Steps.Five]: '',
 		[Steps.Six]: '',
 		[Steps.Seven]: '',

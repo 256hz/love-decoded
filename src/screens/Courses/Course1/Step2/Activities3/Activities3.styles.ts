@@ -16,9 +16,14 @@ export default StyleSheet.create({
 		...text.body,
 		...text.bold,
 	},
-	textItemContainer: {
+	textContainer: {
+		maxWidth: '80%',
+	},
+	row: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		marginBottom: 24,
-		marginTop: 8,
 	},
 	textInput: {
 		marginBottom: 16,

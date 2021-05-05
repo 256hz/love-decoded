@@ -13,9 +13,11 @@ interface Props {
 	backEnabled?: boolean;
 	backNavigationDisabled?: boolean;
 	backTarget?: Screens;
+	backTitle?: string;
 	hideBackButton?: boolean;
 	hideNextButton?: boolean;
 	nextTarget?: Screens;
+	nextTitle?: string;
 	nextEnabled?: boolean;
 	onPressBack?: (arg?: any) => void;
 	onPressNext?: (arg?: any) => void;
@@ -25,9 +27,11 @@ export default ({
 	backNavigationDisabled,
 	backEnabled,
 	backTarget,
+	backTitle = 'Back',
 	hideBackButton,
 	hideNextButton,
 	nextTarget,
+	nextTitle = 'Next',
 	nextEnabled,
 	onPressBack,
 	onPressNext,
@@ -71,7 +75,10 @@ export default ({
 								backDisabled && styles.disabled,
 							]}>
 								<BackArrow />
-								<Text style={styles.text}>Back</Text>
+
+								<Text style={styles.text}>
+									{backTitle}
+								</Text>
 							</View>
 						</TouchableOpacity>
 					)
@@ -89,7 +96,7 @@ export default ({
 								styles.navButton,
 								!nextIsEnabled && styles.disabled,
 							]}>
-								<Text style={styles.text}>Next</Text>
+								<Text style={styles.text}>{nextTitle}</Text>
 								<NextArrow />
 							</View>
 						</TouchableOpacity>

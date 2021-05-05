@@ -1,7 +1,7 @@
 import { OnboardingScreen, MultiSelectSurvey } from '@elements';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { KeyboardAvoidingView, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { OnboardingScreens } from 'route/enums';
 import { setOnboardingSurveyResponse } from '@redux/action';
 import { getOnboardingSurveyByTitle } from '@redux/selector';
@@ -57,31 +57,29 @@ export default () => {
 	};
 
 	return (
-		<KeyboardAvoidingView behavior="padding" style={styles.kavContainer}>
-			<OnboardingScreen
-				audioFilename="onboarding_2_sources_of_pain.mp3"
-				drawShapes={[ 1, 7, 11 ]}
-				nextTarget={OnboardingScreens.WhatWouldILikeToLearn}
-				onPressNext={submitResponse}
-				title="Acknowleding Your Past and Present Sources of Pain"
-				titleChild={
-					<View style={styles.subtitleContainer}>
-						<Text style={styles.topText}>
-							(scroll and select all that apply)
-						</Text>
-					</View>
-				}
-			>
-				<View style={styles.container}>
-					<MultiSelectSurvey
-						customSelection={customSelection}
-						options={options}
-						selections={selections}
-						setCustomSelection={setCustomSelection}
-						toggleSelected={toggleSelected}
-					/>
+		<OnboardingScreen
+			audioFilename="onboarding_2_sources_of_pain.mp3"
+			drawShapes={[ 1, 7, 11 ]}
+			nextTarget={OnboardingScreens.WhatWouldILikeToLearn}
+			onPressNext={submitResponse}
+			title="Acknowleding Your Past and Present Sources of Pain"
+			titleChild={
+				<View style={styles.subtitleContainer}>
+					<Text style={styles.topText}>
+						(scroll and select all that apply)
+					</Text>
 				</View>
-			</OnboardingScreen>
-		</KeyboardAvoidingView>
+			}
+		>
+			<View style={styles.container}>
+				<MultiSelectSurvey
+					customSelection={customSelection}
+					options={options}
+					selections={selections}
+					setCustomSelection={setCustomSelection}
+					toggleSelected={toggleSelected}
+				/>
+			</View>
+		</OnboardingScreen>
 	);
 };

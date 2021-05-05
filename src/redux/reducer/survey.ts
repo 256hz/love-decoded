@@ -7,7 +7,12 @@ import {
 	setStepActivityResponse,
 	logOut,
 } from '@redux/action';
-import { course1Step1State, course1Step2State } from './initialSurveyStates';
+import {
+	course1Step1State,
+	course1Step2State,
+	course1Step3State,
+	course1Step4State,
+} from './initialSurveyStates';
 
 // set initial values
 
@@ -19,6 +24,8 @@ const INITIAL_STATE: SurveyState = {
 	course1: {
 		step1: course1Step1State,
 		step2: course1Step2State,
+		step3: course1Step3State,
+		step4: course1Step4State,
 	},
 };
 
@@ -69,5 +76,6 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 		},
 	}));
 
-	addCase(logOut, state => INITIAL_STATE);
+	// disabled until backend integration
+	// addCase(logOut, state => INITIAL_STATE);
 });

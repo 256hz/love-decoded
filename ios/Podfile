@@ -7,12 +7,12 @@ target 'LoveDecoded' do
   config = use_native_modules!
 
   use_react_native!(:path => config["reactNativePath"])
-	
 
   target 'LoveDecodedTests' do
     inherit! :complete
     # Pods for testing
   end
+
 
   # Enables Flipper.
   #
