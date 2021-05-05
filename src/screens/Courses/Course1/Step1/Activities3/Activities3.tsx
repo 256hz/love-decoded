@@ -1,5 +1,5 @@
 import React from 'react';
-import ActivitiesShare from 'screens/Courses/Common/ActivitiesShare';
+import ActivitiesShare from '@screens/Courses/Common/ActivitiesShare';
 
 export default () => {
 	const linesToShare = [
