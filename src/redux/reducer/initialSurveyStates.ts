@@ -90,7 +90,9 @@ const course1Step4DayState = DayValues.reduce((acc, curr) => {
 export const course1Step4State = {
 	...course1Step4DayState,
 	[Activities.Course1Step4Activity1]: '',
-	[Activities.Course1Step4Activity2]: '',
-	[Activities.Course1Step4Activity3]: '',
+	[Activities.Course1Step4Activity2a]: '',
+	[Activities.Course1Step4Activity2b]: '',
+	[Activities.Course1Step4Activity3a]: '',
+	[Activities.Course1Step4Activity3b]: '',
 	[Activities.Course1Step4Resources3]: '',
 };
