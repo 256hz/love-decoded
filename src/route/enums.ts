@@ -1,10 +1,16 @@
 import { Courses, Steps } from '@redux/types/survey';
-import { Course1Step1Screens, Course1Step2Screens } from './Steps/Course1Screens';
+import {
+	Course1Step1Screens,
+	Course1Step2Screens,
+	Course1Step3Screens,
+	Course1Step4Screens,
+} from './Steps/Course1Screens';
 
 export enum RootStacks {
 	Splash = 'Splash',
 	HomeTabs = 'HomeTabs',
 	OnboardingStack = 'OnboardingStack',
+	Congratulations = 'Congratulations',
 }
 
 export enum OnboardingScreens {
@@ -61,17 +67,16 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
-export enum CourseScreens {
-	Home = 'Home',
-	DayOverview = 'DayOverview',
-	GoodJob = 'GoodJob',
-	Congratulations = 'Congratulations',
+export enum CourseCommonScreens {
+	None = '',
 }
 
-export type Course1Screens = Course1Step1Screens |
-Course1Step2Screens;
+export type Course1Screens = Course1Step1Screens
+| Course1Step2Screens
+| Course1Step3Screens
+| Course1Step4Screens;
 
-export type Screens = OnboardingScreens | CourseScreens | Course1Screens;
+export type Screens = OnboardingScreens | CourseCommonScreens | Course1Screens;
 
 export enum StepStacks {
 	Course1Step1 = 'Course1Step1',
@@ -107,5 +112,34 @@ export const stepEntryPoints: StepEntryPoints = {
 	[Courses.One]: {
 		[Steps.One]: StepStacks.Course1Step1,
 		[Steps.Two]: StepStacks.Course1Step2,
+		[Steps.Three]: StepStacks.Course1Step3,
+		[Steps.Four]: StepStacks.Course1Step4,
+	},
+};
+
+export const stepHomeScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.Home,
+		[Steps.Two]: Course1Step2Screens.Home,
+		[Steps.Three]: Course1Step3Screens.Home,
+		[Steps.Four]: Course1Step4Screens.Home,
+	},
+};
+
+export const stepDayOverviewScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.DayOverview,
+		[Steps.Two]: Course1Step2Screens.DayOverview,
+		[Steps.Three]: Course1Step3Screens.DayOverview,
+		[Steps.Four]: Course1Step4Screens.DayOverview,
+	},
+};
+
+export const stepGoodJobScreen = {
+	[Courses.One]: {
+		[Steps.One]: Course1Step1Screens.GoodJob,
+		[Steps.Two]: Course1Step2Screens.GoodJob,
+		[Steps.Three]: Course1Step3Screens.GoodJob,
+		[Steps.Four]: Course1Step4Screens.GoodJob,
 	},
 };

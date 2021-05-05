@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import text from 'elements/globalStyles/text';
+import text from '@elements/globalStyles/text';
 
 export default StyleSheet.create({
 	container: {
@@ -12,13 +12,14 @@ export default StyleSheet.create({
 	bodyText: {
 		...text.body,
 	},
-	boldText: {
-		...text.body,
-		...text.bold,
+	textContainer: {
+		maxWidth: '80%',
 	},
-	textItemContainer: {
+	row: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		marginBottom: 24,
-		marginTop: 8,
 	},
 	textInput: {
 		marginBottom: 16,

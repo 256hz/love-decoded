@@ -7,7 +7,7 @@ import {
 	View,
 	ViewStyle,
 } from 'react-native';
-import { ScrollView, TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './MultiSelectSurvey.styles';
 
 interface MultiSelectOptionProps {
@@ -87,25 +87,28 @@ export default ({
 	selections = [],
 	setCustomSelection,
 	toggleSelected,
-}: Props) => (
-	<View style={[ styles.multiSelectContainer, styles.multiSelectContainerStyle ]}>
-		{ options.map(option => (
-			<MultiSelectOption
-				option={option}
-				selected={selections.includes(option)}
-				toggleSelected={toggleSelected}
+}: Props) => {
+	return (
+		<View style={[ styles.multiSelectContainer, styles.multiSelectContainerStyle ]}>
+
+			{ options.map(option => (
+				<MultiSelectOption
+					option={option}
+					selected={selections.includes(option)}
+					toggleSelected={toggleSelected}
+					containerStyle={selectionContainerStyle}
+					textStyle={selectionTextStyle}
+					key={option}
+				/>
+			))}
+
+			<CustomMultiSelectOption
+				option={customSelection}
+				selected={customSelection !== ''}
 				containerStyle={selectionContainerStyle}
 				textStyle={selectionTextStyle}
-				key={option}
+				onChange={({ nativeEvent: { text } }) => setCustomSelection(text)}
 			/>
-		))}
-
-		<CustomMultiSelectOption
-			option={customSelection}
-			selected={customSelection !== ''}
-			containerStyle={selectionContainerStyle}
-			textStyle={selectionTextStyle}
-			onChange={({ nativeEvent: { text } }) => setCustomSelection(text)}
-		/>
-	</View>
-);
+		</View>
+	);
+};

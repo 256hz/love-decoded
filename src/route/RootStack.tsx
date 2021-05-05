@@ -3,9 +3,10 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import SplashScreen from '@screens/Splash';
-import { navigationRef } from 'util/navigation';
+import { navigationRef } from '@util/navigation';
 import { useDispatch } from 'react-redux';
 import { setCurrentRouteName } from 'redux/action';
+import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
@@ -25,9 +26,9 @@ export default () => {
 	const onStateChange = (state: NavigationState | undefined) => {
 		const { routes = [], index = 0 } = state || {};
 		const { state: routesState } = routes[index] || {};
-		const { routes: stateRoutes = [], index: stateIndex = 0 } = routesState || {};
+		const { routes: stateRoutes, index: stateIndex = 0 } = routesState || {};
 
-		if (routes !== undefined && routes.length > 0 && index !== undefined) {
+		if (index && routes?.[index]?.name && stateRoutes?.[stateIndex]?.name) {
 			dispatch(setCurrentRouteName(stateRoutes[stateIndex].name as Screens));
 		}
 	};
@@ -52,6 +53,11 @@ export default () => {
 				<Stack.Screen
 					name={RootStacks.HomeTabs}
 					component={HomeDrawer}
+				/>
+
+				<Stack.Screen
+					name={RootStacks.Congratulations}
+					component={CongratulationsScreen}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

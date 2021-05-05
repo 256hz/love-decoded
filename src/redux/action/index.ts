@@ -45,7 +45,7 @@ export {
 } from './survey';
 
 export {
-	advanceUserActivity,
+	advanceUserProgress,
 	setUserProperty,
 	logIn,
 	logOut,

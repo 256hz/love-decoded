@@ -6,7 +6,7 @@ import {
 	TouchableOpacity,
 } from 'react-native-gesture-handler';
 import { Contact } from 'react-native-contacts';
-import vibrate from 'util/vibrate';
+import vibrate from '@util/vibrate';
 import styles from './ContactCard.styles';
 
 interface Props {

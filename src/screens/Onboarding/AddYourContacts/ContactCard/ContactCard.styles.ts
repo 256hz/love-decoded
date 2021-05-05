@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import text from '@elements/globalStyles/text';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {

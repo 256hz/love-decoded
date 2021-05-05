@@ -1,3 +1,4 @@
+import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -6,7 +7,6 @@ export default StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		justifyContent: 'space-between',
 	},
 	topTextContainer: {
 		width: '100%',
@@ -15,9 +15,7 @@ export default StyleSheet.create({
 		marginVertical: 16,
 	},
 	topText: {
-		fontFamily: 'Rubik',
-		fontWeight: '400',
-		fontSize: 15,
+		...text.body,
 		marginHorizontal: 5,
 		textAlign: 'center',
 	},
@@ -30,8 +28,7 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 	},
 	selectionText: {
-		fontFamily: 'Rubik',
-		fontWeight: '400',
+		...text.body,
 		fontSize: 19,
 		textAlign: 'center',
 	},

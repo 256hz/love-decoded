@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import colors from 'elements/globalStyles/color';
+import colors from '@elements/globalStyles/color';
 import {
 	MARGIN,
 	TIME_BAR_HEIGHT,
