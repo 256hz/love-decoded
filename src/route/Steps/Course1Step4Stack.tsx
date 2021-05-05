@@ -17,7 +17,7 @@ import GoodJobScreen from '@screens/Courses/Common/GoodJob';
 import IntentionScreen from '@screens/Courses/Course1/Step4/Intention';
 import Step4Activities1Screen from '@screens/Courses/Course1/Step4/Activities1';
 import Step4Activities2Screen from '@screens/Courses/Course1/Step4/Activities2';
-import Step4Activities3Screen from '@screens/Courses/Course1/Step4/Activities4';
+import Step4Activities3Screen from '@screens/Courses/Course1/Step4/Activities3';
 import Step4Activities4Screen from '@screens/Courses/Course1/Step4/Activities4';
 import Step4Resources1Screen from '@screens/Courses/Course1/Step4/Resources1';
 import Step4Resources2Screen from '@screens/Courses/Course1/Step4/Resources2';

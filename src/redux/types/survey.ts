@@ -188,8 +188,10 @@ export type Course1Step3 = {
 
 export type Course1Step4 = {
 	[Activities.Course1Step4Activity1]: string;
-	[Activities.Course1Step4Activity2]: string;
-	[Activities.Course1Step4Activity3]: string;
+	[Activities.Course1Step4Activity2a]: string;
+	[Activities.Course1Step4Activity2b]: string;
+	[Activities.Course1Step4Activity3a]: string;
+	[Activities.Course1Step4Activity3b]: string;
 } & {
 	[key in Days]: {
 		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
