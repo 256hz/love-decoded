@@ -5,9 +5,12 @@ import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import styles from './Resources2.styles';
 
 export default ({ navigation }) => {
+	const onClose = () => navigation.pop(2);
+
 	return (
 		<ResourcesScreen
 			hideBackButton
+			onClose={onClose}
 			nextTarget={Course1Step4Screens.Resources3}
 			navigation={navigation}
 		>

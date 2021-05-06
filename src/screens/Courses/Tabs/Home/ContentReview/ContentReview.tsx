@@ -70,7 +70,7 @@ export default () => {
 		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
 
 		if (!courseNumber || !stepNumber || !dayNumber || !activityNumber) {
-			console.warn('tried to navigate to empty destination:', destination);
+			console.error('tried to navigate to empty destination:', destination);
 			return;
 		}
 
@@ -99,7 +99,14 @@ export default () => {
 			&& stepNumber === step
 			&& dayNumber === day
 			&& activityNumber === activity);
-	}, [ activity, course, day, step, destination, setGoDisabled ]);
+	}, [
+		activity,
+		course,
+		day,
+		step,
+		destination,
+		setGoDisabled,
+	]);
 
 	return (
 		<View style={styles.container}>
@@ -153,9 +160,10 @@ const getDropDownChoices = (maxUserProgress) => {
 		maxActivityNumber,
 	} = maxUserProgress;
 
+	// String format for destinations.  An array or object would be nicer, but values and keys have to match, and we can't match on them without using immutable data structures.
 	const currentMaxString = `${maxCourseNumber}${maxStepNumber}${maxDayNumber}${maxActivityNumber}`;
 
-	// values and keys must match.  Format as currentMaxString.
+	// values and keys must match.
 	return [
 		{ label: 'Step 1, Day 1', value: '1111', key: '1111' },
 		(DEMO_MODE || maxDayNumber > 1 || maxStepNumber > 1 || maxCourseNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
@@ -167,6 +175,7 @@ const getDropDownChoices = (maxUserProgress) => {
 		(DEMO_MODE || maxStepNumber > 1 || maxCourseNumber > 1) && { label: `Step 2: ${titles.course1.step2}`, value: '1211', key: '1211' },
 		(DEMO_MODE || maxStepNumber > 2 || maxCourseNumber > 1) && { label: `Step 3: ${titles.course1.step3}`, value: '1311', key: '1311' },
 		(DEMO_MODE || maxStepNumber > 3 || maxCourseNumber > 1) && { label: `Step 4: ${titles.course1.step4}`, value: '1411', key: '1411' },
+		(DEMO_MODE || maxStepNumber > 4 || maxCourseNumber > 1) && { label: `Step 5: ${titles.course1.step5}`, value: '1511', key: '1511' },
 		(DEMO_MODE || maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

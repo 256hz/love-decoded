@@ -38,7 +38,9 @@ export default ({
 }: Props) => {
 	const dispatch = useDispatch();
 	const { navigate, goBack, canGoBack } = useNavigation();
+
 	const nextIsEnabled = nextTarget && nextEnabled;
+	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	const onBack = () => {
 		onPressBack?.();
@@ -57,8 +59,6 @@ export default ({
 		dispatch(resetAudioPlayer(true, 'onNext'));
 		navigate(nextTarget!);
 	};
-
-	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	return (
 		<View style={styles.container}>

@@ -2,15 +2,10 @@ import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import {
-	Course1Step1Screens,
-	Course1Step2Screens,
-	Course1Step3Screens,
-	Course1Step4Screens,
-} from 'route/Steps/Course1Screens';
 import { getUserProgress, getUserProgressNumbers } from '@redux/selector';
-import { Activity, CourseNumber, StepNumber } from '@redux/types/user';
+import { Activity } from '@redux/types/user';
 import { DailyActivity, titles } from '@util/titles';
+import { getNavigationStack } from '@util/navigation';
 import { StepScreen } from '@elements';
 import { ActivityStatus } from './ActivityCard/ActivityCard';
 import ActivityCard from './ActivityCard';
@@ -25,21 +20,6 @@ const getStatus = (currentActivity: Activity, thisActivity: Activity) => {
 		case thisActivity > currentActivity:
 		default:
 			return ActivityStatus.Future;
-	}
-};
-
-const getNavigationStack = (currentCourseNumber: CourseNumber, currentStepNumber: StepNumber) => {
-	switch (currentCourseNumber) {
-		case 1: {
-			switch (currentStepNumber) {
-				case 1: return Course1Step1Screens;
-				case 2: return Course1Step2Screens;
-				case 3: return Course1Step3Screens;
-				case 4: return Course1Step4Screens;
-				default: return Course1Step1Screens;
-			}
-		}
-		default: return Course1Step1Screens;
 	}
 };
 

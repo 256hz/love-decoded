@@ -7,7 +7,8 @@ export const PADDING = 16;
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		padding: PADDING,
+		paddingHorizontal: PADDING,
+		paddingBottom: PADDING,
 	},
 	topTextContainer: {
 		marginBottom: 30,

@@ -11,7 +11,7 @@ import titleStyles from './TitleHeader/TitleHeader.styles';
 
 export const headerStyle = [ styles.defaultHeader, styles.removeBottomBorder ];
 
-export const BackHeader = navigation => ({
+export const BackHeader = (navigation: any) => ({
 	headerLeft: () => <BackButton navigation={navigation} />,
 	headerTitle: () => <></>,
 });

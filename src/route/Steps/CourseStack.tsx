@@ -8,6 +8,7 @@ import Course1Step1Stack from './Course1Step1Stack';
 import Course1Step2Stack from './Course1Step2Stack';
 import Course1Step3Stack from './Course1Step3Stack';
 import Course1Step4Stack from './Course1Step4Stack';
+import Course1Step5Stack from './Course1Step5Stack';
 
 const CourseStack = createStackNavigator();
 
@@ -39,6 +40,11 @@ export default () => {
 			<CourseStack.Screen
 				name={StepStacks.Course1Step4}
 				component={Course1Step4Stack}
+			/>
+
+			<CourseStack.Screen
+				name={StepStacks.Course1Step5}
+				component={Course1Step5Stack}
 			/>
 		</CourseStack.Navigator>
 	);

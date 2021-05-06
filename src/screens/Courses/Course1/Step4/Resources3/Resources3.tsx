@@ -18,8 +18,11 @@ export default ({ navigation }) => {
 		dispatch(setStepActivityResponse(Courses.One, Steps.Four, Activities.Course1Step4Resources3, text));
 	};
 
+	const onClose = () => navigation.pop(3);
+
 	return (
 		<ResourcesScreen
+			onClose={onClose}
 			hideBackButton
 			nextTarget={Course1Step4Screens.Resources3}
 			navigation={navigation}

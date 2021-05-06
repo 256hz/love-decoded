@@ -1,7 +1,15 @@
 import { NavigationContainerRef } from '@react-navigation/native';
 import React from 'react';
-import { Courses, Steps } from 'redux/types/survey';
 import { StepStacks } from 'route/enums';
+import {
+	Course1Step1Screens,
+	Course1Step2Screens,
+	Course1Step3Screens,
+	Course1Step4Screens,
+	Course1Step5Screens,
+} from 'route/Steps/Course1Screens';
+import { Courses, Steps } from '@redux/types/survey';
+import { CourseNumber, StepNumber } from '@redux/types/user';
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
@@ -49,5 +57,21 @@ export const getStepStackFromUserProgress = (currentCourse: Courses, currentStep
 				case Steps.Six: return StepStacks.Course3Step6;
 				case Steps.Seven: return StepStacks.Course3Step7;
 			}
+	}
+};
+
+export const getNavigationStack = (currentCourseNumber: CourseNumber, currentStepNumber: StepNumber) => {
+	switch (currentCourseNumber) {
+		case 1: {
+			switch (currentStepNumber) {
+				case 1: return Course1Step1Screens;
+				case 2: return Course1Step2Screens;
+				case 3: return Course1Step3Screens;
+				case 4: return Course1Step4Screens;
+				case 5: return Course1Step5Screens;
+				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
+			}
+		}
+		default: return Course1Step1Screens;
 	}
 };

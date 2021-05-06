@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import {
+	Activities,
 	Courses,
 	Days,
 	NeffSurveyPageIndex,
@@ -17,7 +18,7 @@ export const setDaySurveyResponse = createAction('SET_DAY_SURVEY_RESPONSE',
 	}));
 
 export const setStepActivityResponse = createAction('SET_STEP_ACTIVITY_RESPONSE',
-	(course: Courses, step: Steps, title: string, response: SurveyResponse) => ({
+	(course: Courses, step: Steps, title: Activities, response: SurveyResponse) => ({
 		payload: { course, step, title, response },
 	}));
 
