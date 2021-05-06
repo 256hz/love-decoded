@@ -15,7 +15,7 @@ export const titles: Titles = {
 		[Steps.Three]: 'Transforming My Unloving Behaviors',
 		[Steps.Four]: 'Creating Effective Personal Visions',
 		[Steps.Five]: 'Effective Communication',
-		[Steps.Six]: '',
+		[Steps.Six]: 'Contexts Necessary for Framing Communications',
 		[Steps.Seven]: '',
 	},
 	[Courses.Two]: {

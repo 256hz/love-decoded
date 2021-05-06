@@ -12,10 +12,12 @@ export default StyleSheet.create({
 	},
 	bodyText: {
 		...text.body,
+		textAlign: 'center',
 	},
 	boldText: {
 		...text.body,
 		...text.bold,
+		textAlign: 'center',
 	},
 	textItemContainer: {
 		marginBottom: 24,

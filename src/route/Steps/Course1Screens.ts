@@ -56,7 +56,6 @@ export enum Course1Step4Screens {
 	Resources3 = 'course1_step4_resources3',
 	Survey = 'course1_step4_survey',
 	Reflection = 'course1_step4_reflection',
-	Visualization = 'course1_step4_Visualization',
 }
 
 export enum Course1Step5Screens {
@@ -77,5 +76,19 @@ export enum Course1Step5Screens {
 	Resources2 = 'course1_step5_resources2',
 	Survey = 'course1_step5_survey',
 	Reflection = 'course1_step5_reflection',
-	Visualization = 'course1_step5_Visualization',
+}
+
+export enum Course1Step6Screens {
+	Home = 'course1_step6_home',
+	DayOverview = 'course1_step6_day_overview',
+	GoodJob = 'course1_step6_good_job',
+	Intention = 'course1_step6_intention',
+	Activities1 = 'course1_step6_activities1',
+	Activities2 = 'course1_step6_activities2',
+	Activities3 = 'course1_step6_activities3',
+	Activities4a = 'course1_step6_activities4',
+	Resources1 = 'course1_step6_resources1',
+	Resources2 = 'course1_step6_resources2',
+	Survey = 'course1_step6_survey',
+	Reflection = 'course1_step6_reflection',
 }

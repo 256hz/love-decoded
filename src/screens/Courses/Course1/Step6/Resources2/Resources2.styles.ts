@@ -5,23 +5,17 @@ export default StyleSheet.create({
 	container: {
 		flex: 1,
 	},
-	bodyContainer: {
-		flex: 1,
-		justifyContent: 'center',
-		padding: 22,
+	subtitleContainer: {
+		paddingHorizontal: 24,
 	},
-	bodyText: {
+	text: {
 		...text.body,
-		textAlign: 'center',
+		fontSize: 14,
 	},
 	boldText: {
 		...text.body,
 		...text.bold,
-		textAlign: 'center',
-	},
-	textItemContainer: {
-		marginBottom: 24,
-		marginTop: 8,
+		fontSize: 14,
 	},
 	textInput: {
 		minHeight: 150,

@@ -15,19 +15,19 @@ import HomeScreen from '@screens/Courses/Tabs/Home';
 import DayOverviewScreen from '@screens/Courses/Common/DayOverview';
 import GoodJobScreen from '@screens/Courses/Common/GoodJob';
 import IntentionScreen from '@screens/Courses/Course1/Step5/Intention';
-import Step4Activities1Screen from '@screens/Courses/Course1/Step5/Activities1';
-import Step4Activities2Screen from '@screens/Courses/Course1/Step5/Activities2';
-import Step4Activities3Screen from '@screens/Courses/Course1/Step5/Activities3';
-import Step4Activities4aScreen from '@screens/Courses/Course1/Step5/Activities4a';
-import Step4Activities4bScreen from '@screens/Courses/Course1/Step5/Activities4b';
-import Step4Activities5Screen from '@screens/Courses/Course1/Step5/Activities5';
-import Step4Activities6Screen from '@screens/Courses/Course1/Step5/Activities6';
-import Step4Activities7Screen from '@screens/Courses/Course1/Step5/Activities7';
-import Step4Activities8Screen from '@screens/Courses/Course1/Step5/Activities8';
-import Step4Resources1Screen from '@screens/Courses/Course1/Step5/Resources1';
-import Step4Resources2Screen from '@screens/Courses/Course1/Step5/Resources2';
-import Step4SurveyScreen from '@screens/Courses/Course1/Step5/Survey';
-import Step4ReflectionScreen from '@screens/Courses/Course1/Step5/Reflection';
+import Step5Activities1Screen from '@screens/Courses/Course1/Step5/Activities1';
+import Step5Activities2Screen from '@screens/Courses/Course1/Step5/Activities2';
+import Step5Activities3Screen from '@screens/Courses/Course1/Step5/Activities3';
+import Step5Activities4aScreen from '@screens/Courses/Course1/Step5/Activities4a';
+import Step5Activities4bScreen from '@screens/Courses/Course1/Step5/Activities4b';
+import Step5Activities5Screen from '@screens/Courses/Course1/Step5/Activities5';
+import Step5Activities6Screen from '@screens/Courses/Course1/Step5/Activities6';
+import Step5Activities7Screen from '@screens/Courses/Course1/Step5/Activities7';
+import Step5Activities8Screen from '@screens/Courses/Course1/Step5/Activities8';
+import Step5Resources1Screen from '@screens/Courses/Course1/Step5/Resources1';
+import Step5Resources2Screen from '@screens/Courses/Course1/Step5/Resources2';
+import Step5SurveyScreen from '@screens/Courses/Course1/Step5/Survey';
+import Step5ReflectionScreen from '@screens/Courses/Course1/Step5/Reflection';
 import { course1step5prompts } from '@screens/Courses/Course1/Step5/Survey/Survey';
 import { Course1Step5Screens } from './Course1Screens';
 
@@ -76,79 +76,79 @@ export default ({ navigation }) => {
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities1}
-				component={Step4Activities1Screen}
+				component={Step5Activities1Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities2}
-				component={Step4Activities2Screen}
+				component={Step5Activities2Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities3}
-				component={Step4Activities3Screen}
+				component={Step5Activities3Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities4a}
-				component={Step4Activities4aScreen}
+				component={Step5Activities4aScreen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities4b}
-				component={Step4Activities4bScreen}
+				component={Step5Activities4bScreen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities5}
-				component={Step4Activities5Screen}
+				component={Step5Activities5Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities6}
-				component={Step4Activities6Screen}
+				component={Step5Activities6Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities7}
-				component={Step4Activities7Screen}
+				component={Step5Activities7Screen}
 				options={ActivitiesHeader()}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Activities8}
-				component={Step4Activities8Screen}
+				component={Step5Activities8Screen}
 				options={TitleHeader(DailyActivity.Activities, title)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Resources1}
-				component={Step4Resources1Screen}
+				component={Step5Resources1Screen}
 				options={CloseHeader(navigation)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Resources2}
-				component={Step4Resources2Screen}
+				component={Step5Resources2Screen}
 				options={CloseHeader(navigation)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Survey}
-				component={Step4SurveyScreen}
+				component={Step5SurveyScreen}
 				options={TitleWithProgressHeader(0, course1step5prompts.length, title, DailyActivity.Survey)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step5Screens.Reflection}
-				component={Step4ReflectionScreen}
+				component={Step5ReflectionScreen}
 				options={TitleHeader(title, DailyActivity.NightlyReflection)}
 			/>
 

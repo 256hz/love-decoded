@@ -42,7 +42,7 @@ export default () => {
 	const CourseStepScreens = getNavigationStack(currentCourseNumber, currentStepNumber);
 
 	return (
-		<StepScreen>
+		<StepScreen backTarget={CourseStepScreens.Home}>
 			<View style={styles.container}>
 				<View style={styles.topTextContainer}>
 					<Text style={styles.titleText}>

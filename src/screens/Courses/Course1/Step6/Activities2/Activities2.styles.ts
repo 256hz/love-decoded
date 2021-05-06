@@ -7,17 +7,14 @@ export default StyleSheet.create({
 	},
 	bodyContainer: {
 		flex: 1,
-		justifyContent: 'center',
 		padding: 22,
 	},
 	bodyText: {
 		...text.body,
-		textAlign: 'center',
 	},
 	boldText: {
 		...text.body,
 		...text.bold,
-		textAlign: 'center',
 	},
 	textItemContainer: {
 		marginBottom: 24,

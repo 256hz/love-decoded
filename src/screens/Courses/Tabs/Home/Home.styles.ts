@@ -53,16 +53,18 @@ export default StyleSheet.create({
 	filledProgressContainer: {
 		position: 'absolute',
 		flexDirection: 'row',
+		width: '100%',
 	},
 	progress: {
 		height: PROGRESS_BAR_HEIGHT,
-		borderRadius: 6,
+		borderTopLeftRadius: 6,
+		borderBottomLeftRadius: 6,
 		backgroundColor: colors.Orange,
 		left: 0,
 	},
 	progressGradient: {
 		height: PROGRESS_BAR_HEIGHT,
-		width: 50,
+		width: '15%',
 	},
 	buttonContainer: {
 		width: '100%',
