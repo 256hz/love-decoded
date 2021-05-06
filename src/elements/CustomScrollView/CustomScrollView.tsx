@@ -3,7 +3,12 @@ import React, {
 	useRef,
 	useState,
 } from 'react';
-import { View, Pressable, Platform } from 'react-native';
+import {
+	Platform,
+	Pressable,
+	View,
+	ViewStyle,
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import DownArrow from '@assets/svg/down-arrow.svg';
 import colors from '@elements/globalStyles/color';
@@ -14,6 +19,7 @@ type ScrollWrapperProps = {
 	indicatorArrowColor?: string;
 	indicatorBackgroundColor?: string;
 	scrollDisabled?: boolean,
+	style?: ViewStyle;
 };
 
 export default ({
@@ -21,14 +27,16 @@ export default ({
 	indicatorArrowColor,
 	indicatorBackgroundColor,
 	scrollDisabled,
+	style = {},
 }: ScrollWrapperProps) => (
 	scrollDisabled
-		? <View style={styles.childrenContainer}>
+		? <View style={[ styles.childrenContainer, style ]}>
 			{children}
 		</View>
 		: <CustomScrollView
 			indicatorArrowColor={indicatorArrowColor}
 			indicatorBackgroundColor={indicatorBackgroundColor}
+			style={style}
 		>
 			{children}
 		</CustomScrollView>
@@ -38,9 +46,15 @@ type CustomScrollViewProps = {
 	children: ReactChild,
 	indicatorArrowColor?: string;
 	indicatorBackgroundColor?: string;
+	style?: ViewStyle;
 };
 
-const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundColor }: CustomScrollViewProps) => {
+const CustomScrollView = ({
+	children,
+	indicatorArrowColor,
+	indicatorBackgroundColor,
+	style,
+}: CustomScrollViewProps) => {
 	const [ scrollIndicatorVisible, setScrollIndicatorVisible ] = useState(false);
 
 	const scrollViewRef = useRef<ScrollView>(null);
@@ -62,7 +76,7 @@ const CustomScrollView = ({ children, indicatorArrowColor, indicatorBackgroundCo
 	};
 
 	return (
-		<View style={styles.container}>
+		<View style={[ styles.container, style ]}>
 			<View style={styles.childrenContainer}>
 				<ScrollView
 					ref={scrollViewRef}

@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Screens } from 'route/enums';
 import BackArrow from '@assets/svg/back-arrow.svg';
 import NextArrow from '@assets/svg/next-arrow.svg';
-import { resetAudioPlayer } from '@redux/action';
+import { pauseAudio, resetAudioPlayer } from '@redux/action';
 import styles from './NavButtons.styles';
 
 interface Props {
@@ -38,7 +38,9 @@ export default ({
 }: Props) => {
 	const dispatch = useDispatch();
 	const { navigate, goBack, canGoBack } = useNavigation();
+
 	const nextIsEnabled = nextTarget && nextEnabled;
+	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	const onBack = () => {
 		onPressBack?.();
@@ -54,11 +56,10 @@ export default ({
 
 	const onNext = () => {
 		onPressNext?.();
+		dispatch(pauseAudio());
 		dispatch(resetAudioPlayer(true, 'onNext'));
 		navigate(nextTarget!);
 	};
-
-	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	return (
 		<View style={styles.container}>

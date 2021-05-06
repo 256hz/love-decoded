@@ -154,10 +154,13 @@ function* getInfoWhilePlaying(route: Screens) {
 		}
 
 		const [ stop ] = yield race([ take(stopGettingAudioInfo), delay(900) ]);
+
 		if (stop) {
 			yield call(getInfo);
 			break;
 		}
+
+		// loop
 	}
 
 	yield put(setAudioIsGettingInfo(false));
