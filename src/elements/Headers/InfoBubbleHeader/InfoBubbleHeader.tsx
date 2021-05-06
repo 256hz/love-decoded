@@ -9,7 +9,7 @@ export default ({ navigation, infoBubbleTarget }) => {
 		navigation.navigate(infoBubbleTarget);
 	};
 
-	return infoBubbleTarget !== undefined
+	return !!infoBubbleTarget && !!navigation
 		? (
 			<TouchableOpacity onPress={onPress}>
 				<View style={styles.container}>

@@ -33,6 +33,16 @@ export enum EndOfDaySurveys {
 	Course1Step4Survey2 = 'course1_step4_survey2',
 	Course1Step4Survey3 = 'course1_step4_survey3',
 	Course1Step4Survey4 = 'course1_step4_survey4',
+	// Course 1, Step 5
+	Course1Step5Survey1 = 'course1_step5_survey1',
+	Course1Step5Survey2 = 'course1_step5_survey2',
+	Course1Step5Survey3 = 'course1_step5_survey3',
+	Course1Step5Survey4 = 'course1_step5_survey4',
+	// Course 1, Step 6
+	Course1Step6Survey1 = 'course1_step6_survey1',
+	Course1Step6Survey2 = 'course1_step6_survey2',
+	Course1Step6Survey3 = 'course1_step6_survey3',
+	Course1Step6Survey4 = 'course1_step6_survey4',
 }
 
 export enum Activities {
@@ -58,6 +68,22 @@ export enum Activities {
 	Course1Step4Activity3a = 'course1_step4_activity3a',
 	Course1Step4Activity3b = 'course1_step4_activity3b',
 	Course1Step4Resources3 = 'course1_step4_resources3',
+	// Course 1, Step 5
+	Course1Step5Activity1 = 'course1_step5_activity1',
+	Course1Step5Activity2 = 'course1_step5_activity2',
+	Course1Step5Activity3 = 'course1_step5_activity3',
+	Course1Step5Activity6 = 'course1_step5_activity6',
+	Course1Step5Activity7 = 'course1_step5_activity7',
+	Course1Step5Resources1a = 'course1_step5_resources1a',
+	Course1Step5Resources1b = 'course1_step5_resources1b',
+	Course1Step5Resources1c = 'course1_step5_resources1c',
+	Course1Step5Resources2a = 'course1_step5_resources2a',
+	Course1Step5Resources2b = 'course1_step5_resources2b',
+	// Course 1, Step 6
+	Course1Step6Activity1 = 'course1_step6_activity1',
+	Course1Step6Activity2a = 'course1_step6_activity2a',
+	Course1Step6Activity2b = 'course1_step6_activity2b',
+	Course1Step6Resources2 = 'course1_step6_resources2',
 }
 
 export enum Courses {
@@ -139,6 +165,8 @@ export type Course1State = {
 	[Steps.Two]: Course1Step2;
 	[Steps.Three]: Course1Step3;
 	[Steps.Four]: Course1Step4;
+	[Steps.Five]: Course1Step5;
+	[Steps.Six]: Course1Step6;
 };
 
 export type Course1Step1 = {
@@ -199,6 +227,42 @@ export type Course1Step4 = {
 		[EndOfDaySurveys.Course1Step4Survey2]: string,
 		[EndOfDaySurveys.Course1Step4Survey3]: string,
 		[EndOfDaySurveys.Course1Step4Survey4]: string,
+	};
+};
+
+export type Course1Step5 = {
+	[Activities.Course1Step5Activity1]: string;
+	[Activities.Course1Step5Activity2]: string;
+	[Activities.Course1Step5Activity3]: string;
+	[Activities.Course1Step5Activity6]: string;
+	[Activities.Course1Step5Activity7]: string;
+	[Activities.Course1Step5Resources1a]: string;
+	[Activities.Course1Step5Resources1b]: string;
+	[Activities.Course1Step5Resources1c]: string;
+	[Activities.Course1Step5Resources2a]: string;
+	[Activities.Course1Step5Resources2b]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course1Step5Survey1]: string,
+		[EndOfDaySurveys.Course1Step5Survey2]: string,
+		[EndOfDaySurveys.Course1Step5Survey3]: string,
+		[EndOfDaySurveys.Course1Step5Survey4]: string,
+	};
+};
+
+export type Course1Step6 = {
+	[Activities.Course1Step6Activity1]: string;
+	[Activities.Course1Step6Activity2a]: string;
+	[Activities.Course1Step6Activity2b]: string;
+	[Activities.Course1Step6Resources2]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course1Step6Survey1]: string,
+		[EndOfDaySurveys.Course1Step6Survey2]: string,
+		[EndOfDaySurveys.Course1Step6Survey3]: string,
+		[EndOfDaySurveys.Course1Step6Survey4]: string,
 	};
 };
 

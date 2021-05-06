@@ -7,16 +7,20 @@ import DrawerButton from './DrawerButtonHeader';
 import InfoBubble from './InfoBubbleHeader';
 import SimpleTitle from './SimpleTitleHeader';
 import Title from './TitleHeader';
-import titleStyles from './TitleHeader/TitleHeader.styles';
+import titleStyles, { EXTRA_TITLE_LINE_HEIGHT, TITLE_HEADER_HEIGHT } from './TitleHeader/TitleHeader.styles';
 
 export const headerStyle = [ styles.defaultHeader, styles.removeBottomBorder ];
 
-export const BackHeader = navigation => ({
+export const BackHeader = (navigation: any) => ({
 	headerLeft: () => <BackButton navigation={navigation} />,
 	headerTitle: () => <></>,
 });
 
-export const CloseHeader = (navigation: any, title: string = 'Resources', onClose?: () => void) => ({
+export const CloseHeader = (
+	navigation: any,
+	title: string = 'Resources',
+	onClose?: () => void,
+) => ({
 	headerLeft: () => <></>,
 	headerTitle: () => <SimpleTitle title={title} />,
 	headerRight: () => <CloseButton navigation={navigation} onClose={onClose} />,
@@ -33,12 +37,21 @@ export const EmptyHeader = () => ({
 	headerShown: false,
 });
 
-export const TitleHeader = (title: string, subtitle?: string, navigation?: any, infoBubbleTarget?: Screens) => ({
+export const TitleHeader = (
+	title: string,
+	subtitle?: string,
+	navigation?: any,
+	infoBubbleTarget?: Screens,
+) => ({
 	headerLeft: () => <Title title={title} subtitle={subtitle} />,
 	headerTitle: () => <></>,
 	headerRight: () => <InfoBubble navigation={navigation} infoBubbleTarget={infoBubbleTarget} />,
 	headerTitleContainerStyle: styles.emptyContainer,
-	headerStyle: [ titleStyles.titleHeader, styles.removeBottomBorder ],
+	headerStyle: [
+		titleStyles.titleHeader,
+		styles.removeBottomBorder,
+		title.length > 35 ? { height: TITLE_HEADER_HEIGHT + EXTRA_TITLE_LINE_HEIGHT } : {},
+	],
 });
 
 export const TitleWithProgressHeader = (
@@ -56,6 +69,10 @@ export const TitleWithProgressHeader = (
 		/>),
 	headerTitle: () => <></>,
 	headerTitleContainerStyle: styles.emptyContainer,
-	headerStyle: [ titleStyles.titleWithProgressHeader, styles.removeBottomBorder ],
+	headerStyle: [
+		titleStyles.titleHeader,
+		styles.removeBottomBorder,
+		title.length > 35 ? { height: TITLE_HEADER_HEIGHT + EXTRA_TITLE_LINE_HEIGHT * 1.75 } : {},
+	],
 });
 

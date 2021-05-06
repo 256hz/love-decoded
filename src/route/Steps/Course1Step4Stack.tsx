@@ -30,9 +30,11 @@ import { Course1Step4Screens } from './Course1Screens';
 const StepStack = createStackNavigator();
 
 export default ({ navigation }) => {
+	const title = titles.course1.step4;
+
 	const ActivitiesHeader = () => TitleHeader(
 		DailyActivity.Activities,
-		titles.course1.step4,
+		title,
 		navigation,
 		Course1Step4Screens.Resources1,
 	);
@@ -59,7 +61,7 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step4Screens.Intention}
 				component={IntentionScreen}
-				options={TitleHeader(titles.course1.step4, DailyActivity.Intention)}
+				options={TitleHeader(title, DailyActivity.Intention)}
 			/>
 
 			<StepStack.Screen
@@ -89,7 +91,7 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step4Screens.Activities4}
 				component={Step4Activities4Screen}
-				options={TitleHeader(DailyActivity.Activities, titles.course1.step4)}
+				options={TitleHeader(DailyActivity.Activities, title)}
 			/>
 
 			<StepStack.Screen
@@ -113,13 +115,13 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step4Screens.Survey}
 				component={Step4SurveyScreen}
-				options={TitleWithProgressHeader(0, course1step4prompts.length, titles.course1.step4, DailyActivity.Survey)}
+				options={TitleWithProgressHeader(0, course1step4prompts.length, title, DailyActivity.Survey)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step4Screens.Reflection}
 				component={Step4ReflectionScreen}
-				options={TitleHeader(titles.course1.step4, DailyActivity.NightlyReflection)}
+				options={TitleHeader(title, DailyActivity.NightlyReflection)}
 			/>
 
 		</StepStack.Navigator>

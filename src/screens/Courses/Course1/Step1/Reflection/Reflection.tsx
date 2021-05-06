@@ -5,7 +5,6 @@ import { View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { stepGoodJobScreen, stepHomeScreen } from 'route/enums';
 import { Course1Step1Screens } from 'route/Steps/Course1Screens';
-import { Days } from '@redux/types/survey';
 import { getUserProgress } from '@redux/selector';
 import { StepScreen } from '@elements';
 import styles from './Reflection.styles';
@@ -14,13 +13,13 @@ export default () => {
 	const { navigate } = useNavigation();
 	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
 
-	const getAudioFilename = (day: Days) => `step1_${day}_reflections.mp3`;
+	const audioFilename = `${currentStep}_${currentDay}_reflections.mp3`;
 
 	const onPress = () => navigate(Course1Step1Screens.Visualization);
 
 	return (
 		<StepScreen
-			audioFilename={getAudioFilename(currentDay)}
+			audioFilename={audioFilename}
 			backTarget={stepHomeScreen[currentCourse][currentStep]}
 			nextTarget={stepGoodJobScreen[currentCourse][currentStep]}
 		>

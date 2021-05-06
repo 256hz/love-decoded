@@ -10,9 +10,7 @@ export default ({ progressPercent }: { progressPercent: number }) => (
 
 		<View style={styles.filledProgressContainer}>
 			<View style={[ styles.progress, {
-				width: progressPercent ? `${progressPercent}%` : 5,
-				borderTopRightRadius: progressPercent < 100 ? 0 : 6,
-				borderBottomRightRadius: progressPercent < 100 ? 0 : 6,
+				width: progressPercent ? `${progressPercent - 15}%` : 5,
 			} ]} />
 
 			{ progressPercent > 0 && progressPercent < 100

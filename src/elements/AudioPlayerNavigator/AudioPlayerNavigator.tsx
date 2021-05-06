@@ -91,7 +91,6 @@ export default ({
 
 	useEffect(() => {
 		if (!isFocused || !audioFilename) {
-			dispatch(pauseAudio());
 			return;
 		}
 

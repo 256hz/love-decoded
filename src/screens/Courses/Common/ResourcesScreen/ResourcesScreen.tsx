@@ -36,6 +36,7 @@ export default ({
 	return (
 		<View style={styles.container}>
 			<CustomScrollView
+				style={{ marginBottom: 24 }}
 				scrollDisabled={scrollDisabled}
 			>
 				{ children }
@@ -43,10 +44,12 @@ export default ({
 
 			{ nextTarget != undefined
 				? <NavButtons
+					backEnabled
 					hideBackButton={hideBackButton}
 					hideNextButton={hideNextButton}
 					nextTarget={nextTarget}
 					nextTitle={nextTitle}
+					nextEnabled
 				/>
 				: null
 			}

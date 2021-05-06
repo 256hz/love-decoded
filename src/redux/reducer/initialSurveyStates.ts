@@ -12,7 +12,7 @@ import {
 */
 
 // Step 1
-// daily
+// per day
 const course1Step1DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -33,7 +33,7 @@ export const course1Step1State = {
 };
 
 // Step 2
-// daily
+// per day
 const course1Step2DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -57,7 +57,7 @@ export const course1Step2State = {
 };
 
 // Step 3
-// daily
+// per day
 const course1Step3DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -75,7 +75,7 @@ export const course1Step3State = {
 };
 
 // Step 4
-// daily
+// per day
 const course1Step4DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
 		[Surveys.HowAreYouFeeling]: 1,
@@ -95,4 +95,52 @@ export const course1Step4State = {
 	[Activities.Course1Step4Activity3a]: '',
 	[Activities.Course1Step4Activity3b]: '',
 	[Activities.Course1Step4Resources3]: '',
+};
+
+// Step 5
+// per day
+const course1Step5DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course1Step5Survey1]: '',
+		[EndOfDaySurveys.Course1Step5Survey2]: '',
+		[EndOfDaySurveys.Course1Step5Survey3]: '',
+		[EndOfDaySurveys.Course1Step5Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course1Step5State = {
+	...course1Step5DayState,
+	[Activities.Course1Step5Activity1]: '',
+	[Activities.Course1Step5Activity2]: '',
+	[Activities.Course1Step5Activity3]: '',
+	[Activities.Course1Step5Activity6]: '',
+	[Activities.Course1Step5Activity7]: '',
+	[Activities.Course1Step5Resources1a]: '',
+	[Activities.Course1Step5Resources1b]: '',
+	[Activities.Course1Step5Resources1c]: '',
+	[Activities.Course1Step5Resources2a]: '',
+	[Activities.Course1Step5Resources2b]: '',
+};
+
+// Step 6
+// per day
+const course1Step6DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course1Step6Survey1]: '',
+		[EndOfDaySurveys.Course1Step6Survey2]: '',
+		[EndOfDaySurveys.Course1Step6Survey3]: '',
+		[EndOfDaySurveys.Course1Step6Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course1Step6State = {
+	...course1Step6DayState,
+	[Activities.Course1Step6Activity1]: '',
+	[Activities.Course1Step6Activity2a]: '',
+	[Activities.Course1Step6Activity2b]: '',
+	[Activities.Course1Step6Resources2]: '',
 };
