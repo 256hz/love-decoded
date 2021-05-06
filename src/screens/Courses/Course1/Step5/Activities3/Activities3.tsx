@@ -35,7 +35,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-							Example: “We have a good friendship and I like to it to only get better” - then – “and I know you are not being disrespectful to hurt my feelings on purpose, but when you cancel the last minute it hurts."
+							Example: “We have a good friendship and I would like to it to only get better” - then – “and I know you are not being disrespectful to hurt my feelings on purpose, but when you cancel the last minute it hurts.”
 						</Text>
 					</View>
 

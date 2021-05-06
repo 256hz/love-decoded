@@ -35,7 +35,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-							Example; "You cancel our meetings at the last minute", or "You ask me for help, but are busy when I need help in return". Write what you said in the original Situations.
+							Example: “You cancel our meetings at the last minute”, or “You ask me for help, but are busy when I need help in return”. Write what you said in the original Situations.
 						</Text>
 					</View>
 
