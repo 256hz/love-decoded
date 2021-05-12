@@ -144,3 +144,21 @@ export const course1Step6State = {
 	[Activities.Course1Step6Activity2b]: '',
 	[Activities.Course1Step6Resources2]: '',
 };
+
+// Step 7
+// per day
+const course1Step7DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course1Step7Survey1]: '',
+		[EndOfDaySurveys.Course1Step7Survey2]: '',
+		[EndOfDaySurveys.Course1Step7Survey3]: '',
+		[EndOfDaySurveys.Course1Step7Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course1Step7State = {
+	...course1Step7DayState,
+	[Activities.Course1Step7Activity3]: '',
+};

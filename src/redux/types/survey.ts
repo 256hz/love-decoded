@@ -43,6 +43,11 @@ export enum EndOfDaySurveys {
 	Course1Step6Survey2 = 'course1_step6_survey2',
 	Course1Step6Survey3 = 'course1_step6_survey3',
 	Course1Step6Survey4 = 'course1_step6_survey4',
+	// Course 1, Step 6
+	Course1Step7Survey1 = 'course1_step7_survey1',
+	Course1Step7Survey2 = 'course1_step7_survey2',
+	Course1Step7Survey3 = 'course1_step7_survey3',
+	Course1Step7Survey4 = 'course1_step7_survey4',
 }
 
 export enum Activities {
@@ -84,6 +89,10 @@ export enum Activities {
 	Course1Step6Activity2a = 'course1_step6_activity2a',
 	Course1Step6Activity2b = 'course1_step6_activity2b',
 	Course1Step6Resources2 = 'course1_step6_resources2',
+	// Course 1, Step 7
+	Course1Step7Activity1 = 'course1_step7_activity1',
+	Course1Step7Activity2 = 'course1_step7_activity2',
+	Course1Step7Activity3 = 'course1_step7_activity3',
 }
 
 export enum Courses {
@@ -167,6 +176,7 @@ export type Course1State = {
 	[Steps.Four]: Course1Step4;
 	[Steps.Five]: Course1Step5;
 	[Steps.Six]: Course1Step6;
+	[Steps.Seven]: Course1Step7;
 };
 
 export type Course1Step1 = {
@@ -263,6 +273,18 @@ export type Course1Step6 = {
 		[EndOfDaySurveys.Course1Step6Survey2]: string,
 		[EndOfDaySurveys.Course1Step6Survey3]: string,
 		[EndOfDaySurveys.Course1Step6Survey4]: string,
+	};
+};
+
+export type Course1Step7 = {
+	[Activities.Course1Step7Activity3]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course1Step7Survey1]: string,
+		[EndOfDaySurveys.Course1Step7Survey2]: string,
+		[EndOfDaySurveys.Course1Step7Survey3]: string,
+		[EndOfDaySurveys.Course1Step7Survey4]: string,
 	};
 };
 
