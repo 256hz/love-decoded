@@ -37,7 +37,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={[ styles.bodyText, styles.boldText ]}>
-						 	Now, ask one of the persons from your “unconditional circle” to practice with you.
+							Now, ask one of the persons from your “unconditional circle” to practice with you.
 						</Text>
 					</View>
 				</View>
