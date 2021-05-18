@@ -17,6 +17,7 @@
   - `stepDayOverviewScreens`
   - `stepGoodJobScreens`
 - new entries for `Activites` and `EndOfDaySurveys` enums in the [survey redux types](src/redux/types/survey.ts)
+  - note: these are for survey responses, so only need to add activities/resources that have text inputs
 - new type for CourseXStepX state in the [survey redux types](src/redux/types/survey.ts)
 - build initial state in [initialSurveyStates](src/redux/reducer/initialSurveyStates.ts)
 - add the new initial state to `INITIAL_STATE` in the [survey reducer](src/redux/reducer/survey.ts) and type it with the new type

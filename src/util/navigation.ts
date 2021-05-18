@@ -8,6 +8,7 @@ import {
 	Course1Step4Screens,
 	Course1Step5Screens,
 	Course1Step6Screens,
+	Course1Step7Screens,
 } from 'route/Steps/Course1Screens';
 import { Courses, Steps } from '@redux/types/survey';
 import { CourseNumber, StepNumber } from '@redux/types/user';
@@ -19,7 +20,6 @@ export const navigate = (routeName, params) => {
 };
 
 export const resetRoot = (routeName) => {
-	console.log(routeName);
 	navigationRef.current?.resetRoot({
 		index: 0,
 		routes: [ { name: routeName } ],
@@ -71,6 +71,7 @@ export const getNavigationStack = (currentCourseNumber: CourseNumber, currentSte
 				case 4: return Course1Step4Screens;
 				case 5: return Course1Step5Screens;
 				case 6: return Course1Step6Screens;
+				case 7: return Course1Step7Screens;
 				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
 			}
 		}

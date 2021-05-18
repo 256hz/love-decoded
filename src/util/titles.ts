@@ -16,7 +16,7 @@ export const titles: Titles = {
 		[Steps.Four]: 'Creating Effective Personal Visions',
 		[Steps.Five]: 'Effective Communication',
 		[Steps.Six]: 'Contexts Necessary for Framing Communications',
-		[Steps.Seven]: '',
+		[Steps.Seven]: 'Learn Mirroring - Indispensable For Listening to Problems',
 	},
 	[Courses.Two]: {
 		[Steps.One]: '',

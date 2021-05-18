@@ -6,6 +6,7 @@ import {
 	Course1Step4Screens,
 	Course1Step5Screens,
 	Course1Step6Screens,
+	Course1Step7Screens,
 } from './Steps/Course1Screens';
 
 export enum RootStacks {
@@ -78,7 +79,8 @@ export type Course1Screens = Course1Step1Screens
 | Course1Step3Screens
 | Course1Step4Screens
 | Course1Step5Screens
-| Course1Step6Screens;
+| Course1Step6Screens
+| Course1Step7Screens;
 
 export type Screens = OnboardingScreens | CourseCommonScreens | Course1Screens;
 
@@ -120,6 +122,7 @@ export const stepEntryPoints: StepEntryPoints = {
 		[Steps.Four]: StepStacks.Course1Step4,
 		[Steps.Five]: StepStacks.Course1Step5,
 		[Steps.Six]: StepStacks.Course1Step6,
+		[Steps.Seven]: StepStacks.Course1Step7,
 	},
 };
 
@@ -131,6 +134,7 @@ export const stepHomeScreen = {
 		[Steps.Four]: Course1Step4Screens.Home,
 		[Steps.Five]: Course1Step5Screens.Home,
 		[Steps.Six]: Course1Step6Screens.Home,
+		[Steps.Seven]: Course1Step7Screens.Home,
 	},
 };
 
@@ -142,6 +146,7 @@ export const stepDayOverviewScreen = {
 		[Steps.Four]: Course1Step4Screens.DayOverview,
 		[Steps.Five]: Course1Step5Screens.DayOverview,
 		[Steps.Six]: Course1Step6Screens.DayOverview,
+		[Steps.Seven]: Course1Step7Screens.DayOverview,
 	},
 };
 
@@ -153,5 +158,6 @@ export const stepGoodJobScreen = {
 		[Steps.Four]: Course1Step4Screens.GoodJob,
 		[Steps.Five]: Course1Step5Screens.GoodJob,
 		[Steps.Six]: Course1Step6Screens.GoodJob,
+		[Steps.Seven]: Course1Step7Screens.GoodJob,
 	},
 };
