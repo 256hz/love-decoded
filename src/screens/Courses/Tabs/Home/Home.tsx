@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { Text, View } from 'react-native';
+import { PixelRatio, Text, View } from 'react-native';
 import { stepDayOverviewScreen } from 'route/enums';
 import { StepScreen } from '@elements';
 import { getUserFirstName, getUserProgress, getUserProgressNumbers } from '@redux/selector';

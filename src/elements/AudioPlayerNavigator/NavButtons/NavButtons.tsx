@@ -39,7 +39,7 @@ export default ({
 	const dispatch = useDispatch();
 	const { navigate, goBack, canGoBack } = useNavigation();
 
-	const nextIsEnabled = nextTarget && nextEnabled;
+	const nextIsEnabled = nextTarget !== undefined && nextEnabled;
 	const backDisabled = !backNavigationDisabled && (!backEnabled || !canGoBack());
 
 	const onBack = () => {
@@ -75,11 +75,9 @@ export default ({
 								styles.navButton,
 								backDisabled && styles.disabled,
 							]}>
-								<BackArrow />
+								{ backTitle === 'Back' && <BackArrow /> }
 
-								<Text style={styles.text}>
-									{backTitle}
-								</Text>
+								<Text style={styles.text}>{backTitle}</Text>
 							</View>
 						</TouchableOpacity>
 					)
@@ -98,7 +96,8 @@ export default ({
 								!nextIsEnabled && styles.disabled,
 							]}>
 								<Text style={styles.text}>{nextTitle}</Text>
-								<NextArrow />
+
+								{ nextTitle === 'Next' && <NextArrow /> }
 							</View>
 						</TouchableOpacity>
 					)

@@ -83,6 +83,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "Love.Decoded"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

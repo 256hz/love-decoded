@@ -39,7 +39,7 @@ export default ({
 	nextTarget,
 }: Props) => {
 	return (
-		<SafeAreaView style={[ styles.container, containerStyle ]}>
+		<View style={[ styles.container, containerStyle ]}>
 			<OptionalKeyboardAvoidingView
 				useAvoiding={Platform.OS === 'ios'}
 				style={styles.middleContainer}
@@ -67,7 +67,7 @@ export default ({
 					/>
 				) : null
 			}
-		</SafeAreaView>
+		</View>
 	);
 };
 

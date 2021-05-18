@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { Course1Step6Screens } from 'route/Steps/Course1Screens';
+import { Course1Step7Screens } from 'route/Steps/Course1Screens';
 import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import styles from './Resources1.styles';
 
@@ -16,7 +16,7 @@ export default ({ navigation }) => {
 	return (
 		<ResourcesScreen
 			hideBackButton
-			nextTarget={Course1Step6Screens.Resources2}
+			nextTarget={Course1Step7Screens.Resources2}
 			navigation={navigation}
 		>
 			<View style={styles.container}>

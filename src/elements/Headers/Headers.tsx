@@ -49,7 +49,7 @@ export const TitleHeader = (
 		height += EXTRA_TITLE_LINE_HEIGHT;
 	}
 
-	if (subtitle?.length || 0 > 35) {
+	if ((subtitle?.length || 0) > 35) {
 		height += EXTRA_TITLE_LINE_HEIGHT;
 	}
 

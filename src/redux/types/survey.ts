@@ -43,7 +43,7 @@ export enum EndOfDaySurveys {
 	Course1Step6Survey2 = 'course1_step6_survey2',
 	Course1Step6Survey3 = 'course1_step6_survey3',
 	Course1Step6Survey4 = 'course1_step6_survey4',
-	// Course 1, Step 6
+	// Course 1, Step 7
 	Course1Step7Survey1 = 'course1_step7_survey1',
 	Course1Step7Survey2 = 'course1_step7_survey2',
 	Course1Step7Survey3 = 'course1_step7_survey3',

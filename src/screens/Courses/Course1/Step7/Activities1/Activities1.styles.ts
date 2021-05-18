@@ -18,7 +18,6 @@ export default StyleSheet.create({
 	},
 	textItemContainer: {
 		marginBottom: 24,
-		marginTop: 8,
 	},
 	textInput: {
 		flex: 1,

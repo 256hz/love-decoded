@@ -20,7 +20,6 @@ export const navigate = (routeName, params) => {
 };
 
 export const resetRoot = (routeName) => {
-	console.log(routeName);
 	navigationRef.current?.resetRoot({
 		index: 0,
 		routes: [ { name: routeName } ],

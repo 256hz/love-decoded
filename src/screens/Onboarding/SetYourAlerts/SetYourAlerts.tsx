@@ -27,8 +27,6 @@ const TimePicker = ({
 	const dispatch = useDispatch();
 
 	const onSelectMinutes = (minutes: number) => {
-		console.log(minutes);
-		console.log(alertTime);
 		dispatch(setAlertTime(alertTime, minutes));
 		apiClient.post(
 			'/users/set_alert/',

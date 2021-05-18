@@ -146,7 +146,7 @@ export const stepDayOverviewScreen = {
 		[Steps.Four]: Course1Step4Screens.DayOverview,
 		[Steps.Five]: Course1Step5Screens.DayOverview,
 		[Steps.Six]: Course1Step6Screens.DayOverview,
-		[Steps.Seven]: Course1Step7Screens.Home,
+		[Steps.Seven]: Course1Step7Screens.DayOverview,
 	},
 };
 

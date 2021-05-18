@@ -13,7 +13,7 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={[ styles.bodyText, styles.boldText ]}>
-							How to Mirror effectively
+							How to Mirror Effectively
 						</Text>
 					</View>
 
@@ -25,7 +25,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-							• Sender - always ask the other person “Is this a good time to talk?” – it shows respect – accept the time the receiver suggests – it is best to talk to someone when they are prepared rather than taking them by surprise.
+							• Sender - always ask the other person “Is this a good time to talk?” – it shows respect – accept the time the receiver suggests – it is best to talk to someone when they are prepared, rather than taking them by surprise.
 						</Text>
 					</View>
 
@@ -43,7 +43,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-							• The receiver says, “What I’m hearing you say is….” and then repeats verbatim what the Sender said.
+							• The receiver says, “What I’m hearing you say is…” and then repeats verbatim what the Sender said.
 						</Text>
 					</View>
 				</View>
