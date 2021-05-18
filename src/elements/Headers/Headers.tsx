@@ -42,17 +42,29 @@ export const TitleHeader = (
 	subtitle?: string,
 	navigation?: any,
 	infoBubbleTarget?: Screens,
-) => ({
-	headerLeft: () => <Title title={title} subtitle={subtitle} />,
-	headerTitle: () => <></>,
-	headerRight: () => <InfoBubble navigation={navigation} infoBubbleTarget={infoBubbleTarget} />,
-	headerTitleContainerStyle: styles.emptyContainer,
-	headerStyle: [
-		titleStyles.titleHeader,
-		styles.removeBottomBorder,
-		title.length > 35 ? { height: TITLE_HEADER_HEIGHT + EXTRA_TITLE_LINE_HEIGHT } : {},
-	],
-});
+) => {
+	let height = TITLE_HEADER_HEIGHT;
+
+	if (title.length > 35) {
+		height += EXTRA_TITLE_LINE_HEIGHT;
+	}
+
+	if ((subtitle?.length || 0) > 35) {
+		height += EXTRA_TITLE_LINE_HEIGHT;
+	}
+
+	return {
+		headerLeft: () => <Title title={title} subtitle={subtitle} />,
+		headerTitle: () => <></>,
+		headerRight: () => <InfoBubble navigation={navigation} infoBubbleTarget={infoBubbleTarget} />,
+		headerTitleContainerStyle: styles.emptyContainer,
+		headerStyle: [
+			titleStyles.titleHeader,
+			styles.removeBottomBorder,
+			{ height },
+		],
+	};
+};
 
 export const TitleWithProgressHeader = (
 	activeProgressDot: number,

@@ -12,6 +12,7 @@ type Props = {
 	children: ReactChild;
 	closeTarget?: Screens;
 	onClose?: () => void;
+	onPressNext?: () => void;
 	navigation: any;
 	nextTarget?: Screens;
 	nextTitle?: string;
@@ -24,6 +25,7 @@ export default ({
 	hideBackButton,
 	hideNextButton,
 	onClose,
+	onPressNext,
 	navigation,
 	nextTarget,
 	nextTitle,
@@ -47,6 +49,7 @@ export default ({
 					backEnabled
 					hideBackButton={hideBackButton}
 					hideNextButton={hideNextButton}
+					onPressNext={onPressNext}
 					nextTarget={nextTarget}
 					nextTitle={nextTitle}
 					nextEnabled

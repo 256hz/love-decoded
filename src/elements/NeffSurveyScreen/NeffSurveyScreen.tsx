@@ -58,7 +58,6 @@ export default ({ nextTarget, pageIndex, prompt, reverseScoring = false }: NeffS
 	const { navigate } = useNavigation();
 	const currentResponse = useSelector(getNeffResponseByPageIndex(pageIndex));
 	const setQuestionResponse = (value: NeffSurveyResponse) => dispatch(setNeffSurveyResponse(pageIndex, value));
-	console.log(pageIndex, currentResponse);
 
 	return (
 		<OnboardingScreen

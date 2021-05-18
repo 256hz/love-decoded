@@ -92,3 +92,18 @@ export enum Course1Step6Screens {
 	Survey = 'course1_step6_survey',
 	Reflection = 'course1_step6_reflection',
 }
+
+export enum Course1Step7Screens {
+	Home = 'course1_step7_home',
+	DayOverview = 'course1_step7_day_overview',
+	GoodJob = 'course1_step7_good_job',
+	Intention = 'course1_step7_intention',
+	Activities1 = 'course1_step7_activities1',
+	Activities2 = 'course1_step7_activities2',
+	Activities3 = 'course1_step7_activities3',
+	Activities4 = 'course1_step7_activities4',
+	Resources1 = 'course1_step7_resources1',
+	Resources2 = 'course1_step7_resources2',
+	Survey = 'course1_step7_survey',
+	Reflection = 'course1_step7_reflection',
+}

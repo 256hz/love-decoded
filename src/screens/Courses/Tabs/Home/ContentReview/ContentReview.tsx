@@ -177,6 +177,7 @@ const getDropDownChoices = (maxUserProgress) => {
 		(DEMO_MODE || maxStepNumber > 3 || maxCourseNumber > 1) && { label: `Step 4: ${titles.course1.step4}`, value: '1411', key: '1411' },
 		(DEMO_MODE || maxStepNumber > 4 || maxCourseNumber > 1) && { label: `Step 5: ${titles.course1.step5}`, value: '1511', key: '1511' },
 		(DEMO_MODE || maxStepNumber > 5 || maxCourseNumber > 1) && { label: `Step 6: ${titles.course1.step6}`, value: '1611', key: '1611' },
+		(DEMO_MODE || maxStepNumber > 6 || maxCourseNumber > 1) && { label: `Step 7: ${titles.course1.step7}`, value: '1711', key: '1711' },
 		(DEMO_MODE || maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

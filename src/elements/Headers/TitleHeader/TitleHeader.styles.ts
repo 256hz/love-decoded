@@ -1,9 +1,10 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { hasNotch } from 'react-native-device-info';
 import text from '@elements/globalStyles/text';
 import colors from '@elements/globalStyles/color';
 
-export const TITLE_HEADER_HEIGHT = 125;
-export const EXTRA_TITLE_LINE_HEIGHT = 50;
+export const TITLE_HEADER_HEIGHT = 125 + (hasNotch() ? 25 : 0);
+export const EXTRA_TITLE_LINE_HEIGHT = 30;
 export const PROGRESS_HEIGHT = 57;
 export const PROGRESS_WIDTH = 224;
 export const PROGRESS_DOT_WIDTH = 16;
