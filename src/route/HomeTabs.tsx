@@ -33,7 +33,7 @@ export default () => {
 				showLabel: false,
 				style: [
 					styles.tabBar,
-					// fix for notch devices on iOS breaking something about the tab bar safe area
+					// fix for notches on iOS breaking something about the tab bar safe area
 					{ height: 75 + useSafeAreaInsets().bottom * 0.6 },
 				],
 			}}

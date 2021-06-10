@@ -27,7 +27,7 @@ export type AudioState = {
 	}
 };
 
-const INITIAL_STATE = {
+const INITIAL_STATE: AudioState = {
 	currentTime: 0,
 	duration: 0,
 	audioFilename: '',

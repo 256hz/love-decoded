@@ -1,8 +1,21 @@
-import { combineReducers } from 'redux';
+import { AnyAction, CombinedState, combineReducers } from 'redux';
 import * as reducers from './reducer';
+import { AlertsState } from './reducer/alerts';
+import { AppStateState } from './reducer/appState';
+import { AudioState } from './reducer/audio';
+import { ContactsState } from './reducer/contacts';
+import { UserState } from './reducer/user';
+import { SurveyState } from './types/survey';
 
 export const reducer = combineReducers(reducers);
 
-// export type RootState = ReturnType<typeof reducer>;
+type RootState = CombinedState<{
+	alerts: AlertsState;
+	appState: AppStateState;
+	audio: AudioState;
+	contacts: ContactsState;
+	survey: SurveyState;
+	user: UserState;
+}> | undefined;
 
-export const rootReducer = (state, action) => reducer(state, action);
+export const rootReducer = (state: RootState, action: AnyAction) => reducer(state, action);
