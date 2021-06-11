@@ -6,7 +6,6 @@ import { Screens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
 import { CustomScrollView } from '@elements/CustomScrollView';
 import colors from '@elements/globalStyles/color';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './StepScreen.styles';
 
 type Props = {

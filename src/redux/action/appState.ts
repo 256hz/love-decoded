@@ -1,5 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { AppStateStatus } from 'react-native';
+import { FaqCategories } from 'redux/types/appState';
 import { Screens } from 'route/enums';
 
 export const setAppState = createAction('SET_APP_STATE',
@@ -16,3 +17,6 @@ export const appInactivated = createAction('APP_INACTIVATED');
 
 export const setCurrentRouteName = createAction('SET_CURRENT_ROUTE_NAME',
 	(route: Screens) => ({ payload: { route } }));
+
+export const setActiveFaqCategory = createAction('SET_ACTIVE_FAQ_CATEGORY',
+	(category: FaqCategories) => ({ payload: { category } }));

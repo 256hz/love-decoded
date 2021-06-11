@@ -8,3 +8,5 @@ export const getAppState = createSelector(appState, app => app.status);
 export const getLastActiveEpochSeconds = createSelector(appState, app => app.lastActiveEpochSeconds);
 
 export const getCurrentRouteName = createSelector(appState, app => app.currentRoute);
+
+export const getActiveFaqCategory = createSelector(appState, app => app.activeFaqCategory);

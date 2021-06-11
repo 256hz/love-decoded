@@ -10,6 +10,7 @@ import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
 import { DEMO_MODE } from '@util/demoMode';
 import { apiClient } from 'api/apiConfig';
+import { openWebLink } from 'util/linking';
 import {
 	ageGroupChoices,
 	errors,
@@ -284,17 +285,9 @@ export default () => {
 						<Text style={styles.termsText}>By submitting, you agree to our</Text>
 
 						<View style={styles.linksContainer}>
-							<TouchableOpacity onPress={() => console.log('terms')}>
+							<TouchableOpacity onPress={() => openWebLink('https://www.love-decoded.com/terms-of-service')}>
 								<Text style={[ styles.termsText, styles.termsLink ]}>
-									Terms
-								</Text>
-							</TouchableOpacity>
-
-							<Text style={styles.termsText}>and</Text>
-
-							<TouchableOpacity onPress={() => console.log('privacy')}>
-								<Text style={[ styles.termsText, styles.termsLink ]}>
-									Privacy Policy
+									Terms and Privacy Policy
 								</Text>
 							</TouchableOpacity>
 						</View>

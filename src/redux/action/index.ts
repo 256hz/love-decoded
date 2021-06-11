@@ -3,10 +3,11 @@ export {
 } from './alerts';
 
 export {
-	setAppState,
 	appActivated,
 	appBackgrounded,
 	appInactivated,
+	setActiveFaqCategory,
+	setAppState,
 	setCurrentRouteName,
 	setLastActiveEpochSeconds,
 } from './appState';

@@ -1,6 +1,7 @@
 export { getAlertTime } from './alerts';
 
 export {
+	getActiveFaqCategory,
 	getAppState,
 	getCurrentRouteName,
 	getLastActiveEpochSeconds,
