@@ -6,16 +6,16 @@ import styles from './FaqAnswer.styles';
 
 export default ({ text, onBack }) => {
 	return (
-		<View style={styles.container}>
-			<TouchableOpacity onPress={onBack}>
+		<TouchableOpacity onPress={onBack}>
+			<View style={styles.container}>
 				<View style={styles.arrowContainer}>
 					<LeftArrow />
 				</View>
-			</TouchableOpacity>
 
-			<Text style={styles.text}>
-				{text}
-			</Text>
-		</View>
+				<Text style={styles.text}>
+					{text}
+				</Text>
+			</View>
+		</TouchableOpacity>
 	);
 };

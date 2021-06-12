@@ -4,9 +4,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackArrow2 from '@assets/svg/back-arrow-2.svg';
 import styles from './BackButtonHeader.styles';
 
-export default ({ navigation }) => {
+export default ({ navigation, destination }) => {
 	return (
-		<TouchableOpacity onPress={navigation.goBack}>
+		<TouchableOpacity
+			onPress={destination
+				? () => navigation.navigate(destination)
+				: navigation.goBack
+			}
+		>
 			<View style={styles.container}>
 				<BackArrow2 />
 			</View>

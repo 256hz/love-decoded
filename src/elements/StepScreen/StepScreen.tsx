@@ -1,6 +1,9 @@
 import React, { ReactChild } from 'react';
 import {
-	KeyboardAvoidingView, Platform, View, ViewStyle,
+	KeyboardAvoidingView,
+	Platform,
+	View,
+	ViewStyle,
 } from 'react-native';
 import { Screens } from 'route/enums';
 import { AudioPlayerNavigator } from '@elements/AudioPlayerNavigator';
@@ -10,6 +13,7 @@ import styles from './StepScreen.styles';
 
 type Props = {
 	audioFilename?: string;
+	backEnabled?: boolean;
 	backTarget?: Screens;
 	children: ReactChild;
 	containerStyle?: ViewStyle;
@@ -29,6 +33,7 @@ export default ({
 	containerStyle = {},
 	customMiddleContent,
 	scrollDisabled = false,
+	backEnabled,
 	backTarget,
 	hideBackButton,
 	hideNextButton,
@@ -55,6 +60,7 @@ export default ({
 				? (
 					<AudioPlayerNavigator
 						audioFilename={audioFilename}
+						backEnabled={backEnabled}
 						backTarget={backTarget}
 						customMiddleContent={customMiddleContent}
 						hideBackButton={hideBackButton}

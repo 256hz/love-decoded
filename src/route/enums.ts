@@ -70,6 +70,13 @@ export enum TabNames {
 	ResetScreen = 'Emotional Reset',
 }
 
+export enum EmotionalResetScreens {
+	Root = 'Root',
+	Progress = 'FrustratedWithProgress',
+	App = 'FrustratedWithApp',
+	Quit = 'FrustratedReadyToQuit',
+}
+
 export enum CourseCommonScreens {
 	None = '',
 }
@@ -82,7 +89,10 @@ export type Course1Screens = Course1Step1Screens
 | Course1Step6Screens
 | Course1Step7Screens;
 
-export type Screens = OnboardingScreens | CourseCommonScreens | Course1Screens;
+export type Screens = OnboardingScreens
+| CourseCommonScreens
+| EmotionalResetScreens
+| Course1Screens;
 
 export enum StepStacks {
 	Course1Step1 = 'Course1Step1',

@@ -3,6 +3,7 @@ import text from '@elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 const PROGRESS_BAR_HEIGHT = 26;
+export const PROGRESS_BAR_GRADIENT_WIDTH_PERCENT = 15;
 
 export default StyleSheet.create({
 	container: {
@@ -64,7 +65,7 @@ export default StyleSheet.create({
 	},
 	progressGradient: {
 		height: PROGRESS_BAR_HEIGHT,
-		width: '15%',
+		width: `${PROGRESS_BAR_GRADIENT_WIDTH_PERCENT}%`,
 	},
 	buttonContainer: {
 		width: '100%',

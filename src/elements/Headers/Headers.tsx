@@ -11,8 +11,8 @@ import titleStyles, { EXTRA_TITLE_LINE_HEIGHT, TITLE_HEADER_HEIGHT } from './Tit
 
 export const headerStyle = [ styles.defaultHeader, styles.removeBottomBorder ];
 
-export const BackHeader = (navigation: any) => ({
-	headerLeft: () => <BackButton navigation={navigation} />,
+export const BackHeader = (navigation: any, destination?: Screens) => ({
+	headerLeft: () => <BackButton navigation={navigation} destination={destination} />,
 	headerTitle: () => <></>,
 });
 
