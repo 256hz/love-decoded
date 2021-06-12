@@ -1,11 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import EmotionalResetStack from 'route/EmotionalResetStack';
 import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
 import Journal from '@screens/Courses/Tabs/Journal';
 import Faq from '@screens/Courses/Tabs/Faq';
-import EmotionalReset from '@screens/Courses/Tabs/EmotionalReset';
 import CourseStack from './Steps/CourseStack';
 import styles from './HomeTabs.styles';
 
@@ -16,27 +16,31 @@ type TabParamList = {
 const Tab = createBottomTabNavigator<TabParamList>();
 
 export default () => {
+	const screenOptions = ({ route }) => ({
+		tabBarIcon: ({ focused }) => (
+			<TabIcon
+				selected={focused}
+				tabName={route.name as TabNames}
+			/>
+		),
+	});
+
+	const tabBarOptions = {
+		keyboardHidesTabBar: false,
+		showLabel: false,
+		style: [
+			styles.tabBar,
+			// fix for notches on iOS breaking something about the tab bar safe area
+			{ height: 75 + useSafeAreaInsets().bottom * 0.6 },
+		],
+	};
+
 	return (
 		<Tab.Navigator
 			initialRouteName={TabNames.HomeScreen}
 			lazy={false}
-			screenOptions={({ route }) => ({
-				tabBarIcon: ({ focused }) => (
-					<TabIcon
-						selected={focused}
-						tabName={route.name as TabNames}
-					/>
-				),
-			})}
-			tabBarOptions={{
-				keyboardHidesTabBar: false,
-				showLabel: false,
-				style: [
-					styles.tabBar,
-					// fix for notches on iOS breaking something about the tab bar safe area
-					{ height: 75 + useSafeAreaInsets().bottom * 0.6 },
-				],
-			}}
+			screenOptions={screenOptions}
+			tabBarOptions={tabBarOptions}
 		>
 			<Tab.Screen
 				name={TabNames.HomeScreen}
@@ -55,7 +59,7 @@ export default () => {
 
 			<Tab.Screen
 				name={TabNames.ResetScreen}
-				component={EmotionalReset}
+				component={EmotionalResetStack}
 			/>
 		</Tab.Navigator>
 	);

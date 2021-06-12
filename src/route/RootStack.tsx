@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer, NavigationState } from '@react-navigation/native';
-import SplashScreen from '@screens/Splash';
-import { navigationRef } from '@util/navigation';
 import { useDispatch } from 'react-redux';
-import { setCurrentRouteName } from 'redux/action';
+import { NavigationContainer, NavigationState } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { setCurrentRouteName } from '@redux/action';
+import { navigationRef } from '@util/navigation';
+import SplashScreen from '@screens/Splash';
 import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
@@ -35,7 +35,6 @@ export default () => {
 
 	return (
 		<NavigationContainer ref={navigationRef} onStateChange={onStateChange}>
-
 			<Stack.Navigator
 				initialRouteName={RootStacks.Splash}
 				headerMode="none"
@@ -55,6 +54,7 @@ export default () => {
 					component={HomeDrawer}
 				/>
 
+				{/* Has no tab bar, so must be at root level */}
 				<Stack.Screen
 					name={RootStacks.Congratulations}
 					component={CongratulationsScreen}

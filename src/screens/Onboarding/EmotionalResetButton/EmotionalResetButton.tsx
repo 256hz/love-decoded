@@ -43,24 +43,29 @@ export default () => {
 					<Text style={styles.text}>
 						Frustrated with your progress? Something making you sad?
 					</Text>
+
 					<NextButtonWithText
 						onPress={onPress}
 						disabled={linksDisabled}
 					/>
 				</View>
+
 				<View>
 					<Text style={styles.text}>
 						Frustrated with the app technology?
 					</Text>
+
 					<NextButtonWithText
 						onPress={() => navigate(OnboardingScreens.FrustratedWithApp)}
 						disabled={linksDisabled}
 					/>
 				</View>
+
 				<View>
 					<Text style={styles.text}>
 						Ready to quit on yourself and the App?
 					</Text>
+
 					<NextButtonWithText
 						onPress={() => navigate(OnboardingScreens.FrustratedReadyToQuit)}
 						disabled={linksDisabled}
