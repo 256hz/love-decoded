@@ -2,7 +2,7 @@ import { StepCourses, Steps, Courses } from 'redux/types/survey';
 
 type Titles = {
 	[course in StepCourses]: {
-		[step in Steps]: string;
+		[step in Steps]?: string;
 	};
 };
 
@@ -19,13 +19,13 @@ export const titles: Titles = {
 		[Steps.Seven]: 'Learn Mirroring - Indispensable For Listening to Problems',
 	},
 	[Courses.Two]: {
-		[Steps.One]: '',
-		[Steps.Two]: '',
-		[Steps.Three]: '',
-		[Steps.Four]: '',
-		[Steps.Five]: '',
-		[Steps.Six]: '',
-		[Steps.Seven]: '',
+		[Steps.Eight]: 'Integrating “...Because I Love Myself” Into Life',
+		[Steps.Nine]: '',
+		[Steps.Ten]: '',
+		[Steps.Eleven]: '',
+		[Steps.Twelve]: '',
+		[Steps.Thirteen]: '',
+		[Steps.Fourteen]: '',
 	},
 	[Courses.Three]: {
 		[Steps.One]: '',

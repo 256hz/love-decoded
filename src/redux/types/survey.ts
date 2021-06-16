@@ -1,6 +1,7 @@
 export type SurveyState = {
 	onboarding: Onboarding;
 	course1: Course1State;
+	course2: Course2State;
 };
 
 export enum Surveys {
@@ -48,6 +49,10 @@ export enum EndOfDaySurveys {
 	Course1Step7Survey2 = 'course1_step7_survey2',
 	Course1Step7Survey3 = 'course1_step7_survey3',
 	Course1Step7Survey4 = 'course1_step7_survey4',
+	// Course 2, Step 8
+	Course2Step8Survey1 = 'course2_step8_survey1',
+	Course2Step8Survey2 = 'course2_step8_survey2',
+	Course2Step8Survey3 = 'course2_step8_survey3',
 }
 
 export enum Activities {
@@ -93,6 +98,9 @@ export enum Activities {
 	Course1Step7Activity1 = 'course1_step7_activity1',
 	Course1Step7Activity2 = 'course1_step7_activity2',
 	Course1Step7Activity3 = 'course1_step7_activity3',
+	// Course 2, Step 8
+	Course2Step8Activity1 = 'course2_step8_activity1',
+	Course2Step8Activity2 = 'course2_step8_activity2',
 }
 
 export enum Courses {
@@ -116,6 +124,20 @@ export enum Steps {
 	Five = 'step5',
 	Six = 'step6',
 	Seven = 'step7',
+	Eight = 'step8',
+	Nine = 'step9',
+	Ten = 'step10',
+	Eleven = 'step11',
+	Twelve = 'step12',
+	Thirteen = 'step13',
+	Fourteen = 'step14',
+	Fifteen = 'step15',
+	Sixteen = 'step16',
+	Seventeen = 'step17',
+	Eighteen = 'step18',
+	Nineteen = 'step19',
+	Twenty = 'step20',
+	Twentyone = 'step21',
 }
 
 export enum Days {
@@ -159,6 +181,7 @@ export const StepFromNumber: Steps[] = [
 	Steps.Five,
 	Steps.Six,
 	Steps.Seven,
+	Steps.Eight,
 ];
 
 export type Onboarding = {
@@ -177,6 +200,10 @@ export type Course1State = {
 	[Steps.Five]: Course1Step5;
 	[Steps.Six]: Course1Step6;
 	[Steps.Seven]: Course1Step7;
+};
+
+export type Course2State = {
+	[Steps.Eight]: Course2Step8;
 };
 
 export type Course1Step1 = {
@@ -285,6 +312,18 @@ export type Course1Step7 = {
 		[EndOfDaySurveys.Course1Step7Survey2]: string,
 		[EndOfDaySurveys.Course1Step7Survey3]: string,
 		[EndOfDaySurveys.Course1Step7Survey4]: string,
+	};
+};
+
+export type Course2Step8 = {
+	[Activities.Course2Step8Activity1]: string;
+	[Activities.Course2Step8Activity2]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course2Step8Survey1]: string,
+		[EndOfDaySurveys.Course2Step8Survey2]: string,
+		[EndOfDaySurveys.Course2Step8Survey3]: string,
 	};
 };
 

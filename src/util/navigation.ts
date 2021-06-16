@@ -12,6 +12,7 @@ import {
 } from 'route/Steps/Course1Screens';
 import { Courses, Steps } from '@redux/types/survey';
 import { CourseNumber, StepNumber } from '@redux/types/user';
+import { Course2Step8Screens } from 'route/Steps/Course2Screens';
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
@@ -40,23 +41,23 @@ export const getStepStackFromUserProgress = (currentCourse: Courses, currentStep
 			}
 		case Courses.Two:
 			switch (currentStep) {
-				case Steps.One: return StepStacks.Course2Step1;
-				case Steps.Two: return StepStacks.Course2Step2;
-				case Steps.Three: return StepStacks.Course2Step3;
-				case Steps.Four: return StepStacks.Course2Step4;
-				case Steps.Five: return StepStacks.Course2Step5;
-				case Steps.Six: return StepStacks.Course2Step6;
-				case Steps.Seven: return StepStacks.Course2Step7;
+				case Steps.Eight: return StepStacks.Course2Step8;
+				case Steps.Nine: return StepStacks.Course2Step9;
+				case Steps.Ten: return StepStacks.Course2Step10;
+				case Steps.Eleven: return StepStacks.Course2Step11;
+				case Steps.Twelve: return StepStacks.Course2Step12;
+				case Steps.Thirteen: return StepStacks.Course2Step13;
+				case Steps.Fourteen: return StepStacks.Course2Step14;
 			}
 		case Courses.Three:
 			switch (currentStep) {
-				case Steps.One: return StepStacks.Course3Step1;
-				case Steps.Two: return StepStacks.Course3Step2;
-				case Steps.Three: return StepStacks.Course3Step3;
-				case Steps.Four: return StepStacks.Course3Step4;
-				case Steps.Five: return StepStacks.Course3Step5;
-				case Steps.Six: return StepStacks.Course3Step6;
-				case Steps.Seven: return StepStacks.Course3Step7;
+				case Steps.Fifteen: return StepStacks.Course3Step15;
+				case Steps.Sixteen: return StepStacks.Course3Step16;
+				case Steps.Seventeen: return StepStacks.Course3Step17;
+				case Steps.Eighteen: return StepStacks.Course3Step18;
+				case Steps.Nineteen: return StepStacks.Course3Step19;
+				case Steps.Twenty: return StepStacks.Course3Step20;
+				case Steps.Twentyone: return StepStacks.Course3Step21;
 			}
 	}
 };
@@ -72,6 +73,12 @@ export const getNavigationStack = (currentCourseNumber: CourseNumber, currentSte
 				case 5: return Course1Step5Screens;
 				case 6: return Course1Step6Screens;
 				case 7: return Course1Step7Screens;
+				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
+			}
+		}
+		case 2: {
+			switch (currentStepNumber) {
+				case 8: return Course2Step8Screens;
 				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
 			}
 		}
