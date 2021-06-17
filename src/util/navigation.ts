@@ -12,7 +12,7 @@ import {
 } from 'route/Steps/Course1Screens';
 import { Courses, Steps } from '@redux/types/survey';
 import { CourseNumber, StepNumber } from '@redux/types/user';
-import { Course2Step8Screens } from 'route/Steps/Course2Screens';
+import { Course2Step8Screens, Course2Step9Screens } from 'route/Steps/Course2Screens';
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
 
@@ -79,6 +79,7 @@ export const getNavigationStack = (currentCourseNumber: CourseNumber, currentSte
 		case 2: {
 			switch (currentStepNumber) {
 				case 8: return Course2Step8Screens;
+				case 9: return Course2Step9Screens;
 				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
 			}
 		}

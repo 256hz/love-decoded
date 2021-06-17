@@ -20,7 +20,7 @@ export const titles: Titles = {
 	},
 	[Courses.Two]: {
 		[Steps.Eight]: 'Integrating “...Because I Love Myself” Into Life',
-		[Steps.Nine]: '',
+		[Steps.Nine]: 'Ways You Mis-Treat Yourself?',
 		[Steps.Ten]: '',
 		[Steps.Eleven]: '',
 		[Steps.Twelve]: '',

@@ -180,3 +180,22 @@ export const course2Step8State = {
 	[Activities.Course2Step8Activity1]: '',
 	[Activities.Course2Step8Activity2]: '',
 };
+
+// Step 9
+// per day
+const course2Step9DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step9Survey1]: '',
+		[EndOfDaySurveys.Course2Step9Survey2]: '',
+		[EndOfDaySurveys.Course2Step9Survey3]: '',
+		[EndOfDaySurveys.Course2Step9Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step9State = {
+	...course2Step9DayState,
+	[Activities.Course2Step9Activity1]: '',
+	[Activities.Course2Step9Activity2]: '',
+};

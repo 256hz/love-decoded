@@ -13,24 +13,26 @@ export enum Course2Step8Screens {
 	Visualization = 'course2_step8_visualization',
 }
 
-/*
-export enum Course2Step2Screens {
-	Home = 'course2_step2_home',
-	DayOverview = 'course2_step2_day_overview',
-	GoodJob = 'course2_step2_good_job',
-	Intention = 'course2_step2_intention',
-	Activities1 = 'course2_step2_activities1',
-	Activities1B = 'course2_step2_activities1b',
-	Activities2 = 'course2_step2_activities2',
-	Activities3 = 'course2_step2_activities3',
-	Activities4 = 'course2_step2_activities4',
-	Activities5 = 'course2_step2_activities5',
-	Resources1 = 'course2_step2_resources1',
-	Resources2 = 'course2_step2_resources2',
-	Survey = 'course2_step2_survey',
-	Reflection = 'course2_step2_reflection',
+
+export enum Course2Step9Screens {
+	Home = 'course2_step9_home',
+	DayOverview = 'course2_step9_day_overview',
+	GoodJob = 'course2_step9_good_job',
+	Intention = 'course2_step9_intention',
+	Activities1 = 'course2_step9_activities1',
+	Activities1B = 'course2_step9_activities1b',
+	Activities2 = 'course2_step9_activities2',
+	Activities3 = 'course2_step9_activities3',
+	Activities4 = 'course2_step9_activities4',
+	Activities5 = 'course2_step9_activities5',
+	Resources1 = 'course2_step9_resources1',
+	Resources2 = 'course2_step9_resources2',
+	Survey = 'course2_step9_survey',
+	Reflection = 'course2_step9_reflection',
+	Visualization = 'course2_step9_visualization',
 }
 
+/*
 export enum Course2Step3Screens {
 	Home = 'course2_step3_home',
 	DayOverview = 'course2_step3_day_overview',

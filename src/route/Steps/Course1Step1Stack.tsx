@@ -58,7 +58,7 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step1Screens.Intention}
 				component={IntentionScreen}
-				options={TitleHeader(title, DailyActivity.Intention)}
+				options={TitleHeader(title!, DailyActivity.Intention)}
 			/>
 
 			<StepStack.Screen
@@ -94,13 +94,13 @@ export default ({ navigation }) => {
 			<StepStack.Screen
 				name={Course1Step1Screens.Survey}
 				component={Step1SurveyScreen}
-				options={TitleWithProgressHeader(0, 5, title, DailyActivity.Survey)}
+				options={TitleWithProgressHeader(0, 5, title!, DailyActivity.Survey)}
 			/>
 
 			<StepStack.Screen
 				name={Course1Step1Screens.Reflection}
 				component={Step1ReflectionScreen}
-				options={TitleHeader(title, DailyActivity.NightlyReflection)}
+				options={TitleHeader(title!, DailyActivity.NightlyReflection)}
 			/>
 
 			<StepStack.Screen
