@@ -28,19 +28,19 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Select 1 behavior, from 1 person, you want to transform.
+							Select 1 behavior, from 1 person, you want to transform.
 						</Text>
 					</View>
 
 					<View style={styles.textItemContainer}>
-						<Text style={[styles.bodyText, styles.boldText]}>
-						I am going to change ______ behavior “because I love myself.”
+						<Text style={[ styles.bodyText, styles.boldText ]}>
+							I am going to change ______ behavior “because I love myself.”
 						</Text>
 					</View>
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Who is going to gently nudge you, support you – make a list of their names.
+							Who is going to gently nudge you, support you – make a list of their names.
 						</Text>
 					</View>
 

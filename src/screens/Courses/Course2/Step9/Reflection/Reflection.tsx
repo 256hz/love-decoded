@@ -29,7 +29,7 @@ export default () => {
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						As pointed out in Intentions, mistreating yourself flies under the radar.
+							As pointed out in Intentions, mistreating yourself flies under the radar.
 						</Text>
 					</View>
 
@@ -54,7 +54,7 @@ export default () => {
 					<TouchableOpacity onPress={onPress}>
 						<View style={styles.button}>
 							<Text style={styles.buttonText}>
-							Guided Meditation 
+								Guided Meditation
 							</Text>
 						</View>
 					</TouchableOpacity>

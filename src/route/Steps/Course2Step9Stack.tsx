@@ -29,7 +29,7 @@ import { Course2Step9Screens } from './Course2Screens';
 const StepStack = createStackNavigator();
 
 export default ({ navigation }) => {
-	const title = titles.course2.step9;
+	const title = titles.step9;
 
 	const ActivitiesHeader = () => TitleHeader(
 		DailyActivity.Activities,

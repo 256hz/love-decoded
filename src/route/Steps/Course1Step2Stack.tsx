@@ -31,7 +31,7 @@ import { Course1Step2Screens } from './Course1Screens';
 const StepStack = createStackNavigator();
 
 export default ({ navigation }) => {
-	const title = titles.course1.step2;
+	const title = titles.step2;
 
 	const ActivitiesHeader = () => TitleHeader(
 		DailyActivity.Activities,

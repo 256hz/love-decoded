@@ -28,7 +28,7 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Using your list of Unlovable Qualities from Step 3, which Unloving behaviors do others most commonly use to mistreat you?
+							Using your list of Unlovable Qualities from Step 3, which Unloving behaviors do others most commonly use to mistreat you?
 						</Text>
 					</View>
 

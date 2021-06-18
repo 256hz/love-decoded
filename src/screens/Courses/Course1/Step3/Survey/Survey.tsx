@@ -23,6 +23,6 @@ export default ({ navigation }) => (
 	<SurveyScreen
 		navigation={navigation}
 		prompts={course1step3prompts}
-		title={titles.course1.step3}
+		title={titles.step3}
 	/>
 );

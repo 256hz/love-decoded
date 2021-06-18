@@ -40,7 +40,7 @@ export default () => {
 
 					<View style={[ styles.textItemContainer, styles.row ]}>
 						<Text style={styles.bodyText}>
-							- Getting up – ‘I get out of bed…because I love myself'
+							- Getting up – ‘I get out of bed…because I love myself’
 						</Text>
 					</View>
 
