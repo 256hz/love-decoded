@@ -8,6 +8,10 @@ import {
 	Course1Step6Screens,
 	Course1Step7Screens,
 } from './Steps/Course1Screens';
+import {
+	Course2Step8Screens,
+	Course2Step9Screens,
+} from './Steps/Course2Screens';
 
 export enum RootStacks {
 	Splash = 'Splash',
@@ -81,18 +85,21 @@ export enum CourseCommonScreens {
 	None = '',
 }
 
-export type Course1Screens = Course1Step1Screens
+export type CourseScreens = Course1Step1Screens
 | Course1Step2Screens
 | Course1Step3Screens
 | Course1Step4Screens
 | Course1Step5Screens
 | Course1Step6Screens
-| Course1Step7Screens;
+| Course1Step7Screens
+| Course2Step8Screens
+| Course2Step9Screens;
+
 
 export type Screens = OnboardingScreens
 | CourseCommonScreens
 | EmotionalResetScreens
-| Course1Screens;
+| CourseScreens;
 
 export enum StepStacks {
 	Course1Step1 = 'Course1Step1',
@@ -102,20 +109,20 @@ export enum StepStacks {
 	Course1Step5 = 'Course1Step5',
 	Course1Step6 = 'Course1Step6',
 	Course1Step7 = 'Course1Step7',
-	Course2Step1 = 'Course2Step1',
-	Course2Step2 = 'Course2Step2',
-	Course2Step3 = 'Course2Step3',
-	Course2Step4 = 'Course2Step4',
-	Course2Step5 = 'Course2Step5',
-	Course2Step6 = 'Course2Step6',
-	Course2Step7 = 'Course2Step7',
-	Course3Step1 = 'Course3Step1',
-	Course3Step2 = 'Course3Step2',
-	Course3Step3 = 'Course3Step3',
-	Course3Step4 = 'Course3Step4',
-	Course3Step5 = 'Course3Step5',
-	Course3Step6 = 'Course3Step6',
-	Course3Step7 = 'Course1Step7',
+	Course2Step8 = 'Course2Step8',
+	Course2Step9 = 'Course2Step9',
+	Course2Step10 = 'Course2Step10',
+	Course2Step11 = 'Course2Step11',
+	Course2Step12 = 'Course2Step12',
+	Course2Step13 = 'Course2Step13',
+	Course2Step14 = 'Course2Step14',
+	Course3Step15 = 'Course3Step15',
+	Course3Step16 = 'Course3Step16',
+	Course3Step17 = 'Course3Step17',
+	Course3Step18 = 'Course3Step18',
+	Course3Step19 = 'Course3Step19',
+	Course3Step20 = 'Course3Step20',
+	Course3Step21 = 'Course1Step21',
 }
 
 type StepEntryPoints = {
@@ -134,6 +141,10 @@ export const stepEntryPoints: StepEntryPoints = {
 		[Steps.Six]: StepStacks.Course1Step6,
 		[Steps.Seven]: StepStacks.Course1Step7,
 	},
+	[Courses.Two]: {
+		[Steps.Eight]: StepStacks.Course2Step8,
+		[Steps.Nine]: StepStacks.Course2Step9,
+	},
 };
 
 export const stepHomeScreen = {
@@ -145,6 +156,10 @@ export const stepHomeScreen = {
 		[Steps.Five]: Course1Step5Screens.Home,
 		[Steps.Six]: Course1Step6Screens.Home,
 		[Steps.Seven]: Course1Step7Screens.Home,
+	},
+	[Courses.Two]: {
+		[Steps.Eight]: Course2Step8Screens.Home,
+		[Steps.Nine]: Course2Step9Screens.Home,
 	},
 };
 
@@ -158,6 +173,10 @@ export const stepDayOverviewScreen = {
 		[Steps.Six]: Course1Step6Screens.DayOverview,
 		[Steps.Seven]: Course1Step7Screens.DayOverview,
 	},
+	[Courses.Two]: {
+		[Steps.Eight]: Course2Step8Screens.DayOverview,
+		[Steps.Nine]: Course2Step9Screens.DayOverview,
+	},
 };
 
 export const stepGoodJobScreen = {
@@ -169,5 +188,9 @@ export const stepGoodJobScreen = {
 		[Steps.Five]: Course1Step5Screens.GoodJob,
 		[Steps.Six]: Course1Step6Screens.GoodJob,
 		[Steps.Seven]: Course1Step7Screens.GoodJob,
+	},
+	[Courses.Two]: {
+		[Steps.Eight]: Course2Step8Screens.GoodJob,
+		[Steps.Nine]: Course2Step9Screens.GoodJob,
 	},
 };

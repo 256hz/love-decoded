@@ -143,6 +143,36 @@
 		30F1AA612631328F00C15B8C /* step6_day7_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F1AA532631328F00C15B8C /* step6_day7_reflections.mp3 */; };
 		30F1AA622631328F00C15B8C /* step6_day5_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F1AA542631328F00C15B8C /* step6_day5_intentions.mp3 */; };
 		30F1AA632631328F00C15B8C /* step6_day1_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F1AA552631328F00C15B8C /* step6_day1_intentions.mp3 */; };
+		30F93B07267D327F0076C6EF /* step8_day2_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AF8267D327E0076C6EF /* step8_day2_intentions.mp3 */; };
+		30F93B08267D327F0076C6EF /* step8_activities.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AF9267D327E0076C6EF /* step8_activities.mp3 */; };
+		30F93B09267D327F0076C6EF /* step8_day1_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFA267D327E0076C6EF /* step8_day1_reflections.mp3 */; };
+		30F93B0A267D327F0076C6EF /* step8_day3_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFB267D327E0076C6EF /* step8_day3_intentions.mp3 */; };
+		30F93B0B267D327F0076C6EF /* step8_day7_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFC267D327E0076C6EF /* step8_day7_intentions.mp3 */; };
+		30F93B0C267D327F0076C6EF /* step8_day2_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFD267D327E0076C6EF /* step8_day2_reflections.mp3 */; };
+		30F93B0D267D327F0076C6EF /* step8_day4_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFE267D327E0076C6EF /* step8_day4_reflections.mp3 */; };
+		30F93B0E267D327F0076C6EF /* step8_day6_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93AFF267D327E0076C6EF /* step8_day6_intentions.mp3 */; };
+		30F93B0F267D327F0076C6EF /* step8_day1_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B00267D327E0076C6EF /* step8_day1_intentions.mp3 */; };
+		30F93B10267D327F0076C6EF /* step8_day4_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B01267D327E0076C6EF /* step8_day4_intentions.mp3 */; };
+		30F93B11267D327F0076C6EF /* step8_day5_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B02267D327F0076C6EF /* step8_day5_reflections.mp3 */; };
+		30F93B12267D327F0076C6EF /* step8_day6_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B03267D327F0076C6EF /* step8_day6_reflections.mp3 */; };
+		30F93B13267D327F0076C6EF /* step8_day3_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B04267D327F0076C6EF /* step8_day3_reflections.mp3 */; };
+		30F93B14267D327F0076C6EF /* step8_day7_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B05267D327F0076C6EF /* step8_day7_reflections.mp3 */; };
+		30F93B15267D327F0076C6EF /* step8_day5_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B06267D327F0076C6EF /* step8_day5_intentions.mp3 */; };
+		30F93B29267D32950076C6EF /* step9_activities.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1A267D32940076C6EF /* step9_activities.mp3 */; };
+		30F93B2A267D32950076C6EF /* step9_day3_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1B267D32940076C6EF /* step9_day3_intentions.mp3 */; };
+		30F93B2B267D32950076C6EF /* step9_day2_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1C267D32940076C6EF /* step9_day2_reflections.mp3 */; };
+		30F93B2C267D32950076C6EF /* step9_day5_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1D267D32940076C6EF /* step9_day5_intentions.mp3 */; };
+		30F93B2D267D32950076C6EF /* step9_day7_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1E267D32940076C6EF /* step9_day7_reflections.mp3 */; };
+		30F93B2E267D32950076C6EF /* step9_day1_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B1F267D32940076C6EF /* step9_day1_reflections.mp3 */; };
+		30F93B2F267D32950076C6EF /* step9_day3_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B20267D32940076C6EF /* step9_day3_reflections.mp3 */; };
+		30F93B30267D32950076C6EF /* step9_day5_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B21267D32940076C6EF /* step9_day5_reflections.mp3 */; };
+		30F93B31267D32950076C6EF /* step9_day4_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B22267D32940076C6EF /* step9_day4_reflections.mp3 */; };
+		30F93B32267D32950076C6EF /* step9_day2_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B23267D32940076C6EF /* step9_day2_intentions.mp3 */; };
+		30F93B33267D32950076C6EF /* step9_day1_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B24267D32940076C6EF /* step9_day1_intentions.mp3 */; };
+		30F93B34267D32950076C6EF /* step9_day6_reflections.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B25267D32940076C6EF /* step9_day6_reflections.mp3 */; };
+		30F93B35267D32950076C6EF /* step9_day6_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B26267D32940076C6EF /* step9_day6_intentions.mp3 */; };
+		30F93B36267D32950076C6EF /* step9_day4_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B27267D32940076C6EF /* step9_day4_intentions.mp3 */; };
+		30F93B37267D32950076C6EF /* step9_day7_intentions.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30F93B28267D32950076C6EF /* step9_day7_intentions.mp3 */; };
 		33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */; };
 		4D5E49FA3D848D3D2D3F705B /* libPods-LoveDecoded-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */; };
 		4E96B39CA1078ADE24D2DFEC /* libPods-LoveDecoded-LoveDecodedTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0EB886A458F993EF2D67F /* libPods-LoveDecoded-LoveDecodedTests.a */; };
@@ -310,6 +340,36 @@
 		30F1AA532631328F00C15B8C /* step6_day7_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step6_day7_reflections.mp3; path = ../assets/audio/course1/step6/step6_day7_reflections.mp3; sourceTree = "<group>"; };
 		30F1AA542631328F00C15B8C /* step6_day5_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step6_day5_intentions.mp3; path = ../assets/audio/course1/step6/step6_day5_intentions.mp3; sourceTree = "<group>"; };
 		30F1AA552631328F00C15B8C /* step6_day1_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step6_day1_intentions.mp3; path = ../assets/audio/course1/step6/step6_day1_intentions.mp3; sourceTree = "<group>"; };
+		30F93AF8267D327E0076C6EF /* step8_day2_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day2_intentions.mp3; path = ../assets/audio/course1/step8/step8_day2_intentions.mp3; sourceTree = "<group>"; };
+		30F93AF9267D327E0076C6EF /* step8_activities.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_activities.mp3; path = ../assets/audio/course1/step8/step8_activities.mp3; sourceTree = "<group>"; };
+		30F93AFA267D327E0076C6EF /* step8_day1_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day1_reflections.mp3; path = ../assets/audio/course1/step8/step8_day1_reflections.mp3; sourceTree = "<group>"; };
+		30F93AFB267D327E0076C6EF /* step8_day3_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day3_intentions.mp3; path = ../assets/audio/course1/step8/step8_day3_intentions.mp3; sourceTree = "<group>"; };
+		30F93AFC267D327E0076C6EF /* step8_day7_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day7_intentions.mp3; path = ../assets/audio/course1/step8/step8_day7_intentions.mp3; sourceTree = "<group>"; };
+		30F93AFD267D327E0076C6EF /* step8_day2_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day2_reflections.mp3; path = ../assets/audio/course1/step8/step8_day2_reflections.mp3; sourceTree = "<group>"; };
+		30F93AFE267D327E0076C6EF /* step8_day4_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day4_reflections.mp3; path = ../assets/audio/course1/step8/step8_day4_reflections.mp3; sourceTree = "<group>"; };
+		30F93AFF267D327E0076C6EF /* step8_day6_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day6_intentions.mp3; path = ../assets/audio/course1/step8/step8_day6_intentions.mp3; sourceTree = "<group>"; };
+		30F93B00267D327E0076C6EF /* step8_day1_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day1_intentions.mp3; path = ../assets/audio/course1/step8/step8_day1_intentions.mp3; sourceTree = "<group>"; };
+		30F93B01267D327E0076C6EF /* step8_day4_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day4_intentions.mp3; path = ../assets/audio/course1/step8/step8_day4_intentions.mp3; sourceTree = "<group>"; };
+		30F93B02267D327F0076C6EF /* step8_day5_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day5_reflections.mp3; path = ../assets/audio/course1/step8/step8_day5_reflections.mp3; sourceTree = "<group>"; };
+		30F93B03267D327F0076C6EF /* step8_day6_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day6_reflections.mp3; path = ../assets/audio/course1/step8/step8_day6_reflections.mp3; sourceTree = "<group>"; };
+		30F93B04267D327F0076C6EF /* step8_day3_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day3_reflections.mp3; path = ../assets/audio/course1/step8/step8_day3_reflections.mp3; sourceTree = "<group>"; };
+		30F93B05267D327F0076C6EF /* step8_day7_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day7_reflections.mp3; path = ../assets/audio/course1/step8/step8_day7_reflections.mp3; sourceTree = "<group>"; };
+		30F93B06267D327F0076C6EF /* step8_day5_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step8_day5_intentions.mp3; path = ../assets/audio/course1/step8/step8_day5_intentions.mp3; sourceTree = "<group>"; };
+		30F93B1A267D32940076C6EF /* step9_activities.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_activities.mp3; path = ../assets/audio/course1/step9/step9_activities.mp3; sourceTree = "<group>"; };
+		30F93B1B267D32940076C6EF /* step9_day3_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day3_intentions.mp3; path = ../assets/audio/course1/step9/step9_day3_intentions.mp3; sourceTree = "<group>"; };
+		30F93B1C267D32940076C6EF /* step9_day2_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day2_reflections.mp3; path = ../assets/audio/course1/step9/step9_day2_reflections.mp3; sourceTree = "<group>"; };
+		30F93B1D267D32940076C6EF /* step9_day5_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day5_intentions.mp3; path = ../assets/audio/course1/step9/step9_day5_intentions.mp3; sourceTree = "<group>"; };
+		30F93B1E267D32940076C6EF /* step9_day7_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day7_reflections.mp3; path = ../assets/audio/course1/step9/step9_day7_reflections.mp3; sourceTree = "<group>"; };
+		30F93B1F267D32940076C6EF /* step9_day1_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day1_reflections.mp3; path = ../assets/audio/course1/step9/step9_day1_reflections.mp3; sourceTree = "<group>"; };
+		30F93B20267D32940076C6EF /* step9_day3_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day3_reflections.mp3; path = ../assets/audio/course1/step9/step9_day3_reflections.mp3; sourceTree = "<group>"; };
+		30F93B21267D32940076C6EF /* step9_day5_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day5_reflections.mp3; path = ../assets/audio/course1/step9/step9_day5_reflections.mp3; sourceTree = "<group>"; };
+		30F93B22267D32940076C6EF /* step9_day4_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day4_reflections.mp3; path = ../assets/audio/course1/step9/step9_day4_reflections.mp3; sourceTree = "<group>"; };
+		30F93B23267D32940076C6EF /* step9_day2_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day2_intentions.mp3; path = ../assets/audio/course1/step9/step9_day2_intentions.mp3; sourceTree = "<group>"; };
+		30F93B24267D32940076C6EF /* step9_day1_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day1_intentions.mp3; path = ../assets/audio/course1/step9/step9_day1_intentions.mp3; sourceTree = "<group>"; };
+		30F93B25267D32940076C6EF /* step9_day6_reflections.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day6_reflections.mp3; path = ../assets/audio/course1/step9/step9_day6_reflections.mp3; sourceTree = "<group>"; };
+		30F93B26267D32940076C6EF /* step9_day6_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day6_intentions.mp3; path = ../assets/audio/course1/step9/step9_day6_intentions.mp3; sourceTree = "<group>"; };
+		30F93B27267D32940076C6EF /* step9_day4_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day4_intentions.mp3; path = ../assets/audio/course1/step9/step9_day4_intentions.mp3; sourceTree = "<group>"; };
+		30F93B28267D32950076C6EF /* step9_day7_intentions.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = step9_day7_intentions.mp3; path = ../assets/audio/course1/step9/step9_day7_intentions.mp3; sourceTree = "<group>"; };
 		39A3D3E2929EE317805EE831 /* Pods-LoveDecoded-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoveDecoded-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-LoveDecoded-tvOSTests/Pods-LoveDecoded-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4977C2B99BE642D29EA04191 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		51F51233C2E9164A0386717B /* libPods-LoveDecoded-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LoveDecoded-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -554,6 +614,36 @@
 				30EB2A8A2653411A000D8944 /* step7_day6_reflections.mp3 */,
 				30EB2A832653411A000D8944 /* step7_day7_intentions.mp3 */,
 				30EB2A842653411A000D8944 /* step7_day7_reflections.mp3 */,
+				30F93AF9267D327E0076C6EF /* step8_activities.mp3 */,
+				30F93B00267D327E0076C6EF /* step8_day1_intentions.mp3 */,
+				30F93AFA267D327E0076C6EF /* step8_day1_reflections.mp3 */,
+				30F93AF8267D327E0076C6EF /* step8_day2_intentions.mp3 */,
+				30F93AFD267D327E0076C6EF /* step8_day2_reflections.mp3 */,
+				30F93AFB267D327E0076C6EF /* step8_day3_intentions.mp3 */,
+				30F93B04267D327F0076C6EF /* step8_day3_reflections.mp3 */,
+				30F93B01267D327E0076C6EF /* step8_day4_intentions.mp3 */,
+				30F93AFE267D327E0076C6EF /* step8_day4_reflections.mp3 */,
+				30F93B06267D327F0076C6EF /* step8_day5_intentions.mp3 */,
+				30F93B02267D327F0076C6EF /* step8_day5_reflections.mp3 */,
+				30F93AFF267D327E0076C6EF /* step8_day6_intentions.mp3 */,
+				30F93B03267D327F0076C6EF /* step8_day6_reflections.mp3 */,
+				30F93AFC267D327E0076C6EF /* step8_day7_intentions.mp3 */,
+				30F93B05267D327F0076C6EF /* step8_day7_reflections.mp3 */,
+				30F93B1A267D32940076C6EF /* step9_activities.mp3 */,
+				30F93B24267D32940076C6EF /* step9_day1_intentions.mp3 */,
+				30F93B1F267D32940076C6EF /* step9_day1_reflections.mp3 */,
+				30F93B23267D32940076C6EF /* step9_day2_intentions.mp3 */,
+				30F93B1C267D32940076C6EF /* step9_day2_reflections.mp3 */,
+				30F93B1B267D32940076C6EF /* step9_day3_intentions.mp3 */,
+				30F93B20267D32940076C6EF /* step9_day3_reflections.mp3 */,
+				30F93B27267D32940076C6EF /* step9_day4_intentions.mp3 */,
+				30F93B22267D32940076C6EF /* step9_day4_reflections.mp3 */,
+				30F93B1D267D32940076C6EF /* step9_day5_intentions.mp3 */,
+				30F93B21267D32940076C6EF /* step9_day5_reflections.mp3 */,
+				30F93B26267D32940076C6EF /* step9_day6_intentions.mp3 */,
+				30F93B25267D32940076C6EF /* step9_day6_reflections.mp3 */,
+				30F93B28267D32950076C6EF /* step9_day7_intentions.mp3 */,
+				30F93B1E267D32940076C6EF /* step9_day7_reflections.mp3 */,
 				1CD54D1125E2BE9A00B7F6AC /* AppCenter-Config.plist */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -740,6 +830,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30F93B33267D32950076C6EF /* step9_day1_intentions.mp3 in Resources */,
 				30F1AA002631326E00C15B8C /* step3_day6_reflections.mp3 in Resources */,
 				30F1A9EB2631326200C15B8C /* step2_activities1.mp3 in Resources */,
 				30F1AA402631328600C15B8C /* step5_day3_intentions.mp3 in Resources */,
@@ -748,6 +839,7 @@
 				30F1A9FD2631326E00C15B8C /* step3_day6_intentions.mp3 in Resources */,
 				30F1AA3D2631328600C15B8C /* step5_day2_reflections.mp3 in Resources */,
 				30F1A9E32631326200C15B8C /* step2_day1_reflections.mp3 in Resources */,
+				30F93B30267D32950076C6EF /* step9_day5_reflections.mp3 in Resources */,
 				30CB674625E62D9100E7340D /* onboarding_7_the_learning_pyramid.mp3 in Resources */,
 				30EB2A982653411A000D8944 /* step7_day6_intentions.mp3 in Resources */,
 				30EB2A8B2653411A000D8944 /* step7_day3_intentions.mp3 in Resources */,
@@ -764,19 +856,29 @@
 				30F1AA272631327B00C15B8C /* step4_day4_intentions.mp3 in Resources */,
 				30CB674425E62D9100E7340D /* onboarding_4_unconditional_community.mp3 in Resources */,
 				30F1AA3B2631328600C15B8C /* step5_day6_reflections.mp3 in Resources */,
+				30F93B0E267D327F0076C6EF /* step8_day6_intentions.mp3 in Resources */,
+				30F93B07267D327F0076C6EF /* step8_day2_intentions.mp3 in Resources */,
 				30CB673E25E62D9100E7340D /* onboarding_9_control.mp3 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				3075AD3025FF315B00A58932 /* step1_day3_reflections.mp3 in Resources */,
 				3075AD3325FF315B00A58932 /* step1_day2_intentions.mp3 in Resources */,
+				30F93B14267D327F0076C6EF /* step8_day7_reflections.mp3 in Resources */,
 				3075AD2F25FF315B00A58932 /* step1_day3_intentions.mp3 in Resources */,
 				1CD54D1225E2BE9A00B7F6AC /* AppCenter-Config.plist in Resources */,
 				30F1AA1B2631327B00C15B8C /* step4_day7_reflections.mp3 in Resources */,
 				30F1AA3A2631328600C15B8C /* step5_day1_intentions.mp3 in Resources */,
+				30F93B35267D32950076C6EF /* step9_day6_intentions.mp3 in Resources */,
+				30F93B09267D327F0076C6EF /* step8_day1_reflections.mp3 in Resources */,
 				30F1AA232631327B00C15B8C /* step4_day1_reflections.mp3 in Resources */,
 				30F1AA3F2631328600C15B8C /* step5_day7_reflections.mp3 in Resources */,
+				30F93B37267D32950076C6EF /* step9_day7_intentions.mp3 in Resources */,
 				30EB2A942653411A000D8944 /* step7_day4_reflections.mp3 in Resources */,
 				30F1AA202631327B00C15B8C /* step4_day2_reflections.mp3 in Resources */,
+				30F93B0D267D327F0076C6EF /* step8_day4_reflections.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				30F93B13267D327F0076C6EF /* step8_day3_reflections.mp3 in Resources */,
+				30F93B29267D32950076C6EF /* step9_activities.mp3 in Resources */,
+				30F93B11267D327F0076C6EF /* step8_day5_reflections.mp3 in Resources */,
 				30F1AA092631326E00C15B8C /* step3_day5_intentions.mp3 in Resources */,
 				30F1AA562631328F00C15B8C /* step6_day2_intentions.mp3 in Resources */,
 				30F1A9E82631326200C15B8C /* step2_day1_intentions.mp3 in Resources */,
@@ -788,7 +890,9 @@
 				3051D20A25F4A0C400B2D7D1 /* one_second_silence.mp3 in Resources */,
 				30CB674325E62D9100E7340D /* onboarding_8_expanding_your_comfort_zone.mp3 in Resources */,
 				30977F83263133DC006907FD /* step5_day4_intentions.mp3 in Resources */,
+				30F93B0C267D327F0076C6EF /* step8_day2_reflections.mp3 in Resources */,
 				D7DA8E89105F4605B970AD00 /* Rubik.ttf in Resources */,
+				30F93B31267D32950076C6EF /* step9_day4_reflections.mp3 in Resources */,
 				30F1AA3E2631328600C15B8C /* step5_activities.mp3 in Resources */,
 				3075AD3A25FF315B00A58932 /* step1_day7_intentions.mp3 in Resources */,
 				30F1AA1F2631327B00C15B8C /* step4_day6_reflections.mp3 in Resources */,
@@ -798,10 +902,13 @@
 				30F1A9EA2631326200C15B8C /* step2_day6_intentions.mp3 in Resources */,
 				30EB2A8E2653411A000D8944 /* step7_day5_intentions.mp3 in Resources */,
 				30CB674725E62D9100E7340D /* onboarding_21_how_can_i_tell.mp3 in Resources */,
+				30F93B36267D32950076C6EF /* step9_day4_intentions.mp3 in Resources */,
 				30F1AA1D2631327B00C15B8C /* step4_day3_reflections.mp3 in Resources */,
 				30F1AA292631327B00C15B8C /* step4_day5_intentions.mp3 in Resources */,
 				30CB673C25E62D9100E7340D /* onboarding_38b_erb_frustrated_with_the_app.mp3 in Resources */,
+				30F93B2A267D32950076C6EF /* step9_day3_intentions.mp3 in Resources */,
 				3075AD3425FF315B00A58932 /* step1_day7_reflections.mp3 in Resources */,
+				30F93B2E267D32950076C6EF /* step9_day1_reflections.mp3 in Resources */,
 				3075AD3125FF315B00A58932 /* step1_day5_intentions.mp3 in Resources */,
 				30F1A9ED2631326200C15B8C /* step2_day4_intentions.mp3 in Resources */,
 				3075AD3225FF315B00A58932 /* step1_day5_reflections.mp3 in Resources */,
@@ -811,6 +918,7 @@
 				30F1A9DF2631326200C15B8C /* step2_day3_reflections.mp3 in Resources */,
 				33005565F4464E4492EF5D7E /* Roboto-Regular.ttf in Resources */,
 				3075AD3725FF315B00A58932 /* step1_day1_reflections.mp3 in Resources */,
+				30F93B2F267D32950076C6EF /* step9_day3_reflections.mp3 in Resources */,
 				30EB2A962653411A000D8944 /* step7_day4_intentions.mp3 in Resources */,
 				30CB674825E62D9100E7340D /* onboarding_38c_erb_ready_to_quit.mp3 in Resources */,
 				30EB2A952653411A000D8944 /* step7_day2_reflections.mp3 in Resources */,
@@ -818,10 +926,15 @@
 				3075AD3525FF315B00A58932 /* step1_day4_reflections.mp3 in Resources */,
 				30F1AA472631328600C15B8C /* step5_day7_intentions.mp3 in Resources */,
 				30F1AA632631328F00C15B8C /* step6_day1_intentions.mp3 in Resources */,
+				30F93B12267D327F0076C6EF /* step8_day6_reflections.mp3 in Resources */,
+				30F93B08267D327F0076C6EF /* step8_activities.mp3 in Resources */,
+				30F93B0B267D327F0076C6EF /* step8_day7_intentions.mp3 in Resources */,
 				30F1AA5D2631328F00C15B8C /* step6_day6_reflections.mp3 in Resources */,
+				30F93B34267D32950076C6EF /* step9_day6_reflections.mp3 in Resources */,
 				30F1A9FF2631326E00C15B8C /* step3_day7_intentions.mp3 in Resources */,
 				30F1AA072631326E00C15B8C /* step3_day3_intentions.mp3 in Resources */,
 				30F1AA242631327B00C15B8C /* step4_day2_intentions.mp3 in Resources */,
+				30F93B15267D327F0076C6EF /* step8_day5_intentions.mp3 in Resources */,
 				30F1A9FE2631326E00C15B8C /* step3_day3_reflections.mp3 in Resources */,
 				30F1AA212631327B00C15B8C /* step4_day4_reflections.mp3 in Resources */,
 				30F1AA442631328600C15B8C /* step5_day6_intentions.mp3 in Resources */,
@@ -835,6 +948,7 @@
 				30EB2A912653411A000D8944 /* step7_day3_reflections.mp3 in Resources */,
 				30CB674925E62D9100E7340D /* onboarding_6_the_science_of_love.mp3 in Resources */,
 				30F1AA1C2631327B00C15B8C /* step4_activities.mp3 in Resources */,
+				30F93B10267D327F0076C6EF /* step8_day4_intentions.mp3 in Resources */,
 				30F1A9E22631326200C15B8C /* step2_day7_reflections.mp3 in Resources */,
 				30F1AA5B2631328F00C15B8C /* step6_day3_intentions.mp3 in Resources */,
 				30CB674225E62D9100E7340D /* onboarding_2_sources_of_pain.mp3 in Resources */,
@@ -854,11 +968,16 @@
 				30F1AA282631327B00C15B8C /* step4_day5_reflections.mp3 in Resources */,
 				30F1AA0A2631326E00C15B8C /* step3_activities.mp3 in Resources */,
 				30EB2A8D2653411A000D8944 /* step7_activities.mp3 in Resources */,
+				30F93B0A267D327F0076C6EF /* step8_day3_intentions.mp3 in Resources */,
+				30F93B2B267D32950076C6EF /* step9_day2_reflections.mp3 in Resources */,
+				30F93B2D267D32950076C6EF /* step9_day7_reflections.mp3 in Resources */,
 				30872BF825E77BC70091C6E3 /* erb_ready_to_quit_rebecca.mp3 in Resources */,
 				30CB674025E62D9100E7340D /* onboarding_1_you_are_born_to_be_loved.mp3 in Resources */,
 				30F1AA392631328600C15B8C /* step5_day3_reflections.mp3 in Resources */,
 				30F1AA612631328F00C15B8C /* step6_day7_reflections.mp3 in Resources */,
 				30CB674125E62D9100E7340D /* onboarding_3_what_would_i_like_to_learn.mp3 in Resources */,
+				30F93B2C267D32950076C6EF /* step9_day5_intentions.mp3 in Resources */,
+				30F93B0F267D327F0076C6EF /* step8_day1_intentions.mp3 in Resources */,
 				30F1AA022631326E00C15B8C /* step3_day2_reflections.mp3 in Resources */,
 				3075AD3925FF315B00A58932 /* step1_day6_reflections.mp3 in Resources */,
 				30F1AA622631328F00C15B8C /* step6_day5_intentions.mp3 in Resources */,
@@ -869,6 +988,7 @@
 				30F1AA5E2631328F00C15B8C /* step6_day4_reflections.mp3 in Resources */,
 				30F1AA5C2631328F00C15B8C /* step6_day1_reflections.mp3 in Resources */,
 				30F1AA032631326E00C15B8C /* step3_day1_intentions.mp3 in Resources */,
+				30F93B32267D32950076C6EF /* step9_day2_intentions.mp3 in Resources */,
 				30F1AA082631326E00C15B8C /* step3_day4_reflections.mp3 in Resources */,
 				30F1A9DE2631326200C15B8C /* step2_day5_reflections.mp3 in Resources */,
 			);
