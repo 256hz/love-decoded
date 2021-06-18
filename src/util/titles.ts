@@ -28,13 +28,13 @@ export const titles: Titles = {
 		[Steps.Fourteen]: '',
 	},
 	[Courses.Three]: {
-		[Steps.One]: '',
-		[Steps.Two]: '',
-		[Steps.Three]: '',
-		[Steps.Four]: '',
-		[Steps.Five]: '',
-		[Steps.Six]: '',
-		[Steps.Seven]: '',
+		[Steps.Fifteen]: '',
+		[Steps.Sixteen]: '',
+		[Steps.Seventeen]: '',
+		[Steps.Eighteen]: '',
+		[Steps.Nineteen]: '',
+		[Steps.Twenty]: '',
+		[Steps.Twentyone]: '',
 	},
 };
 

@@ -29,8 +29,6 @@ export default ({ prompts }: Props) => {
 	const dispatch = useDispatch();
 	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
 
-	console.log({ currentCourse, currentStep, currentDay });
-
 	const response = useSelector(getDaySurvey(currentCourse, currentStep, currentDay, Surveys.HowAreYouFeeling));
 
 	const setResponse = (number: HowAreYouFeelingResponse) => {

@@ -79,8 +79,6 @@ export default () => {
 		const courseDestination = CourseFromNumber[courseNumber];
 		const stepDestination = StepFromNumber[stepNumber];
 
-		console.log({ courseDestination, stepDestination });
-
 		navigate(stepEntryPoints[courseDestination]![stepDestination]!);
 	};
 
