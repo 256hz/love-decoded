@@ -227,3 +227,24 @@ export const course2Step10State = {
 	[Activities.Course2Step10Activity1]: '',
 	[Activities.Course2Step10Activity2]: '',
 };
+
+// Step 10
+// per day
+const course2Step11DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step11Survey1]: '',
+		[EndOfDaySurveys.Course2Step11Survey2]: '',
+		[EndOfDaySurveys.Course2Step11Survey3]: '',
+		[EndOfDaySurveys.Course2Step11Survey4]: '',
+		[EndOfDaySurveys.Course2Step11Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step11State = {
+	...course2Step11DayState,
+	[Activities.Course2Step11Activity1]: '',
+	[Activities.Course2Step11Activity2]: '',
+	[Activities.Course2Step11Activity3]: '',
+};

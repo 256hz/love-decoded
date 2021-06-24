@@ -64,6 +64,12 @@ export enum EndOfDaySurveys {
 	Course2Step10Survey3 = 'course2_step10_survey3',
 	Course2Step10Survey4 = 'course2_step10_survey4',
 	Course2Step10Survey5 = 'course2_step10_survey5',
+	// Course 2, Step 11
+	Course2Step11Survey1 = 'course2_step11_survey1',
+	Course2Step11Survey2 = 'course2_step11_survey2',
+	Course2Step11Survey3 = 'course2_step11_survey3',
+	Course2Step11Survey4 = 'course2_step11_survey4',
+	Course2Step11Survey5 = 'course2_step11_survey5',
 }
 
 export enum Activities {
@@ -118,6 +124,10 @@ export enum Activities {
 	// Course 2, Step 10
 	Course2Step10Activity1 = 'course2_step10_activity1',
 	Course2Step10Activity2 = 'course2_step10_activity2',
+	// Course 2, Step 11
+	Course2Step11Activity1 = 'course2_step11_activity1',
+	Course2Step11Activity2 = 'course2_step11_activity2',
+	Course2Step11Activity3 = 'course2_step11_activity3',
 }
 
 export enum Courses {
@@ -201,6 +211,7 @@ export const StepFromNumber: Steps[] = [
 	Steps.Eight,
 	Steps.Nine,
 	Steps.Ten,
+	Steps.Eleven,
 ];
 
 export type Onboarding = {
@@ -225,6 +236,7 @@ export type Course2State = {
 	[Steps.Eight]: Course2Step8;
 	[Steps.Nine]: Course2Step9;
 	[Steps.Ten]: Course2Step10;
+	[Steps.Eleven]: Course2Step11;
 };
 
 export type Course1Step1 = {
@@ -374,6 +386,21 @@ export type Course2Step10 = {
 		[EndOfDaySurveys.Course2Step10Survey5]: string,
 	};
 };
+
+export type Course2Step11 = {
+	[Activities.Course2Step11Activity1]: string;
+	[Activities.Course2Step11Activity2]: string;
+	[Activities.Course2Step11Activity3]: string;
+} & {
+	[key in Days]: {
+		[Surveys.HowAreYouFeeling]: HowAreYouFeelingResponse;
+		[EndOfDaySurveys.Course2Step11Survey1]: string,
+		[EndOfDaySurveys.Course2Step11Survey2]: string,
+		[EndOfDaySurveys.Course2Step11Survey3]: string,
+		[EndOfDaySurveys.Course2Step11Survey4]: string,
+		[EndOfDaySurveys.Course2Step11Survey5]: string,
+	};
+}
 
 
 export type SurveyResponse = HowAreYouFeelingResponse | NeffSurveyResponse | YesNo | string | string[];

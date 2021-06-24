@@ -18,8 +18,8 @@ import {
 	StepNumber,
 } from '@redux/types/user';
 import colors from '@elements/globalStyles/color';
-import styles from './ContentReview.styles';
 import { alerts } from 'redux/reducer';
+import styles from './ContentReview.styles';
 
 export default () => {
 	const { navigate } = useNavigation();
@@ -57,7 +57,7 @@ export default () => {
 	};
 
 	const getDestinationFromString = courseStepString => {
-		const [ courseNumber, stepNumber, dayNumber, activityNumber ] = courseStepString;
+		const [ courseNumber, stepNumber, dayNumber, activityNumber ] = courseStepString.split('-');
 
 		return {
 			courseNumber: parseInt(courseNumber) as CourseNumber,
@@ -69,7 +69,7 @@ export default () => {
 
 	const onPressGo = () => {
 		const { courseNumber, stepNumber, dayNumber, activityNumber } = getDestinationFromString(destination);
-
+		console.log({ courseNumber, stepNumber, dayNumber, activityNumber });
 		if (!courseNumber || !stepNumber || !dayNumber || !activityNumber) {
 			console.error('tried to navigate to empty destination:', destination);
 			return;
@@ -79,7 +79,6 @@ export default () => {
 
 		const courseDestination = CourseFromNumber[courseNumber];
 		const stepDestination = StepFromNumber[stepNumber];
-		//console.log(courseDestination, stepDestination);
 		navigate(stepEntryPoints[courseDestination]![stepDestination]!);
 	};
 
@@ -162,26 +161,27 @@ const getDropDownChoices = (maxUserProgress) => {
 	} = maxUserProgress;
 
 	// String format for destinations.  An array or object would be nicer, but values and keys have to match, and we can't match on them without using immutable data structures.
-	const currentMaxString = `${maxCourseNumber}${maxStepNumber}${maxDayNumber}${maxActivityNumber}`;
+	const currentMaxString = `${maxCourseNumber}-${maxStepNumber}-${maxDayNumber}-${maxActivityNumber}`;
 
 	// values and keys must match.
 	return [
-		{ label: 'Step 1, Day 1', value: '1111', key: '1111' },
-		(DEMO_MODE || maxDayNumber > 1 || maxStepNumber > 1) && { label: 'Step 1, Day 2', value: '1121', key: '1121' },
-		(DEMO_MODE || maxDayNumber > 2 || maxStepNumber > 1) && { label: 'Step 1, Day 3', value: '1131', key: '1131' },
-		(DEMO_MODE || maxDayNumber > 3 || maxStepNumber > 1) && { label: 'Step 1, Day 4', value: '1141', key: '1141' },
-		(DEMO_MODE || maxDayNumber > 4 || maxStepNumber > 1) && { label: 'Step 1, Day 5', value: '1151', key: '1151' },
-		(DEMO_MODE || maxDayNumber > 5 || maxStepNumber > 1) && { label: 'Step 1, Day 6', value: '1161', key: '1161' },
-		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1) && { label: 'Step 1, Day 7', value: '1111', key: '1111' },
-		(DEMO_MODE || maxStepNumber > 1) && { label: `Step 2: ${titles.step2}`, value: '1211', key: '1211' },
-		(DEMO_MODE || maxStepNumber > 2) && { label: `Step 3: ${titles.step3}`, value: '1311', key: '1311' },
-		(DEMO_MODE || maxStepNumber > 3) && { label: `Step 4: ${titles.step4}`, value: '1411', key: '1411' },
-		(DEMO_MODE || maxStepNumber > 4) && { label: `Step 5: ${titles.step5}`, value: '1511', key: '1511' },
-		(DEMO_MODE || maxStepNumber > 5) && { label: `Step 6: ${titles.step6}`, value: '1611', key: '1611' },
-		(DEMO_MODE || maxStepNumber > 6) && { label: `Step 7: ${titles.step7}`, value: '1711', key: '1711' },
-		(DEMO_MODE || maxStepNumber > 7) && { label: `Step 8: ${titles.step8}`, value: '2811', key: '2811' },
-		(DEMO_MODE || maxStepNumber > 8) && { label: `Step 9: ${titles.step9}`, value: '2911', key: '2911' },
-		(DEMO_MODE || maxStepNumber > 9) && { label: `Step 10: ${titles.step10}`, value: '21011', key: '21011' },
+		{ label: 'Step 1, Day 1', value: '1-1-1-1', key: '1-1-1-1' },
+		(DEMO_MODE || maxDayNumber > 1 || maxStepNumber > 1) && { label: 'Step 1, Day 2', value: '1-1-2-1', key: '1-1-2-1' },
+		(DEMO_MODE || maxDayNumber > 2 || maxStepNumber > 1) && { label: 'Step 1, Day 3', value: '1-1-3-1', key: '1-1-3-1' },
+		(DEMO_MODE || maxDayNumber > 3 || maxStepNumber > 1) && { label: 'Step 1, Day 4', value: '1-1-4-1', key: '1-1-4-1' },
+		(DEMO_MODE || maxDayNumber > 4 || maxStepNumber > 1) && { label: 'Step 1, Day 5', value: '1-1-5-1', key: '1-1-5-1' },
+		(DEMO_MODE || maxDayNumber > 5 || maxStepNumber > 1) && { label: 'Step 1, Day 6', value: '1-1-6-1', key: '1-1-6-1' },
+		(DEMO_MODE || maxDayNumber > 6 || maxStepNumber > 1) && { label: 'Step 1, Day 7', value: '1-1-1-1', key: '1-1-1-1' },
+		(DEMO_MODE || maxStepNumber > 1) && { label: `Step 2: ${titles.step2}`, value: '1-2-1-1', key: '1-2-1-1' },
+		(DEMO_MODE || maxStepNumber > 2) && { label: `Step 3: ${titles.step3}`, value: '1-3-1-1', key: '1-3-1-1' },
+		(DEMO_MODE || maxStepNumber > 3) && { label: `Step 4: ${titles.step4}`, value: '1-4-1-1', key: '1-4-1-1' },
+		(DEMO_MODE || maxStepNumber > 4) && { label: `Step 5: ${titles.step5}`, value: '1-5-1-1', key: '1-5-1-1' },
+		(DEMO_MODE || maxStepNumber > 5) && { label: `Step 6: ${titles.step6}`, value: '1-6-1-1', key: '1-6-1-1' },
+		(DEMO_MODE || maxStepNumber > 6) && { label: `Step 7: ${titles.step7}`, value: '1-7-1-1', key: '1-7-1-1' },
+		(DEMO_MODE || maxStepNumber > 7) && { label: `Step 8: ${titles.step8}`, value: '2-8-1-1', key: '2-8-1-1' },
+		(DEMO_MODE || maxStepNumber > 8) && { label: `Step 9: ${titles.step9}`, value: '2-9-1-1', key: '2-9-1-1' },
+		(DEMO_MODE || maxStepNumber > 9) && { label: `Step 10: ${titles.step10}`, value: '2-10-1-1', key: '2-10-1-1' },
+		(DEMO_MODE || maxStepNumber > 10) && { label: `Step 11: ${titles.step11}`, value: '2-11-1-1', key: '2-11-1-1' },
 		(DEMO_MODE || maxCourseNumber > 1 || maxStepNumber > 1 || maxDayNumber > 1) && { label: `Current: Step ${maxStepNumber}, Day ${maxDayNumber}`, value: currentMaxString, key: currentMaxString },
 	].filter(x => !!x) as Item[];
 };

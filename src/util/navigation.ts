@@ -16,6 +16,7 @@ import {
 	Course2Step8Screens, 
 	Course2Step9Screens,
 	Course2Step10Screens,
+	Course2Step11Screens,
 } from 'route/Steps/Course2Screens';
 
 export const navigationRef = React.createRef<NavigationContainerRef>();
@@ -85,6 +86,7 @@ export const getNavigationStack = (currentCourseNumber: CourseNumber, currentSte
 				case 8: return Course2Step8Screens;
 				case 9: return Course2Step9Screens;
 				case 10: return Course2Step10Screens;
+				case 11: return Course2Step11Screens;
 				default: throw new Error(`no stack found for ${{ currentCourseNumber, currentStepNumber }}`);
 			}
 		}
