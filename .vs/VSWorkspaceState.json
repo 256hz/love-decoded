@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\screens",
+    "\\src\\screens\\Courses",
+    "\\src\\screens\\Courses\\Common",
+    "\\src\\screens\\Courses\\Common\\SurveyScreen",
+    "\\src\\screens\\Courses\\Course1",
+    "\\src\\screens\\Courses\\Course1\\Step7",
+    "\\src\\screens\\Courses\\Tabs",
+    "\\src\\screens\\Courses\\Tabs\\Faq",
+    "\\src\\util"
+  ],
+  "SelectedNode": "\\src\\util\\linking.ts",
+  "PreviewInSolutionExplorer": false
+}
