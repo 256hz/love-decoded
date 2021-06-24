@@ -163,6 +163,14 @@ export const course1Step7State = {
 	[Activities.Course1Step7Activity3]: '',
 };
 
+
+/*
+	------------------------------------------
+	COURSE 2
+	------------------------------------------
+*/
+
+
 // Step 8
 // per day
 const course2Step8DayState = DayValues.reduce((acc, curr) => {
@@ -198,4 +206,24 @@ export const course2Step9State = {
 	...course2Step9DayState,
 	[Activities.Course2Step9Activity1]: '',
 	[Activities.Course2Step9Activity2]: '',
+};
+
+// Step 10
+// per day
+const course2Step10DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step10Survey1]: '',
+		[EndOfDaySurveys.Course2Step10Survey2]: '',
+		[EndOfDaySurveys.Course2Step10Survey3]: '',
+		[EndOfDaySurveys.Course2Step10Survey4]: '',
+		[EndOfDaySurveys.Course2Step10Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step10State = {
+	...course2Step10DayState,
+	[Activities.Course2Step10Activity1]: '',
+	[Activities.Course2Step10Activity2]: '',
 };

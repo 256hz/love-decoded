@@ -37,7 +37,7 @@ export default () => {
 		currentDayNumber,
 	} = useSelector(getUserProgressNumbers);
 
-	const title = titles[currentCourse][currentStep];
+	const title = titles[currentStep];
 
 	const CourseStepScreens = getNavigationStack(currentCourseNumber, currentStepNumber);
 

@@ -16,7 +16,7 @@ export const titles: Titles = {
 	[Steps.Seven]: 'Learn Mirroring - Indispensable For Listening to Problems',
 	[Steps.Eight]: 'Integrating “...Because I Love Myself” Into Life',
 	[Steps.Nine]: 'Ways You Mis-Treat Yourself?',
-	[Steps.Ten]: '',
+	[Steps.Ten]: 'How Do You Mis-Treat Others?',
 	[Steps.Eleven]: '',
 	[Steps.Twelve]: '',
 	[Steps.Thirteen]: '',

@@ -17,6 +17,7 @@ import {
 	course1Step7State,
 	course2Step8State,
 	course2Step9State,
+	course2Step10State,
 } from './initialSurveyStates';
 
 // set initial values
@@ -38,6 +39,7 @@ const INITIAL_STATE: SurveyState = {
 	course2: {
 		step8: course2Step8State,
 		step9: course2Step9State,
+		step10: course2Step10State,
 	},
 };
 

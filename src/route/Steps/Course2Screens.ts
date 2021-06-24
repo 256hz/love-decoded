@@ -32,6 +32,24 @@ export enum Course2Step9Screens {
 	Visualization = 'course2_step9_visualization',
 }
 
+export enum Course2Step10Screens {
+	Home = 'course2_step10_home',
+	DayOverview = 'course2_step10_day_overview',
+	GoodJob = 'course2_step10_good_job',
+	Intention = 'course2_step10_intention',
+	Activities1 = 'course2_step10_activities1',
+	Activities1B = 'course2_step10_activities1b',
+	Activities2 = 'course2_step10_activities2',
+	Activities3 = 'course2_step10_activities3',
+	Activities4 = 'course2_step10_activities4',
+	Activities5 = 'course2_step10_activities5',
+	Resources1 = 'course2_step10_resources1',
+	Resources2 = 'course2_step10_resources2',
+	Survey = 'course2_step10_survey',
+	Reflection = 'course2_step10_reflection',
+	Visualization = 'course2_step10_visualization',
+}
+
 /*
 export enum Course2Step3Screens {
 	Home = 'course2_step3_home',

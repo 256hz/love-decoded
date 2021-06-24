@@ -11,6 +11,7 @@ import {
 import {
 	Course2Step8Screens,
 	Course2Step9Screens,
+	Course2Step10Screens,
 } from './Steps/Course2Screens';
 
 export enum RootStacks {
@@ -93,7 +94,8 @@ export type CourseScreens = Course1Step1Screens
 | Course1Step6Screens
 | Course1Step7Screens
 | Course2Step8Screens
-| Course2Step9Screens;
+| Course2Step9Screens
+| Course2Step10Screens;
 
 
 export type Screens = OnboardingScreens
@@ -144,6 +146,7 @@ export const stepEntryPoints: StepEntryPoints = {
 	[Courses.Two]: {
 		[Steps.Eight]: StepStacks.Course2Step8,
 		[Steps.Nine]: StepStacks.Course2Step9,
+		[Steps.Ten]: StepStacks.Course2Step10,
 	},
 };
 
@@ -160,6 +163,7 @@ export const stepHomeScreen = {
 	[Courses.Two]: {
 		[Steps.Eight]: Course2Step8Screens.Home,
 		[Steps.Nine]: Course2Step9Screens.Home,
+		[Steps.Ten]: Course2Step10Screens.Home,
 	},
 };
 
@@ -176,6 +180,7 @@ export const stepDayOverviewScreen = {
 	[Courses.Two]: {
 		[Steps.Eight]: Course2Step8Screens.DayOverview,
 		[Steps.Nine]: Course2Step9Screens.DayOverview,
+		[Steps.Ten]: Course2Step10Screens.DayOverview,
 	},
 };
 
@@ -192,5 +197,6 @@ export const stepGoodJobScreen = {
 	[Courses.Two]: {
 		[Steps.Eight]: Course2Step8Screens.GoodJob,
 		[Steps.Nine]: Course2Step9Screens.GoodJob,
+		[Steps.Ten]: Course2Step10Screens.GoodJob,
 	},
 };
