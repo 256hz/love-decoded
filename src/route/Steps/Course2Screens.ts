@@ -41,6 +41,7 @@ export enum Course2Step10Screens {
 	Resources2 = 'course2_step10_resources2',
 	Survey = 'course2_step10_survey',
 	Reflection = 'course2_step10_reflection',
+	Visualization = 'course2_step10_visualization',
 }
 
 /*
