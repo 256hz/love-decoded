@@ -20,11 +20,8 @@ export enum Course2Step9Screens {
 	GoodJob = 'course2_step9_good_job',
 	Intention = 'course2_step9_intention',
 	Activities1 = 'course2_step9_activities1',
-	Activities1B = 'course2_step9_activities1b',
 	Activities2 = 'course2_step9_activities2',
 	Activities3 = 'course2_step9_activities3',
-	Activities4 = 'course2_step9_activities4',
-	Activities5 = 'course2_step9_activities5',
 	Resources1 = 'course2_step9_resources1',
 	Resources2 = 'course2_step9_resources2',
 	Survey = 'course2_step9_survey',
@@ -38,16 +35,12 @@ export enum Course2Step10Screens {
 	GoodJob = 'course2_step10_good_job',
 	Intention = 'course2_step10_intention',
 	Activities1 = 'course2_step10_activities1',
-	Activities1B = 'course2_step10_activities1b',
 	Activities2 = 'course2_step10_activities2',
 	Activities3 = 'course2_step10_activities3',
-	Activities4 = 'course2_step10_activities4',
-	Activities5 = 'course2_step10_activities5',
 	Resources1 = 'course2_step10_resources1',
 	Resources2 = 'course2_step10_resources2',
 	Survey = 'course2_step10_survey',
 	Reflection = 'course2_step10_reflection',
-	Visualization = 'course2_step10_visualization',
 }
 
 /*
