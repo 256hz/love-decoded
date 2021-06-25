@@ -228,7 +228,7 @@ export const course2Step10State = {
 	[Activities.Course2Step10Activity2]: '',
 };
 
-// Step 10
+// Step 11
 // per day
 const course2Step11DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
@@ -247,4 +247,63 @@ export const course2Step11State = {
 	[Activities.Course2Step11Activity1]: '',
 	[Activities.Course2Step11Activity2]: '',
 	[Activities.Course2Step11Activity3]: '',
+};
+
+// Step 12
+// per day
+const course2Step12DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step12Survey1]: '',
+		[EndOfDaySurveys.Course2Step12Survey2]: '',
+		[EndOfDaySurveys.Course2Step12Survey3]: '',
+		[EndOfDaySurveys.Course2Step12Survey4]: '',
+		[EndOfDaySurveys.Course2Step12Survey5]: '',
+		[EndOfDaySurveys.Course2Step12Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step12State = {
+	...course2Step12DayState,
+	[Activities.Course2Step12Activity1]: '',
+	[Activities.Course2Step12Activity2]: '',
+};
+
+// Step 13
+// per day
+const course2Step13DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step13Survey1]: '',
+		[EndOfDaySurveys.Course2Step13Survey2]: '',
+		[EndOfDaySurveys.Course2Step13Survey3]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step13State = {
+	...course2Step13DayState,
+	[Activities.Course2Step13Activity1]: '',
+	[Activities.Course2Step13Activity2]: '',
+	[Activities.Course2Step13Activity3]: '',
+};
+
+// Step 14
+// per day
+const course2Step14DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step14Survey1]: '',
+		[EndOfDaySurveys.Course2Step14Survey2]: '',
+		[EndOfDaySurveys.Course2Step14Survey3]: '',
+		[EndOfDaySurveys.Course2Step14Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step14State = {
+	...course2Step14DayState,
+	[Activities.Course2Step14Activity1]: '',
+	[Activities.Course2Step14Activity2]: '',
 };
