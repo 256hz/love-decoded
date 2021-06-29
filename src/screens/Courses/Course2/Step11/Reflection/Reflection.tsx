@@ -15,7 +15,7 @@ export default () => {
 
 	const audioFilename = `${currentStep}_${currentDay}_reflections.mp3`;
 
-	//const onPress = () => navigate(Course2Step11Screens.Visualization);
+	// const onPress = () => navigate(Course2Step11Screens.Visualization);
 
 	return (
 		<StepScreen
@@ -29,7 +29,7 @@ export default () => {
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						Why do we put up with other’s unloving behaviors, tolerate them mistreating us? Simple! Because we don’t love ourself enough, so we are dependent on their love, even if it is conditional, flawed and hurtful.
+							Why do we put up with other’s unloving behaviors, tolerate them mistreating us? Simple! Because we don’t love ourself enough, so we are dependent on their love, even if it is conditional, flawed and hurtful.
 						</Text>
 					</View>
 

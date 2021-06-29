@@ -28,18 +28,19 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Think of one big mistake you haven’t forgiven yourself for. 
+							Think of one big mistake you haven’t forgiven yourself for.
 						</Text>
 					</View>
-					
+
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Write down 3 reasons you made the choices you made. 
+							Write down 3 reasons you made the choices you made.
 						</Text>
 					</View>
 
 					<ListTextInput
 						containerStyle={styles.textInputContainer}
+						placeholder="Examples - Didn’t know what I was doing – Didn’t do any research – Didn’t prepare"
 						text={savedResponse}
 						setText={setResponse}
 					/>

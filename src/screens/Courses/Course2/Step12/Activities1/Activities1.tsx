@@ -28,14 +28,14 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Make a list of 3 resentments <Text style={styles.boldText}>you have against yourself</Text> that you are still carrying around. 
+							Make a list of 3 resentments <Text style={styles.boldText}>you have against yourself</Text> that you are still carrying around.
 						</Text>
 					</View>
 
-					
+
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Which one will you let go of first? Let people know you need their support. 
+							Which one will you let go of first? Let people know you need their support.
 						</Text>
 					</View>
 

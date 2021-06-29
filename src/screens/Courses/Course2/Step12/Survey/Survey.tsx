@@ -5,15 +5,15 @@ import { titles } from '@util/titles';
 
 export const course2step12prompts: SurveyPrompt[] = [
 	{
-		prompt: 'How often did you self-sabotage?',
+		prompt: 'How often did you self-sabotage today?',
 		key: EndOfDaySurveys.Course2Step12Survey1,
 	},
 	{
-		prompt: 'How often did you procrastination?',
+		prompt: 'How often did you procrastinate?',
 		key: EndOfDaySurveys.Course2Step12Survey2,
 	},
 	{
-		prompt: 'How often did you  experience feeling down?',
+		prompt: 'How often did you experience feeling down?',
 		key: EndOfDaySurveys.Course2Step12Survey3,
 	},
 	{
@@ -21,11 +21,11 @@ export const course2step12prompts: SurveyPrompt[] = [
 		key: EndOfDaySurveys.Course2Step12Survey4,
 	},
 	{
-		prompt: 'How often did you blaming others?',
+		prompt: 'How often did you blame others?',
 		key: EndOfDaySurveys.Course2Step12Survey5,
 	},
 	{
-		prompt: 'How often did you consciously let go of the resentment?		',
+		prompt: 'How often did you consciously let go of a resentment?',
 		key: EndOfDaySurveys.Course2Step12Survey6,
 	},
 ];

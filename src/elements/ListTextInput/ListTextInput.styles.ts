@@ -13,6 +13,7 @@ export default StyleSheet.create({
 		borderColor: colors.White,
 		backgroundColor: colors.White,
 		borderWidth: 1,
+		paddingHorizontal: 12,
 		elevation: 4,
 		shadowColor: colors.Black,
 		shadowRadius: 3,
@@ -21,5 +22,10 @@ export default StyleSheet.create({
 			height: 4,
 			width: 0,
 		},
+	},
+	notFocused: {
+		borderColor: colors.GrayE9,
+		backgroundColor: colors.GrayE9,
+		color: colors.Gray62,
 	},
 });

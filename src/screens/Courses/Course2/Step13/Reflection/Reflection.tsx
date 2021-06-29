@@ -15,7 +15,7 @@ export default () => {
 
 	const audioFilename = `${currentStep}_${currentDay}_reflections.mp3`;
 
-	//const onPress = () => navigate(Course2Step13Screens.Visualization);
+	// const onPress = () => navigate(Course2Step13Screens.Visualization);
 
 	return (
 		<StepScreen
@@ -29,7 +29,7 @@ export default () => {
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						20/20 hindsight is foolishness. We all make mistakes that cause failures which often lead to pain. 
+							20/20 hindsight is foolishness. We all make mistakes that cause failures which often lead to pain.
 						</Text>
 					</View>
 

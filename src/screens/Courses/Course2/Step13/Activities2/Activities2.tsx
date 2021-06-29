@@ -28,20 +28,21 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Write down 3 steps that will help you avoid making mistakes.
+							Write down 3 steps that will help you avoid making mistakes.
 						</Text>
 					</View>
 
 
 					<ListTextInput
 						containerStyle={styles.textInput}
+						placeholder="Examples - More research – More preparation – Asking for support"
 						text={response}
 						setText={setResponse}
 					/>
-					
+
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						If you try your best and do what you need to do and still fail or make a mistake, at least you’ll never blame yourself.
+							If you try your best and do what you need to do and still fail or make a mistake, at least you’ll never blame yourself.
 						</Text>
 					</View>
 				</View>

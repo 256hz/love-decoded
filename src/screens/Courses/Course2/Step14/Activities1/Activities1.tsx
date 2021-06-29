@@ -28,7 +28,7 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Make a list of 3 people you want to forgive.
+							Make a list of 3 people you want to forgive.
 						</Text>
 					</View>
 
@@ -40,7 +40,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Make a list of what you want to forgive them for – be specific.
+							Make a list of what you want to forgive them for – be specific.
 						</Text>
 					</View>
 
@@ -52,7 +52,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Do you think they harmed you on purpose? Remember people are responsible for their actions and behaviors, which is different from them hurting us on purpose.
+							Do you think they harmed you on purpose? Remember people are responsible for their actions and behaviors, which is different from them hurting us on purpose.
 						</Text>
 					</View>
 				</View>

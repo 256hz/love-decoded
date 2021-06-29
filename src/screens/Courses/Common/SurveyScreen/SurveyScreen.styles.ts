@@ -12,6 +12,7 @@ export default StyleSheet.create({
 	promptContainer: {
 		width: '100%',
 		paddingHorizontal: 23,
+		marginTop: 16,
 	},
 	buttonsContainer: {
 		width: '100%',

@@ -28,12 +28,13 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						What steps can help you to forgive yourself?
+							What steps can help you to forgive yourself?
 						</Text>
 					</View>
 
 					<ListTextInput
 						containerStyle={styles.textInput}
+						placeholder="Examples; We all make mistakes. What I learned from this one is to be better prepared. I forgive myself because I love myself. Loving myself will help me better prepare."
 						text={response}
 						setText={setResponse}
 					/>

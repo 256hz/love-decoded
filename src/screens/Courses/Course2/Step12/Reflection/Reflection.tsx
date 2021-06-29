@@ -29,7 +29,7 @@ export default () => {
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						Resenting is similar to a child who holds his breath out of anger. Eventually he has to breathe for his own health...eventually. Now it’s your turn to breathe, and let go of resentments for your own health.
+							Resenting is similar to a child who holds his breath out of anger. Eventually he has to breathe for his own health...eventually. Now it’s your turn to breathe, and let go of resentments for your own health.
 						</Text>
 					</View>
 				</View>

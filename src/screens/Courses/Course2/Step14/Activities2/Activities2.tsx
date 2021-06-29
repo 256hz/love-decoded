@@ -28,13 +28,13 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Forgiving yourself and others is the healthiest thing you can do. Healthier than exercising, eating healthy, or meditating.
+							Forgiving yourself and others is the healthiest thing you can do. Healthier than exercising, eating healthy, or meditating.
 						</Text>
 					</View>
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Write what you are going to say to each.
+							Write what you are going to say to each.
 						</Text>
 					</View>
 
@@ -58,7 +58,7 @@ export default () => {
 
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						How do you think you will feel once you forgive them?
+							How do you think you will feel once you forgive them?
 						</Text>
 					</View>
 				</View>

@@ -432,7 +432,7 @@ export type Course2Step11 = {
 		[EndOfDaySurveys.Course2Step11Survey4]: string,
 		[EndOfDaySurveys.Course2Step11Survey5]: string,
 	};
-}
+};
 
 export type Course2Step12 = {
 	[Activities.Course2Step12Activity1]: string;
@@ -447,7 +447,7 @@ export type Course2Step12 = {
 		[EndOfDaySurveys.Course2Step12Survey5]: string,
 		[EndOfDaySurveys.Course2Step12Survey6]: string,
 	};
-}
+};
 
 
 export type Course2Step13 = {
@@ -461,7 +461,7 @@ export type Course2Step13 = {
 		[EndOfDaySurveys.Course2Step13Survey2]: string,
 		[EndOfDaySurveys.Course2Step13Survey3]: string,
 	};
-}
+};
 
 export type Course2Step14 = {
 	[Activities.Course2Step14Activity1]: string;
@@ -474,7 +474,7 @@ export type Course2Step14 = {
 		[EndOfDaySurveys.Course2Step14Survey3]: string,
 		[EndOfDaySurveys.Course2Step14Survey4]: string,
 	};
-}
+};
 
 
 export type SurveyResponse = HowAreYouFeelingResponse | NeffSurveyResponse | YesNo | string | string[];

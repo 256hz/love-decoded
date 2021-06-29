@@ -29,13 +29,13 @@ export default () => {
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						Loving others requires us to continually acknowledge how important a relationship is to us. Problems arise when: we don’t want to admit that we hurt another; we insist on being right; and we refuse to discuss issues or apologize.
+							Loving others requires us to continually acknowledge how important a relationship is to us. Problems arise when: we don’t want to admit that we hurt another; we insist on being right; and we refuse to discuss issues or apologize.
 						</Text>
 					</View>
 
 					<View style={styles.bodyText}>
 						<Text style={styles.body}>
-						Funny way to show what a nice person you are.
+							Funny way to show what a nice person you are.
 						</Text>
 					</View>
 				</View>

@@ -28,7 +28,7 @@ export default () => {
 				<View style={styles.bodyContainer}>
 					<View style={styles.textItemContainer}>
 						<Text style={styles.bodyText}>
-						Who is going to gently nudge you, support you through this  change of behavior – make a list of their names.
+							Who is going to gently nudge you, support you through this  change of behavior – make a list of their names.
 						</Text>
 					</View>
 
