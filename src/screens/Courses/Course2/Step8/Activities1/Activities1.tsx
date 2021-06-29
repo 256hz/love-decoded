@@ -70,6 +70,7 @@ export default () => {
 
 					<ListTextInput
 						containerStyle={styles.textInputContainer}
+						placeholder="list other morning routines you may have"
 						text={savedResponse}
 						setText={setResponse}
 					/>

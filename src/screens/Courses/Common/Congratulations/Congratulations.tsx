@@ -108,7 +108,7 @@ const StepCongratulations = ({ currentCourse, newStep, newStepNumber }: StepCong
 		</Text>
 
 		<Text style={styles.waitText}>
-			{`The next step, "${titles[currentCourse][newStep]}", will need all of your attention. Enjoy this week as you master discovering your lovable qualities. The app will give you an alert when you are ready for Step ${newStepNumber}.`}
+			{`The next step, "${titles[newStep]}", will need all of your attention. Enjoy this week as you master discovering your lovable qualities. The app will give you an alert when you are ready for Step ${newStepNumber}.`}
 		</Text>
 
 		<Text style={styles.waitText}>

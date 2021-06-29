@@ -20,16 +20,93 @@ export enum Course2Step9Screens {
 	GoodJob = 'course2_step9_good_job',
 	Intention = 'course2_step9_intention',
 	Activities1 = 'course2_step9_activities1',
-	Activities1B = 'course2_step9_activities1b',
 	Activities2 = 'course2_step9_activities2',
 	Activities3 = 'course2_step9_activities3',
-	Activities4 = 'course2_step9_activities4',
-	Activities5 = 'course2_step9_activities5',
 	Resources1 = 'course2_step9_resources1',
 	Resources2 = 'course2_step9_resources2',
 	Survey = 'course2_step9_survey',
 	Reflection = 'course2_step9_reflection',
 	Visualization = 'course2_step9_visualization',
+}
+
+export enum Course2Step10Screens {
+	Home = 'course2_step10_home',
+	DayOverview = 'course2_step10_day_overview',
+	GoodJob = 'course2_step10_good_job',
+	Intention = 'course2_step10_intention',
+	Activities1 = 'course2_step10_activities1',
+	Activities2 = 'course2_step10_activities2',
+	Activities3 = 'course2_step10_activities3',
+	Resources1 = 'course2_step10_resources1',
+	Resources2 = 'course2_step10_resources2',
+	Survey = 'course2_step10_survey',
+	Reflection = 'course2_step10_reflection',
+	Visualization = 'course2_step10_visualization',
+}
+
+
+export enum Course2Step11Screens {
+	Home = 'course2_step11_home',
+	DayOverview = 'course2_step11_day_overview',
+	GoodJob = 'course2_step11_good_job',
+	Intention = 'course2_step11_intention',
+	Activities1 = 'course2_step11_activities1',
+	Activities2 = 'course2_step11_activities2',
+	Activities3 = 'course2_step11_activities3',
+	Activities4 = 'course2_step11_activities4',
+	Resources1 = 'course2_step11_resources1',
+	Resources2 = 'course2_step11_resources2',
+	Survey = 'course2_step11_survey',
+	Reflection = 'course2_step11_reflection',
+	Visualization = 'course2_step11_visualization',
+}
+
+export enum Course2Step12Screens {
+	Home = 'course2_step12_home',
+	DayOverview = 'course2_step12_day_overview',
+	GoodJob = 'course2_step12_good_job',
+	Intention = 'course2_step12_intention',
+	Activities1 = 'course2_step12_activities1',
+	Activities2 = 'course2_step12_activities2',
+	Activities3 = 'course2_step12_activities3',
+	Resources1 = 'course2_step12_resources1',
+	Resources2 = 'course2_step12_resources2',
+	Survey = 'course2_step12_survey',
+	Reflection = 'course2_step12_reflection',
+	Visualization = 'course2_step12_visualization',
+}
+
+
+export enum Course2Step13Screens {
+	Home = 'course2_step13_home',
+	DayOverview = 'course2_step13_day_overview',
+	GoodJob = 'course2_step13_good_job',
+	Intention = 'course2_step13_intention',
+	Activities1 = 'course2_step13_activities1',
+	Activities2 = 'course2_step13_activities2',
+	Activities3 = 'course2_step13_activities3',
+	Activities4 = 'course2_step13_activities4',
+	Resources1 = 'course2_step13_resources1',
+	Resources2 = 'course2_step13_resources2',
+	Survey = 'course2_step13_survey',
+	Reflection = 'course2_step13_reflection',
+	Visualization = 'course2_step13_visualization',
+}
+
+
+export enum Course2Step14Screens {
+	Home = 'course2_step14_home',
+	DayOverview = 'course2_step14_day_overview',
+	GoodJob = 'course2_step14_good_job',
+	Intention = 'course2_step14_intention',
+	Activities1 = 'course2_step14_activities1',
+	Activities2 = 'course2_step14_activities2',
+	Activities3 = 'course2_step14_activities3',
+	Resources1 = 'course2_step14_resources1',
+	Resources2 = 'course2_step14_resources2',
+	Survey = 'course2_step14_survey',
+	Reflection = 'course2_step14_reflection',
+	Visualization = 'course2_step14_visualization',
 }
 
 /*

@@ -163,6 +163,14 @@ export const course1Step7State = {
 	[Activities.Course1Step7Activity3]: '',
 };
 
+
+/*
+	------------------------------------------
+	COURSE 2
+	------------------------------------------
+*/
+
+
 // Step 8
 // per day
 const course2Step8DayState = DayValues.reduce((acc, curr) => {
@@ -198,4 +206,104 @@ export const course2Step9State = {
 	...course2Step9DayState,
 	[Activities.Course2Step9Activity1]: '',
 	[Activities.Course2Step9Activity2]: '',
+};
+
+// Step 10
+// per day
+const course2Step10DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step10Survey1]: '',
+		[EndOfDaySurveys.Course2Step10Survey2]: '',
+		[EndOfDaySurveys.Course2Step10Survey3]: '',
+		[EndOfDaySurveys.Course2Step10Survey4]: '',
+		[EndOfDaySurveys.Course2Step10Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step10State = {
+	...course2Step10DayState,
+	[Activities.Course2Step10Activity1]: '',
+	[Activities.Course2Step10Activity2]: '',
+};
+
+// Step 11
+// per day
+const course2Step11DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step11Survey1]: '',
+		[EndOfDaySurveys.Course2Step11Survey2]: '',
+		[EndOfDaySurveys.Course2Step11Survey3]: '',
+		[EndOfDaySurveys.Course2Step11Survey4]: '',
+		[EndOfDaySurveys.Course2Step11Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step11State = {
+	...course2Step11DayState,
+	[Activities.Course2Step11Activity1]: '',
+	[Activities.Course2Step11Activity2]: '',
+	[Activities.Course2Step11Activity3]: '',
+};
+
+// Step 12
+// per day
+const course2Step12DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step12Survey1]: '',
+		[EndOfDaySurveys.Course2Step12Survey2]: '',
+		[EndOfDaySurveys.Course2Step12Survey3]: '',
+		[EndOfDaySurveys.Course2Step12Survey4]: '',
+		[EndOfDaySurveys.Course2Step12Survey5]: '',
+		[EndOfDaySurveys.Course2Step12Survey5]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step12State = {
+	...course2Step12DayState,
+	[Activities.Course2Step12Activity1]: '',
+	[Activities.Course2Step12Activity2]: '',
+};
+
+// Step 13
+// per day
+const course2Step13DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step13Survey1]: '',
+		[EndOfDaySurveys.Course2Step13Survey2]: '',
+		[EndOfDaySurveys.Course2Step13Survey3]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step13State = {
+	...course2Step13DayState,
+	[Activities.Course2Step13Activity1]: '',
+	[Activities.Course2Step13Activity2]: '',
+	[Activities.Course2Step13Activity3]: '',
+};
+
+// Step 14
+// per day
+const course2Step14DayState = DayValues.reduce((acc, curr) => {
+	acc[curr] = {
+		[Surveys.HowAreYouFeeling]: 1,
+		[EndOfDaySurveys.Course2Step14Survey1]: '',
+		[EndOfDaySurveys.Course2Step14Survey2]: '',
+		[EndOfDaySurveys.Course2Step14Survey3]: '',
+		[EndOfDaySurveys.Course2Step14Survey4]: '',
+	};
+	return acc;
+}, {});
+// per step
+export const course2Step14State = {
+	...course2Step14DayState,
+	[Activities.Course2Step14Activity1]: '',
+	[Activities.Course2Step14Activity2]: '',
 };

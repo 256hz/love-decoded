@@ -17,6 +17,11 @@ import {
 	course1Step7State,
 	course2Step8State,
 	course2Step9State,
+	course2Step10State,
+	course2Step11State,
+	course2Step12State,
+	course2Step13State,
+	course2Step14State,
 } from './initialSurveyStates';
 
 // set initial values
@@ -38,6 +43,11 @@ const INITIAL_STATE: SurveyState = {
 	course2: {
 		step8: course2Step8State,
 		step9: course2Step9State,
+		step10: course2Step10State,
+		step11: course2Step11State,
+		step12: course2Step12State,
+		step13: course2Step13State,
+		step14: course2Step14State,
 	},
 };
 
