@@ -5,13 +5,17 @@ import colors from 'elements/globalStyles/color';
 export default StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingHorizontal: 20,
+		padding: 16,
+		backgroundColor: colors.White,
+	},
+	innerContainer: {
+		flex: 1,
+		borderRadius: 9,
+		padding: 16,
+		backgroundColor: colors.GrayF3,
 	},
 	titleContainer: {
-		paddingTop: 28,
-		paddingBottom: 22,
-		flexDirection: 'row',
-		justifyContent: 'space-between',
+		marginBottom: 12,
 	},
 	titleText: {
 		...text.body,
@@ -31,39 +35,67 @@ export default StyleSheet.create({
 	text: {
 		...text.body,
 	},
-	orangeText: {
-		color: colors.Orange,
+	textInput: {
+		flex: 1,
 	},
 	sq1: {
 		position: 'absolute',
-		top: -8,
-		right: 11,
+		top: -10,
+		right: 20,
 	},
 	sq2: {
 		position: 'absolute',
-		right: 30,
+		right: 40,
 	},
 	sq3: {
 		position: 'absolute',
 		top: 10,
-		right: 0,
 	},
 	journalContainer: {
 		flex: 1,
 		backgroundColor: colors.GrayF3,
-		borderRadius: 9,
-		padding: 16,
 	},
-	howAreYouFeelingText: {
+	journalText: {
 		color: colors.Gray33,
 	},
 	journalHistoryContainer: {
 		flex: 1,
-		overflow: 'hidden',
 	},
 	journalHistoryHeader: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		marginVertical: 12,
+	},
+	iconsContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	iconContainer: {
+		marginRight: 29,
+	},
+	iconImage: {
+		marginHorizontal: 29,
+	},
+	iconImage2: {
+		position: 'absolute',
+		top: 5,
+		left: 5,
+	},
+	buttonsContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		marginTop: 16,
+	},
+	buttonContainer: {
+		width: 89,
+		height: 35,
+		justifyContent: 'center',
+		alignItems: 'center',
+		backgroundColor: colors.Orange,
+		borderRadius: 5,
+	},
+	buttonText: {
+		...text.body,
+		...text.bold,
+		color: colors.White,
 	},
 });

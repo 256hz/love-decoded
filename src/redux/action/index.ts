@@ -39,6 +39,10 @@ export {
 } from './modal';
 
 export {
+	setJournal,
+} from './journal';
+
+export {
 	setDaySurveyResponse,
 	setOnboardingSurveyResponse,
 	setNeffSurveyResponse,

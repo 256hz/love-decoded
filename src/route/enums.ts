@@ -80,10 +80,15 @@ export enum TabNames {
 }
 
 export enum EmotionalResetScreens {
-	Root = 'Root',
-	Progress = 'FrustratedWithProgress',
-	App = 'FrustratedWithApp',
-	Quit = 'FrustratedReadyToQuit',
+	Root = 'EmotionalResetRoot',
+	Progress = 'EmotionalResetFrustratedWithProgress',
+	App = 'EmotionalResetFrustratedWithApp',
+	Quit = 'EmotionalResetFrustratedReadyToQuit',
+}
+
+export enum JournalScreens {
+	Root = 'JournalRoot',
+	Edit = 'JournalEdit',
 }
 
 export enum CourseCommonScreens {

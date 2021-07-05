@@ -25,6 +25,11 @@ export {
 } from './contacts';
 
 export {
+	getJournal,
+	getJournalHistory,
+} from './journal';
+
+export {
 	getModalContentByType,
 } from './modal';
 

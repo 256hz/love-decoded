@@ -2,9 +2,9 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import EmotionalResetStack from 'route/EmotionalResetStack';
+import JournalStack from 'route/JournalStack';
 import { TabNames } from 'route/enums';
 import { TabIcon } from '@elements/TabIcon';
-import Journal from '@screens/Courses/Tabs/Journal';
 import Faq from '@screens/Courses/Tabs/Faq';
 import CourseStack from './Steps/CourseStack';
 import styles from './HomeTabs.styles';
@@ -49,7 +49,7 @@ export default () => {
 
 			<Tab.Screen
 				name={TabNames.JournalScreen}
-				component={Journal}
+				component={JournalStack}
 			/>
 
 			<Tab.Screen
