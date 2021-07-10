@@ -4,20 +4,22 @@ import colors from 'elements/globalStyles/color';
 
 export default StyleSheet.create({
 	container: {
-		flex: 1,
 		borderRadius: 9,
 		padding: 13,
+		backgroundColor: colors.GrayF3,
+		marginBottom: 12,
 	},
 	titleContainer: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		marginBottom: 8,
 	},
 	titleText: {
 		...text.body,
 		...text.bold,
-		fontSize: 21,
-		lineHeight: 21,
+		fontSize: 17,
+		lineHeight: 17,
 		color: colors.Orange,
 	},
 	subtitleContainer: {
@@ -26,13 +28,17 @@ export default StyleSheet.create({
 	subtitleText: {
 		...text.body,
 		...text.bold,
-		fontSize: 19,
-		lineHeight: 24,
+		fontSize: 17,
+		lineHeight: 17,
 	},
 	text: {
 		...text.body,
 	},
 	journalText: {
 		color: colors.Gray33,
+	},
+	gradient: {
+		position: 'absolute',
+		flex: 1,
 	},
 });

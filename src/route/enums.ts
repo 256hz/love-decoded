@@ -89,6 +89,7 @@ export enum EmotionalResetScreens {
 export enum JournalScreens {
 	Root = 'JournalRoot',
 	Edit = 'JournalEdit',
+	All = 'JournalAll',
 }
 
 export enum CourseCommonScreens {
@@ -113,8 +114,9 @@ export type CourseScreens = Course1Step1Screens
 
 export type Screens = OnboardingScreens
 | CourseCommonScreens
+| CourseScreens
 | EmotionalResetScreens
-| CourseScreens;
+| JournalScreens;
 
 export enum StepStacks {
 	Course1Step1 = 'Course1Step1',

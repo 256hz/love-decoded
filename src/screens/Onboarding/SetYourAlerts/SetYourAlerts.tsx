@@ -28,19 +28,19 @@ const TimePicker = ({
 
 	const onSelectMinutes = (time: string) => {
 		dispatch(setAlertTime(alertTime, time));
-		// apiClient.post(
-		// 	'/users/set_alert/',
-		// 	{
-		// 		alert_time: alertTime,
-		// 		minutes: minutes,
-		// 	},
-		// )
-		// 	.then((response) => {
-		// 		console.log(response);
-		// 	},
-		// 	(error) => {
-		// 		console.log(error);
-		// 	});
+		apiClient.post(
+			'/users/set_alert/',
+			{
+				alert_time: alertTime,
+				time,
+			},
+		)
+			.then((response) => {
+				console.log(response);
+			},
+			(error) => {
+				console.log(error);
+			});
 	};
 
 	return (

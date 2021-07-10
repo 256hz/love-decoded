@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	Text,
@@ -7,13 +7,13 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native';
+import { JournalScreens } from 'route/enums';
 import IconImage from '@assets/svg/icon-image.svg';
 import IconCamera from '@assets/svg/icon-camera.svg';
 import IconMicrophone from '@assets/svg/icon-microphone.svg';
 import { setJournal } from '@redux/action';
 import { getJournal, getUserProgressNumbers } from '@redux/selector';
 import colors from '@elements/globalStyles/color';
-import { JournalScreens } from 'route/enums';
 import styles from './EditJournal.styles';
 
 enum Attachments {
@@ -23,19 +23,27 @@ enum Attachments {
 }
 
 export default () => {
-	const { navigate } = useNavigation();
 	const dispatch = useDispatch();
+	const { navigate } = useNavigation();
+	const { params } = useRoute() as any;
+
 	const { currentStepNumber, currentDayNumber } = useSelector(getUserProgressNumbers);
-	const { journalTitle, journalText } = useSelector(getJournal(currentStepNumber, currentDayNumber));
-	const [ tempJournalTitle, setTempJournalTitle ] = useState(journalTitle || '');
-	const [ tempJournalText, setTempJournalText ] = useState(journalText || '');
+
+	// step/day numbers are passed in via params for editing past journals, otherwise we use the current numbers
+	const stepNumber = params?.stepNumber || currentStepNumber;
+	const dayNumber = params?.dayNumber || currentDayNumber;
+
+	const { title, text } = useSelector(getJournal(stepNumber, dayNumber));
+
+	const [ tempJournalTitle, setTempJournalTitle ] = useState(title || '');
+	const [ tempJournalText, setTempJournalText ] = useState(text || '');
 
 	const addAttachment = (type: Attachments) => {
 		console.log(`add attachment via: ${type}`);
 	};
 
 	const onSave = () => {
-		dispatch(setJournal(currentStepNumber, currentDayNumber, tempJournalText, tempJournalTitle));
+		dispatch(setJournal(stepNumber, dayNumber, tempJournalText, tempJournalTitle));
 		navigate(JournalScreens.Root);
 	};
 
@@ -61,7 +69,7 @@ export default () => {
 					onChangeText={setTempJournalTitle}
 					placeholder="Add a title to this entry"
 					placeholderTextColor={colors.GrayBC}
-					style={styles.textInput}
+					style={styles.titleTextInput}
 					value={tempJournalTitle}
 				/>
 
@@ -76,7 +84,7 @@ export default () => {
 					onChangeText={setTempJournalText}
 					placeholder="Write something"
 					placeholderTextColor={colors.GrayBC}
-					style={styles.textInput}
+					style={styles.storyTextInput}
 					value={tempJournalText}
 				/>
 
@@ -86,20 +94,16 @@ export default () => {
 						svg={<IconCamera />}
 					/>
 
-
 					<AttachmentButton
 						onPress={() => addAttachment(Attachments.Image)}
 						svg={<IconImage />}
 					/>
 
-
 					<AttachmentButton
 						onPress={() => addAttachment(Attachments.Microphone)}
 						svg={<IconMicrophone />}
 					/>
-
 				</View>
-
 			</View>
 
 			<View style={styles.buttonsContainer}>

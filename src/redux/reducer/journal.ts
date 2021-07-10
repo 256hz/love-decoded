@@ -26,17 +26,22 @@ const INITIAL_STATE: JournalState = {
 	history: [],
 };
 
-export const alerts = createReducer(INITIAL_STATE, ({ addCase }) => {
+export const journals = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setJournal, (state, { payload: { stepNumber, dayNumber, text, title } }) => {
 		const step = StepFromNumber[stepNumber];
 		const day = DayFromNumber[dayNumber];
 
 		// update journal history
-		state.history.unshift({ stepNumber, dayNumber });
+		const newHistory = [
+			{ stepNumber, dayNumber },
+			...state.history
+				.filter(journal => !(journal.dayNumber === dayNumber && journal.stepNumber === stepNumber))
+				.slice(0, 9),
+		];
 
 		return {
 			...state,
-			history: state.history.slice(0, 10),
+			history: newHistory,
 			[step]: {
 				...state[step],
 				[day]: { text, title },

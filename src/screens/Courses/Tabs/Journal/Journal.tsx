@@ -17,9 +17,13 @@ export default () => {
 	const { title, text } = useSelector(getJournal(currentStepNumber, currentDayNumber));
 	const journalHistory = useSelector(getJournalHistory);
 
-	const viewAll = () => { navigate(JournalScreens.Root); };
+	const viewAll = () => {
+		navigate(JournalScreens.All);
+	};
 
-	const editJournal = () => { navigate(JournalScreens.Edit); };
+	const editJournal = () => {
+		navigate(JournalScreens.Edit);
+	};
 
 	return (
 		<StepScreen containerStyle={styles.container}>
@@ -70,7 +74,11 @@ export default () => {
 					{
 						journalHistory.length
 							? (journalHistory.slice(0, 2).map(({ stepNumber, dayNumber }) => (
-								<SavedJournal stepNumber={stepNumber} dayNumber={dayNumber} />
+								<SavedJournal
+									key={`${stepNumber}-${dayNumber}`}
+									stepNumber={stepNumber}
+									dayNumber={dayNumber}
+								/>
 							)))
 							: <Text style={styles.text}>No journal entries saved yet</Text>
 					}

@@ -35,7 +35,11 @@ export default StyleSheet.create({
 	text: {
 		...text.body,
 	},
-	textInput: {
+	titleTextInput: {
+		width: '100%',
+		height: 75,
+	},
+	storyTextInput: {
 		flex: 1,
 	},
 	sq1: {

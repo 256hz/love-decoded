@@ -6,7 +6,7 @@ import styles from './CloseButton2Header.styles';
 
 export default ({ navigation, destination }) => {
 	const onPress = destination
-		? navigation.navigate(destination)
+		? () => { navigation.navigate(destination); }
 		: navigation.goBack;
 
 	return (

@@ -1,15 +1,23 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { BackHeader, CloseHeader2, DrawerHeader } from '@elements/Headers/Headers';
+import { DayNumber, StepNumber } from '@redux/types/user';
 
 import RootScreen from '@screens/Courses/Tabs/Journal';
 import JournalEditScreen from '@screens/Courses/Tabs/Journal/EditJournal';
-import { CloseHeader2, DrawerHeader } from '@elements/Headers/Headers';
+import AllJournalsScreen from '@screens/Courses/Tabs/Journal/AllJournals';
+
 import { JournalScreens } from './enums';
 
 const JournalStack = createStackNavigator();
 
 export type JournalStackParamList = {
-	[key in JournalScreens]: undefined;
+	[JournalScreens.Root]: undefined;
+	[JournalScreens.All]: undefined;
+	[JournalScreens.Edit]: {
+		stepNumber: StepNumber;
+		dayNumber: DayNumber;
+	};
 };
 
 export default ({ navigation }) => (
@@ -27,7 +35,13 @@ export default ({ navigation }) => (
 		<JournalStack.Screen
 			name={JournalScreens.Edit}
 			component={JournalEditScreen}
-			options={CloseHeader2(navigation, ' ', () => navigation.navigate(JournalScreens.Root))}
+			options={CloseHeader2(navigation, JournalScreens.Root)}
+		/>
+
+		<JournalStack.Screen
+			name={JournalScreens.All}
+			component={AllJournalsScreen}
+			options={BackHeader(navigation, JournalScreens.Root)}
 		/>
 	</JournalStack.Navigator>
 );
