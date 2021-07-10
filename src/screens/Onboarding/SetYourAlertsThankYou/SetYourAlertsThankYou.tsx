@@ -6,13 +6,18 @@ import { useSelector } from 'react-redux';
 import { getAlertTime } from '@redux/selector';
 import { AlertTime } from '@redux/types/alerts';
 import styles from './SetYourAlertsThankYou.styles';
-import { dayMinutesToTimeString } from '../SetYourAlerts/SetYourAlerts';
+
+const timeWithoutTimezoneToDisplayString = (timeWithoutTimezone: string) => {
+	const [ hours, minutes ] = timeWithoutTimezone.split(':');
+	const isAm = parseInt(hours) < 12;
+	return `${parseInt(hours) % 12 || 12}:${minutes} ${isAm ? 'am' : 'pm'}`;
+};
 
 export default () => {
-	const morningAlertMinutes = useSelector(getAlertTime(AlertTime.Morning));
-	const activitiesAlertMinutes = useSelector(getAlertTime(AlertTime.Activities));
-	const surveyAlertMinutes = useSelector(getAlertTime(AlertTime.Survey));
-	const reflectionAlertMinutes = useSelector(getAlertTime(AlertTime.Reflection));
+	const morningAlertTime = useSelector(getAlertTime(AlertTime.Morning));
+	const activitiesAlertTime = useSelector(getAlertTime(AlertTime.Activities));
+	const surveyAlertTime = useSelector(getAlertTime(AlertTime.Survey));
+	const reflectionAlertTime = useSelector(getAlertTime(AlertTime.Reflection));
 
 	return (
 		<OnboardingScreen
@@ -23,10 +28,10 @@ export default () => {
 			<View style={styles.container}>
 				<View>
 					<Text style={[ styles.text, styles.headline ]}>Here is an Overview</Text>
-					<Text style={[ styles.text, styles.bold ]}>Morning: <Text style={styles.text}>{dayMinutesToTimeString(morningAlertMinutes)}</Text></Text>
-					<Text style={[ styles.text, styles.bold ]}>Activities: <Text style={styles.text}>{dayMinutesToTimeString(activitiesAlertMinutes)}</Text></Text>
-					<Text style={[ styles.text, styles.bold ]}>Survey: <Text style={styles.text}>{dayMinutesToTimeString(surveyAlertMinutes)}</Text></Text>
-					<Text style={[ styles.text, styles.bold ]}>Reflection: <Text style={styles.text}>{dayMinutesToTimeString(reflectionAlertMinutes)}</Text></Text>
+					<Text style={[ styles.text, styles.bold ]}>Morning: <Text style={styles.text}>{timeWithoutTimezoneToDisplayString(morningAlertTime)}</Text></Text>
+					<Text style={[ styles.text, styles.bold ]}>Activities: <Text style={styles.text}>{timeWithoutTimezoneToDisplayString(activitiesAlertTime)}</Text></Text>
+					<Text style={[ styles.text, styles.bold ]}>Survey: <Text style={styles.text}>{timeWithoutTimezoneToDisplayString(surveyAlertTime)}</Text></Text>
+					<Text style={[ styles.text, styles.bold ]}>Reflection: <Text style={styles.text}>{timeWithoutTimezoneToDisplayString(reflectionAlertTime)}</Text></Text>
 					<Text style={styles.subtitle}>You can change the alert times later in your account settings.</Text>
 				</View>
 			</View>

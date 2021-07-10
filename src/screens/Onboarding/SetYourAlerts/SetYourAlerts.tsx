@@ -15,7 +15,7 @@ type TimePickerProps = {
 	alertTime: AlertTime;
 	hasError: boolean;
 	headingText: string;
-	selectedMinutes: number;
+	selectedMinutes: string;
 };
 
 const TimePicker = ({
@@ -26,13 +26,13 @@ const TimePicker = ({
 }: TimePickerProps) => {
 	const dispatch = useDispatch();
 
-	const onSelectMinutes = (minutes: number) => {
-		dispatch(setAlertTime(alertTime, minutes));
+	const onSelectMinutes = (time: string) => {
+		dispatch(setAlertTime(alertTime, time));
 		apiClient.post(
 			'/users/set_alert/',
 			{
 				alert_time: alertTime,
-				minutes: minutes,
+				time,
 			},
 		)
 			.then((response) => {
@@ -50,7 +50,7 @@ const TimePicker = ({
 			<View style={styles.timePickerContainer}>
 				<View style={[ styles.textInput ]}>
 					<RNPickerSelect
-						placeholder={{ label:'time', key: 'time', inputLabel: 'time' }}
+						placeholder={{ label: 'time', key: 'time', inputLabel: 'time' }}
 						items={dropdownChoices}
 						value={selectedMinutes}
 						onValueChange={onSelectMinutes}
@@ -75,19 +75,25 @@ const TimePicker = ({
 	);
 };
 
-export const dayMinutesToTimeString = (dayMinutes: number) => {
+export const dayMinutesToDisplayString = (dayMinutes: number) => {
 	const isPm = dayMinutes >= 12 * 60;
 	const hours = Math.floor(dayMinutes / 60) % 12 || 12;
 	const minutes = (dayMinutes % 60).toString().padStart(2, '0');
 	return `${hours}:${minutes} ${isPm ? 'pm' : 'am'}`;
 };
 
+const dayMinutesToTimeString = (dayMinutes: number) => {
+	const hours = Math.floor(dayMinutes / 60).toString().padStart(2, '0');
+	const minutes = (dayMinutes % 60).toString().padStart(2, '0');
+	return `${hours}:${minutes}`;
+};
+
 const intervalMinutes = 10;
 const intervalsInOneDay = 24 * 60 / intervalMinutes;
 const dropdownChoices = Array.from({ length: intervalsInOneDay }, (_, i) => i * intervalMinutes)
 	.map(minutes => ({
-		label: dayMinutesToTimeString(minutes),
-		value: minutes,
+		label: dayMinutesToDisplayString(minutes),
+		value: dayMinutesToTimeString(minutes),
 	}));
 
 export default () => {

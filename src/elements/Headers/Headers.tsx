@@ -3,6 +3,7 @@ import { Screens } from 'route/enums';
 import styles from './Header.styles';
 import BackButton from './BackButtonHeader';
 import CloseButton from './CloseButtonHeader';
+import CloseButton2 from './CloseButton2Header';
 import DrawerButton from './DrawerButtonHeader';
 import InfoBubble from './InfoBubbleHeader';
 import SimpleTitle from './SimpleTitleHeader';
@@ -25,6 +26,16 @@ export const CloseHeader = (
 	headerTitle: () => <SimpleTitle title={title} />,
 	headerRight: () => <CloseButton navigation={navigation} onClose={onClose} />,
 	headerStyle: [ headerStyle, styles.closeHeader ],
+});
+
+export const CloseHeader2 = (
+	navigation: any,
+	destination?: Screens,
+) => ({
+	headerLeft: () => <></>,
+	headerTitle: () => <></>,
+	headerRight: () => <CloseButton2 navigation={navigation} destination={destination} />,
+	headerStyle: [ headerStyle, styles.closeHeader2 ],
 });
 
 export const DrawerHeader = navigation => ({

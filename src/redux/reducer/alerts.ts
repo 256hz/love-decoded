@@ -3,15 +3,15 @@ import { setAlertTime } from '@redux/action';
 import { AlertTime } from '@redux/types/alerts';
 
 export type AlertsState = {
-	[key in AlertTime]: number;
+	[key in AlertTime]: string; // 24hr - 'HH:mm'
 };
 
 // minutes from midnight
 const INITIAL_STATE: AlertsState = {
-	[AlertTime.Morning]: 5 * 60,  // 5am
-	[AlertTime.Activities]: 11 * 60,  // 11am
-	[AlertTime.Survey]: 14 * 60,  // 2pm
-	[AlertTime.Reflection]: 17 * 60,  // 5pm
+	[AlertTime.Morning]: '05:00',
+	[AlertTime.Activities]: '11:00',
+	[AlertTime.Survey]: '14:00',
+	[AlertTime.Reflection]: '17:00',
 };
 
 export const alerts = createReducer(INITIAL_STATE, ({ addCase }) => {

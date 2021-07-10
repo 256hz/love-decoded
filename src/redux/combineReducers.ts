@@ -4,6 +4,7 @@ import { AlertsState } from './reducer/alerts';
 import { AppStateState } from './reducer/appState';
 import { AudioState } from './reducer/audio';
 import { ContactsState } from './reducer/contacts';
+import { JournalState } from './reducer/journal';
 import { UserState } from './reducer/user';
 import { SurveyState } from './types/survey';
 
@@ -14,6 +15,7 @@ type RootState = CombinedState<{
 	appState: AppStateState;
 	audio: AudioState;
 	contacts: ContactsState;
+	journals: JournalState;
 	survey: SurveyState;
 	user: UserState;
 }> | undefined;

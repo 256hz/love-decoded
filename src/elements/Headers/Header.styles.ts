@@ -23,4 +23,8 @@ export default StyleSheet.create({
 		height: 125,
 		backgroundColor: colors.GrayF3,
 	},
+	closeHeader2: {
+		height: 75,
+		backgroundColor: colors.White,
+	},
 });

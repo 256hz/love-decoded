@@ -13,6 +13,8 @@ import FaqCategory from './FaqCategory';
 import FaqAnswer from './FaqAnswer';
 import FaqQuestion from './FaqQuestion';
 
+const defaultAnswer = 'Check back soon for an answer to this question!  Thank you for your patience.';
+
 export default () => {
 	const dispatch = useDispatch();
 	const isFocused = useIsFocused();
@@ -22,8 +24,9 @@ export default () => {
 
 	const categories = faqs.map(faq => faq.category);
 	const categoryFaqs = faqs.find(faq => faq.category === activeCategory)?.faqs;
+	const faqAnswer = categoryFaqs?.find(faq => faq.question === activeQuestion)?.answer;
 	const activeAnswer = activeQuestion
-		? categoryFaqs?.find(faq => faq.question === activeQuestion)?.answer || defaultAnswer
+		? faqAnswer || defaultAnswer
 		: '';
 
 	const onBack = () => setActiveQuestion('');
@@ -79,8 +82,6 @@ export default () => {
 		</StepScreen>
 	);
 };
-
-const defaultAnswer = 'Check back soon for an answer to this question!  Thank you for your patience.';
 
 type Faq = {
 	question: string;
