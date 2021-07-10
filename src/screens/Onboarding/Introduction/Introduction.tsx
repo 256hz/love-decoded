@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
-import { Image, Text, View } from 'react-native';
+import {
+	Image, Text, View, ViewStyle,
+} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { DEMO_MODE } from '@util/demoMode';
-import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreens, RootStacks } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import { resetAudioPlayer } from '@redux/action';
 import styles from './Introduction.styles';
@@ -12,13 +14,15 @@ import styles from './Introduction.styles';
 type EnterButtonProps = {
 	onPress: () => void;
 	disabled?: boolean;
+	label: string;
+	style?: ViewStyle;
 };
 
-const EnterButton = ({ onPress, disabled = false }: EnterButtonProps) => (
+const EnterButton = ({ onPress, disabled = false, style = {}, label }: EnterButtonProps) => (
 	<TouchableOpacity onPress={onPress} disabled={disabled}>
 		<View style={styles.enterButtonContainer}>
-			<View style={[ styles.enterButton, disabled && styles.disabled ]}>
-				<Text style={styles.buttonText}>Enter</Text>
+			<View style={[ styles.enterButton, disabled && styles.disabled, style ]}>
+				<Text style={styles.buttonText}>{label}</Text>
 			</View>
 		</View>
 	</TouchableOpacity>
@@ -30,9 +34,14 @@ export default () => {
 
 	const [ nextDisabled, setNextDisabled ] = useState(!DEMO_MODE);
 
-	const onPress = () => {
+	const onPressEnter = () => {
 		navigate(OnboardingScreens.AcknowledgingYourPast);
 		dispatch(resetAudioPlayer(true, 'introduction-onNext'));
+	};
+
+	const onPressLogin = () => {
+		navigate(RootStacks.Login);
+		dispatch(resetAudioPlayer(true, 'introduction-login'));
 	};
 
 	// Add text explaining audio will have to be finished to advance to next screen
@@ -41,10 +50,20 @@ export default () => {
 		<OnboardingScreen
 			audioFilename="onboarding_1_you_are_born_to_be_loved.mp3"
 			customButtons={
-				<EnterButton
-					disabled={nextDisabled}
-					onPress={onPress}
-				/>
+				<View style={styles.enterButtonContainer}>
+					<EnterButton
+						disabled={nextDisabled}
+						label="Enter"
+						onPress={onPressEnter}
+					/>
+
+					<EnterButton
+						disabled={false}
+						label="Login"
+						onPress={onPressLogin}
+						style={styles.loginButton}
+					/>
+				</View>
 			}
 			drawShapes={[ 14, 15, 16 ]}
 			onAudioEnd={() => setNextDisabled(false)}

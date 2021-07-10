@@ -41,7 +41,8 @@ export default StyleSheet.create({
 		textShadowRadius: 4,
 	},
 	enterButtonContainer: {
-		justifyContent: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-evenly',
 		alignItems: 'center',
 	},
 	enterButton: {
@@ -52,6 +53,9 @@ export default StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
+	},
+	loginButton: {
+		backgroundColor: colors.OrangeButton,
 	},
 	disabled: {
 		backgroundColor: colors.GrayTransparent073,

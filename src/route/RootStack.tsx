@@ -59,6 +59,11 @@ export default () => {
 					name={RootStacks.Congratulations}
 					component={CongratulationsScreen}
 				/>
+
+				<Stack.Screen
+					name={RootStacks.Login}
+					component={LoginScreen}
+				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

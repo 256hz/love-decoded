@@ -23,6 +23,7 @@ export enum RootStacks {
 	HomeTabs = 'HomeTabs',
 	OnboardingStack = 'OnboardingStack',
 	Congratulations = 'Congratulations',
+	Login = 'Login',
 }
 
 export enum OnboardingScreens {
