@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { setCurrentRouteName } from '@redux/action';
 import { navigationRef } from '@util/navigation';
 import SplashScreen from '@screens/Splash';
+import LoginScreen from '@screens/Courses/Common/Login';
 import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
