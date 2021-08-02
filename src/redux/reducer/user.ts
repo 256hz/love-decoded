@@ -42,7 +42,7 @@ const INITIAL_STATE: UserState = {
 	[UserProperty.CurrentActivity]: 1,
 	[UserProperty.CurrentCourse]: 1,
 	[UserProperty.CurrentDay]: 1,
-	[UserProperty.CurrentStep]: 1,
+	[UserProperty.CurrentStep]: 0,
 	[UserProperty.Email]: '',
 	[UserProperty.FirstName]: '',
 	[UserProperty.Gender]: undefined,
@@ -52,31 +52,31 @@ const INITIAL_STATE: UserState = {
 	[UserProperty.MaxCourse]: 1,
 	[UserProperty.MaxDay]: 1,
 	[UserProperty.MaxPurchasedCourse]: 1,
-	[UserProperty.MaxStep]: 1,
+	[UserProperty.MaxStep]: 0,
 	[UserProperty.PasswordHash]: undefined,
 };
 
 export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
 
-	addCase(setLoggedInUser, (state, { payload: { user, accessToken } }) => ({
+	addCase(setLoggedInUser, (state, { payload: { user: newUser, accessToken } }) => ({
 		...state,
 		[UserProperty.AccessToken]: accessToken,
-		[UserProperty.AgeGroupStart]: user.age_group_start as AgeGroup,
-		[UserProperty.CurrentActivity]: user.current_activity as Activity,
-		[UserProperty.CurrentCourse]: user.current_activity as CourseNumber,
-		[UserProperty.CurrentDay]: user.current_day as DayNumber,
-		[UserProperty.CurrentStep]: user.current_step as StepNumber,
-		[UserProperty.Email]: user.email as string,
-		[UserProperty.FirstName]: user.first_name as string,
-		[UserProperty.Gender]: user.gender as string,
-		[UserProperty.Id]: user.id as string,
-		[UserProperty.LastName]: user.last_name as string,
-		[UserProperty.MaxActivity]: user.max_activity as Activity,
-		[UserProperty.MaxCourse]: user.max_course as CourseNumber,
-		[UserProperty.MaxDay]: user.max_day as DayNumber,
-		[UserProperty.MaxPurchasedCourse]: user.max_purchased_course as CourseNumber,
-		[UserProperty.MaxStep]: user.max_step as StepNumber,
+		[UserProperty.AgeGroupStart]: newUser.age_group_start as AgeGroup,
+		[UserProperty.CurrentActivity]: newUser.current_activity as Activity,
+		[UserProperty.CurrentCourse]: newUser.current_activity as CourseNumber,
+		[UserProperty.CurrentDay]: newUser.current_day as DayNumber,
+		[UserProperty.CurrentStep]: newUser.current_step as StepNumber,
+		[UserProperty.Email]: newUser.email as string,
+		[UserProperty.FirstName]: newUser.first_name as string,
+		[UserProperty.Gender]: newUser.gender as string,
+		[UserProperty.Id]: newUser.id as string,
+		[UserProperty.LastName]: newUser.last_name as string,
+		[UserProperty.MaxActivity]: newUser.max_activity as Activity,
+		[UserProperty.MaxCourse]: newUser.max_course as CourseNumber,
+		[UserProperty.MaxDay]: newUser.max_day as DayNumber,
+		[UserProperty.MaxPurchasedCourse]: newUser.max_purchased_course as CourseNumber,
+		[UserProperty.MaxStep]: newUser.max_step as StepNumber,
 	}));
 
 	addCase(logOut, state => INITIAL_STATE);

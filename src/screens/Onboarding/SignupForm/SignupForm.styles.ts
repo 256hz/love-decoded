@@ -87,6 +87,10 @@ export default StyleSheet.create({
 		alignItems: 'center',
 		marginBottom: 30,
 	},
+	loginText: {
+		color: colors.Orange,
+		textDecorationLine: 'underline',
+	},
 	buttonText: {
 		...text.body,
 		...text.bold,
@@ -97,16 +101,19 @@ export default StyleSheet.create({
 		backgroundColor: colors.GrayButton,
 	},
 	errorContainer: {
-		width: '100%',
+		// width: '100%',
 		marginBottom: 9,
 		marginTop: 0,
-		marginLeft: 16,
+		paddingHorizontal: 16,
 		justifyContent: 'center',
 	},
 	errorText: {
 		...text.body,
 		color: colors.RedDark,
 		lineHeight: 15,
+	},
+	bottomErrorText: {
+		textAlign: 'center',
 	},
 	spinner: {
 		height: 28,

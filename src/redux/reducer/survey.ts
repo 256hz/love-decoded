@@ -98,6 +98,5 @@ export const survey = createReducer(INITIAL_STATE, ({ addCase }) => {
 		},
 	}));
 
-	// disabled until backend integration
-	// addCase(logOut, state => INITIAL_STATE);
+	addCase(logOut, state => INITIAL_STATE);
 });

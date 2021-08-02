@@ -1,29 +1,12 @@
 import {
-	call, put, select, takeEvery,
+	call, select, takeEvery,
 } from 'redux-saga/effects';
 import {
-	logIn, setLoggedInUser, setUserProperty, syncUserData,
+	syncUserData,
 } from '@redux/action/user';
 import { loveDb } from 'util/loveDb';
 import { UserProperty } from 'redux/types/user';
-import { getUser, getUserId } from 'redux/selector';
-
-export function* watchForLogIn() {
-	yield takeEvery(setLoggedInUser, function*({ payload: { email, password } }) {
-		try {
-			const { id, accessToken } = yield loveDb.post('https://lovedb.azurewebsites.net/signin', {
-				email,
-				password,
-			});
-
-			yield put(setUserProperty(UserProperty.Email, email));
-			yield put(setUserProperty(UserProperty.Id, id));
-			yield put(setUserProperty(UserProperty.AccessToken, accessToken));
-		} catch (error) {
-
-		}
-	});
-}
+import { getUser } from 'redux/selector';
 
 export function* watchForSyncUserData() {
 	const ignoreFields = [
@@ -40,7 +23,7 @@ export function* watchForSyncUserData() {
 					return false;
 				}
 
-				return localUserData[key] !== remoteUserData[key];
+				return localUserData[key] && localUserData[key] !== remoteUserData[key];
 			});
 
 			if (needsUpdate) {

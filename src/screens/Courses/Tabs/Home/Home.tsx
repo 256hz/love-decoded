@@ -4,7 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import { Text, View } from 'react-native';
 import { stepDayOverviewScreen } from 'route/enums';
 import { StepScreen } from '@elements';
-import { getUserFirstName, getUserProgress, getUserProgressNumbers } from '@redux/selector';
+import {
+	getUserFirstName,
+	getUserProgress,
+	getUserProgressNumbers,
+} from '@redux/selector';
 import CourseButton from './CourseButton';
 import ProgressBar from './ProgressBar';
 import styles from './Home.styles';
@@ -20,8 +24,6 @@ export default () => {
 		currentDayNumber: day,
 		currentStepNumber: step,
 	} = useSelector(getUserProgressNumbers);
-
-	console.log(useSelector(state => state));
 
 	const firstName = useSelector(getUserFirstName);
 	// currentActivity is 1-indexed

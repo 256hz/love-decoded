@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Spinner } from 'react-native-material-kit';
+import { isEmail, isPasswordAllowed } from '@util/validation';
+import { RootStacks } from 'route/enums';
+import { loveDb } from '@util/loveDb';
+import { setLoggedInUser } from '@redux/action';
+import { errors } from '@screens/Onboarding/SignupForm/constants';
 import { OnboardingScreen } from '@elements';
 import BackButtonHeader from '@elements/Headers/BackButtonHeader';
 import colors from '@elements/globalStyles/color';
-import { errors } from 'screens/Onboarding/SignupForm/constants';
-import { loveDb } from 'util/loveDb';
-import { useDispatch } from 'react-redux';
-import { setLoggedInUser } from 'redux/action';
-import { isEmail, isPasswordAllowed } from 'util/validation';
-import { RootStacks } from 'route/enums';
 import styles from './Login.styles';
 
 enum LoginError {

@@ -1,26 +1,35 @@
 /* eslint-disable object-shorthand */
-import React, { useCallback, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { View, Text } from 'react-native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import { Spinner } from 'react-native-material-kit';
 import RNPickerSelect from 'react-native-picker-select';
+import RNLocalize from 'react-native-localize';
+
+import { OnboardingScreens } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
-import { OnboardingScreens } from 'route/enums';
 import { DEMO_MODE } from '@util/demoMode';
-import { loveDb } from 'util/loveDb';
-import { openWebLink } from 'util/linking';
-import { isEmail, isPasswordAllowed } from 'util/validation';
+import { getUniqueDeviceId } from '@util/deviceInfo';
+import { openWebLink } from '@util/linking';
+import { addAuthHeader, loveDb } from '@util/loveDb';
+import { isEmail, isPasswordAllowed } from '@util/validation';
+import { useDispatch } from 'react-redux';
+import { setLoggedInUser, syncSurveys } from 'redux/action';
 import {
 	ageGroupChoices,
 	errors,
 	genderChoices,
-	MINUMUM_PASSWORD_LENGTH,
-	timezoneChoices,
 } from './constants';
 import styles from './SignupForm.styles';
 
+enum SignupError {
+	AlreadyExists = 'That email address already has an account. Please log in or use a different one',
+	Default = 'Sorry, there was a problem signing up for an account. Please try again later',
+	Network = "Couldn't reach the server - please make sure you have a good network connection and try again",
+	None = '',
+}
 
 const ErrorText = ({ text }) => (
 	<View style={styles.errorContainer}>
@@ -30,7 +39,10 @@ const ErrorText = ({ text }) => (
 
 export default () => {
 	const { navigate } = useNavigation();
-	const [ keyboardVisible, setKeyboardVisible ] = useState(false);
+	const dispatch = useDispatch();
+	const timeZone = RNLocalize.getTimeZone();
+	const genderDropdownRef = useRef<RNPickerSelect>(null);
+	const ageDropdownRef = useRef<RNPickerSelect>(null);
 
 	const [ firstName, setFirstName ] = useState('');
 	const [ lastName, setLastName ] = useState('');
@@ -41,8 +53,9 @@ export default () => {
 	const [ showGenderTextInput, setShowGenderTextInput ] = useState(false);
 	const [ customGender, setCustomGender ] = useState('');
 	const [ ageGroup, setAgeGroup ] = useState('');
-	const [ timeZone, setTimeZone ] = useState('');
+	const [ deviceId, setDeviceId ] = useState('');
 	const [ waitingForBackend, setWaitingForBackend ] = useState(false);
+	const [ signupError, setSignupError ] = useState(SignupError.None);
 
 	const [ hasErrors, setHasErrors ] = useState({
 		firstName: false,
@@ -83,6 +96,7 @@ export default () => {
 
 	const handleSetGender = (value: string) => {
 		setGender(value);
+		// genderDropdownRef.current?.togglePicker(true);
 
 		if (value === 'other') {
 			setShowGenderTextInput(true);
@@ -95,51 +109,52 @@ export default () => {
 	};
 
 	const handleSetAgeGroup = (value: string) => {
+		// ageDropdownRef.current?.togglePicker(true);
 		setAgeGroup(value);
 		validateInputs();
 	};
 
-	const handleSetTimeZone = (value: string) => {
-		setTimeZone(value);
-		validateInputs();
-	};
-
-
 	const onSubmit = () => {
-		console.log('submit:', {
-			firstName,
-			lastName,
-			email,
-			password,
-			confirmPassword,
+		const payload = {
+			first_name: firstName,
+			last_name: lastName,
+			email: email,
+			password: password,
 			gender: customGender || gender,
-			ageGroup,
-		});
-		loveDb.post(
-			'/signup',
-			{
-				first_name: firstName,
-				last_name: lastName,
-				email: email,
-				password: password,
-				gender: customGender || gender,
-				age_group_start: ageGroup,
-				time_zone: timeZone,
-			},
-		)
-			.then((response) => {
-				console.log(response);
-				loveDb.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
-			},
-			(error) => {
-				console.log(error);
-			});
+			age_group_start: ageGroup,
+			time_zone: timeZone,
+			device_id: deviceId,
+		};
 
+		setSignupError(SignupError.None);
 		setWaitingForBackend(true);
-		setTimeout(() => {
-			navigate(OnboardingScreens.ThankYouForSigningUp);
-		}, 1500);
+
+		loveDb.post('/signup', payload)
+			.then(({ data: { user, accessToken } }) => {
+				setWaitingForBackend(false);
+				dispatch(setLoggedInUser(accessToken, user));
+				addAuthHeader(accessToken);
+				navigate(OnboardingScreens.ThankYouForSigningUp);
+				dispatch(syncSurveys());
+			})
+			.catch((error) => {
+				setWaitingForBackend(false);
+				console.log(JSON.stringify(error));
+				console.log(error.data);
+
+				switch (error.message) {
+					case 'Network Error': setSignupError(SignupError.Network); break;
+					case 'Request failed with status code 400': setSignupError(SignupError.AlreadyExists); break;
+					default: setSignupError(SignupError.Default);
+				}
+			});
 	};
+
+	useEffect(() => {
+		getUniqueDeviceId()
+			.then(setDeviceId)
+			.catch(console.error);
+	}, [ setDeviceId ]);
 
 	return (
 		<OnboardingScreen
@@ -171,23 +186,9 @@ export default () => {
 						{ hasErrors.lastName && <ErrorText text={errors.name} /> }
 					</View>
 
-					<View style={[ styles.textInput, styles.text ]}>
-						<RNPickerSelect
-							placeholder={{ label: 'timezone', key: 'timezone', inputLabel: 'timezone' }}
-							items={timezoneChoices}
-							value={timeZone}
-							onValueChange={handleSetTimeZone}
-							style={{
-								placeholder: styles.placeholderText,
-								inputIOS: { ...styles.placeholderText, ...styles.text },
-								inputAndroid: { ...styles.placeholderText, ...styles.text },
-							}}
-						/>
-					</View>
-
-
 					<View style={styles.emailContainer}>
 						<TextInput
+							autoCapitalize="none"
 							style={[ styles.textInput, styles.text ]}
 							placeholder="email"
 							onChangeText={setEmail}
@@ -217,6 +218,7 @@ export default () => {
 						value={confirmPassword}
 						secureTextEntry
 					/>
+
 					{ hasErrors.passwordMatch && <ErrorText text={errors.passwordMatch} />}
 
 					<View style={styles.genderAndAgeContainer}>
@@ -232,8 +234,10 @@ export default () => {
 										inputIOS: { ...styles.placeholderText, ...styles.text },
 										inputAndroid: { ...styles.placeholderText, ...styles.text },
 									}}
+									ref={genderDropdownRef}
 								/>
 							</View>
+
 							{ hasErrors.gender && <ErrorText text={errors.gender} />}
 						</View>
 
@@ -249,11 +253,14 @@ export default () => {
 										inputIOS: { ...styles.placeholderText, ...styles.text },
 										inputAndroid: { ...styles.placeholderText, ...styles.text },
 									}}
+									ref={ageDropdownRef}
 								/>
 							</View>
+
 							{ hasErrors.ageGroup && <ErrorText text={errors.ageGroup} />}
 						</View>
 					</View>
+
 					{ showGenderTextInput
 						? (
 							<>
@@ -270,6 +277,7 @@ export default () => {
 						: null
 					}
 				</View>
+
 				<View>
 					<View style={styles.termsContainer}>
 						<Text style={styles.termsText}>By submitting, you agree to our</Text>
@@ -284,6 +292,10 @@ export default () => {
 					</View>
 				</View>
 
+				<View style={styles.errorContainer}>
+					<Text style={[ styles.errorText, styles.bottomErrorText ]}>{signupError}</Text>
+				</View>
+
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity onPress={onSubmit} disabled={!isSubmitEnabled}>
 						<View style={[
@@ -296,7 +308,14 @@ export default () => {
 							}
 						</View>
 					</TouchableOpacity>
+
+					{ signupError === SignupError.AlreadyExists && (
+						<TouchableOpacity onPress={onSubmit} disabled={!isSubmitEnabled}>
+							<Text style={[ styles.termsText, styles.loginText ]}>Log In</Text>
+						</TouchableOpacity>
+					)}
 				</View>
+
 			</View>
 		</OnboardingScreen>
 	);

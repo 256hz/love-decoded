@@ -29,7 +29,7 @@ export default ({ prompts }: Props) => {
 	const dispatch = useDispatch();
 	const { currentCourse, currentStep, currentDay } = useSelector(getUserProgress);
 
-	const response = useSelector(getDaySurvey(currentCourse, currentStep, currentDay, Surveys.HowAreYouFeeling));
+	const response = useSelector(getDaySurvey(currentCourse, currentStep, currentDay, Surveys.HowAreYouFeeling) || 1);
 
 	const setResponse = (number: HowAreYouFeelingResponse) => {
 		dispatch(setDaySurveyResponse(currentCourse, currentStep, currentDay, Surveys.HowAreYouFeeling, number));

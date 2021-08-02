@@ -283,12 +283,16 @@ PODS:
     - React-Core
   - RNGestureHandler (1.8.0):
     - React
+  - RNLocalize (2.1.1):
+    - React-Core
   - RNReactNativeHapticFeedback (1.11.0):
     - React-Core
   - RNReanimated (1.13.2):
     - React-Core
   - RNScreens (2.16.1):
     - React-Core
+  - RNSha256 (1.4.7):
+    - React
   - RNShare (5.1.4):
     - React-Core
   - RNSoundPlayer (0.10.5):
@@ -338,9 +342,11 @@ DEPENDENCIES:
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReactNativeHapticFeedback (from `../node_modules/react-native-haptic-feedback`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSha256 (from `../node_modules/react-native-sha256`)
   - RNShare (from `../node_modules/react-native-share`)
   - RNSoundPlayer (from `../node_modules/react-native-sound-player`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -429,12 +435,16 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNReactNativeHapticFeedback:
     :path: "../node_modules/react-native-haptic-feedback"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSha256:
+    :path: "../node_modules/react-native-sha256"
   RNShare:
     :path: "../node_modules/react-native-share"
   RNSoundPlayer:
@@ -486,9 +496,11 @@ SPEC CHECKSUMS:
   RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
   RNDeviceInfo: 9b6aba9ffaed69ecb72bd13c7bcb0debf277bc9f
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
+  RNLocalize: 82a569022724d35461e2dc5b5d015a13c3ca995b
   RNReactNativeHapticFeedback: 653a8c126a0f5e88ce15ffe280b3ff37e1fbb285
   RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
   RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
+  RNSha256: bf2c90a9e0cec6dcbcc4100e4e19715ae7feaa34
   RNShare: 8af5349f05fc042d230674dd650d19789187ff9c
   RNSoundPlayer: fd4dbbff120c76f22718c4d831a13c40fc5e9efd
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e

@@ -54,6 +54,11 @@ export default () => {
 				/>
 
 				<Stack.Screen
+					name={RootStacks.Login}
+					component={LoginScreen}
+				/>
+
+				<Stack.Screen
 					name={RootStacks.HomeTabs}
 					component={HomeDrawer}
 				/>
@@ -62,11 +67,6 @@ export default () => {
 				<Stack.Screen
 					name={RootStacks.Congratulations}
 					component={CongratulationsScreen}
-				/>
-
-				<Stack.Screen
-					name={RootStacks.Login}
-					component={LoginScreen}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>

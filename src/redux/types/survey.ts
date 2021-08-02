@@ -1,7 +1,9 @@
+import { CourseNumber, DayNumber, StepNumber } from './user';
+
 export type SurveyState = {
-	onboarding: Onboarding;
-	course1: Course1State;
-	course2: Course2State;
+	[Steps.Zero]: Onboarding;
+	[Courses.One]: Course1State;
+	[Courses.Two]: Course2State;
 };
 
 export enum Surveys {
@@ -170,6 +172,7 @@ export enum StepCourses {
 }
 
 export enum Steps {
+	Zero = 'onboarding',
 	One = 'step1',
 	Two = 'step2',
 	Three = 'step3',
@@ -194,6 +197,7 @@ export enum Steps {
 }
 
 export enum Days {
+	Zero = 'day0', // for activities surveys
 	One = 'day1',
 	Two = 'day2',
 	Three = 'day3',
@@ -204,11 +208,12 @@ export enum Days {
 }
 
 export const DayValues = Object.keys(Days)
+	.slice(1) // do not include day 0
 	.filter(key => typeof Days[key] === 'string')
 	.map(day => Days[day]);
 
 export const DayFromNumber: Days[] = [
-	Days.One, // empty (1-indexed)
+	Days.Zero, // for activities
 	Days.One,
 	Days.Two,
 	Days.Three,
@@ -218,6 +223,17 @@ export const DayFromNumber: Days[] = [
 	Days.Seven,
 ];
 
+export const NumberFromDay: { [key in Days]: DayNumber } = {
+	[Days.Zero]: 0, // for activities
+	[Days.One]: 1,
+	[Days.Two]: 2,
+	[Days.Three]: 3,
+	[Days.Four]: 4,
+	[Days.Five]: 5,
+	[Days.Six]: 6,
+	[Days.Seven]: 7,
+};
+
 export const CourseFromNumber: Courses[] = [
 	Courses.One, // empty (1-indexed)
 	Courses.One,
@@ -225,8 +241,17 @@ export const CourseFromNumber: Courses[] = [
 	Courses.Three,
 ];
 
+export const NumberFromCourse: { [key in Courses]: CourseNumber } = {
+	[Courses.Onboarding]: 1,
+	[Courses.One]: 1,
+	[Courses.Two]: 2,
+	[Courses.Three]: 3,
+};
+
+export const AllCourses = CourseFromNumber.slice(1);
+
 export const StepFromNumber: Steps[] = [
-	Steps.One, // empty (1-indexed)
+	Steps.Zero, // onboarding
 	Steps.One,
 	Steps.Two,
 	Steps.Three,
@@ -241,7 +266,66 @@ export const StepFromNumber: Steps[] = [
 	Steps.Twelve,
 	Steps.Thirteen,
 	Steps.Fourteen,
+	Steps.Fifteen,
+	Steps.Sixteen,
+	Steps.Seventeen,
+	Steps.Eighteen,
+	Steps.Nineteen,
+	Steps.Twenty,
+	Steps.Twentyone,
 ];
+
+export const NumberFromStep: { [key in Steps]: StepNumber } = {
+	[Steps.Zero]: 0, // onboarding
+	[Steps.One]: 1,
+	[Steps.Two]: 2,
+	[Steps.Three]: 3,
+	[Steps.Four]: 4,
+	[Steps.Five]: 5,
+	[Steps.Six]: 6,
+	[Steps.Seven]: 7,
+	[Steps.Eight]: 8,
+	[Steps.Nine]: 9,
+	[Steps.Ten]: 10,
+	[Steps.Eleven]: 11,
+	[Steps.Twelve]: 12,
+	[Steps.Thirteen]: 13,
+	[Steps.Fourteen]: 14,
+	[Steps.Fifteen]: 15,
+	[Steps.Sixteen]: 16,
+	[Steps.Seventeen]: 17,
+	[Steps.Eighteen]: 18,
+	[Steps.Nineteen]: 19,
+	[Steps.Twenty]: 20,
+	[Steps.Twentyone]: 21,
+};
+
+export const CourseFromStep: { [key in Steps]: Courses } = {
+	[Steps.Zero]: Courses.One, // onboarding
+	[Steps.One]: Courses.One,
+	[Steps.Two]: Courses.One,
+	[Steps.Three]: Courses.One,
+	[Steps.Four]: Courses.One,
+	[Steps.Five]: Courses.One,
+	[Steps.Six]: Courses.One,
+	[Steps.Seven]: Courses.One,
+	[Steps.Eight]: Courses.Two,
+	[Steps.Nine]: Courses.Two,
+	[Steps.Ten]: Courses.Two,
+	[Steps.Eleven]: Courses.Two,
+	[Steps.Twelve]: Courses.Two,
+	[Steps.Thirteen]: Courses.Two,
+	[Steps.Fourteen]: Courses.Two,
+	[Steps.Fifteen]: Courses.Three,
+	[Steps.Sixteen]: Courses.Three,
+	[Steps.Seventeen]: Courses.Three,
+	[Steps.Eighteen]: Courses.Three,
+	[Steps.Nineteen]: Courses.Three,
+	[Steps.Twenty]: Courses.Three,
+	[Steps.Twentyone]: Courses.Three,
+};
+
+export const AllSteps = StepFromNumber.slice(1);
 
 export type Onboarding = {
 	[Surveys.AcknowledgingYourPast]?: string[];
@@ -476,6 +560,15 @@ export type Course2Step14 = {
 	};
 };
 
+export type RemoteSurvey = {
+	id: string,
+	user_id: string,
+	survey_id: string,
+	survey_response: string,
+	course: number,
+	step: number,
+	day: number,
+};
 
 export type SurveyResponse = HowAreYouFeelingResponse | NeffSurveyResponse | YesNo | string | string[];
 export type HowAreYouFeelingResponse = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;

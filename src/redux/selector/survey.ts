@@ -15,8 +15,7 @@ export const getNeffResponseByPageIndex = (pageIndex: NeffSurveyPageIndex) => cr
 export const getNeffAverage = createSelector(survey,
 	({ onboarding }) => (
 		onboarding[Surveys.Neff]
-		// eslint-disable-next-line no-param-reassign
-			.reduce((all, one) => { all += one; return all; }, 0) / 12
+			.reduce((acc, curr) => acc + curr, 0) / 12
 	).toFixed(2));
 
 export const averageTwoNeffPageScores = (page1: number, page2: number) => createSelector(survey,

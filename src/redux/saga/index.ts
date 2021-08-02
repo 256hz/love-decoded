@@ -15,6 +15,9 @@ export {
 } from './audio';
 
 export {
-	watchForLogIn,
+	watchForSyncSurveys,
+} from './survey';
+
+export {
 	watchForSyncUserData,
 } from './user';

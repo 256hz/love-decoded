@@ -60,7 +60,7 @@ const CustomScrollView = ({
 	const scrollViewRef = useRef<ScrollView>(null);
 
 	const hasNotReachedBottom = ({ layoutMeasurement, contentOffset, contentSize }) => (
-		layoutMeasurement.height + contentOffset.y < contentSize.height - 15
+		layoutMeasurement.height + contentOffset.y < contentSize.height - 20
 	);
 
 	const setIndicatorVisibleIfMoreToScroll = ({ nativeEvent }) => {

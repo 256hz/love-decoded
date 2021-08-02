@@ -15,7 +15,7 @@ import {
 // per day
 const course1Step1DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step1Survey1]: '',
 		[EndOfDaySurveys.Course1Step1Survey3]: '',
 		[EndOfDaySurveys.Course1Step1Survey2]: '',
@@ -36,7 +36,7 @@ export const course1Step1State = {
 // per day
 const course1Step2DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step2Survey1]: '',
 		[EndOfDaySurveys.Course1Step2Survey3]: '',
 		[EndOfDaySurveys.Course1Step2Survey2]: '',
@@ -60,7 +60,7 @@ export const course1Step2State = {
 // per day
 const course1Step3DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step3Survey1]: '',
 		[EndOfDaySurveys.Course1Step3Survey3]: '',
 		[EndOfDaySurveys.Course1Step3Survey2]: '',
@@ -78,7 +78,7 @@ export const course1Step3State = {
 // per day
 const course1Step4DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step4Survey1]: '',
 		[EndOfDaySurveys.Course1Step4Survey2]: '',
 		[EndOfDaySurveys.Course1Step4Survey3]: '',
@@ -101,7 +101,7 @@ export const course1Step4State = {
 // per day
 const course1Step5DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step5Survey1]: '',
 		[EndOfDaySurveys.Course1Step5Survey2]: '',
 		[EndOfDaySurveys.Course1Step5Survey3]: '',
@@ -128,7 +128,7 @@ export const course1Step5State = {
 // per day
 const course1Step6DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step6Survey1]: '',
 		[EndOfDaySurveys.Course1Step6Survey2]: '',
 		[EndOfDaySurveys.Course1Step6Survey3]: '',
@@ -149,7 +149,7 @@ export const course1Step6State = {
 // per day
 const course1Step7DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course1Step7Survey1]: '',
 		[EndOfDaySurveys.Course1Step7Survey2]: '',
 		[EndOfDaySurveys.Course1Step7Survey3]: '',
@@ -175,7 +175,7 @@ export const course1Step7State = {
 // per day
 const course2Step8DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step8Survey1]: '',
 		[EndOfDaySurveys.Course2Step8Survey2]: '',
 		[EndOfDaySurveys.Course2Step8Survey3]: '',
@@ -193,7 +193,7 @@ export const course2Step8State = {
 // per day
 const course2Step9DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step9Survey1]: '',
 		[EndOfDaySurveys.Course2Step9Survey2]: '',
 		[EndOfDaySurveys.Course2Step9Survey3]: '',
@@ -212,7 +212,7 @@ export const course2Step9State = {
 // per day
 const course2Step10DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step10Survey1]: '',
 		[EndOfDaySurveys.Course2Step10Survey2]: '',
 		[EndOfDaySurveys.Course2Step10Survey3]: '',
@@ -232,7 +232,7 @@ export const course2Step10State = {
 // per day
 const course2Step11DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step11Survey1]: '',
 		[EndOfDaySurveys.Course2Step11Survey2]: '',
 		[EndOfDaySurveys.Course2Step11Survey3]: '',
@@ -253,7 +253,7 @@ export const course2Step11State = {
 // per day
 const course2Step12DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step12Survey1]: '',
 		[EndOfDaySurveys.Course2Step12Survey2]: '',
 		[EndOfDaySurveys.Course2Step12Survey3]: '',
@@ -274,7 +274,7 @@ export const course2Step12State = {
 // per day
 const course2Step13DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step13Survey1]: '',
 		[EndOfDaySurveys.Course2Step13Survey2]: '',
 		[EndOfDaySurveys.Course2Step13Survey3]: '',
@@ -293,7 +293,7 @@ export const course2Step13State = {
 // per day
 const course2Step14DayState = DayValues.reduce((acc, curr) => {
 	acc[curr] = {
-		[Surveys.HowAreYouFeeling]: 1,
+		[Surveys.HowAreYouFeeling]: 0,
 		[EndOfDaySurveys.Course2Step14Survey1]: '',
 		[EndOfDaySurveys.Course2Step14Survey2]: '',
 		[EndOfDaySurveys.Course2Step14Survey3]: '',
