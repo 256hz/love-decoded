@@ -9,8 +9,9 @@ import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { OnboardingScreens } from 'route/enums';
 import { DEMO_MODE } from '@util/demoMode';
-import { apiClient } from 'api/apiConfig';
+import { loveDb } from 'util/loveDb';
 import { openWebLink } from 'util/linking';
+import { isEmail, isPasswordAllowed } from 'util/validation';
 import {
 	ageGroupChoices,
 	errors,
@@ -55,17 +56,6 @@ export default () => {
 		timeZone: false,
 	});
 
-	const isEmail = (address: string) => {
-		const splitAt = address.split('@');
-
-		return splitAt.length === 2 && splitAt[1].split('.').length === 2;
-	};
-
-	const isPasswordAllowed = useCallback((passwordToCheck: string) => {
-		return passwordToCheck.length >= MINUMUM_PASSWORD_LENGTH
-			&& password.match(/[\w\d_. !@#$%^&*()-]+/g);
-	}, [ password ]);
-
 	const isSubmitEnabled = DEMO_MODE
 		|| (isPasswordAllowed(password)
 		&& password === confirmPassword
@@ -88,7 +78,7 @@ export default () => {
 			tempErrors.customGender = gender === 'other' && !customGender;
 			tempErrors.timeZone = !timeZone;
 			setHasErrors(tempErrors);
-		}, 750);
+		}, 250);
 	};
 
 	const handleSetGender = (value: string) => {
@@ -125,8 +115,8 @@ export default () => {
 			gender: customGender || gender,
 			ageGroup,
 		});
-		apiClient.post(
-			'/user/create/',
+		loveDb.post(
+			'/signup',
 			{
 				first_name: firstName,
 				last_name: lastName,
@@ -139,7 +129,7 @@ export default () => {
 		)
 			.then((response) => {
 				console.log(response);
-				apiClient.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
+				loveDb.defaults.headers.common.Authorization = `Bearer ${response.data.access_token}`;
 			},
 			(error) => {
 				console.log(error);
@@ -301,8 +291,7 @@ export default () => {
 							(!isSubmitEnabled || waitingForBackend) && styles.disabled,
 						]}>
 							{ waitingForBackend
-							// eslint-disable-next-line react-native/no-inline-styles
-								? <Spinner style={{ height: 28, width: 28 }} strokeColor={colors.White} />
+								? <Spinner style={styles.spinner} strokeColor={colors.White} />
 								: <Text style={styles.buttonText}>Submit</Text>
 							}
 						</View>

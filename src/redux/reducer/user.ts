@@ -10,51 +10,74 @@ import {
 import {
 	advanceUserProgress,
 	logOut,
-	logIn,
 	setUserProperty,
 	setUserProgress,
+	setLoggedInUser,
+	setMaxPurchasedCourse,
 } from '@redux/action';
 
 export type UserState = {
-	[UserProperty.Id]?: string,
-	[UserProperty.FirstName]?: string,
-	[UserProperty.LastName]?: string,
-	[UserProperty.Email]?: string,
-	[UserProperty.PasswordHash]?: string,
-	[UserProperty.Gender]?: string,
+	[UserProperty.AccessToken]?: string,
 	[UserProperty.AgeGroupStart]?: AgeGroup,
-	[UserProperty.CurrentCourse]: CourseNumber,
-	[UserProperty.CurrentStep]: StepNumber,
-	[UserProperty.CurrentDay]: DayNumber,
 	[UserProperty.CurrentActivity]: Activity,
-	[UserProperty.MaxCourse]: CourseNumber,
-	[UserProperty.MaxStep]: StepNumber,
-	[UserProperty.MaxDay]: DayNumber,
+	[UserProperty.CurrentCourse]: CourseNumber,
+	[UserProperty.CurrentDay]: DayNumber,
+	[UserProperty.CurrentStep]: StepNumber,
+	[UserProperty.Email]?: string,
+	[UserProperty.FirstName]?: string,
+	[UserProperty.Gender]?: string,
+	[UserProperty.Id]?: string,
+	[UserProperty.LastName]?: string,
 	[UserProperty.MaxActivity]: Activity,
+	[UserProperty.MaxCourse]: CourseNumber,
+	[UserProperty.MaxDay]: DayNumber,
+	[UserProperty.MaxPurchasedCourse]: CourseNumber,
+	[UserProperty.MaxStep]: StepNumber,
+	[UserProperty.PasswordHash]?: string,
 };
 
 const INITIAL_STATE: UserState = {
-	[UserProperty.Id]: undefined,
-	[UserProperty.FirstName]: 'Jasmine',
-	[UserProperty.LastName]: '',
-	[UserProperty.Email]: 'jasminecook@gmail.com',
-	[UserProperty.PasswordHash]: undefined,
-	[UserProperty.Gender]: undefined,
+	[UserProperty.AccessToken]: '',
 	[UserProperty.AgeGroupStart]: 20,
-	[UserProperty.CurrentCourse]: 1,
-	[UserProperty.CurrentStep]: 1,
-	[UserProperty.CurrentDay]: 1,
 	[UserProperty.CurrentActivity]: 1,
-	[UserProperty.MaxCourse]: 1,
-	[UserProperty.MaxStep]: 1,
-	[UserProperty.MaxDay]: 1,
+	[UserProperty.CurrentCourse]: 1,
+	[UserProperty.CurrentDay]: 1,
+	[UserProperty.CurrentStep]: 1,
+	[UserProperty.Email]: '',
+	[UserProperty.FirstName]: '',
+	[UserProperty.Gender]: undefined,
+	[UserProperty.Id]: undefined,
+	[UserProperty.LastName]: '',
 	[UserProperty.MaxActivity]: 1,
+	[UserProperty.MaxCourse]: 1,
+	[UserProperty.MaxDay]: 1,
+	[UserProperty.MaxPurchasedCourse]: 1,
+	[UserProperty.MaxStep]: 1,
+	[UserProperty.PasswordHash]: undefined,
 };
 
 export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 	addCase(setUserProperty, (state, { payload: { property, value } }) => ({ ...state, [property]: value }));
 
-	addCase(logIn, (state, { payload: { username, password } }) => ({ ...state, [UserProperty.Email]: username }));
+	addCase(setLoggedInUser, (state, { payload: { user, accessToken } }) => ({
+		...state,
+		[UserProperty.AccessToken]: accessToken,
+		[UserProperty.AgeGroupStart]: user.age_group_start as AgeGroup,
+		[UserProperty.CurrentActivity]: user.current_activity as Activity,
+		[UserProperty.CurrentCourse]: user.current_activity as CourseNumber,
+		[UserProperty.CurrentDay]: user.current_day as DayNumber,
+		[UserProperty.CurrentStep]: user.current_step as StepNumber,
+		[UserProperty.Email]: user.email as string,
+		[UserProperty.FirstName]: user.first_name as string,
+		[UserProperty.Gender]: user.gender as string,
+		[UserProperty.Id]: user.id as string,
+		[UserProperty.LastName]: user.last_name as string,
+		[UserProperty.MaxActivity]: user.max_activity as Activity,
+		[UserProperty.MaxCourse]: user.max_course as CourseNumber,
+		[UserProperty.MaxDay]: user.max_day as DayNumber,
+		[UserProperty.MaxPurchasedCourse]: user.max_purchased_course as CourseNumber,
+		[UserProperty.MaxStep]: user.max_step as StepNumber,
+	}));
 
 	addCase(logOut, state => INITIAL_STATE);
 
@@ -66,9 +89,8 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 		[UserProperty.CurrentActivity]: activity,
 	}));
 
+	// called at the end of each activity, day, step, and course
 	addCase(advanceUserProgress, state => {
-		// called at the end of each activity, day, step, and course
-
 		const {
 			[UserProperty.CurrentCourse]: currentCourse,
 			[UserProperty.CurrentStep]: currentStep,
@@ -103,4 +125,7 @@ export const user = createReducer(INITIAL_STATE, ({ addCase }) => {
 			[UserProperty.MaxActivity]: nextActivity > maxActivity ? nextActivity : maxActivity,
 		});
 	});
+
+	addCase(setMaxPurchasedCourse, (state, { payload: { course } }) =>
+		({ ...state, [UserProperty.MaxPurchasedCourse]: course }));
 });

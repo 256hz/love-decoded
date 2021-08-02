@@ -38,3 +38,8 @@ export const getUserMaxProgress = createSelector(user, userState => ({
 export const getUserFirstName = createSelector(user, ({ first_name }) => first_name);
 
 export const getUserEmail = createSelector(user, ({ email }) => email);
+
+export const getUserProperty = (property: UserProperty) => createSelector(user,
+	userSelector => userSelector[property]);
+
+export const getUser = createSelector(user, userSelector => userSelector);

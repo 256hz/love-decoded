@@ -89,9 +89,9 @@ export default StyleSheet.create({
 	},
 	buttonText: {
 		...text.body,
+		...text.bold,
 		fontSize: 18,
 		color: colors.White,
-		fontWeight: '700',
 	},
 	disabled: {
 		backgroundColor: colors.GrayButton,
@@ -107,5 +107,9 @@ export default StyleSheet.create({
 		...text.body,
 		color: colors.RedDark,
 		lineHeight: 15,
+	},
+	spinner: {
+		height: 28,
+		width: 28,
 	},
 });

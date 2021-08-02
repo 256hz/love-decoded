@@ -14,4 +14,7 @@ export {
 	watchForResetAudio,
 } from './audio';
 
-export { watchForLogIn } from './user';
+export {
+	watchForLogIn,
+	watchForSyncUserData,
+} from './user';

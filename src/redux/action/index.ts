@@ -54,5 +54,12 @@ export {
 	setUserProperty,
 	logIn,
 	logOut,
+	setLoggedInUser,
+	setMaxPurchasedCourse,
 	setUserProgress,
+	syncAllData,
+	syncContacts,
+	syncJournals,
+	syncSurveys,
+	syncUserData,
 } from './user';

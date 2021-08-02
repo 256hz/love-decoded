@@ -21,6 +21,8 @@ export default () => {
 		currentStepNumber: step,
 	} = useSelector(getUserProgressNumbers);
 
+	console.log(useSelector(state => state));
+
 	const firstName = useSelector(getUserFirstName);
 	// currentActivity is 1-indexed
 	const progressPercent = (activity - 1) * 25;

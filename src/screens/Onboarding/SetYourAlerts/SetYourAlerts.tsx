@@ -8,7 +8,7 @@ import { OnboardingScreen } from '@elements';
 import { AlertTime } from '@redux/types/alerts';
 import { setAlertTime } from '@redux/action';
 import { getAlertTime } from '@redux/selector';
-import { apiClient } from 'api/apiConfig';
+import { loveDb } from 'util/loveDb';
 import styles from './SetYourAlerts.styles';
 
 type TimePickerProps = {
@@ -28,7 +28,7 @@ const TimePicker = ({
 
 	const onSelectMinutes = (time: string) => {
 		dispatch(setAlertTime(alertTime, time));
-		apiClient.post(
+		loveDb.post(
 			'/users/set_alert/',
 			{
 				alert_time: alertTime,

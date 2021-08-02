@@ -44,6 +44,7 @@ export {
 } from './survey';
 
 export {
+	getUser,
 	getUserEmail,
 	getUserFirstName,
 	getUserId,

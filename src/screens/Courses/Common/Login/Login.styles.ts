@@ -3,11 +3,15 @@ import text from 'elements/globalStyles/text';
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-	container: {
+	outerContainer: {
 		flex: 1,
 		justifyContent: 'space-between',
+	},
+	container: {
+		flex: 1,
+		height: '50%',
+		justifyContent: 'space-between',
 		paddingHorizontal: 23,
-		paddingBottom: '40%',
 	},
 	backButtonContainer: {
 		height: 50,
@@ -33,7 +37,7 @@ export default StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	inputLabelContainer: {
-		marginBottom: 4,
+		marginBottom: 32,
 	},
 	inputLabel: {
 		...text.body,
@@ -49,18 +53,25 @@ export default StyleSheet.create({
 		marginBottom: 18,
 		backgroundColor: colors.WhiteTransparent,
 	},
+	text: {
+		...text.body,
+		fontSize: 16,
+		lineHeight: 18,
+		color: colors.GrayTransparent071,
+	},
 	forgotPasswordLinkText: {
 		color: colors.Gray62,
 		textDecorationLine: 'underline',
+		textAlign: 'center',
 	},
 	buttonContainer: {
-		marginTop: 36,
+		marginVertical: 36,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},
 	button: {
-		width: 102,
-		height: 35,
+		width: 192,
+		height: 46,
 		borderRadius: 10,
 		backgroundColor: colors.Orange,
 		justifyContent: 'center',
@@ -68,13 +79,19 @@ export default StyleSheet.create({
 	},
 	buttonText: {
 		...text.body,
-		fontSize: 16,
+		...text.bold,
+		fontSize: 18,
 		color: colors.White,
+	},
+	disabled: {
+		backgroundColor: colors.GrayButton,
 	},
 	loginErrorContainer: {
 		width: '100%',
-		marginVertical: 16,
+		height: '30%',
 		paddingHorizontal: 42,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	loginErrorText: {
 		...text.body,
@@ -83,5 +100,21 @@ export default StyleSheet.create({
 	noLoginErrorText: {
 		...text.body,
 		color: colors.Transparent,
+	},
+	spinner: {
+		height: 28,
+		width: 28,
+	},
+	errorContainer: {
+		width: '100%',
+		marginBottom: 9,
+		marginTop: 0,
+		marginLeft: 16,
+		justifyContent: 'center',
+	},
+	errorText: {
+		...text.body,
+		color: colors.RedDark,
+		lineHeight: 15,
 	},
 });

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { setCurrentRouteName } from '@redux/action';
@@ -8,6 +8,7 @@ import { navigationRef } from '@util/navigation';
 import SplashScreen from '@screens/Splash';
 import LoginScreen from '@screens/Courses/Common/Login';
 import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
+import { getUser } from 'redux/selector';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';
@@ -19,7 +20,9 @@ type RootStackParamList = {
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default () => {
-	const isLoggedIn = false; // replace with selector
+	const { email, id, accessToken } = useSelector(getUser);
+	const isLoggedIn = email && id && accessToken;
+
 	const destination = isLoggedIn ? RootStacks.HomeTabs : RootStacks.OnboardingStack;
 
 	const dispatch = useDispatch();
