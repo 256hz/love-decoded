@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { View, Text } from 'react-native';
-import { Course1Step3Screens } from 'route/Steps/Course1Screens';
+import { Course1Step4Screens } from 'route/Steps/Course1Screens';
 import { setStepActivityResponse } from '@redux/action';
 import { getStepActivity } from '@redux/selector';
 import { Courses, Steps, Activities } from '@redux/types/survey';
@@ -20,14 +20,14 @@ export default () => {
 		getStepActivity(Courses.One, Steps.Four, Activities.Course1Step4Activity3b),
 	);
 
-	const setResponse = (text: string, activity: Activities) => dispatch(
-		setStepActivityResponse(Courses.One, Steps.Four, activity, text),
-	);
+	const setResponse = (text: string, activity: Activities) => {
+		dispatch(setStepActivityResponse(Courses.One, Steps.Four, activity, text));
+	};
 
 	return (
 		<StepScreen
 			audioFilename="one_second_silence.mp3"
-			nextTarget={Course1Step3Screens.Activities3}
+			nextTarget={Course1Step4Screens.Activities4}
 		>
 			<View style={styles.container}>
 				<View style={styles.bodyContainer}>
