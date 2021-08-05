@@ -37,6 +37,7 @@ export enum Course1Step3Screens {
 	Activities1 = 'course1_step3_activities1',
 	Activities2 = 'course1_step3_activities2',
 	Activities3 = 'course1_step3_activities3',
+	Activities4 = 'course1_step3_activities4',
 	Resources = 'course1_step3_resources',
 	Survey = 'course1_step3_survey',
 	Reflection = 'course1_step3_reflection',
