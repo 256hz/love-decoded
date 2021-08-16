@@ -7,7 +7,7 @@ import { Spinner } from 'react-native-material-kit';
 import { isEmail, isPasswordAllowed } from '@util/validation';
 import { RootStacks } from 'route/enums';
 import { loveDb } from '@util/loveDb';
-import { setLoggedInUser } from '@redux/action';
+import { setLoggedInUser, syncSurveys } from '@redux/action';
 import { errors } from '@screens/Onboarding/SignupForm/constants';
 import { OnboardingScreen } from '@elements';
 import BackButtonHeader from '@elements/Headers/BackButtonHeader';
@@ -76,6 +76,7 @@ export default () => {
 				const { data: { accessToken, user } } = res;
 
 				dispatch(setLoggedInUser(accessToken, user));
+				dispatch(syncSurveys());
 
 				navigation.navigate(RootStacks.HomeTabs);
 			})

@@ -9,7 +9,7 @@ export const getJournal = (stepNumber: StepNumber, dayNumber: DayNumber) => {
 	const step = StepFromNumber[stepNumber];
 	const day = DayFromNumber[dayNumber];
 
-	return createSelector(journals, journalState => journalState[step]?.[day] || {});
+	return createSelector(journals, journalState => journalState[step]?.[day] || { title: '', entry: '' });
 };
 
 export const getJournalHistory = createSelector(journals, ({ history }) => history || []);

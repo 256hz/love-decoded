@@ -49,7 +49,7 @@ function* syncSurvey({
 	dayNumber,
 	localSurveyResponse,
 	remoteSurvey,
-}) {
+}: SyncSurveyProps) {
 	const surveyBody = {
 		survey_id: surveyKey,
 		survey_response: JSON.stringify(localSurveyResponse) || '',
@@ -114,7 +114,6 @@ export function* watchForSyncSurveys() {
 		try {
 			const surveyResponse = yield call([ loveDb, 'get' ], `survey/${userId}/survey`);
 			remoteSurveys = surveyResponse?.data || [];
-			console.log(JSON.stringify(remoteSurveys));
 		} catch (error) {
 			console.error(error);
 			return;
@@ -137,12 +136,12 @@ export function* watchForSyncSurveys() {
 			});
 		}
 
-		// sync step level surveys
+		// sync step/day level surveys
 		for (const step of AllSteps) {
 			const course = CourseFromStep[step];
 			const courseNumber = NumberFromCourse[course];
 			const stepNumber = NumberFromStep[step];
-			// each day will have its own surveys, which we will go over next.  This gets the step-level surveys
+			// step-level surveys
 			const stepSurveys = Object.keys(localSurveys?.[course]?.[step] || {})
 				?.filter(key => !DayFromNumber.includes(key as Days)) || [];
 
@@ -166,7 +165,7 @@ export function* watchForSyncSurveys() {
 				});
 			}
 
-			// sync daily surveys
+			// daily surveys
 			for (const day of DayValues) {
 				const dayNumber = NumberFromDay[day];
 				const dayResponses = localSurveys?.[course]?.[step]?.[day] || [];

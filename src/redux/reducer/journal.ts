@@ -17,7 +17,7 @@ export type JournalState = {
 	[step in Steps]?: {
 		[day in Days]?: {
 			title?: string;
-			text?: string;
+			entry?: string;
 		}
 	}
 };
@@ -27,7 +27,7 @@ const INITIAL_STATE: JournalState = {
 };
 
 export const journals = createReducer(INITIAL_STATE, ({ addCase }) => {
-	addCase(setJournal, (state, { payload: { stepNumber, dayNumber, text, title } }) => {
+	addCase(setJournal, (state, { payload: { stepNumber, dayNumber, entry, title } }) => {
 		const step = StepFromNumber[stepNumber];
 		const day = DayFromNumber[dayNumber];
 
@@ -44,7 +44,7 @@ export const journals = createReducer(INITIAL_STATE, ({ addCase }) => {
 			history: newHistory,
 			[step]: {
 				...state[step],
-				[day]: { text, title },
+				[day]: { entry, title },
 			},
 		};
 	});

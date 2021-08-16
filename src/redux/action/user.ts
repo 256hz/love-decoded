@@ -31,8 +31,6 @@ export const setUserProgress = createAction('SET_USER_PROGRESS',
 export const setMaxPurchasedCourse = createAction('SET_MAX_PURCHASED_COURSE',
 	(course: CourseNumber) => ({ payload: { course } }));
 
-export const syncJournals = createAction('SYNC_JOURNALS');
-
 export const syncContacts = createAction('SYNC_CONTACTS');
 
 export const syncSurveys = createAction('SYNC_SURVEYS');

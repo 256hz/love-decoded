@@ -40,6 +40,7 @@ export {
 
 export {
 	setJournal,
+	syncJournals,
 } from './journal';
 
 export {
@@ -59,7 +60,6 @@ export {
 	setUserProgress,
 	syncAllData,
 	syncContacts,
-	syncJournals,
 	syncSurveys,
 	syncUserData,
 } from './user';

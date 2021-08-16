@@ -7,7 +7,7 @@ import { Spinner } from 'react-native-material-kit';
 import RNPickerSelect from 'react-native-picker-select';
 import RNLocalize from 'react-native-localize';
 
-import { OnboardingScreens } from 'route/enums';
+import { OnboardingScreens, RootStacks } from 'route/enums';
 import { OnboardingScreen } from '@elements';
 import colors from '@elements/globalStyles/color';
 import { DEMO_MODE } from '@util/demoMode';
@@ -139,13 +139,16 @@ export default () => {
 			})
 			.catch((error) => {
 				setWaitingForBackend(false);
-				console.log(JSON.stringify(error));
-				console.log(error.data);
 
 				switch (error.message) {
-					case 'Network Error': setSignupError(SignupError.Network); break;
-					case 'Request failed with status code 400': setSignupError(SignupError.AlreadyExists); break;
-					default: setSignupError(SignupError.Default);
+					case 'Network Error':
+						setSignupError(SignupError.Network);
+						break;
+					case 'Request failed with status code 400':
+						setSignupError(SignupError.AlreadyExists);
+						break;
+					default:
+						setSignupError(SignupError.Default);
 				}
 			});
 	};
@@ -244,7 +247,7 @@ export default () => {
 						<View style={styles.dropdownContainer}>
 							<View style={[ styles.textInput, styles.text ]}>
 								<RNPickerSelect
-									placeholder={{ label:'select one...', key: 'age', inputLabel: 'age group' }}
+									placeholder={{ label: 'select one...', key: 'age', inputLabel: 'age group' }}
 									items={ageGroupChoices}
 									value={ageGroup}
 									onValueChange={handleSetAgeGroup}
@@ -310,7 +313,10 @@ export default () => {
 					</TouchableOpacity>
 
 					{ signupError === SignupError.AlreadyExists && (
-						<TouchableOpacity onPress={onSubmit} disabled={!isSubmitEnabled}>
+						<TouchableOpacity
+							onPress={() => { navigate(RootStacks.Login); }}
+							disabled={!isSubmitEnabled}
+						>
 							<Text style={[ styles.termsText, styles.loginText ]}>Log In</Text>
 						</TouchableOpacity>
 					)}
