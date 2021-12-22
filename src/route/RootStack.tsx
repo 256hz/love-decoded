@@ -8,7 +8,7 @@ import { navigationRef } from '@util/navigation';
 import SplashScreen from '@screens/Splash';
 import LoginScreen from '@screens/Courses/Common/Login';
 import CongratulationsScreen from '@screens/Courses/Common/Congratulations';
-import { getUser } from 'redux/selector';
+import { getUser } from '@redux/selector';
 import { RootStacks, Screens } from './enums';
 import OnboardingStack from './OnboardingStack';
 import HomeDrawer from './HomeDrawer';

@@ -1,8 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 import { call } from 'react-native-reanimated';
 import { put, select, takeEvery } from 'redux-saga/effects';
-import { setJournal, syncJournals } from '@redux/action';
-import { getJournal, getUserId } from '@redux/selector';
+import { loveDb } from '@util/loveDb';
 import { RemoteJournal } from '@redux/types/journal';
 import {
 	AllSteps,
@@ -10,7 +9,8 @@ import {
 	NumberFromDay,
 	NumberFromStep,
 } from '@redux/types/survey';
-import { loveDb } from '@util/loveDb';
+import { setJournal, syncJournals } from '@redux/action';
+import { getJournal, getUserId } from '@redux/selector';
 
 export function* watchForSyncJournals() {
 	yield takeEvery(syncJournals, function*() {

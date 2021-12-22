@@ -2,7 +2,7 @@ import { AudioPlayerNavigator } from '@elements';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useSelector } from 'react-redux';
-import { getUserProgress } from 'redux/selector';
+import { getUserProgress } from '@redux/selector';
 import { stepGoodJobScreen } from 'route/enums';
 import styles from './Visualization.styles';
 

@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { StepScreen } from '@elements';
 import { stepGoodJobScreen } from 'route/enums';
 import { useSelector } from 'react-redux';
-import { getUserProgress } from 'redux/selector';
+import { getUserProgress } from '@redux/selector';
 import styles from './ActivitiesShare.styles';
 import ShareWidget from './ShareWidget';
 

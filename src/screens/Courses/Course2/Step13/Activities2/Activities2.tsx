@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { Course2Step13Screens } from 'route/Steps/Course2Screens';
 import { useDispatch, useSelector } from 'react-redux';
-import { setStepActivityResponse } from 'redux/action';
-import { getStepActivity } from 'redux/selector';
-import { Courses, Steps, Activities } from 'redux/types/survey';
+import { setStepActivityResponse } from '@redux/action';
+import { getStepActivity } from '@redux/selector';
+import { Courses, Steps, Activities } from '@redux/types/survey';
 import { StepScreen, ListTextInput } from '@elements';
 import styles from './Activities2.styles';
 

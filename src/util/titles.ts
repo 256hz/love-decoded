@@ -1,4 +1,4 @@
-import { Steps, Courses } from 'redux/types/survey';
+import { Steps, Courses } from '@redux/types/survey';
 
 type Titles = {
 	[step in Steps]: string;

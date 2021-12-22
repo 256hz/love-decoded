@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 import { AppStateStatus } from 'react-native';
-import { FaqCategories } from 'redux/types/appState';
+import { FaqCategories } from '@redux/types/appState';
 import { Screens } from 'route/enums';
 
 export const setAppState = createAction('SET_APP_STATE',

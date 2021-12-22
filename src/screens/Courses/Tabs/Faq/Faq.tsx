@@ -7,7 +7,7 @@ import { openWebLink } from '@util/linking';
 import { getActiveFaqCategory } from '@redux/selector';
 import { FaqCategories } from '@redux/types/appState';
 import { StepScreen } from '@elements';
-import { setActiveFaqCategory } from 'redux/action';
+import { setActiveFaqCategory } from '@redux/action';
 import styles from './Faq.styles';
 import FaqCategory from './FaqCategory';
 import FaqAnswer from './FaqAnswer';

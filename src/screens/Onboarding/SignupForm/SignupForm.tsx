@@ -16,7 +16,7 @@ import { openWebLink } from '@util/linking';
 import { addAuthHeader, loveDb } from '@util/loveDb';
 import { isEmail, isPasswordAllowed } from '@util/validation';
 import { useDispatch } from 'react-redux';
-import { setLoggedInUser, syncSurveys } from 'redux/action';
+import { setLoggedInUser, syncSurveys } from '@redux/action';
 import {
 	ageGroupChoices,
 	errors,

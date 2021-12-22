@@ -29,7 +29,7 @@ import {
 	StepFromNumber,
 	SurveyResponse,
 } from '@redux/types/survey';
-import { CourseNumber, StepNumber, DayNumber } from 'redux/types/user';
+import { CourseNumber, StepNumber, DayNumber } from '@redux/types/user';
 
 type SyncSurveyProps = {
 	userId: string,

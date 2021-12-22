@@ -5,8 +5,8 @@ import {
 	syncUserData,
 } from '@redux/action/user';
 import { loveDb } from 'util/loveDb';
-import { UserProperty } from 'redux/types/user';
-import { getUser } from 'redux/selector';
+import { UserProperty } from '@redux/types/user';
+import { getUser } from '@redux/selector';
 
 export function* watchForSyncUserData() {
 	const ignoreFields = [

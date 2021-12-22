@@ -4,9 +4,9 @@ import { Course1Step5Screens } from 'route/Steps/Course1Screens';
 import ResourcesScreen from '@screens/Courses/Common/ResourcesScreen';
 import { useDispatch, useSelector } from 'react-redux';
 import { ListTextInput } from '@elements';
-import { getStepActivity } from 'redux/selector';
-import { Activities, Courses, Steps } from 'redux/types/survey';
-import { setStepActivityResponse } from 'redux/action';
+import { getStepActivity } from '@redux/selector';
+import { Activities, Courses, Steps } from '@redux/types/survey';
+import { setStepActivityResponse } from '@redux/action';
 import styles from './Resources2.styles';
 
 export default ({ navigation }) => {

@@ -3,7 +3,7 @@ import {
 	DayValues,
 	Surveys,
 	EndOfDaySurveys,
-} from 'redux/types/survey';
+} from '@redux/types/survey';
 
 /*
 	------------------------------------------

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import State from '@redux/RootState';
-import { CourseFromNumber, StepFromNumber, DayFromNumber } from 'redux/types/survey';
+import { CourseFromNumber, StepFromNumber, DayFromNumber } from '@redux/types/survey';
 import { UserProperty } from '@redux/types/user';
 
 const user = (state: State) => state.user;

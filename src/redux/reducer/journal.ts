@@ -5,8 +5,8 @@ import {
 	Days,
 	StepFromNumber,
 	Steps,
-} from 'redux/types/survey';
-import { DayNumber, StepNumber } from 'redux/types/user';
+} from '@redux/types/survey';
+import { DayNumber, StepNumber } from '@redux/types/user';
 
 export type JournalState = {
 	history: {

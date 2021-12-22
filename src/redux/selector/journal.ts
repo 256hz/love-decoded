@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 import State from '@redux/RootState';
-import { DayNumber, StepNumber } from 'redux/types/user';
-import { DayFromNumber, StepFromNumber } from 'redux/types/survey';
+import { DayNumber, StepNumber } from '@redux/types/user';
+import { DayFromNumber, StepFromNumber } from '@redux/types/survey';
 
 const journals = (state: State) => (state || {}).journals || {};
 
